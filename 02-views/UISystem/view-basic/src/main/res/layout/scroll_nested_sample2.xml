@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ztiany.view.scroll.nestscroll.sampl2.NestParentLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#1F0A0F">
+
+        <com.ztiany.view.scroll.nestscroll.sampl2.NestChildView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#1320F0" />
+
+    </com.ztiany.view.scroll.nestscroll.sampl2.NestParentLayout>
+
+</FrameLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ztiany.test">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:maxSdkVersion="30" tools:replace="android:maxSdkVersion" />
+
+    <application
+        android:name=".AppContext"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".animation.AnimActivity" />
+        <activity android:name=".animation.AnimTwoActivity" />
+
+        <activity android:name=".tint.TintActivity" />
+
+        <activity
+            android:name=".time.TimeActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <activity
+            android:name=".status.StatusBarActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity android:name=".fragments.FragmentsActivity" />
+
+        <activity android:name=".fragments.ViewPagerActivity" />
+
+        <activity android:name=".anr.ANRActivity" />
+
+        <activity android:name=".intent.IntentAActivity" />
+
+        <activity android:name=".deviceid.DeviceIDActivity" />
+
+        <activity
+            android:name=".intent.IntentBActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="com.ztiany.ipc.a" />
+                <action android:name="com.ztiany.ipc.b" />
+
+                <category android:name="com.ztiany.category.c" />
+                <category android:name="com.ztiany.category.d" />
+
+                <action android:name="com.abs" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:mimeType="text/paint"
+                    android:scheme="ztiany" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

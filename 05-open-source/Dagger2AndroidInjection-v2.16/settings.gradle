@@ -1,0 +1,1 @@
+include ':module_main', ':base', ':module_a', ':app', ':module_b', ':MultiBinding'

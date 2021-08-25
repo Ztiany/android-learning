@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="TabTextAppearance">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Style_View_Drawable">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+</resources>

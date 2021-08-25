@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/testJava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="testJava"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:id="@+id/testKotlin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="testKotlin"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText"/>
+
+
+    <TextView
+        android:id="@+id/tvCurrentVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前版本:"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:id="@+id/btnLoadPatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loadPatch"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnLoadLibrary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loadLibrary"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnDownloadPatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/userDownload"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnPatchDownloaded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/userPatch"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnCheckUpgrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkUpgrade"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnKillSelf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="退出程序"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText"/>
+
+</LinearLayout>

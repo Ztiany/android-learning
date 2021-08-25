@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        //common
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url "https://maven.aliyun.com/repository/google"}
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+        maven { url 'https://jitpack.io' }
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+        google()
+        mavenCentral()
+        jcenter()
+    }
+}
+rootProject.name = "UIJetpackCompose"
+include ':app'

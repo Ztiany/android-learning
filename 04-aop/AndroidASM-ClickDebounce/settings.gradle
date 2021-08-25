@@ -1,0 +1,2 @@
+include ':click-debounce-runtime'
+include ':click-debounce-sample', ':click-debounce-lib-java', ':click-debounce-lib-android'

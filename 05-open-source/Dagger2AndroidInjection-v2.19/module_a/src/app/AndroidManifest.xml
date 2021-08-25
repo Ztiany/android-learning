@@ -1,0 +1,21 @@
+<manifest package="com.ztiany.module_a"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <application
+        android:label="@string/module_a_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/SampleAppTheme"
+        android:name="com.ztiany.base.AAppContext">
+
+        <activity android:name=".feature.ModuleAActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

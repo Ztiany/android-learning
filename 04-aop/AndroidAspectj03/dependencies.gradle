@@ -1,0 +1,102 @@
+ext {
+
+    //Android
+    androidLibrariesVersion = "25.3.0"
+    //Libraries
+    daggerVersion = '2.5'
+    butterKnifeVersion = '8.4.0'
+    retrofitVersion = '2.1.0'
+    okHttpVersion = '3.4.1'
+    gsonVersion = '2.7'
+    glideVersion = "3.7.0"
+    rxJavaVersion = '1.2.6'
+    rxbinding = '0.4.0'
+    rxLifecycle = '0.8.0'
+    rxAndroidVersion = '1.2.1'
+    leakCanaryVersion = '1.5'
+    parcelerVersion = '1.1.6'
+    autobundleVersion = '3.1.1'
+    //test
+    jUnitVersion = '4.12'
+    mockitoVersion = '1.10.19'
+
+    //https://developer.android.com/topic/libraries/support-library/features.html
+    androidLibraries = [
+
+            androidCompat      : "com.android.support:appcompat-v7:${androidLibrariesVersion}",
+            androidDesign      : "com.android.support:design:${androidLibrariesVersion}",
+            androidPrecent     : "com.android.support:percent:${androidLibrariesVersion}",
+            androidAnnotations : "com.android.support:support-annotations:${androidLibrariesVersion}",
+            androidCard        : "com.android.support:cardview-v7:${androidLibrariesVersion}",
+            androidRecyclerView: "com.android.support:recyclerview-v7:${androidLibrariesVersion}",
+            transition         : "com.android.support:transition:${androidLibrariesVersion}",
+            multiDex           : "com.android.support:multidex:1.0.1",
+            androidExif        : "com.android.support:exifinterface:${androidLibrariesVersion}",
+            dynamicAnimation   : 'com.android.support:support-dynamic-animation:25.3.0',
+            flexbox            : 'com.google.android:flexbox:0.3.0-alpha2'
+
+    ]
+
+    thirdDependencies = [
+
+            //https://github.com/JakeWharton/butterknife
+            butterKnife              : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeApt           : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            //https://github.com/ReactiveX/RxJava
+            rxJava                   : "io.reactivex:rxjava:${rxJavaVersion}",
+            rxAndroid                : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            //https://github.com/ReactiveX/RxAndroid
+            rxBinding                : "com.jakewharton.rxbinding:rxbinding:${rxbinding}",
+            rxBindingV4              : "com.jakewharton.rxbinding:rxbinding-support-v4:${rxbinding}",
+            rxBindingCompat          : "com.jakewharton.rxbinding:rxbinding-appcompat-v7:${rxbinding}",
+            rxBindingDesign          : "com.jakewharton.rxbinding:rxbinding-design:${rxbinding}",
+            rxBindingRecyclerView    : "com.jakewharton.rxbinding:rxbinding-recyclerview-v7:${rxbinding}",
+            //https://github.com/trello/RxLifecycle
+            rxLifecycle              : "com.trello:rxlifecycle:${rxLifecycle}",
+            rxLifecycleAndroid       : "com.trello:rxlifecycle-android:${rxLifecycle}",
+            rxLifecycleComponents    : "com.trello:rxlifecycle-components:${rxLifecycle}",
+            //https://github.com/square/okhttp & https://github.com/square/retrofit
+            okHttp                   : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogging            : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit                 : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverterGson    : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitCallAdapter      : "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
+            ////https://github.com/google/gson/blob/master/UserGuide.md#TOC-Overview
+            gson                     : "com.google.code.gson:gson:${gsonVersion}",
+            //https://github.com/google/dagger
+            jsr250                   : "javax.annotation:jsr250-api:1.0",
+            dagger2Apt               : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            googleDagger2            : "com.google.dagger:dagger:${daggerVersion}",
+            //https://github.com/bumptech/glide
+            glide                    : "com.github.bumptech.glide:glide:${glideVersion}",
+            //https://github.com/square/leakcanary
+            debugLeakCanary          : "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+            releaseLeakCanary        : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
+            //https://github.com/markzhai/AndroidPerformanceMonitor     卡顿监控
+            //http://blog.zhaiyifan.cn/2016/01/16/BlockCanaryTransparentPerformanceMonitor/
+            debugBlockCanary         : "com.github.markzhai:blockcanary-android:1.4.0",
+            releaseBlockCanary       : "com.github.markzhai:blockcanary-no-op:1.4.0",
+            //https://github.com/google/auto
+            // http://ryanharter.com/blog/2016/03/22/autovalue/ 自动生成代码 包括Gson和Parcelable都支持
+            //Auto生成parcel依赖声明必须放在Dagger2前面： https://github.com/rharter/auto-value-parcel/issues/64
+            squaeJavapoetApt         : 'com.squareup:javapoet:1.8.0',//注解处理器工具
+            autoValue                : 'com.google.auto.value:auto-value:1.2',//https://github.com/google/auto/blob/master/value/userguide/index.md
+            autoValueApt             : 'com.google.auto.value:auto-value:1.2',
+            autoValueParcelApt       : 'com.ryanharter.auto.value:auto-value-parcel:0.2.5',//https://github.com/rharter/auto-value-parcel
+            autoValueParcelAdapterApt: 'com.ryanharter.auto.value:auto-value-parcel-adapter:0.2.5',
+            //https://github.com/yatatsu/AutoBundle Activity和Fragment传参
+            autobundle               : "com.github.yatatsu:autobundle:$autobundleVersion",
+            autobundleApt            : "com.github.yatatsu:autobundle-processor:${autobundleVersion}",
+            //http://facebook.github.io/stetho/
+            stetho                   : 'com.facebook.stetho:stetho:1.4.2',
+            stethoOkhttp3            : 'com.facebook.stetho:stetho-okhttp3:1.4.2',
+            //Timber
+            timber                   : "com.jakewharton.timber:timber:4.5.1",
+            /*aspectJrt*/
+            aspectjrt                : 'org.aspectj:aspectjrt:1.8.10'
+    ]
+
+
+
+}
+

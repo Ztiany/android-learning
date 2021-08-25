@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ztiany.view.scroll.overscroll.PrintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <com.ztiany.view.scroll.overscroll.OverScrollerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.ztiany.view.scroll.overscroll.PrintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimary" />
+
+        <com.ztiany.view.scroll.overscroll.PrintLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="10dp"
+            android:background="@color/red" />
+
+        <com.ztiany.view.scroll.overscroll.PrintLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="10dp"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="10dp"
+            android:background="@color/gold"
+            android:clickable="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="10dp"
+            android:clickable="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="10dp"
+            android:clickable="true" />
+
+    </com.ztiany.view.scroll.overscroll.OverScrollerView>
+
+</com.ztiany.view.scroll.overscroll.PrintLayout>

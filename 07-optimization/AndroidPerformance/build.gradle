@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://jitpack.io' }
+        jcenter()
+        google()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.0'
+        classpath 'me.ele:lancet-plugin:1.0.4'
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://jitpack.io' }
+        jcenter()
+        google()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

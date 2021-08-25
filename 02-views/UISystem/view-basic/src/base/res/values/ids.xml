@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="container" type="id" />
+    <item name="recycler_view" type="id" />
+    <item name="base_item_tag_view_id" type="id" />
+
+    <item name="tag_type_view" type="id" />
+    <item name="tag_row" type="id" />
+
+</resources>

@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion commonCompileSdkVersion
+    buildToolsVersion commonBuildToolsVersion
+
+    defaultConfig {
+        applicationId "com.xiangxue.conflict"
+        minSdkVersion buildVersion.minSdkVersion
+        targetSdkVersion buildVersion.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+    implementation libraries.material
+    implementation libraries.appcompat
+    implementation libraries.kotlin
+    implementation libraries.ktx
+    implementation libraries.viewpager2
+    implementation libraries.swiperefreshlayout
+}

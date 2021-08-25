@@ -1,0 +1,5 @@
+include ':module-base'
+include ':module-b'
+include ':module-a'
+include ':app'
+rootProject.name = "SPI-Android"

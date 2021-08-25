@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="新方式创建文件夹"
+        android:gravity="center"
+        android:onClick="createSAF"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="新方式写入图片"
+        android:gravity="center"
+        android:onClick="insertImage"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="下载文件"
+        android:gravity="center"
+        android:onClick="downFile"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="删除图片"
+        android:gravity="center"
+        android:onClick="deleteFile"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="修改图片名字"
+        android:gravity="center"
+        android:onClick="updateImage"
+        />
+
+</LinearLayout>

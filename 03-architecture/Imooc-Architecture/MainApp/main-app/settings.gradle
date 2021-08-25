@@ -1,0 +1,32 @@
+include ':hi-ability'
+
+include ':buildSrc'
+
+include ':biz_order'
+include ':biz_search'
+
+include ':service_login'
+
+include ':pub_mod'
+
+include ':biz_detail'
+include ':biz_login'
+include ':biz_home'
+include ':hi_debugtool'
+include ':app'
+
+include ':hi-library'
+project(':hi-library').projectDir = "../hi-library/hilibrary" as File
+include ':hi-config'
+project(':hi-config').projectDir = "../hi-config/hiconfig" as File
+include ':hi-ui'
+project(':hi-ui').projectDir = "../hi-ui/hiui" as File
+include ':common'
+
+//for flutter
+setBinding(new Binding([gradle: this]))
+evaluate(new File(settingsDir.parentFile, 'flutter_module/.android/include_flutter.groovy'))
+
+//可选，主要作用是可以在当前 AS 的 Project 下显示 flutter_module 以方便查看和编写 Dart 代码。
+include ':flutter_module'
+project(':flutter_module').projectDir = new File('../flutter_module')

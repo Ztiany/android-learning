@@ -1,0 +1,54 @@
+import com.smartdengg.plugin.DebounceGradlePlugin
+
+apply plugin: 'com.android.application'
+apply plugin: DebounceGradlePlugin
+
+debounce {
+    loggable = true
+    exclusion = [
+            "com/smartdengg/clickdebounce/ClickProxy":
+                    [
+                            'onClick(Landroid/view/View;)V',
+                            'onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V'
+                    ]
+    ]
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.smartdengg.clickdebounce"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    /*flatDir {
+        dirs 'libs'
+    }*/
+}
+
+dependencies {
+    //implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation project(':click-debounce-runtime')
+    //implementation project(':click-debounce-lib-android')
+}

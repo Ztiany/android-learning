@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xiangxue.conflict">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher">
+
+        <activity
+            android:name="com.xiangxue.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.xiangxue.nestedscroll.e_perfect_nestedscroll.NestedViewPagerActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/nested_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <activity android:name="com.xiangxue.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedViewPagerActivityTest3"
+            android:configChanges="screenLayout"
+            android:label="@string/nested_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <activity android:name="com.xiangxue.nestedscroll.a_scrollview_recyclerview.NestedViewPagerActivityTest1"
+            android:configChanges="screenLayout"
+            android:label="@string/nested_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <activity android:name="com.xiangxue.nestedscroll.b_nestedscrollview_recyclerview.NestedViewPagerActivityTest2"
+            android:configChanges="screenLayout"
+            android:label="@string/nested_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+    </application>
+
+</manifest>

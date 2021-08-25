@@ -1,0 +1,79 @@
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+
+apply plugin: 'com.android.library'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android.libraryVariants.all {
+        variant ->
+            def log = project.getLogger()
+            def javaCompile = variant.javaCompile
+            javaCompile.doLast {
+                String[] args = [
+                        "-showWeaveInfo",
+                        "-1.8",
+                        "-inpath", javaCompile.destinationDir.toString(),
+                        "-aspectpath", javaCompile.classpath.asPath,
+                        "-d", javaCompile.destinationDir.toString(),
+                        "-classpath", javaCompile.classpath.asPath,
+                        "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
+                log.error "========================"
+                log.debug "ajc args: " + Arrays.toString(args)
+                log.error "========================"
+
+                MessageHandler handler = new MessageHandler(true)
+                new Main().run(args, handler)
+                for (IMessage message : handler.getMessages(null, true)) {
+                    switch (message.getKind()) {
+                        case IMessage.ABORT:
+                        case IMessage.ERROR:
+                        case IMessage.FAIL:
+                            log.error message.message, message.thrown
+                            break
+                        case IMessage.WARNING:
+                            log.warn message.message, message.thrown
+                            break
+                        case IMessage.INFO:
+                            log.info message.message, message.thrown
+                            break
+                        case IMessage.DEBUG:
+                            log.debug message.message, message.thrown
+                            break
+                    }
+                }
+            }
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+    def thirdLibraries = rootProject.thirdDependencies
+    compile thirdLibraries.aspectjrt
+}

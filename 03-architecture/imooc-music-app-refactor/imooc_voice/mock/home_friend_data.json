@@ -1,0 +1,134 @@
+{
+  "ecode": "0",
+  "emsg": "",
+  "data": {
+    "list": [
+      {
+        "type": 2,
+        "avatr": "http://img0.imgtn.bdimg.com/it/u=2719775100,595938516&fm=26&gp=0.jpg",
+        "name": "朱康伟",
+        "fans": "3213",
+        "text": "沉默会产生误解，抒发会被浪吞没，该怎么办。",
+        "zan": "500",
+        "msg": "18",
+        "videoUrl": "https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4"
+      },
+      {
+        "type": 1,
+        "avatr": "http://img0.imgtn.bdimg.com/it/u=2719775100,595938516&fm=26&gp=0.jpg",
+        "name": "朱康伟",
+        "fans": "3213",
+        "text": "沉默会产生误解，抒发会被浪吞没，该怎么办。",
+        "zan": "500",
+        "msg": "18",
+        "pics": [
+          "http://img4.imgtn.bdimg.com/it/u=2825363145,2921348879&fm=26&gp=0.jpg",
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560414202915&di=0fd09fc8e2dfc0a8a3dc4efbd54618e1&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201404%2F18%2F20140418004014_ZAwW4.jpeg"
+        ],
+        "audioBean": {
+          "id": "100005",
+          "mUrl": "http://sp-sycdn.kuwo.cn/resource/n2/54/3/4136804830.mp3",
+          "name": "尘嚣",
+          "author": "蔡照",
+          "albumPic": "http://img0.imgtn.bdimg.com/it/u=2719775100,595938516&fm=26&gp=0.jpg",
+          "album": "消失的过去",
+          "albumInfo": "发布于2012的消失的过去，这张专辑是其最新的一张",
+          "totalTime": "04:30"
+        }
+      },
+      {
+        "type": 1,
+        "avatr": "http://img0.imgtn.bdimg.com/it/u=1668525002,3092074256&fm=26&gp=0.jpg",
+        "name": "林志节",
+        "fans": "2120",
+        "text": "如果养猫不是为了玩，那是为了什么？",
+        "zan": "234",
+        "msg": "56",
+        "pics": [
+          "http://img4.imgtn.bdimg.com/it/u=3004152010,286380360&fm=26&gp=0.jpg",
+          "http://img2.imgtn.bdimg.com/it/u=292662309,1962414071&fm=26&gp=0.jpg",
+          "http://img1.imgtn.bdimg.com/it/u=1743005175,3746392004&fm=26&gp=0.jpg"
+        ],
+        "audioBean": {
+          "id": "100006",
+          "mUrl": "http://se-sycdn.kuwo.cn/resource/n2/29/49/3164967924.mp3",
+          "name": "学猫叫",
+          "author": "小元元",
+          "albumPic": "http://img0.imgtn.bdimg.com/it/u=1668525002,3092074256&fm=26&gp=0.jpg",
+          "album": "学猫叫",
+          "albumInfo": "最新单曲，网络热歌，目前流行与街头苍尾。",
+          "totalTime": "03:30"
+        }
+      },
+      {
+        "type": 1,
+        "avatr": "http://img1.imgtn.bdimg.com/it/u=144761411,2095831550&fm=26&gp=0.jpg",
+        "name": "李响",
+        "fans": "2420",
+        "text": "梦想天空分外蓝，做个有梦想的人!",
+        "zan": "268",
+        "msg": "97",
+        "pics": [
+          "http://img3.imgtn.bdimg.com/it/u=3189843767,3803293034&fm=26&gp=0.jpg",
+          "http://img0.imgtn.bdimg.com/it/u=951934484,2045944948&fm=26&gp=0.jpg",
+          "http://img3.imgtn.bdimg.com/it/u=1368442304,2943588833&fm=26&gp=0.jpg",
+          "http://img1.imgtn.bdimg.com/it/u=1900774574,944412761&fm=26&gp=0.jpg"
+        ],
+        "audioBean": {
+          "id": "100007",
+          "mUrl": "http://sp-sycdn.kuwo.cn/resource/n1/18/85/2524116733.mp3",
+          "name": "梦想天空分外蓝",
+          "author": "陈奕迅",
+          "albumPic": "http://img1.imgtn.bdimg.com/it/u=144761411,2095831550&fm=26&gp=0.jpg",
+          "album": "追梦旅程",
+          "albumInfo": "一天天的收获，一边怀念，一边体验，刚刚说了再见又再见。",
+          "totalTime": "05:30"
+        }
+      },
+      {
+        "type": 1,
+        "avatr": "http://img1.imgtn.bdimg.com/it/u=2848169099,1045524542&fm=26&gp=0.jpg",
+        "name": "爱唱歌的宗介",
+        "fans": "2420",
+        "text": "十年之后，我不认识你，你不认识我。",
+        "zan": "347",
+        "msg": "13",
+        "pics": [
+          "http://img0.imgtn.bdimg.com/it/u=17991171,2055183381&fm=26&gp=0.jpg"
+        ],
+        "audioBean": {
+          "id": "100008",
+          "mUrl": "http://sr-sycdn.kuwo.cn/resource/n3/64/24/4227548282.mp3",
+          "name": "十年",
+          "author": "周二珂",
+          "albumPic": "http://img1.imgtn.bdimg.com/it/u=2848169099,1045524542&fm=26&gp=0.jpg",
+          "album": "盛夏的果实",
+          "albumInfo": "十年之后，我不认识你，你不认识我",
+          "totalTime": "02:30"
+        }
+      },
+      {
+        "type": 1,
+        "avatr": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560416354558&di=0dcff99b3271baaa5a6750d8903facf3&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201408%2F08%2F20140808171354_XkhfE.jpeg",
+        "name": "十里常安cl",
+        "fans": "1256",
+        "text": "<<只是太爱你>>吉他打板弹唱",
+        "zan": "347",
+        "msg": "13",
+        "pics": [
+          "http://img0.imgtn.bdimg.com/it/u=4066805961,217190163&fm=26&gp=0.jpg"
+        ],
+        "audioBean": {
+          "id": "100007",
+          "mUrl": "http://sp-sycdn.kuwo.cn/resource/n2/97/52/2176707385.mp3",
+          "name": "广陵散",
+          "author": "笑傲江湖",
+          "albumPic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560416354559&di=1f4c49b2a7049e24e00272028d79db72&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201410%2F20%2F20141020224133_Ur54c.jpeg",
+          "album": "笑傲江湖",
+          "albumInfo": "古装大剧笑傲江湖主题曲",
+          "totalTime": "05:13"
+        }
+      }
+    ]
+  }
+}

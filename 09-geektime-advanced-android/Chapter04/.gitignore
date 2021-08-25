@@ -1,0 +1,6 @@
+.gradle
+.idea/
+*.iml
+/local.properties
+hprof
+**/out

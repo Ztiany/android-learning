@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.4.1)
+aux_source_directory(./ mmkv-lib-dir)
+add_library(mmkv-lib SHARED ${mmkv-lib-dir})
+find_library(log-lib log)
+target_link_libraries(mmkv-lib ${log-lib})

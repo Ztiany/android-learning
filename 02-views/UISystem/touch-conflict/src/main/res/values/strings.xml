@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="conflict">滑动冲突</string>
+
+    <string name="app_name">滑动冲突解决</string>
+    <string name="inner_intercept">内部拦截</string>
+    <string name="outer_intercept">外部拦截</string>
+    <string name="viewpager_nested_horizontal">Viewpager水平滚动嵌套</string>
+    <string name="touch_event_demo">事件分发原理</string>
+    <string name="webview_conflict">Webview滑动冲突</string>
+    <string name="two_scroll">二级联动</string>
+    <string name="nested_scroll">二级嵌套滑动</string>
+    <string name="nested_scroll_test">二级嵌套滑动测试</string>
+
+</resources>

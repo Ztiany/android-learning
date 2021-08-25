@@ -1,0 +1,12 @@
+<manifest package="com.imooc.lib_pullalive"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <application
+    android:allowBackup="true"
+    android:label="@string/app_name">
+    <service
+      android:name=".app.AliveJobService"
+      android:exported="true"
+      android:permission="android.permission.BIND_JOB_SERVICE" />
+  </application>
+</manifest>

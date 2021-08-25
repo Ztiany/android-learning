@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        applicationId "com.ztiany.sample4"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        //ndk build 方式开发
+        externalNativeBuild {
+            ndkBuild {
+                arguments "NDK_APPLICATION_MK:=src/main/jni/Application.mk"
+                cFlags "-DTEST_C_FLAG1", "-DTEST_C_FLAG2"
+                cppFlags "-DTEST_CPP_FLAG2", "-DTEST_CPP_FLAG2"
+                // 你希望编译你的 c/c++ 源文件 编译几种cpu(arm、x86 )
+                abiFilters "armeabi-v7a", "armeabi", "x86"
+            }
+        }
+
+        //应该打包几种cpu
+        ndk{
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path "src/main/jni/Android.mk"
+        }
+    }
+
+    //配置 native 的编译脚本路径
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleDynamicVersion
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}

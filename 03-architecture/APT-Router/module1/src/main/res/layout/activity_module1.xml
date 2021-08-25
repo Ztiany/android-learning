@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我是模块1"/>
+
+    <Button
+        android:onClick="mainJump"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转main模块"/>
+
+    <Button
+        android:onClick="module2Jump"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转module2模块"/>
+</LinearLayout>

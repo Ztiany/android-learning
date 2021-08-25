@@ -1,0 +1,37 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/taobao_img_02"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f00"
+            android:onClick="startFirstAnimation"
+            android:text="显示"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:clickable="true"
+        android:onClick="startSecondAnimation"
+        android:scaleType="fitEnd"
+        android:src="@drawable/taobao_img_01"
+        android:visibility="invisible"
+        tools:ignore="ContentDescription" />
+
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--api21-->
+        <TextView
+            style="@style/Style_View_Drawable"
+            android:background="@color/red"
+            android:clickable="true"
+            android:gravity="center"
+            android:stateListAnimator="@animator/animator_selector"
+            android:text="Drawable"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</ScrollView>

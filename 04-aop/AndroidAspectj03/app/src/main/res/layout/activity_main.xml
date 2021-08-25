@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ztiany.androidaspectj03.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_sample_1"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="around 调用拦截"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_sample_2"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="throw error 异常处理"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_sample_3"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="with code in 应用"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_sample_4"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="with in 应用"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_sample_5"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="call 和 execution 的区别"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_sample_6"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="字段你的 getter 和 setter"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_sample_7"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="应用注解的aspect"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_sample_8"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cflow 使用"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText"/>
+
+    </LinearLayout>
+
+</ScrollView>

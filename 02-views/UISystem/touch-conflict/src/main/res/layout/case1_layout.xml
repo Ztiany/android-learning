@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.xiangxue.others.c_scroll.case1.Case1ViewGroup
+        android:id="@+id/container_viewgroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.xiangxue.others.c_scroll.case1.Case1ViewGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/button_left"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Prev"/>
+
+        <Button
+            android:id="@+id/button_right"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Next"/>
+    </LinearLayout>
+</RelativeLayout>

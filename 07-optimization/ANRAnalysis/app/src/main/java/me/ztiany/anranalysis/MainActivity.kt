@@ -1,0 +1,26 @@
+package me.ztiany.anranalysis
+
+import android.os.Bundle
+import android.util.EventLog
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(findViewById(R.id.toolbar))
+    }
+
+    fun makeANR(view: View) {
+        runOnUiThread {
+            Thread.sleep(20000)
+        }
+    }
+
+}

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <view
+        android:id="@+id/image"
+        class="com.ztiany.systemui.uimods.SystemUIModes$IV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/frantic"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="#60000000"
+            tools:ignore="UselessParent">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="@integer/system_ui_modes_cols"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="Mode:"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <CheckBox
+                    android:id="@+id/modeFullscreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FULLSCRN"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/modeLowProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LOW_PROFILE"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/modeHideNavigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HIDE_NAV"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/modeImmersive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IMMERSIVE"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/modeImmersiveSticky"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IMM_STICKY"
+                    android:textColor="#FFFFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="Layout:"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <CheckBox
+                    android:id="@+id/layoutFullscreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FULLSCRN"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/layoutStable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STABLE"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/layoutHideNavigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HIDE_NAV"
+                    android:textColor="#FFFFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="@integer/system_ui_modes_cols"
+                    android:gravity="start"
+                    android:text="Window:"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <CheckBox
+                    android:id="@+id/windowHideActionBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No ActionBar"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/windowFullscreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FULLSCRN"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/windowActionMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Action Mode"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/windowOverscan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OVERSCAN"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/windowTranslucentStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRANS_STATUS"
+                    android:textColor="#FFFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/windowTranslucentNav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRANS_NAV"
+                    android:textColor="#FFFFFFFF"/>
+
+                <TextView
+                    android:id="@+id/metricsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="@integer/system_ui_modes_cols"
+                    android:gravity="center"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+            </GridLayout>
+        </ScrollView>
+    </FrameLayout>
+</FrameLayout>

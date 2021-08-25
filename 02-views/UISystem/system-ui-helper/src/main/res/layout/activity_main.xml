@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.ztiany.systemui.MainActivity">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openSystemUI"
+        android:text="System UI"
+        tools:ignore="HardcodedText"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openFullscreen"
+        android:text="Fullscreen"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openFullscreen2"
+        android:text="Fullscreen2"
+        tools:ignore="HardcodedText"/>
+
+   <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openFullscreen3"
+        android:text="Fullscreen with fragment"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openVisibilityFullscreen"
+        android:text=" UI Visibility Fullscreen"
+        tools:ignore="HardcodedText"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openSystemModes"
+        android:text="System Mods"
+        tools:ignore="HardcodedText"/>
+
+
+</LinearLayout>

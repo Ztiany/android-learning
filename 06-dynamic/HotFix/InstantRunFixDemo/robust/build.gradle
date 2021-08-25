@@ -1,0 +1,25 @@
+apply plugin: 'groovy'
+apply plugin:'maven'
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.tools.build:gradle:3.5.2'
+}
+repositories {
+    jcenter()
+}
+//对外输出构建的命令
+uploadArchives{
+    repositories.mavenDeployer {
+        //    对外输出jar
+        repository(url: uri('../repo'))
+        pom.groupId = 'com.maniu.robust'  //groupId ，自行定义，一般是包名
+        pom.artifactId = 'modify' //artifactId ，自行定义
+        pom.version = '1.0.1' //version 版本号
+//    输出那个文件夹
+    }
+
+
+}
+

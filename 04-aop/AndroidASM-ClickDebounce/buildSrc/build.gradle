@@ -1,0 +1,21 @@
+apply plugin: 'groovy'
+
+//noinspection GroovyUnusedAssignment
+sourceCompatibility = JavaVersion.VERSION_1_8
+//noinspection GroovyUnusedAssignment
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+  jcenter()
+  mavenCentral()
+  google()
+}
+
+dependencies {
+  implementation gradleApi()
+  implementation localGroovy()
+  implementation "com.android.tools.build:gradle:3.3.2"
+  implementation 'commons-io:commons-io:2.6'
+  implementation 'org.ow2.asm:asm:7.0'
+  implementation 'org.ow2.asm:asm-commons:7.0'
+}

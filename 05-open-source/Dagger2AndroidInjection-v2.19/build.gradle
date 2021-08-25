@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    def daggerVersion = "2.19"
+    dagger = "com.google.dagger:dagger:$daggerVersion"
+    daggerAndroid = "com.google.dagger:dagger-android:$daggerVersion"
+    daggerAndroidSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
+    daggerAnntation = "com.google.dagger:dagger-android-processor:$daggerVersion"
+    daggerAndroidAnntation = "com.google.dagger:dagger-compiler:$daggerVersion"
+    glide = "com.github.bumptech.glide:glide:3.7.0"
+    rxJava2 = "io.reactivex.rxjava2:rxjava:2.1.0"
+    rxAndroid2 = 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    rxBinding2 = 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    rxBindingV4_2 = 'com.jakewharton.rxbinding2:rxbinding-support-v4:2.0.0'
+    rxLifecycle2 = 'com.trello.rxlifecycle2:rxlifecycle:2.0.1'
+    rxLifecycleAndroid2 = 'com.trello.rxlifecycle2:rxlifecycle-android:2.0.1'
+    rxLifecycleComponents2 = 'com.trello.rxlifecycle2:rxlifecycle-components:2.0.1'
+}

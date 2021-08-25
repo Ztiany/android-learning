@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        StateListAnimator 是和 Material Design 一同在 API 21 引入的，可以用来方便的实现交互反馈的视觉效果
+        对于代码的方法为：setStateListAnimator
+        使用AnimatorInflater.loadStateListAnimator()加载这个StateListAnimator
+    -->
+
+    <!--pressed放前面-->
+    <item android:state_pressed="true">
+        <set>
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:propertyName="scaleX"
+                android:valueFrom="1"
+                android:valueTo="0.85"
+                android:valueType="floatType"/>
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:propertyName="scaleY"
+                android:valueFrom="1"
+                android:valueTo="0.85"
+                android:valueType="floatType"/>
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:propertyName="translationZ"
+                android:valueFrom="1dp"
+                android:valueTo="0dp"
+                android:valueType="floatType"/>
+        </set>
+    </item>
+
+    <item>
+        <set>
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:propertyName="scaleX"
+                android:valueFrom="0.85"
+                android:valueTo="1.0"
+                android:valueType="floatType"/>
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:propertyName="scaleY"
+                android:valueFrom="0.85"
+                android:valueTo="1.0"
+                android:valueType="floatType"/>
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:propertyName="translationZ"
+                android:valueFrom="0dp"
+                android:valueTo="1dp"
+                android:valueType="floatType"/>
+        </set>
+    </item>
+
+
+</selector>

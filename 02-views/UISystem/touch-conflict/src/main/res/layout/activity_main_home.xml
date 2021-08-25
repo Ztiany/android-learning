@@ -1,0 +1,55 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/nested_scroll_test1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="onButtonClick"
+                android:text="嵌套滑动测试1" />
+            <Button
+                android:id="@+id/nested_scroll_test2"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:onClick="onButtonClick"
+                android:text="嵌套滑动测试2" />
+            <Button
+                android:id="@+id/nested_scroll_test3"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:onClick="onButtonClick"
+                android:text="嵌套滑动测试3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/nested_scroll"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="onButtonClick"
+                android:text="@string/nested_scroll" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

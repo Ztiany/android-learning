@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ztiany.view.custom.ruler.RulerWheel
+        android:id="@+id/size_view_ruler"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        app:MaxBarSize="2dp"
+        app:MidBarSize="1.5dp"
+        app:MinBarSize="1dp"
+        app:lineColorMax="#667788"
+        app:lineColorMid="#556677"
+        app:lineColorMin="#445566"
+        app:line_divider="10dp"
+        app:max_value="200"
+        app:min_value="0"
+        app:mode="SCALE"
+        app:scaleWidth="1dp"
+        app:showGradient="true"
+        app:showScaleValue="true"
+        app:text_Size="16sp"
+        app:text_color="#88FFFF" />
+
+</FrameLayout>

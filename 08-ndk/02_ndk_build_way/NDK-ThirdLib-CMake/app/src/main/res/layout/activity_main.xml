@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ztiany.cmake.all.MainActivity">
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:text="showJNIText"
+        android:layout_height="wrap_content"
+        android:onClick="showJNIText"
+        tools:ignore="HardcodedText"/>
+
+    <TextView
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/sample_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"/>
+
+</LinearLayout>

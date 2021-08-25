@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion commonCompileSdkVersion
+    buildToolsVersion commonBuildToolsVersion
+
+    defaultConfig {
+        applicationId "com.ztiany.webview"
+        minSdkVersion buildVersion.minSdkVersion
+        targetSdkVersion buildVersion.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libraries.annotation
+    implementation libraries.appcompat
+    implementation libraries.constraintLayout
+    implementation 'junit:junit:4.13'
+}

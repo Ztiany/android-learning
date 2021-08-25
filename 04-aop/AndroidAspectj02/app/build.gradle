@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+//此处'plugins.aspectj'对应plugin项目中META-INF中的properties文件名称
+apply plugin: 'plugins.aspectj'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.ztiany.androidaspectj02"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleDynamicVersion
+    implementation 'com.android.support:appcompat-v7:26.+'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'org.aspectj:aspectjrt:1.8.10'
+    testImplementation 'junit:junit:4.12'
+    implementation project(':library')
+}
+

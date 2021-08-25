@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <!--layout_constraintGuide_percent距离左边40%-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <!--layout_constraintDimensionRatio默认宽比高-->
+    <TextView
+        android:id="@+id/tv_color"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#fd3"
+        app:layout_constraintDimensionRatio="10:6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="马云:一年交税170多亿马云:一年交税170多亿马云:一年交税170多亿"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_color"
+        app:layout_constraintTop_toTopOf="@id/tv_color" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="8分钟前"
+        app:layout_constraintBottom_toBottomOf="@id/tv_color"
+        app:layout_constraintLeft_toRightOf="@id/tv_color" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

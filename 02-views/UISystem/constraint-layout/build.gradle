@@ -1,0 +1,22 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion commonCompileSdkVersion
+    buildToolsVersion commonBuildToolsVersion
+
+    defaultConfig {
+        applicationId "com.hencoder.constraintlayout"
+        minSdkVersion buildVersion.minSdkVersion
+        targetSdkVersion buildVersion.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libraries.kotlin
+    implementation libraries.appcompat
+    implementation libraries.constraintLayout
+}

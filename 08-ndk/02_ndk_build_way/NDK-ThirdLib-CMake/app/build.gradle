@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "com.ztiany.cmake.all"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        externalNativeBuild {
+            cmake {
+                //-fexceptions：Exceptions Support，启用对 C++ 异常处理的支持
+                //-frtti：支持RTTI
+                cppFlags "-frtti -fexceptions"
+                //可使用android.defaultConfig.externalNativeBuild.cmake.abiFilters来单独指示CMake输出的ABI版本。但最终打包进APK的ABI版本还是由ndk.abiFilters决定。
+                //abiFilters 'armeabi', 'armeabi-v7a', 'x86'
+
+                //-D 命令是宏定义，下面表示定义一个Debug宏
+                cFlags '-DDebug'
+
+                //arguments用于向cmake传递参数
+                //arguments
+            }
+        }
+
+        //可使用android.defaultConfig.ndk.abiFilters来指示Gradle要构建和打包的ABI版本。
+        ndk {
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a'
+        }
+
+        sourceSets {
+            main {
+                //添加源集目录是必需的(只需要添加动态库)，因为gradle之打包jniLibs下的库
+                // let gradle pack the shared library into apk
+                //添加动态库gperf到原籍
+                jniLibs.srcDirs += ['/distribution/gperf/lib']
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleDynamicVersion
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}

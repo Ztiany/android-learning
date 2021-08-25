@@ -1,0 +1,4 @@
+<resources>
+    <string name="module_main_app_name">Dagger2AndroidInjection</string>
+    <string name="module_main_title_activity_splash">SplashActivity</string>
+</resources>

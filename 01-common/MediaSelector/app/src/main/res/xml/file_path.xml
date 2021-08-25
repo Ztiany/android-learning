@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+
+    <files-path
+        name="app_internal"
+        path="/"/>
+
+    <cache-path
+        name="app_internal_cache"
+        path="/"/>
+
+    <external-cache-path
+        name="app_external_cache"
+        path="/"/>
+
+    <external-files-path
+        name="app_external"
+        path="/"/>
+
+    <external-path
+        name="sd_external"
+        path="com.mondial.fashiontech"/>
+
+    <external-path
+        name="sd_external_dcim"
+        path="DCIM"/>
+
+</paths>

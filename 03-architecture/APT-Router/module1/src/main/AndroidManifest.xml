@@ -1,0 +1,8 @@
+<manifest package="com.dongnao.module1"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <activity android:name=".Module1Activity"/>
+    </application>
+</manifest>

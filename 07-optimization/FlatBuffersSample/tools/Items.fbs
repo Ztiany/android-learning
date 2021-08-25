@@ -1,0 +1,30 @@
+namespace com.ztiany.flatbuffersample;
+
+table Items {
+    ItemId : long;
+    timestemp : int;
+    basic:[Basic];
+}
+
+table Basic{
+	id:int;
+	name:string;
+	email:int;
+	code:long;
+	isVip:bool;
+	count:int;
+	carList:[Car];
+}
+
+table Car{
+	id:long;
+	number:long;
+	describle:string;
+}
+
+root_type Items;
+
+
+
+
+

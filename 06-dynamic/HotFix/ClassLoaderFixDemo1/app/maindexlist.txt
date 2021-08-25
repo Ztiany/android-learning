@@ -1,0 +1,3 @@
+com/ztiany/clfix/demo/MainActivity.class
+com/ztiany/clfix/demo/BuildConfig.class
+com/ztiany/clfix/demo/App.class

@@ -1,0 +1,137 @@
+apply plugin: 'com.tencent.bugly.tinker-support'
+apply plugin: 'channel'
+
+/*Tinker apk 路径*/
+def tinkerBackupPath = file("backup/tinker/")
+/*渠道包存储路径*/
+def channelBackupPath = file("backup/channel/")
+/*加固后的apk存储路径*/
+def jiaguChannelBackupPath = file("backup/jiagu/")
+
+//此处填写每次构建生成的基准包目录，这里不是控制生成的apk的路径，而是填写基线apk的路径。它将被patch任务读取。
+def baseApkDir = "app-0423-15-09-01"
+
+ext {
+    enableTinker = true
+
+    backupApkDir = "${tinkerBackupPath}"
+
+    //baseApkPath = "${tinkerBackupPath}/${baseApkDir}/app-debug.apk"
+    baseApkPath = "${tinkerBackupPath}/${baseApkDir}/app-release.apk"
+
+    //开启混淆之后才会生成mapping文件，否则不会生成，如果没有开启混淆则不需要关系
+    baseApkProguardMappingPath = "${tinkerBackupPath}/${baseApkDir}/app-release-mapping.txt"
+    //baseApkProguardMapping = "${tinkerBackupPath}/${baseApkDir}/app-debug-mapping.txt"
+
+    baseApkResourceMappingPath = "${tinkerBackupPath}/${baseApkDir}/app-release-R.txt"
+    //baseApkResourceMapping = "${tinkerBackupPath}/${baseApkDir}/app-debug-R.txt"
+
+    //buildingTinkerId = "${rootProject.versionName}-base"
+    buildingTinkerId = "${rootProject.versionName}-patch"
+
+    //加固后，用于生成渠道包的基线apk
+    jiaguBaseAPKPath = file("${jiaguChannelBackupPath}/${rootProject.versionName}/app-release.apk")
+}
+
+
+rebuildChannel {
+    // step 1 渠道文件
+    channelFile = file("channel.txt")
+
+    //step 2 用于生成渠道包的基础 apk
+    //baseDebugApk = file(baseApkPath)
+    baseReleaseApk = file(jiaguBaseAPKPath)
+
+    //Debug渠道包输出目录，默认为new File(project.buildDir, "rebuildChannel/debug")
+    //debugOutputDir = file("$channelBackupPath/${rootProject.versionName}/debug")
+    //Release渠道包输出目录，默认为new File(project.buildDir, "rebuildChannel/release")
+    releaseOutputDir = file("$channelBackupPath/${rootProject.versionName}/release")
+
+    //快速模式：生成渠道包时不进行校验（速度可以提升10倍以上）
+    isFastMode = false
+
+}
+
+/**
+ * 对于插件各参数的详细解析请参考
+ */
+tinkerSupport {
+
+    // 开启tinker-support插件，默认值true
+    enable = enableTinker
+
+    // 指定归档目录，默认值当前module的子目录tinker
+    autoBackupApkDir = backupApkDir
+
+    // 是否启用覆盖tinkerPatch配置功能，默认值false
+    // 开启后tinkerPatch配置不生效，即无需添加tinkerPatch
+    overrideTinkerPatchConfiguration = true
+
+    // 编译补丁包时，必需指定基线版本的apk，默认值为空
+    // 如果为空，则表示不是进行补丁包的编译，@{link tinkerPatch.oldApk }
+    baseApk = baseApkPath
+
+    // 对应tinker插件applyMapping
+    baseApkProguardMapping = baseApkProguardMappingPath
+
+    // 对应tinker插件applyResourceMapping
+    baseApkResourceMapping = baseApkResourceMappingPath
+
+    // 构建基准包和补丁包都要指定不同的tinkerId，并且必须保证唯一性
+    tinkerId = buildingTinkerId
+
+    // 构建多渠道补丁时使用
+    //buildAllFlavorsDir = "${tinkerBackupPath}/${baseApkDir}"
+
+    // 是否启用加固模式，默认为false.(tinker-support 1.0.7起支持）
+     isProtectedApp = true
+
+    // 是否开启反射Application模式
+    enableProxyApplication = true
+
+    // 是否支持新增非export的Activity（注意：设置为true才能修改AndroidManifest文件）
+    supportHotplugComponent = true
+}
+
+/**
+ * 一般来说,我们无需对下面的参数做任何的修改
+ * 对于各参数的详细介绍请参考：https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97
+ */
+tinkerPatch {
+
+    ignoreWarning = false
+    useSign = true
+
+    dex {
+        dexMode = "jar"
+        pattern = ["classes*.dex"]
+        loader = []
+    }
+
+    lib {
+        pattern = ["lib/*/*.so"]
+    }
+
+    res {
+        pattern = ["res/*", "r/*", "assets/*", "resources.arsc", "AndroidManifest.xml"]
+        ignoreChange = []
+        largeModSize = 100
+    }
+
+    packageConfig {
+    }
+
+    sevenZip {
+        zipArtifact = "com.tencent.mm:SevenZip:1.1.10"
+        //path = "/usr/local/bin/7za"
+    }
+
+    buildConfig {
+        keepDexApply = false
+        //tinkerId = "1.0.1-base"
+        //applyMapping = "${tinkerBackupPath}/${appName}/app-release-mapping.txt" //  可选，设置mapping文件，建议保持旧apk的proguard混淆方式
+        //applyResourceMapping = "${tinkerBackupPath}/${appName}/app-release-R.txt" // 可选，设置R.txt文件，通过旧apk文件保持ResId的分配
+    }
+}
+
+

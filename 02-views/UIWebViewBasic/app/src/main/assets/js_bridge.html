@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JsBridge</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+    <style type="text/css">
+
+        body {
+            margin: 10px;
+        }
+
+        .buttons li {
+            color: green;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<ul class="buttons">
+
+    <li>
+        <input type="button" value="添加元素" onclick="addElement()">
+    </li>
+
+    <li>
+        <input type="button" value="调用Java方法 confirm" onclick="callJavaByConfirm()">
+    </li>
+
+    <li>
+        <input type="button" value="confirm" onclick="doConfirm()">
+    </li>
+
+    <li>
+        <input type="button" value="是不是Android" onclick="checkIsAndroidClient()">
+    </li>
+
+</ul>
+
+<div id="div_box"
+     style="width: 100%;height: 100%;position: absolute;background: #0ff;overflow: hidden;margin: 0;">
+</div>
+
+<script type="text/javascript">
+
+    function checkIsAndroidClient(){
+            //todo
+    }
+
+     function callJavaByConfirm() {
+    	//callAndroid表示调用Android，该部分为必要部分
+    	//saveImage表示方法名，该部分为必要部分
+    	//Url表示方法参数，该部分可以为可选部分
+    	//三个部分使用 #A# 分割
+        window.confirm("callAndroid#A#saveImage#A#Url")
+    }
+
+    function doConfirm(){
+        window.confirm("Hello")
+    }
+
+    function addElement(text) {
+        if (!text) {
+            text = "---默认文本---"
+        }
+        var div = document.getElementById("div_box");
+        var ele = document.createElement('h3');
+        ele.innerHTML = text;
+        div.appendChild(ele);
+    }
+
+</script>
+
+</body>
+
+</html>

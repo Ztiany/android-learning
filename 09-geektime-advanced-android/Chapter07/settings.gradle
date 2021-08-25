@@ -1,0 +1,2 @@
+include ':systrace-gradle-plugin'
+include ':systrace-gradle-android'

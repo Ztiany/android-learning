@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.alibaba.arouter'
+
+android {
+  compileSdkVersion rootProject.android.compileSdkVersion
+
+  defaultConfig {
+    minSdkVersion rootProject.android.minSdkVersion
+    targetSdkVersion rootProject.android.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+    //ARouter配置
+    javaCompileOptions {
+      annotationProcessorOptions {
+        arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+      }
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+
+  lintOptions {
+    abortOnError false
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+  compileOnly project(':lib_commin_ui')
+  compileOnly rootProject.depsLibs.appcompact
+  //arouter库
+  compileOnly(rootProject.depsLibs.arouterapi) {
+    exclude group: 'com.android.support'
+  }
+  annotationProcessor rootProject.depsLibs.aroutercompiler
+}
+
+repositories {
+  flatDir {
+    dirs 'libs'
+  }
+}

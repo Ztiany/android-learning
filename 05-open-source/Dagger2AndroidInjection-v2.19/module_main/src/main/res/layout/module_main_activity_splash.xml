@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.ztiany.main.splash.SplashActivity">
+
+    <TextView
+        android:id="@+id/module_main_splash_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textColor="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/module_main_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:onClick="openMain"
+        android:text="Start"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText"/>
+
+</LinearLayout>
