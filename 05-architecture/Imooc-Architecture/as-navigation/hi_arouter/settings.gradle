@@ -1,3 +1,0 @@
-include ':app', ':module_trade', ':module_user'
-        //':arouter-annotation', ':arouter-api', ':arouter-compiler',
-rootProject.name='hi_arouter'

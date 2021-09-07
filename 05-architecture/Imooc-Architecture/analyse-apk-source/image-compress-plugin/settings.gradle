@@ -1,3 +1,0 @@
-include ':buildSrc'
-include ':app'
-rootProject.name = "image_compress_plugin"

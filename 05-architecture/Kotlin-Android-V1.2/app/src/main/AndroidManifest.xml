@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.ztiany.kotlin"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name=".AppContext"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Anko Common Intents -->
+        <activity
+            android:name=".anko.common.intents.TargetActivity"
+            android:label="Target"/>
+        <activity
+            android:name=".anko.common.intents.RawActivity"
+            android:label="Raw"/>
+        <activity
+            android:name=".anko.common.DialogsActivity"
+            android:label="Dialogs"/>
+        <activity
+            android:name=".anko.common.LoggerActivity"
+            android:label="Logger"/>
+        <activity
+            android:name=".anko.common.AnkoCommonActivity"
+            android:label="AnkoCommon"/>
+        <activity
+            android:name=".anko.layouts.LayoutsSample1Activity"
+            android:label="Layouts1"/>
+        <activity
+            android:name=".anko.layouts.LayoutsSample2Activity"
+            android:label="Layouts2"/>
+        <activity
+            android:name=".anko.layouts.LayoutsSample3Activity"
+            android:label="Layouts3"/>
+        <activity
+            android:name=".anko.layouts.LayoutsSample4Activity"
+            android:label="Layouts4"/>
+        <activity
+            android:name=".anko.layouts.AnkoLayoutsActivity"
+            android:label="Layouts"/>
+        <activity
+            android:name=".anko.coroutines.AnkoCoroutinesActivity"
+            android:label="Coroutines"/>
+        <activity
+            android:name=".extension.ExtensionSampleActivity"
+            android:label="ExtensionSample"/>
+        <activity
+            android:name=".coroutines.CoroutinesActivity"
+            android:label="Coroutines Sample"/>
+
+    </application>
+
+</manifest>

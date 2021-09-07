@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".coroutines.CoroutineUIGuideActivity"
+    tools:ignore="HardcodedText">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarCoroutineGuide"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    <TextView
+        android:id="@+id/tvCoroutineGuideValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cancel"
+        android:text="cancel"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startCounter"
+        android:text="倒计时"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimary"/>
+
+
+    <Button
+        android:id="@+id/btnCoroutineGuideActor1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="actor 最多一个并发任务"/>
+
+    <Button
+        android:id="@+id/btnCoroutineGuideActor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="actor 有时处理最近的事件更合适"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/btnCoroutineGuideActor3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startUiBlockProblem"
+        android:text="开始 UI 冻结的问题"/>
+
+    <Button
+        android:id="@+id/btnCoroutineGuideActor4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UI 冻结的问题"/>
+
+    <Button
+        android:id="@+id/btnCoroutineGuideActor5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UI 冻结的问题解决方法"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/btnCoroutineGuideActor6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="没有调度器时在 UI 事件处理器中启动协程"/>
+
+    <Button
+        android:id="@+id/btnCoroutineGuideActor7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" CoroutineStart.UNDISPATCHED"/>
+
+</LinearLayout>

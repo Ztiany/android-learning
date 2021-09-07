@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toastTest"
+        android:text="Toast"
+        tools:ignore="HardcodedText"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="alertsTest"
+        android:text="Alerts"
+        tools:ignore="HardcodedText"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="alertsCompatTest"
+        android:text="AlertsCompat"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="alertsCustomTest"
+        android:text="AlertsCustom"
+        tools:ignore="HardcodedText"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="selectorsTest"
+        android:text="Selectors"
+        tools:ignore="HardcodedText"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="progressTest"
+        android:text="Progress"
+        tools:ignore="HardcodedText"/>
+
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:gravity="center_horizontal"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openOne"
+        android:text="openOne"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openTwo"
+        android:text="openTwo"
+        tools:ignore="HardcodedText"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="makeCallTest"
+        android:text="makeCall"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendSMSTest"
+        android:text="sendSMS"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="browseTest"
+        android:text="browse"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="shareTest"
+        android:text="share"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="emailTest"
+        android:text="email"
+        tools:ignore="HardcodedText"/>
+
+</LinearLayout>
