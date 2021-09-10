@@ -18,7 +18,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="openJetpackLifecycle"
-            android:text="Jetpack：Lifecycle" />
+            android:text="Jetpack：Lifecycle"
+            tools:ignore="UsingOnClickInXml" />
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="openJetpackLiveData"
+            android:text="Jetpack：LiveData"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"

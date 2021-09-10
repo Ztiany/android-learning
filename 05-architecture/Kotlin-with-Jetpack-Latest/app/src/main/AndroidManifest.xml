@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ztiany.androidx.kotlin">
 
@@ -28,11 +27,12 @@
         <!-- ====================================================================== -->
         <!--Jetpack-->
         <!-- ====================================================================== -->
-        <!--lifecycle-->
         <activity
             android:name="com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity"
             android:label="Lifecycle" />
-        <!--Ktx-->
+        <activity
+            android:name="com.ztiany.androidx.jetpack.livedata.LiveDataActivity"
+            android:label="LiveData" />
         <activity
             android:name=".ktx.KtxActivity"
             android:label="Ktx" />
@@ -40,7 +40,6 @@
         <!-- ====================================================================== -->
         <!--Kotlin-->
         <!-- ====================================================================== -->
-        <!--Coroutines-->
         <activity
             android:name=".coroutines.CoroutinesActivity"
             android:label="Coroutines Sample" />
