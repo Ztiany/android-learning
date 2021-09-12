@@ -12,5 +12,7 @@ dependencyResolutionManagement {
         jcenter()
     }
 }
+
 rootProject.name = "UIJetpackCompose"
-include ':app'
+include ':compose-learn'
+include ':compose-wechat'
