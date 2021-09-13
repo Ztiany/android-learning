@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.ztiany.compose.R
 
-
+/**类比：RecyclerView*/
 @Composable
 fun Lesson01_List() {
     val list = Array(200) {
