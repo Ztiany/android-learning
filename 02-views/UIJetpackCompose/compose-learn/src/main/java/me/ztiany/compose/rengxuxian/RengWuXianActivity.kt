@@ -13,8 +13,9 @@ class RengWuXianActivity : AppCompatActivity() {
         setContent {
             UIJetpackComposeTheme {
                 Text(text = "")
-                //Lesson01_Basic()
-                Lesson01_List()
+                //Lesson02_Basic()
+                //Lesson02_List()
+                Lesson04_CustomComposable()
             }
         }
     }

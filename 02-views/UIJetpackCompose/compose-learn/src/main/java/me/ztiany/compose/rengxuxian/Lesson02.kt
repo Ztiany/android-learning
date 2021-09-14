@@ -24,7 +24,7 @@ import me.ztiany.compose.R
 
 /**类比：RecyclerView*/
 @Composable
-fun Lesson01_List() {
+fun Lesson02_List() {
     val list = Array(200) {
         it.toString()
     }.toMutableList()
@@ -37,7 +37,7 @@ fun Lesson01_List() {
 }
 
 @Composable
-fun Lesson01_Basic() {
+fun Lesson02_Basic() {
     Surface(color = MaterialTheme.colors.background) {
         Row(
             Modifier

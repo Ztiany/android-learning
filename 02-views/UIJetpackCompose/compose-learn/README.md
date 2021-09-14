@@ -741,3 +741,19 @@ internal class UiApplier(
 - [ ] 进一步分析
 
 ## 4 自定义 Composable
+
+**Composable 注解**：
+
+1. Composable 是一个标识符，用于告诉编译器插件这个方法用于生成界面，编译器插件会对这些方法做一些修改。
+2. 加了 Composable 的方法必须在别的加了 Composable 方法中调用。
+3. 不用于构建界面的函数就没必要加 Composable 注解了，没有作用，反而增加编译器的负担。
+
+**自定义 Composable 相当于什么**？
+
+相当于 xml 布局文件 + 自定义 View/ViewGroup。既可以有布局又可以有逻辑，即具有 xml 简单直观的特点，又可以加上逻辑。
+
+**自定义 Composable 的应用场景**？【总结：需要 `xml/自定义View/Group` 的场景】
+
+1. 简单的布局拆分。【相当于 xml】
+2. 逻辑逻辑定制的界面。【相当于自定义 View/ViewGroup】
+3. 需要定制绘制、布局、触摸反馈的界面。【基于 Modifier】
