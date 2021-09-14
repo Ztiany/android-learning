@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity
 import com.ztiany.androidx.jetpack.livedata.LiveDataActivity
+import com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity
 import com.ztiany.androidx.kotlin.R
 import com.ztiany.androidx.kotlin.coroutines.CoroutineWithGlobalScopeActivity
 
@@ -24,8 +25,12 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, LifecycleActivity::class.java))
     }
 
-    fun openJetpackLiveData(view: android.view.View) {
+    fun openJetpackLiveData(view: View) {
         startActivity(Intent(this, LiveDataActivity::class.java))
+    }
+
+    fun openJetpackViewModel(view: View) {
+        startActivity(Intent(this, ViewModelActivity::class.java))
     }
 
 }

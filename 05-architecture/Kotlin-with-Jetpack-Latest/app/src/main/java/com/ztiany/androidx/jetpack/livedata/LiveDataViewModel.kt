@@ -1,10 +1,13 @@
 package com.ztiany.androidx.jetpack.livedata
 
 import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
-class LiveDataViewModel : ViewModel() {
+@HiltViewModel
+class LiveDataViewModel @Inject constructor() : ViewModel() {
 
     private val userId = MutableLiveData(100)
 

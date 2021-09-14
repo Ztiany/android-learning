@@ -12,6 +12,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.ztiany.androidx.kotlin.R
 import com.ztiany.androidx.kotlin.ifNull
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "LifecycleActivity"
 

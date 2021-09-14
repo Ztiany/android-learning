@@ -1,4 +1,4 @@
-package com.ztiany.androidx.jetpack.livedata
+package com.ztiany.androidx.jetpack.viewmodel
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,7 @@ import com.ztiany.androidx.kotlin.ifNull
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LiveDataActivity : AppCompatActivity() {
+class ViewModelActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +16,7 @@ class LiveDataActivity : AppCompatActivity() {
 
         savedInstanceState.ifNull {
             supportFragmentManager.commit {
-                add(R.id.fl_content, LiveDataHomeFragment())
+                add(R.id.fl_content, ViewModelHomeFragment(), ViewModelHomeFragment::class.qualifiedName)
             }
         }
     }

@@ -34,9 +34,11 @@
             android:name="com.ztiany.androidx.jetpack.livedata.LiveDataActivity"
             android:label="LiveData" />
         <activity
+            android:name="com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity"
+            android:label="viewmodel" />
+        <activity
             android:name=".ktx.KtxActivity"
             android:label="Ktx" />
-
         <!-- ====================================================================== -->
         <!--Kotlin-->
         <!-- ====================================================================== -->
