@@ -757,3 +757,11 @@ internal class UiApplier(
 1. 简单的布局拆分。【相当于 xml】
 2. 逻辑逻辑定制的界面。【相当于自定义 View/ViewGroup】
 3. 需要定制绘制、布局、触摸反馈的界面。【基于 Modifier】
+
+## 5 状态订阅于自动更新
+
+参考 Lesson05
+
+## 6 状态机制的背后
+
+参考 Lesson06
