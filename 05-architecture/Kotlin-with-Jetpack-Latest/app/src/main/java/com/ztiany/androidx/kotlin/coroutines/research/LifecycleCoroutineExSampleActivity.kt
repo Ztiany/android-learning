@@ -1,8 +1,9 @@
-package com.ztiany.androidx.kotlin.coroutines
+package com.ztiany.androidx.kotlin.coroutines.research
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.ztiany.androidx.kotlin.coroutines.research.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async

@@ -39,21 +39,22 @@
         <activity
             android:name=".ktx.KtxActivity"
             android:label="Ktx" />
+
         <!-- ====================================================================== -->
         <!--Kotlin-->
         <!-- ====================================================================== -->
         <activity
-            android:name=".coroutines.CoroutinesActivity"
+            android:name=".coroutines.research.CoroutinesActivity"
             android:label="Coroutines Sample" />
         <activity
-            android:name=".coroutines.CoroutineUIGuideActivity"
+            android:name=".coroutines.official.jetbrains.CoroutineUIGuideActivity"
             android:label="CoroutineUIGuideActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".coroutines.LifecycleCoroutineExSampleActivity"
+            android:name=".coroutines.research.LifecycleCoroutineExSampleActivity"
             android:label="LifecycleCoroutineExSample" />
         <activity
-            android:name=".coroutines.CoroutineWithGlobalScopeActivity"
+            android:name=".coroutines.research.CoroutineWithGlobalScopeActivity"
             android:label="CoroutineWithGlobalScope" />
 
     </application>

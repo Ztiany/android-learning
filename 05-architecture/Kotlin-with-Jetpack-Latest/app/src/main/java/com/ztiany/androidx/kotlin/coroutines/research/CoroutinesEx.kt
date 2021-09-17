@@ -1,4 +1,4 @@
-package com.ztiany.androidx.kotlin.coroutines
+package com.ztiany.androidx.kotlin.coroutines.research
 
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
@@ -13,7 +13,11 @@ import java.util.concurrent.Executor
  *      Email: ztiany3@gmail.com
  *      Date : 2017-07-21 00:37
  */
-fun <T> launch(dispatcher: CoroutineDispatcher = Dispatchers.Default, block: suspend CoroutineScope.() -> T, uiBlock: suspend (T) -> Unit): Deferred<T> {
+fun <T> launch(
+    dispatcher: CoroutineDispatcher = Dispatchers.Default,
+    block: suspend CoroutineScope.() -> T,
+    uiBlock: suspend (T) -> Unit
+): Deferred<T> {
 
     val deferred = GlobalScope.async(context = dispatcher, block = block)
 
@@ -24,9 +28,10 @@ fun <T> launch(dispatcher: CoroutineDispatcher = Dispatchers.Default, block: sus
     return deferred
 }
 
-
-fun launchUI(start: CoroutineStart = CoroutineStart.DEFAULT, block: suspend CoroutineScope.() -> Unit) =
-        GlobalScope.launch(Dispatchers.Main, start, block)
+fun launchUI(
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend CoroutineScope.() -> Unit
+) = GlobalScope.launch(Dispatchers.Main, start, block)
 
 private val rxIoExecutor = Executor { command ->
     command?.let {

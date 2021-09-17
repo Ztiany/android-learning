@@ -1,4 +1,4 @@
-package com.ztiany.androidx.kotlin.coroutines
+package com.ztiany.androidx.kotlin.coroutines.official.jetbrains
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity

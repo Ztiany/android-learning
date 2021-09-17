@@ -8,7 +8,7 @@ import com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity
 import com.ztiany.androidx.jetpack.livedata.LiveDataActivity
 import com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity
 import com.ztiany.androidx.kotlin.R
-import com.ztiany.androidx.kotlin.coroutines.CoroutineWithGlobalScopeActivity
+import com.ztiany.androidx.kotlin.coroutines.research.CoroutineWithGlobalScopeActivity
 
 class MainActivity : AppCompatActivity() {
 
