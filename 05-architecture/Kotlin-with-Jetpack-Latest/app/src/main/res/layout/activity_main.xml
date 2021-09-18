@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -44,6 +43,14 @@
             android:layout_margin="5dp"
             android:onClick="viewModelWithGlobalScope"
             android:text="协程：ViewModel with GlobalScope" />
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="openKotlinGoogleFlow"
+            android:text="协程：Google Flow" />
 
     </LinearLayout>
 

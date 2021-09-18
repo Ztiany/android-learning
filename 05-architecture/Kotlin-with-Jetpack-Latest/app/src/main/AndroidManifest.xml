@@ -56,6 +56,8 @@
         <activity
             android:name=".coroutines.research.CoroutineWithGlobalScopeActivity"
             android:label="CoroutineWithGlobalScope" />
+        <activity android:name=".coroutines.official.google.flow.OfficialFlowActivity"
+            android:label="Google Flow"/>
 
     </application>
 
