@@ -42,7 +42,7 @@ task clean(type: Delete) {
 
 ext {
 
-    def coroutinesVersion = "1.5.0-RC"
+    def coroutinesVersion = "1.5.2"
 
     kotlinLibraries = [
             //Kotlin

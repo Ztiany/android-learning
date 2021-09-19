@@ -78,7 +78,7 @@ class FlowRepository @Inject constructor() {
     // StateFlow
     ///////////////////////////////////////////////////////////////////////////
     val favoriteLatestNews: Flow<List<String>> = flow {
-
+        emit(listOf("Aliens"))
     }
 }
 
