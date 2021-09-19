@@ -57,14 +57,15 @@ dependencies {
     /*arch*/
     implementation "androidx.arch.core:core-runtime:2.1.0"
     implementation "androidx.arch.core:core-common:2.1.0"
-    implementation "androidx.lifecycle:lifecycle-common:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    implementation "androidx.lifecycle:lifecycle-common:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.0-beta01"
+    
     //https://android.github.io/android-ktx/core-ktx/index.html
     implementation 'androidx.core:core-ktx:1.6.0'
 

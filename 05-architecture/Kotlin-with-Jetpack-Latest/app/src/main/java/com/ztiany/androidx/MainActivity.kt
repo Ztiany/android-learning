@@ -8,6 +8,7 @@ import com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity
 import com.ztiany.androidx.jetpack.livedata.LiveDataActivity
 import com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity
 import com.ztiany.androidx.kotlin.R
+import com.ztiany.androidx.kotlin.coroutines.official.google.flow.OfficialFlowActivity
 import com.ztiany.androidx.kotlin.coroutines.research.CoroutineWithGlobalScopeActivity
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +32,10 @@ class MainActivity : AppCompatActivity() {
 
     fun openJetpackViewModel(view: View) {
         startActivity(Intent(this, ViewModelActivity::class.java))
+    }
+
+    fun openKotlinGoogleFlow(view: android.view.View) {
+        startActivity(Intent(this, OfficialFlowActivity::class.java))
     }
 
 }
