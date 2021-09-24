@@ -73,5 +73,8 @@ ext {
             deepCopyApt            : "com.bennyhuo.kotlin:deepcopy-compiler:1.1.0",
             //https://github.com/enbandari/ReleasableVar
             releasableVar          : "com.bennyhuo.kotlin:releasable-nonnull-vars:1.1.0",
+            
+            //splitties
+            splittiesBase          : "com.louiscad.splitties:splitties-fun-pack-android-base:3.0.0"
     ]
 }
