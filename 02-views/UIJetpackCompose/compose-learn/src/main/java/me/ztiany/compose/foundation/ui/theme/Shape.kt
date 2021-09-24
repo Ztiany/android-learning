@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.ui.theme
+package me.ztiany.compose.foundation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

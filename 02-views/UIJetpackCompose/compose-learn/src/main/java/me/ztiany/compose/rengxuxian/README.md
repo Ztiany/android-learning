@@ -877,148 +877,268 @@ class CombinedModifier(
 LayoutNode 中的 setModifier 实现：
 
 ```kotlin
+ /**
+  * The [Modifier] currently applied to this node.
+  */
+ override var modifier: Modifier = Modifier
+     set(value) {
+         if (value == field) return
+         if (modifier != Modifier) {
+             require(!isVirtual) { "Modifiers are not supported on virtual LayoutNodes" }
+         }
+         field = value
 
-    /**
-     * The [Modifier] currently applied to this node.
-     */
-    override var modifier: Modifier = Modifier
-        set(value) {
-            if (value == field) return
-            if (modifier != Modifier) {
-                require(!isVirtual) { "Modifiers are not supported on virtual LayoutNodes" }
-            }
-            field = value
+         val invalidateParentLayer = shouldInvalidateParentLayer()
 
-            val invalidateParentLayer = shouldInvalidateParentLayer()
+         copyWrappersToCache()
+         markReusedModifiers(value)
 
-            copyWrappersToCache()
-            markReusedModifiers(value)
+         // Rebuild LayoutNodeWrapper
+         val oldOuterWrapper = outerMeasurablePlaceable.outerWrapper
+         if (outerSemantics != null && isAttached) {
+             owner!!.onSemanticsChange()
+         }
+         val addedCallback = hasNewPositioningCallback()
+         onPositionedCallbacks?.clear()
 
-            // Rebuild LayoutNodeWrapper
-            val oldOuterWrapper = outerMeasurablePlaceable.outerWrapper
-            if (outerSemantics != null && isAttached) {
-                owner!!.onSemanticsChange()
-            }
-            val addedCallback = hasNewPositioningCallback()
-            onPositionedCallbacks?.clear()
+         // 倒序地进行转换，组合为 LayoutNodeWrapper
+         // Create a new chain of LayoutNodeWrappers, reusing existing ones from wrappers
+         // when possible.
+         val outerWrapper = modifier.foldOut(innerLayoutNodeWrapper) { mod, toWrap ->
+             var wrapper = toWrap
+             if (mod is RemeasurementModifier) {
+                 mod.onRemeasurementAvailable(this)
+             }
 
-            // 倒序地进行转换，组合为 LayoutNodeWrapper
-            // Create a new chain of LayoutNodeWrappers, reusing existing ones from wrappers
-            // when possible.
-            val outerWrapper = modifier.foldOut(innerLayoutNodeWrapper) { mod, toWrap ->
-                var wrapper = toWrap
-                if (mod is RemeasurementModifier) {
-                    mod.onRemeasurementAvailable(this)
-                }
+             val delegate = reuseLayoutNodeWrapper(mod, toWrap)
+             if (delegate != null) {
+                 if (delegate is OnGloballyPositionedModifierWrapper) {
+                     getOrCreateOnPositionedCallbacks() += delegate
+                 }
+                 wrapper = delegate
+             } else {
+                 // The order in which the following blocks occur matters. For example, the
+                 // DrawModifier block should be before the LayoutModifier block so that a
+                 // Modifier that implements both DrawModifier and LayoutModifier will have
+                 // it's draw bounds reflect the dimensions defined by the LayoutModifier.
+                 if (mod is DrawModifier) {
+                     wrapper = ModifiedDrawNode(wrapper, mod)
+                 }
+                 if (mod is FocusModifier) {
+                     wrapper = ModifiedFocusNode(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is FocusEventModifier) {
+                     wrapper = ModifiedFocusEventNode(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is FocusRequesterModifier) {
+                     wrapper = ModifiedFocusRequesterNode(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is FocusOrderModifier) {
+                     wrapper = ModifiedFocusOrderNode(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is KeyInputModifier) {
+                     wrapper = ModifiedKeyInputNode(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is PointerInputModifier) {
+                     wrapper = PointerInputDelegatingWrapper(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is NestedScrollModifier) {
+                     wrapper = NestedScrollDelegatingWrapper(wrapper, mod).assignChained(toWrap)
+                 }
+                 @OptIn(ExperimentalComposeUiApi::class)
+                 if (mod is RelocationModifier) {
+                     wrapper = ModifiedRelocationNode(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is RelocationRequesterModifier) {
+                     wrapper = ModifiedRelocationRequesterNode(wrapper, mod)
+                         .assignChained(toWrap)
+                 }
+                 if (mod is LayoutModifier) {
+                     wrapper = ModifiedLayoutNode(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is ParentDataModifier) {
+                     wrapper = ModifiedParentDataNode(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is SemanticsModifier) {
+                     wrapper = SemanticsWrapper(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is OnRemeasuredModifier) {
+                     wrapper = RemeasureModifierWrapper(wrapper, mod).assignChained(toWrap)
+                 }
+                 if (mod is OnGloballyPositionedModifier) {
+                     wrapper =
+                         OnGloballyPositionedModifierWrapper(wrapper, mod).assignChained(toWrap)
+                     getOrCreateOnPositionedCallbacks() += wrapper
+                 }
+             }
+             wrapper
+         }
 
-                val delegate = reuseLayoutNodeWrapper(mod, toWrap)
-                if (delegate != null) {
-                    if (delegate is OnGloballyPositionedModifierWrapper) {
-                        getOrCreateOnPositionedCallbacks() += delegate
-                    }
-                    wrapper = delegate
-                } else {
-                    // The order in which the following blocks occur matters. For example, the
-                    // DrawModifier block should be before the LayoutModifier block so that a
-                    // Modifier that implements both DrawModifier and LayoutModifier will have
-                    // it's draw bounds reflect the dimensions defined by the LayoutModifier.
-                    if (mod is DrawModifier) {
-                        wrapper = ModifiedDrawNode(wrapper, mod)
-                    }
-                    if (mod is FocusModifier) {
-                        wrapper = ModifiedFocusNode(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is FocusEventModifier) {
-                        wrapper = ModifiedFocusEventNode(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is FocusRequesterModifier) {
-                        wrapper = ModifiedFocusRequesterNode(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is FocusOrderModifier) {
-                        wrapper = ModifiedFocusOrderNode(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is KeyInputModifier) {
-                        wrapper = ModifiedKeyInputNode(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is PointerInputModifier) {
-                        wrapper = PointerInputDelegatingWrapper(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is NestedScrollModifier) {
-                        wrapper = NestedScrollDelegatingWrapper(wrapper, mod).assignChained(toWrap)
-                    }
-                    @OptIn(ExperimentalComposeUiApi::class)
-                    if (mod is RelocationModifier) {
-                        wrapper = ModifiedRelocationNode(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is RelocationRequesterModifier) {
-                        wrapper = ModifiedRelocationRequesterNode(wrapper, mod)
-                            .assignChained(toWrap)
-                    }
-                    if (mod is LayoutModifier) {
-                        wrapper = ModifiedLayoutNode(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is ParentDataModifier) {
-                        wrapper = ModifiedParentDataNode(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is SemanticsModifier) {
-                        wrapper = SemanticsWrapper(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is OnRemeasuredModifier) {
-                        wrapper = RemeasureModifierWrapper(wrapper, mod).assignChained(toWrap)
-                    }
-                    if (mod is OnGloballyPositionedModifier) {
-                        wrapper =
-                            OnGloballyPositionedModifierWrapper(wrapper, mod).assignChained(toWrap)
-                        getOrCreateOnPositionedCallbacks() += wrapper
-                    }
-                }
-                wrapper
-            }
+         outerWrapper.wrappedBy = parent?.innerLayoutNodeWrapper
+         outerMeasurablePlaceable.outerWrapper = outerWrapper
 
-            outerWrapper.wrappedBy = parent?.innerLayoutNodeWrapper
-            outerMeasurablePlaceable.outerWrapper = outerWrapper
+         if (isAttached) {
+             // call detach() on all removed LayoutNodeWrappers
+             wrapperCache.forEach {
+                 it.detach()
+             }
 
-            if (isAttached) {
-                // call detach() on all removed LayoutNodeWrappers
-                wrapperCache.forEach {
-                    it.detach()
-                }
+             // attach() all new LayoutNodeWrappers
+             forEachDelegate {
+                 if (!it.isAttached) {
+                     it.attach()
+                 }
+             }
+         }
+         wrapperCache.clear()
 
-                // attach() all new LayoutNodeWrappers
-                forEachDelegate {
-                    if (!it.isAttached) {
-                        it.attach()
-                    }
-                }
-            }
-            wrapperCache.clear()
+         // call onModifierChanged() on all LayoutNodeWrappers
+         forEachDelegate { it.onModifierChanged() }
 
-            // call onModifierChanged() on all LayoutNodeWrappers
-            forEachDelegate { it.onModifierChanged() }
-
-            // Optimize the case where the layout itself is not modified. A common reason for
-            // this is if no wrapping actually occurs above because no LayoutModifiers are
-            // present in the modifier chain.
-            if (oldOuterWrapper != innerLayoutNodeWrapper ||
-                outerWrapper != innerLayoutNodeWrapper
-            ) {
-                requestRemeasure()
-            } else if (layoutState == Ready && addedCallback) {
-                // We need to notify the callbacks of a change in position since there's
-                // a new one.
-                requestRemeasure()
-            }
-            // If the parent data has changed, the parent needs remeasurement.
-            val oldParentData = parentData
-            outerMeasurablePlaceable.recalculateParentData()
-            if (oldParentData != parentData) {
-                parent?.requestRemeasure()
-            }
-            if (invalidateParentLayer || shouldInvalidateParentLayer()) {
-                parent?.invalidateLayer()
-            }
-        }
+         // Optimize the case where the layout itself is not modified. A common reason for
+         // this is if no wrapping actually occurs above because no LayoutModifiers are
+         // present in the modifier chain.
+         if (oldOuterWrapper != innerLayoutNodeWrapper ||
+             outerWrapper != innerLayoutNodeWrapper
+         ) {
+             requestRemeasure()
+         } else if (layoutState == Ready && addedCallback) {
+             // We need to notify the callbacks of a change in position since there's
+             // a new one.
+             requestRemeasure()
+         }
+         // If the parent data has changed, the parent needs remeasurement.
+         val oldParentData = parentData
+         outerMeasurablePlaceable.recalculateParentData()
+         if (oldParentData != parentData) {
+             parent?.requestRemeasure()
+         }
+         if (invalidateParentLayer || shouldInvalidateParentLayer()) {
+             parent?.invalidateLayer()
+         }
+     }
 ```
 
-Time：`52.00`
+可以，wrapper 是一层一层包裹的。
 
+然后，其实是 ModifiedLayoutNode 负责 measure：
+
+```kotlin
+internal class ModifiedLayoutNode(
+    wrapped: LayoutNodeWrapper,
+    modifier: LayoutModifier
+) : DelegatingLayoutNodeWrapper<LayoutModifier>(wrapped, modifier) {
+
+   override fun measure(constraints: Constraints): Placeable = performingMeasure(constraints) {
+      with(modifier) {
+         measureResult = measureScope.measure(wrapped, constraints)
+         this@ModifiedLayoutNode
+      }
+   }
+
+}
+```
+
+`measureScope.measure(wrapped, constraints)` 方法是 modifier 添加的。特定的 LayoutModifier 为 measureScope 添加了特定的扩展。
+
+比如 PaddingModifier：
+
+```kotlin
+private class PaddingModifier(
+    val start: Dp = 0.dp,
+    val top: Dp = 0.dp,
+    val end: Dp = 0.dp,
+    val bottom: Dp = 0.dp,
+    val rtlAware: Boolean,
+    inspectorInfo: InspectorInfo.() -> Unit
+) : LayoutModifier, InspectorValueInfo(inspectorInfo) {
+   
+   init {
+      require(
+         (start.value >= 0f || start == Dp.Unspecified) &&
+                 (top.value >= 0f || top == Dp.Unspecified) &&
+                 (end.value >= 0f || end == Dp.Unspecified) &&
+                 (bottom.value >= 0f || bottom == Dp.Unspecified)
+      ) {
+         "Padding must be non-negative"
+      }
+   }
+
+   override fun MeasureScope.measure(
+      measurable: Measurable,
+      constraints: Constraints
+   ): MeasureResult {
+
+      val horizontal = start.roundToPx() + end.roundToPx()//水平 padding
+      val vertical = top.roundToPx() + bottom.roundToPx()//垂直 padding
+
+      //先做一次测量
+      val placeable = measurable.measure(constraints.offset(-horizontal, -vertical))
+
+      //再加上 padding
+      val width = constraints.constrainWidth(placeable.width + horizontal)
+      val height = constraints.constrainHeight(placeable.height + vertical)
+
+      return layout(width, height) {
+         if (rtlAware) {
+            placeable.placeRelative(start.roundToPx(), top.roundToPx())
+         } else {
+            placeable.place(start.roundToPx(), top.roundToPx())
+         }
+      }
+   }
+   
+}
+```
+
+Modifier 的 Padding 的逻辑是：先测量右边的，再回来计算左边的。
+
+```kotlin
+Modifier
+    .padding(40.dp) //（2）确定了 160dp 后，再加上 40dp 的 padding，确定最终的大小。
+    .size(160.dp) //（1）先进行一次测量，确定要 160dp
+```
+
+如果空间不够用呢（加上下面 modifier 用于修饰一个作为根元素的 Box）？
+
+```kotlin
+Modifier
+   // （2）确定了 size 后，再加上 40dp 的 padding，确定最终的大小。
+   .padding(40.dp)
+    //（1）先进行一次测量，虽然要 800dp，但是会有父控件规范的最大 size，而且 val placeable = measurable.measure(constraints.offset(-horizontal, -vertical)) 中可以到，用于测量的 size 是剪掉了 padding 的。
+    // 因此，最终确定的大小为，屏幕的大小减去 padding，即允许的最大的 size 减去要求的  padding，其余的全给 size。
+    .size(800.dp)
+    .background(Color.Black)
+```
+
+如果调用两次 size 呢？
+
+```kotlin
+ Box(
+      Modifier
+           //（3）最终确定大小为 160 + 40
+          .padding(40.dp)
+           //（2）又测量一次，改成了 160
+          .size(160.dp)
+           //（1）测量一次，确定为 80
+          .size(80.dp)
+          .background(Color.Blue)
+  ) {
+
+  }
+
+Box(
+   Modifier
+      //（3）最终确定大小为 80 + 40
+      .padding(40.dp)
+      //（2）又测量一次，改成了 80
+      .size(80.dp)
+      //（1）测量一次，确定为 160
+      .size(160.dp)
+      .background(Color.Blue)
+) {
+
+}
+```
+
+对于 size 要求的大小，如果空间不够，则 Compose 会对其进行调整，还有一个 requiredSize，强制要求 size，比如：

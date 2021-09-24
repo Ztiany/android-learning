@@ -16,7 +16,7 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name=".learn.MainActivity"
+            android:name=".foundation.MainActivity"
             android:exported="true"
             android:label="Compose 学习"
             android:theme="@style/Theme.UIJetpackCompose.NoActionBar">
@@ -27,7 +27,7 @@
         </activity>
 
         <activity
-            android:name=".rengxuxian.RengWuXianActivity"
+            android:name=".rengxuxian.RengWuXianComposeActivity"
             android:label="扔物线 Compose" />
 
     </application>

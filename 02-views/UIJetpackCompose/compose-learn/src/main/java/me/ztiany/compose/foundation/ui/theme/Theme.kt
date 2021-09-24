@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.ui.theme
+package me.ztiany.compose.foundation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -44,4 +44,5 @@ fun UIJetpackComposeTheme(
         shapes = Shapes,
         content = content
     )
+
 }
