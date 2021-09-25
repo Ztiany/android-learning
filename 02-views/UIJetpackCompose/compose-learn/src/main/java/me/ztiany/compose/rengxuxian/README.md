@@ -738,7 +738,7 @@ internal class UiApplier(
 
 里面的 current 就是一个 LayoutNode。
 
-- [ ] 进一步分析
+- [ ] todo：进一步分析
 
 ## 4 自定义 Composable
 
@@ -1141,4 +1141,17 @@ Box(
 }
 ```
 
-对于 size 要求的大小，如果空间不够，则 Compose 会对其进行调整，还有一个 requiredSize，强制要求 size，比如：
+对于 size 要求的大小，如果空间不够，则 Compose 会对其进行调整，还有一个 requiredSize，强制要求 size。
+
+## 8 动画？
+
+参考 Lesson08
+
+## 9 能自定义 View 么？
+
+参考 Lesson09
+
+## 10 与传统 View 交互
+
+参考 Lesson10
+
