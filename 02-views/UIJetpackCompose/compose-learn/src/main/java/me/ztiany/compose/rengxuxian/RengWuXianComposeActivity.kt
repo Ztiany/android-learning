@@ -31,7 +31,10 @@ class RengWuXianComposeActivity : AppCompatActivity() {
                 //Lesson07()
 
                 //动画
-                Lesson08()
+                //Lesson08()
+
+                //自定义 View 的等价物
+                Lesson09()
             }
         }
     }
