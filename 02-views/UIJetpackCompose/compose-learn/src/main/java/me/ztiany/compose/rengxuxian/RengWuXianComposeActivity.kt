@@ -3,12 +3,21 @@ package me.ztiany.compose.rengxuxian
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import me.ztiany.compose.foundation.ui.theme.UIJetpackComposeTheme
+import me.ztiany.compose.commom.UIJetpackComposeTheme
 
 class RengWuXianComposeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //Lesson01-09
+        //pureComposeDemo()
+
+        //Lesson10
+        Lesson10_interactWithTraditionalView(this)
+    }
+
+
+    private fun pureComposeDemo() {
         setContent {
             UIJetpackComposeTheme {
                 //初步上手
@@ -34,7 +43,9 @@ class RengWuXianComposeActivity : AppCompatActivity() {
                 //Lesson08()
 
                 //自定义 View 的等价物
-                Lesson09()
+                //Lesson09()
+                Lesson09_Intrinsic()
+                Lesson09_Touch()
             }
         }
     }

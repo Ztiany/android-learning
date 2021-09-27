@@ -1,4 +1,4 @@
-package me.ztiany.compose.foundation.ui.theme
+package me.ztiany.compose.commom
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

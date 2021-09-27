@@ -1,4 +1,4 @@
-package me.ztiany.compose.foundation
+package me.ztiany.compose
 
 import android.app.Activity
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
@@ -14,7 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import me.ztiany.compose.foundation.ui.theme.UIJetpackComposeTheme
+import me.ztiany.compose.commom.UIJetpackComposeTheme
+import me.ztiany.compose.foundation.ComposeFoundationActivity
 import me.ztiany.compose.rengxuxian.RengWuXianComposeActivity
 
 class MainActivity : ComponentActivity() {
@@ -28,6 +30,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             MainContent()
         }
+    }
+
+    @Composable
+    private fun Entrances() {
+        EnterButton(ComposeFoundationActivity::class.java, "Compose 基础")
+        EnterButton(RengWuXianComposeActivity::class.java, "扔物线 Compose 课程")
     }
 
     @Composable
@@ -46,7 +54,7 @@ class MainActivity : ComponentActivity() {
                         .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    EnterButton(RengWuXianComposeActivity::class.java, "扔物线 Compose 课程")
+                    Entrances()
                 }
             }
         }
@@ -56,11 +64,12 @@ class MainActivity : ComponentActivity() {
     private fun EnterButton(clazz: Class<out Activity>, name: String) {
         Button(onClick = {
             startActivity(Intent(this@MainActivity, clazz))
-        }) {
+        }, Modifier.padding(5.dp)) {
             Icon(
                 painter = painterResource(id = android.R.drawable.star_on),
                 contentDescription = ""
             )
+            Spacer(modifier = Modifier.padding(2.dp))
             Text(name)
         }
     }

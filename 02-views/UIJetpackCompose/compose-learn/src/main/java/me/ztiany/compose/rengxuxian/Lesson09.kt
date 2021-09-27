@@ -2,10 +2,11 @@ package me.ztiany.compose.rengxuxian
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.gestures.forEachGesture
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,6 +16,7 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Fill
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layout
@@ -145,5 +147,38 @@ private fun APIDemo() {
             }
         })
 
+    }
+}
+
+@Composable
+fun Lesson09_Intrinsic() {
+    //Intrinsic 特性
+    /*
+        placeable 只能调用一次 measure，否则就会报错。
+        此时可以依赖 Compose 的 Intrinsic【内在特性】，具体描述为：
+        如果我限制你的宽，那么你会是多高，如果我限制你的高，那么你会是多宽。
+        如果我限制你的宽，那么你最多/最少会是多高，如果我限制你的高，那么你最多/最少会是多宽【这个就是固有尺寸】。
+
+    IntrinsicSize.Min 的行为：先对所有子节点进行一次模拟测量，然后用最小的那个 size 来作为自己的固有 size，最后再用这个 size 对所有子节点进行真正的测量。
+     */
+    Row(Modifier.height(IntrinsicSize.Min)) {
+        Text("Text1")
+        Divider(
+            Modifier
+                .width(1.dp)
+                .fillMaxHeight(), Color.Red
+        )
+        Text("Text2")
+    }
+}
+
+@Composable
+fun Lesson09_Touch() {
+    Modifier.pointerInput(Unit) {
+        forEachGesture {
+            awaitPointerEventScope {
+                val event = awaitPointerEvent()
+            }
+        }
     }
 }
