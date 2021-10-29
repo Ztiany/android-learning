@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import me.ztiany.compose.commom.UIJetpackComposeTheme
-import me.ztiany.compose.foundation.ComposeFoundationActivity
+import me.ztiany.compose.foundation.layout.LayoutBasicActivity
 import me.ztiany.compose.rengxuxian.RengWuXianComposeActivity
 
 class MainActivity : ComponentActivity() {
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun Entrances() {
-        EnterButton(ComposeFoundationActivity::class.java, "Compose 基础")
+        EnterButton(LayoutBasicActivity::class.java, "Compose 布局基础基础")
         EnterButton(RengWuXianComposeActivity::class.java, "扔物线 Compose 课程")
     }
 
