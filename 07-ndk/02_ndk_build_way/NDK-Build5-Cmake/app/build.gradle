@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "com.ztiany.sample5"
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion 21
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         externalNativeBuild {
@@ -26,12 +26,16 @@ android {
             path "CMakeLists.txt"
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleDynamicVersion
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+   implementation "androidx.appcompat:appcompat:1.4.0"
+   implementation "androidx.constraintlayout:constraintlayout:2.1.2"
+    testImplementation 'junit:junit:4.13.2'
 }

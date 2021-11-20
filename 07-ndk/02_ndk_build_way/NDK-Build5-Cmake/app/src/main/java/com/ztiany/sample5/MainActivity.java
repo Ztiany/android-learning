@@ -1,8 +1,9 @@
 package com.ztiany.sample5;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,4 +26,5 @@ public class MainActivity extends AppCompatActivity {
     static {
         System.loadLibrary("native-lib");
     }
+
 }
