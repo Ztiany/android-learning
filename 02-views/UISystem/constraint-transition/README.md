@@ -7,4 +7,7 @@
 3. `ConstraintSetExample`：使用 transition 框架 +  ConstraintLayout 实现转场动画。【实现相对麻烦：需要写两套布局，不能停留在动画的任一位置，不能有触目反馈】
 4. `MotionActivity`：使用 MotionLayout 实现动画，可以解决上面所有问题。
 
-CycleEditor
+工具：
+
+- CycleEditor 用于编辑动画生成 ConstrainsMotion 的 KeyFrameSet 集合。
+

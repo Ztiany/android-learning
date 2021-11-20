@@ -31,8 +31,8 @@
             android:label="扔物线 Compose" />
 
         <activity
-            android:name=".foundation.ComposeFoundationActivity"
-            android:label="Compose 基础" />
+            android:name=".foundation.layout.LayoutBasicActivity"
+            android:label="布局基础基础" />
 
     </application>
 
