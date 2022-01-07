@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="me.ztiany.compose">
 
@@ -33,6 +32,10 @@
         <activity
             android:name=".foundation.layout.LayoutBasicActivity"
             android:label="布局基础基础" />
+
+        <activity
+            android:name=".foundation.sideeffect.SideEffectActivity"
+            android:label="Side Effect 演示" />
 
     </application>
 

@@ -16,7 +16,6 @@ class RengWuXianComposeActivity : AppCompatActivity() {
         Lesson10_interactWithTraditionalView(this)
     }
 
-
     private fun pureComposeDemo() {
         setContent {
             UIJetpackComposeTheme {
