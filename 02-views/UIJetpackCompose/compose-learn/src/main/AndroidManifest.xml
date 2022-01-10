@@ -37,6 +37,10 @@
             android:name=".foundation.sideeffect.SideEffectActivity"
             android:label="Side Effect 演示" />
 
+        <activity
+            android:name=".foundation.local.CompositionLocalActivity"
+            android:label="CompositionLocal 演示" />
+
     </application>
 
 </manifest>

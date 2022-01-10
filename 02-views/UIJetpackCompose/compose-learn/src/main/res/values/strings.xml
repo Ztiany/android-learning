@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UIJetpackCompose</string>
+    <string name="fruit_title">Fruit: %s</string>
 </resources>

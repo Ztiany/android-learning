@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import me.ztiany.compose.commom.UIJetpackComposeTheme
 import me.ztiany.compose.foundation.layout.LayoutBasicActivity
+import me.ztiany.compose.foundation.local.CompositionLocalActivity
 import me.ztiany.compose.foundation.sideeffect.SideEffectActivity
 import me.ztiany.compose.rengxuxian.RengWuXianComposeActivity
 
@@ -37,6 +38,7 @@ class MainActivity : ComponentActivity() {
     private fun Entrances() {
         EnterButton(LayoutBasicActivity::class.java, "Compose 布局基础基础")
         EnterButton(SideEffectActivity::class.java, "Compose Side Effect 演示")
+        EnterButton(CompositionLocalActivity::class.java, "CompositionLocal 演示")
         EnterButton(RengWuXianComposeActivity::class.java, "扔物线 Compose 课程")
     }
 
