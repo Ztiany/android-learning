@@ -25,6 +25,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".foundation.tutor.TutorActivity"
+            android:label="Compose Tutor Example" />
+
         <activity
             android:name=".rengxuxian.RengWuXianComposeActivity"
             android:label="扔物线 Compose" />
@@ -40,6 +43,14 @@
         <activity
             android:name=".foundation.local.CompositionLocalActivity"
             android:label="CompositionLocal 演示" />
+
+        <activity
+            android:name=".foundation.material.MaterialActivity"
+            android:label="material 演示" />
+
+        <activity
+            android:name=".foundation.custom.CustomLayoutActivity"
+            android:label="Custom Layout 演示" />
 
     </application>
 

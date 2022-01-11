@@ -4,17 +4,16 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.ContentAlpha
-import androidx.compose.material.LocalContentAlpha
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
 import me.ztiany.compose.R
 import me.ztiany.compose.commom.UIJetpackComposeTheme
+
 
 class CompositionLocalActivity : AppCompatActivity() {
 
@@ -33,6 +32,7 @@ class CompositionLocalActivity : AppCompatActivity() {
             Text(text = "Hello", color = MaterialTheme.colors.secondary)
             CompositionLocalExample()
             FruitText()
+            CustomCompositionLocalExample()
         }
     }
 
@@ -60,7 +60,14 @@ class CompositionLocalActivity : AppCompatActivity() {
     private fun FruitText() {
         // Get `resources` from the current value of LocalContext
         val resources = LocalContext.current.resources
-        Text(text =  resources.getString(R.string.fruit_title, "Apple"))
+        Text(text = resources.getString(R.string.fruit_title, "Apple"))
+    }
+
+    @Composable
+    private fun CustomCompositionLocalExample() {
+        Card(elevation = LocalElevations.current.card) {
+            Text(text = "Text in the Card.")
+        }
     }
 
 }
