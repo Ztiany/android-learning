@@ -5,7 +5,6 @@ plugins {
 
 android {
     compileSdk 31
-
     defaultConfig {
         applicationId "me.ztiany.compose.wechat"
         minSdk 21
@@ -40,7 +39,7 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
+        kotlinCompilerVersion '1.6.0'
     }
 
     packagingOptions {
@@ -51,14 +50,18 @@ android {
 }
 
 dependencies {
+
     //架构组件
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'androidx.activity:activity-ktx:1.3.1'
-    implementation 'androidx.activity:activity-compose:1.3.1'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
-    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.activity:activity-ktx:1.4.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
+
+    //compose activity
+    implementation 'androidx.activity:activity-compose:1.4.0'
 
     //compose ui 基础
     implementation "androidx.compose.ui:ui:$compose_version"
@@ -66,24 +69,37 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
 
+    //ui 组件
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0-rc02"
+
     //compose 动画
-    implementation "androidx.compose.animation:animation:1.1.0-alpha03"
-    implementation "androidx.compose.animation:animation-core:1.1.0-alpha03"
-    implementation "androidx.compose.animation:animation-graphics:1.1.0-alpha03"
+    implementation "androidx.compose.animation:animation:$compose_version"
+    implementation "androidx.compose.animation:animation-core:$compose_version"
+    implementation "androidx.compose.animation:animation-graphics:$compose_version"
 
     //compose 通用组件
     implementation "androidx.compose.foundation:foundation:$compose_version"
     implementation "androidx.compose.foundation:foundation-layout:$compose_version"
 
     //compose material 实现
-    implementation 'com.google.android.material:material:1.4.0'
     implementation "androidx.compose.material:material:$compose_version"
+    implementation 'com.google.android.material:compose-theme-adapter:1.1.2'// When using a MDC theme
+
+    //Integration with ViewModels, Hilt and Navigation
+    implementation "androidx.navigation:navigation-compose:2.4.0-rc01"
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0-rc01"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0"
 
     //第三方扩展
+    //implementation "com.google.accompanist:accompanist-appcompat-theme:0.16.0"// When using a AppCompat theme
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.18.0"
+    implementation "com.google.accompanist:accompanist-pager:0.20.2"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.18.0"
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.18.0"
+    implementation "com.google.accompanist:accompanist-flowlayout:0.18.0"
+    implementation "com.google.accompanist:accompanist-placeholder-material:0.18.0"
     implementation "com.google.accompanist:accompanist-insets:0.18.0"
     implementation "com.google.accompanist:accompanist-coil:0.15.0"
     implementation "io.coil-kt:coil-compose:1.3.2"
-
-    //单元测试
-    testImplementation 'junit:junit:4.+'
 }
