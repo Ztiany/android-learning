@@ -15,6 +15,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
+        <!-- =================================== Base =================================== -->
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -28,24 +30,7 @@
             android:name=".ContentActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity
-            android:name=".animation.reversal.ReversalActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".dialogs.DialogsActivity" />
-
-        <activity android:name=".window.RealWindowSizeActivity" />
-
-        <activity android:name=".inflater.LayoutInflaterActivity" />
-
-        <activity android:name=".animation.circular_reveal.CircularRevealActivity" />
-
-        <activity
-            android:name=".dialogs.DialogActivity"
-            android:label="DialogActivity"
-            android:theme="@style/AppTheme.Dialog" />
-
-        <activity android:name=".constraint.ConstraintLayoutActivity" />
+        <!-- =================================== RecyclerView =================================== -->
 
         <activity
             android:name="com.ztiany.recyclerview.RvMainActivity"
@@ -55,14 +40,38 @@
             android:name="com.ztiany.recyclerview.RvContentActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".bitmap.BitmapActivity" />
+        <!-- =================================== hencoderplus =================================== -->
 
-        <activity android:name=".courses.hencoderplus.viewroot.ChangeImmediatelyActivity"/>
-        <activity android:name=".courses.hencoderplus.viewroot.ChangeDelayActivity"/>
-        <activity android:name=".courses.hencoderplus.viewroot.ChangeWithClickActivity"/>
-        <activity android:name=".courses.hencoderplus.viewroot.ChangeWrapWithClickActivity"/>
-        <activity android:name=".courses.hencoderplus.viewroot.RequestBeforeChangeWrapWithClickActivity"/>
-        <activity android:name=".courses.hencoderplus.viewroot.ViewRootActivity"/>
+        <activity android:name=".courses.hencoderplus.viewroot.ChangeImmediatelyActivity" />
+        <activity android:name=".courses.hencoderplus.viewroot.ChangeDelayActivity" />
+        <activity android:name=".courses.hencoderplus.viewroot.ChangeWithClickActivity" />
+        <activity android:name=".courses.hencoderplus.viewroot.ChangeWrapWithClickActivity" />
+        <activity android:name=".courses.hencoderplus.viewroot.RequestBeforeChangeWrapWithClickActivity" />
+        <activity android:name=".courses.hencoderplus.viewroot.ViewRootActivity" />
+
+        <!-- =================================== Dialog =================================== -->
+
+        <activity
+            android:name=".dialogs.DialogActivity"
+            android:label="DialogActivity"
+            android:theme="@style/AppTheme.Dialog" />
+
+        <activity android:name=".window.RealWindowSizeActivity" />
+
+        <!-- =================================== Others =================================== -->
+
+        <activity
+            android:name=".animation.reversal.ReversalActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".dialogs.DialogsActivity" />
+        <activity android:name=".inflater.LayoutInflaterActivity" />
+        <activity android:name=".animation.circular_reveal.CircularRevealActivity" />
+        <activity android:name=".constraint.ConstraintLayoutActivity" />
+        <activity android:name=".bitmap.BitmapActivity" />
+        <activity
+            android:name=".systemui.WindowInsetsActivity"
+            android:theme="@style/AppTheme.TranslucentSystemBar" />
 
     </application>
 

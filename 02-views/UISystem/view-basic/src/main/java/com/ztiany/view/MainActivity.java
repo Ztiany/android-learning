@@ -35,6 +35,7 @@ import com.ztiany.view.drawable.FishDrawableFragment;
 import com.ztiany.view.inflater.LayoutInflaterActivity;
 import com.ztiany.view.scroll.ScrollFragment;
 import com.ztiany.view.scroll.sticky.StickyNavigationFragment;
+import com.ztiany.view.systemui.WindowInsetsActivity;
 import com.ztiany.view.window.RealWindowSizeActivity;
 
 import java.util.ArrayList;
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         LIST.add(new Item("LayoutInflaterCompat", LayoutInflaterActivity.class));
         LIST.add(new Item("方块动画", SquareAnimationFragment.class));
+        LIST.add(new Item("WindowInsets 研究", WindowInsetsActivity.class));
     }
 
 }

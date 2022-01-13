@@ -17,7 +17,7 @@ android {
 
     sourceSets {
         main {
-            java.srcDirs += "src/android-28/java"
+//            java.srcDirs += "src/android-28/java"
 //            res.srcDirs += "src/android-28/res"
 
             java.srcDirs += "src/github/java"

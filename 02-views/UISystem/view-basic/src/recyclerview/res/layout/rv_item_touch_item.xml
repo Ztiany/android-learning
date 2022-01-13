@@ -23,7 +23,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|end"
         android:scaleType="center"
-        android:src="@drawable/rv_item_touch_ic"
+        android:src="@drawable/rv_ic_item_touch"
         tools:ignore="ContentDescription" />
 
 </FrameLayout>

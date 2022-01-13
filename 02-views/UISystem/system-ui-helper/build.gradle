@@ -23,5 +23,4 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation libraries.appcompat
-    testImplementation 'junit:junit:4.13'
 }
