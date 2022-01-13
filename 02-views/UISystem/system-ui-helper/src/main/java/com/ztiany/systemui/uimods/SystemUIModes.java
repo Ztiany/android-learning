@@ -149,7 +149,7 @@ public class SystemUIModes extends Activity implements OnQueryTextListener, Acti
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.system_ui_modes);
+        setContentView(R.layout.activity_system_ui_modes);
 
         mImage = (IV) findViewById(R.id.image);
         mImage.setActivity(this);

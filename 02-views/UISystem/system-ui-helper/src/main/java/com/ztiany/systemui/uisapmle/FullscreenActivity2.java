@@ -17,4 +17,5 @@ public class FullscreenActivity2 extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_fullscrenn);
     }
+
 }

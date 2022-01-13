@@ -8,14 +8,12 @@
     android:orientation="vertical"
     tools:context="com.ztiany.systemui.MainActivity">
 
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="openSystemUI"
         android:text="System UI"
         tools:ignore="HardcodedText"/>
-
 
     <Button
         android:layout_width="wrap_content"
@@ -45,7 +43,6 @@
         android:text=" UI Visibility Fullscreen"
         tools:ignore="HardcodedText"/>
 
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,5 +50,11 @@
         android:text="System Mods"
         tools:ignore="HardcodedText"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openWindowInsets"
+        android:text="Window Insets"
+        tools:ignore="HardcodedText"/>
 
 </LinearLayout>

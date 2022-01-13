@@ -3,6 +3,7 @@
 
     <style name="AppTheme.TranslucentSystemBar" parent="AppTheme.NoActionBar">
         <item name="android:windowTranslucentStatus">false</item>
+        <!--仅仅设置 windowTranslucentNavigation，就可以让 UI 延伸到 StatusBar 和 NavigationBar 下-->
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>

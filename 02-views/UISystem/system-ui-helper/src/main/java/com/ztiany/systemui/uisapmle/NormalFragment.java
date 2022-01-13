@@ -36,4 +36,5 @@ public class NormalFragment extends Fragment {
         });
         return textView;
     }
+
 }

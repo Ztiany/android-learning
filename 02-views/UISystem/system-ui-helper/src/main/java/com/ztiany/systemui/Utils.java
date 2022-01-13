@@ -11,14 +11,8 @@ import android.util.Log;
  */
 public class Utils {
 
-    private Utils() {
-
-    }
-
     public static void printSize(final Activity activity) {
-
         final String TAG = activity.getClass().getSimpleName();
-
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         Log.d(TAG, "displayMetrics.widthPixels:" + displayMetrics.widthPixels);
         Log.d(TAG, "displayMetrics.heightPixels:" + displayMetrics.heightPixels);
@@ -30,4 +24,5 @@ public class Utils {
             }
         });
     }
+
 }

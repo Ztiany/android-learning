@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ztiany.systemui.insets.WindowInsetsActivity;
 import com.ztiany.systemui.uimods.SystemUIModes;
 import com.ztiany.systemui.uisapmle.FullscreenActivity;
 import com.ztiany.systemui.uisapmle.FullscreenActivity2;
@@ -47,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void openFullscreen3(View view) {
         startActivity(new Intent(this, SystemUIWithFragmentActivity.class));
+    }
+
+    public void openWindowInsets(View view) {
+        startActivity(new Intent(this, WindowInsetsActivity.class));
     }
 
 }

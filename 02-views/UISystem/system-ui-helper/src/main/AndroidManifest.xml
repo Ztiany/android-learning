@@ -37,6 +37,10 @@
 
         <activity android:name=".uisapmle.FullscreenActivity2"/>
 
+        <activity
+            android:name=".insets.WindowInsetsActivity"
+            android:theme="@style/AppTheme.TranslucentSystemBar" />
+
     </application>
 
 </manifest>

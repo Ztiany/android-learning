@@ -13,7 +13,6 @@ import com.ztiany.systemui.R;
  */
 public class SystemUIWithFragmentActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,6 @@ public class SystemUIWithFragmentActivity extends AppCompatActivity {
         }
     }
 
-
     public void showFullscreenFragment() {
         getSupportFragmentManager()
                 .beginTransaction()
@@ -34,4 +32,5 @@ public class SystemUIWithFragmentActivity extends AppCompatActivity {
                 .addToBackStack("A")
                 .commit();
     }
+
 }

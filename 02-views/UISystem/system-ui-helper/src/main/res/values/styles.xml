@@ -21,4 +21,13 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.TranslucentSystemBar" parent="AppTheme.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
 </resources>

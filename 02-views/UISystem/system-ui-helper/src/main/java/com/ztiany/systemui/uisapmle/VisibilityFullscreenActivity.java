@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
+ *
+ * @see <a href='https://stackoverflow.com/questions/15186111/fullscreen-activity-wizard-activity-how-do-i-stop-actionbar-from-showing-when-i'>Fullscreen activity wizard activity. How do I stop actionbar from showing when I interact with device?</a>
  */
 public class VisibilityFullscreenActivity extends AppCompatActivity {
     /**

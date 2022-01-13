@@ -69,9 +69,6 @@
         <activity android:name=".animation.circular_reveal.CircularRevealActivity" />
         <activity android:name=".constraint.ConstraintLayoutActivity" />
         <activity android:name=".bitmap.BitmapActivity" />
-        <activity
-            android:name=".systemui.WindowInsetsActivity"
-            android:theme="@style/AppTheme.TranslucentSystemBar" />
 
     </application>
 

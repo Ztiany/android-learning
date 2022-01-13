@@ -51,4 +51,5 @@ public class FullscreenFragment extends Fragment {
         attributes.flags = mRecordFlags;
         getActivity().getWindow().setAttributes(attributes);
     }
+
 }

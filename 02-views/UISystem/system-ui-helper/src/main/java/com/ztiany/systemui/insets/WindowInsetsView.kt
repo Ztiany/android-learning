@@ -1,4 +1,4 @@
-package com.ztiany.view.systemui
+package com.ztiany.systemui.insets
 
 import android.content.Context
 import android.util.AttributeSet

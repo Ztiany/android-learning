@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ztiany.systemui.uisapmle.utils;
+package com.ztiany.systemui.systemuihelper;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

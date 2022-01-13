@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.ztiany.systemui.R;
 import com.ztiany.systemui.Utils;
-import com.ztiany.systemui.uisapmle.utils.SystemUiHelper;
+import com.ztiany.systemui.systemuihelper.SystemUiHelper;
 
 /**
  * @author Ztiany
@@ -38,7 +38,6 @@ public class SystemUIActivity extends AppCompatActivity {
                 });
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -52,4 +51,5 @@ public class SystemUIActivity extends AppCompatActivity {
             mSystemUiHelper.show();
         }
     }
+
 }
