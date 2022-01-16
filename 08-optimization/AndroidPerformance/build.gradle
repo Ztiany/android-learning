@@ -1,10 +1,8 @@
 buildscript {
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
         maven { url 'https://jitpack.io' }
         jcenter()
+        mavenCentral()
         google()
         maven { url 'https://dl.bintray.com/umsdk/release' }
     }
@@ -17,12 +15,12 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
         maven { url 'https://jitpack.io' }
-        jcenter()
         google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 }

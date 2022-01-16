@@ -111,8 +111,9 @@ dependencies {
 
     implementation 'com.tencent:mmkv:1.0.17'
 
-    compile ('com.aliyun.ams:alicloud-android-httpdns:1.1.7@aar') {
-        transitive true
+    compile ('com.aliyun.ams:alicloud-android-httpdns:1.1.9@aar') {
+        //transitive true
+        transitive false
     }
     provided 'me.ele:lancet-base:1.0.4'
 
