@@ -1,7 +1,8 @@
-package me.ztiany.buildsrc
+package me.ztiany.plugins
 
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.internal.pipeline.TransformTask
+import me.ztiany.plugins.logprint.LogTransform
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project

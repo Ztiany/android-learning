@@ -6,6 +6,7 @@ import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
 
+/**向每个类的构造函数插入一句代码。【没有处理 jar 中的 class】*/
 class PrintConstructionTransform extends Transform {
 
     private Project project

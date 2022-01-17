@@ -23,7 +23,7 @@ class TransformPlugin implements Plugin<Project> {
         find all transform task
                     transformClassesWithPrintTransformForDebug //自定义的
                     transformClassesWithTestTransformForDebug //自定义的
-                    transformClassesWithDexBuilderForDebug //用于生成Dex
+                    transformClassesWithDexBuilderForDebug //用于生成 Dex
          */
         project.afterEvaluate {
             project.gradle.taskGraph.addTaskExecutionGraphListener(new TaskExecutionGraphListener() {

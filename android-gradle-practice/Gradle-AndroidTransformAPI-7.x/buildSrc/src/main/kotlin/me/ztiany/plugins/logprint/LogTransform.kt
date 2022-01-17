@@ -1,6 +1,7 @@
-package me.ztiany.buildsrc
+package me.ztiany.plugins.logprint
 
 import com.android.build.api.transform.*
+import com.android.build.gradle.internal.pipeline.TransformManager
 import com.google.common.collect.Sets
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.io.FileUtils
@@ -17,7 +18,7 @@ class LogTransform : Transform() {
     override fun getName() = "LogTransform"
 
     override fun getInputTypes(): MutableSet<QualifiedContent.ContentType> {
-        return mutableSetOf(QualifiedContent.DefaultContentType.CLASSES)
+        return TransformManager.CONTENT_CLASS
     }
 
     override fun isIncremental(): Boolean {
@@ -25,7 +26,7 @@ class LogTransform : Transform() {
     }
 
     override fun getScopes(): MutableSet<in QualifiedContent.Scope> {
-        return Sets.immutableEnumSet(QualifiedContent.Scope.PROJECT)
+        return TransformManager.SCOPE_FULL_PROJECT
     }
 
     override fun transform(transformInvocation: TransformInvocation) {
@@ -33,6 +34,7 @@ class LogTransform : Transform() {
         if (!transformInvocation.isIncremental) {
             transformInvocation.outputProvider.deleteAll()
         }
+
         transformInvocation.inputs.forEach {
             it.directoryInputs.forEach {
                 println("LogTransform: -------------------------------------------------------------------directoryInputs")
@@ -56,6 +58,7 @@ class LogTransform : Transform() {
         if (jarName.endsWith(".jar")) {
             jarName = jarName.substring(0, jarName.length - 4)
         }
+
         //生成输出路径
         val dest = outputProvider.getContentLocation(
             jarName + md5Name,

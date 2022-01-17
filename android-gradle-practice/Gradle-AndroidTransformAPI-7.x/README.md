@@ -1,6 +1,9 @@
-# Android Gradle Plugin3.5.x TransformAPI Sample
+# Android Gradle Plugin7.x TransformAPI Sample
 
-使用 Android 的 Transform 和 javassist 在项目构建阶段修改 class 文件，注入自定义代码。
+基于 Android Gradle Plugin + ASM 实现下面功能：
+
+- 方法耗时统计
+- 自动埋点
 
 ## Transform API 介绍
 
@@ -12,8 +15,8 @@ Starting with 1.5.0-beta1, the Gradle plugin includes a Transform API allowing 3
 
 ## 环境
 
-- Android Gradle Plugin3.5.3
-- AndroidStudio3.5.3
+- Android Gradle Plugin-7.0.4
+- AndroidStudio-2020.3.1 patch4
 
 ## AGP 行为变更
 

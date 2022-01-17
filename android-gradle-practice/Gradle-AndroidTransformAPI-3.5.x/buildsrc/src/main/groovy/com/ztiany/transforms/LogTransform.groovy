@@ -6,6 +6,7 @@ import com.google.common.collect.Sets
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.io.FileUtils
 
+/**没有做任何操作，仅仅是打印 Transform 的执行流程。*/
 class LogTransform extends Transform {
 
     @Override
