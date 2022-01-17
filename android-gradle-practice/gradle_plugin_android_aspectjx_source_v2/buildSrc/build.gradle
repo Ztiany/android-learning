@@ -1,0 +1,37 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_7
+
+jar {
+    from {
+        zipTree(new File(project.projectDir.absolutePath + "/libs/aspectjtools.jar"))
+    }
+}
+
+dependencies {
+    repositories {
+        mavenLocal()
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/central/'}
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url "https://maven.aliyun.com/repository/google"}
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+        maven { url 'https://jitpack.io' }
+        jcenter()
+        google()
+        mavenCentral()
+    }
+
+    compile gradleApi()
+    compile localGroovy()
+
+    implementation  'com.android.tools.build:gradle:3.0.1'
+    implementation  'com.android.tools.build:transform-api:2.0.0-deprecated-use-gradle-api'
+    implementation  'com.google.code.gson:gson:2.8.2'
+    implementation  files('libs/aspectjtools.jar')
+}

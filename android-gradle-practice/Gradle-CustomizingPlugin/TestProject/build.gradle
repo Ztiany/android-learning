@@ -1,0 +1,32 @@
+group 'com.ztiany'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin :'hello-plugin'
+
+repositories {
+    mavenCentral()
+}
+
+
+buildscript {
+    repositories {
+        maven{
+            url uri('../release')
+        }
+    }
+    dependencies {
+        classpath 'com.ztiany:hello-plugin:1.0'
+    }
+}
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+
+//extension
+hello {
+    message "你好 GradlePlugin"
+}

@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+/*
+apply plugin: AndroidAspectJXPlugin
+aspectjx{
+    excludeJarFilter 'rxjava'
+}
+*/
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.3"
+
+    defaultConfig {
+        applicationId "com.ztiany.transform.aspectj"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //noinspection GradleDependency
+    compile 'com.android.support:appcompat-v7:26.0.1'
+
+    //noinspection GradleDependency
+    compile 'com.android.support:design:26.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    testCompile 'junit:junit:4.12'
+
+    def thirdLibs = rootProject.thirdDependencies
+    compile thirdLibs.aspectjrt
+    compile thirdLibs.timber
+    compile thirdLibs.rxBinding
+    compile thirdLibs.rxBindingV4
+    compile thirdLibs.rxBindingCompat
+    compile thirdLibs.rxBindingDesign
+    compile thirdLibs.rxBindingRecyclerView
+    compile thirdLibs.rxJava
+    compile thirdLibs.rxAndroid
+    compile thirdLibs.okHttp
+    compile thirdLibs.okHttpLogging
+    compile thirdLibs.retrofit
+    compile thirdLibs.gson
+}

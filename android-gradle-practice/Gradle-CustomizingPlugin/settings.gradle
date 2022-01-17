@@ -1,0 +1,4 @@
+rootProject.name = 'GradlePluginSample'
+include 'ztiany_plugin'
+include 'TestProject'
+

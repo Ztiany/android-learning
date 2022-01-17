@@ -1,0 +1,317 @@
+:buildsrc:compileJava
+:buildsrc:compileGroovy
+:buildsrc:processResources UP-TO-DATE
+:buildsrc:classes
+:buildsrc:jar
+:buildsrc:assemble
+:buildsrc:compileTestJava UP-TO-DATE
+:buildsrc:compileTestGroovy UP-TO-DATE
+:buildsrc:processTestResources UP-TO-DATE
+:buildsrc:testClasses UP-TO-DATE
+:buildsrc:test UP-TO-DATE
+:buildsrc:check UP-TO-DATE
+:buildsrc:build
+NDK is missing a "platforms" directory.
+If you are using NDK, verify the ndk.dir is set to a valid NDK directory.  It is currently set to E:\DevTools\SDK\ndk-bundle.
+If you are not using NDK, unset the NDK variable from ANDROID_NDK_HOME or local.properties to remove this warning.
+
+Incremental java compilation is an incubating feature.
+------------------------------------------
+com.hujiang.gradle.plugin.android.aspectjx.AspectTransform@78e8d080
+------------------------------------------
+------------------------------------------
+com.hujiang.gradle.plugin.android.aspectjx.AspectTransform@78e8d080
+------------------------------------------
+:app:preBuild UP-TO-DATE
+:app:preBuild spend 1ms
+:app:preDebugBuild UP-TO-DATE
+:app:preDebugBuild spend 1ms
+:app:checkDebugManifest
+:app:checkDebugManifest spend 0ms
+:app:preReleaseBuild UP-TO-DATE
+:app:preReleaseBuild spend 1ms
+:app:prepareComAndroidSupportAnimatedVectorDrawable2601Library
+:app:prepareComAndroidSupportAnimatedVectorDrawable2601Library spend 19ms
+:app:prepareComAndroidSupportAppcompatV72601Library
+:app:prepareComAndroidSupportAppcompatV72601Library spend 2ms
+:app:prepareComAndroidSupportConstraintConstraintLayout102Library
+:app:prepareComAndroidSupportConstraintConstraintLayout102Library spend 2ms
+:app:prepareComAndroidSupportDesign2601Library
+:app:prepareComAndroidSupportDesign2601Library spend 2ms
+:app:prepareComAndroidSupportRecyclerviewV72601Library
+:app:prepareComAndroidSupportRecyclerviewV72601Library spend 6ms
+:app:prepareComAndroidSupportSupportCompat2601Library
+:app:prepareComAndroidSupportSupportCompat2601Library spend 3ms
+:app:prepareComAndroidSupportSupportCoreUi2601Library
+:app:prepareComAndroidSupportSupportCoreUi2601Library spend 2ms
+:app:prepareComAndroidSupportSupportCoreUtils2601Library
+:app:prepareComAndroidSupportSupportCoreUtils2601Library spend 3ms
+:app:prepareComAndroidSupportSupportFragment2601Library
+:app:prepareComAndroidSupportSupportFragment2601Library spend 2ms
+:app:prepareComAndroidSupportSupportMediaCompat2601Library
+:app:prepareComAndroidSupportSupportMediaCompat2601Library spend 2ms
+:app:prepareComAndroidSupportSupportV42601Library
+:app:prepareComAndroidSupportSupportV42601Library spend 1ms
+:app:prepareComAndroidSupportSupportVectorDrawable2601Library
+:app:prepareComAndroidSupportSupportVectorDrawable2601Library spend 2ms
+:app:prepareComAndroidSupportTransition2601Library
+:app:prepareComAndroidSupportTransition2601Library spend 2ms
+:app:prepareComJakewhartonRxbindingRxbinding040Library
+:app:prepareComJakewhartonRxbindingRxbinding040Library spend 3ms
+:app:prepareComJakewhartonRxbindingRxbindingAppcompatV7040Library
+:app:prepareComJakewhartonRxbindingRxbindingAppcompatV7040Library spend 4ms
+:app:prepareComJakewhartonRxbindingRxbindingDesign040Library
+:app:prepareComJakewhartonRxbindingRxbindingDesign040Library spend 4ms
+:app:prepareComJakewhartonRxbindingRxbindingRecyclerviewV7040Library
+:app:prepareComJakewhartonRxbindingRxbindingRecyclerviewV7040Library spend 2ms
+:app:prepareComJakewhartonRxbindingRxbindingSupportV4040Library
+:app:prepareComJakewhartonRxbindingRxbindingSupportV4040Library spend 3ms
+:app:prepareComJakewhartonTimberTimber451Library
+:app:prepareComJakewhartonTimberTimber451Library spend 2ms
+:app:prepareIoReactivexRxandroid121Library
+:app:prepareIoReactivexRxandroid121Library spend 1ms
+:app:prepareDebugDependencies
+:app:prepareDebugDependencies spend 1ms
+:app:compileDebugAidl
+:app:compileDebugAidl spend 25ms
+:app:compileDebugRenderscript
+:app:compileDebugRenderscript spend 21ms
+:app:generateDebugBuildConfig
+:app:generateDebugBuildConfig spend 35ms
+:app:generateDebugResValues
+:app:generateDebugResValues spend 4ms
+:app:generateDebugResources
+:app:generateDebugResources spend 0ms
+:app:mergeDebugResources
+:app:mergeDebugResources spend 4015ms
+:app:processDebugManifest
+:app:processDebugManifest spend 87ms
+:app:processDebugResources
+:app:processDebugResources spend 798ms
+:app:generateDebugSources
+:app:generateDebugSources spend 1ms
+:app:incrementalDebugJavaCompilationSafeguard
+:app:incrementalDebugJavaCompilationSafeguard spend 19ms
+:app:javaPreCompileDebug
+:app:javaPreCompileDebug spend 2ms
+:app:compileDebugJavaWithJavac
+:app:compileDebugJavaWithJavac - is not incremental (e.g. outputs have changed, no previous execution, etc.).
+:app:compileDebugJavaWithJavac spend 1425ms
+:app:compileDebugNdk UP-TO-DATE
+:app:compileDebugNdk spend 1ms
+:app:compileDebugSources
+:app:compileDebugSources spend 0ms
+:app:mergeDebugShaders
+:app:mergeDebugShaders spend 16ms
+:app:compileDebugShaders
+:app:compileDebugShaders spend 4ms
+:app:generateDebugAssets
+:app:generateDebugAssets spend 0ms
+:app:mergeDebugAssets
+:app:mergeDebugAssets spend 24ms
+:app:transformClassesWithAspectTransformForDebug
+=====================================
+transform running-- 1
+=====================================
+aspect start..........
+includeJar:::C:\Users\Administrator\.android\build-cache\06b8b61ca6fb075262024cfd2fb56bcff498006f\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\372e334f0aea2d8d95b2aa5979ef6c1c1307d4c5\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\216f9a319dbd01fa2d47fb2b959e90a2a970f588\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.2.6\de0c509ae6c9db5b5b6004a9d102c92708346f7c\rxjava-1.2.6.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.4.1\381fc1096ba65040d8e80ea43b2e1d9bad02345e\logging-interceptor-3.4.1.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\567d1ab1b072b9fc6db7d57b54e7f4f48949463e\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\87b75077c9de241ed58a14e4f2b906b149ea0253\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\df75a41fcac7fe08daee41b88c222dbe816d157c\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\81781d88e4948d996fc93e8be88ddd0fb7d1015f\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\6080f7d6208d632bd4eb541a3eeef4a4570a6faf\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\3d0ef03ef4427e9d5b0692bcd1c29f09f5cbd2e7\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\83cd053c5aa6d75059885c4de5c97ae5c361f533\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\50a657bec015aabb559bd952296fb0e18b3ce089\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\dec7137eab84256597d5dd4f0315c63b54bfc276\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar
+includeJar:::E:\DevTools\SDK\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.aspectj\aspectjrt\1.8.10\1a14fe9e912f6e8bdbb5429b78b4090d8b47bc1\aspectjrt-1.8.10.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\55d70d2d368f899ca9f6f52451cc4182b027c70e\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\55ad2d3ac8eee69a5f58780b7bf70a5bc93b4ede\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\30dfdaebf0e05f58adc4ca80526b6a9e4bd18d44\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\4d6f9be0077b29e8eb809b2da876b0116aacde70\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\74de1150fce0005f35991eab1837ff33dc7d961b\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\26.0.1\e1bb32b12b25e2f78e6786059ca7ea878f8345e0\support-annotations-26.0.1.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\a29c822e161f5e65f20731c85b26a8fb4ff80575\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\9ea987481821b1e2a1a98ceb2892199885e3ac28\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\84a2403fa5cce0acddf4b96dc74d9137fe884a17\output\jars\classes.jar
+directoryInput:::E:\code\studio\my_github\Repository\Gradle\gradle_plugin_android_aspectjx_source\app\build\intermediates\classes\debug
+aspect do work..........
+aspect jar merging..........
+aspect done...................
+:app:transformClassesWithAspectTransformForDebug spend 37986ms
+:app:transformClassesWithDexForDebug
+Dex: warning: Ignoring InnerClasses attribute for an anonymous inner class
+(org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl$1) that doesn't come with an
+associated EnclosingMethod attribute. This class was probably produced by a
+compiler that did not target the modern .class file format. The recommended
+solution is to recompile the class from source, using an up-to-date compiler
+and without specifying any "-target" type options. The consequence of ignoring
+this warning is that reflective operations on this class will incorrectly
+indicate that it is *not* an inner class.
+
+:app:transformClassesWithDexForDebug spend 9638ms
+:app:mergeDebugJniLibFolders
+:app:mergeDebugJniLibFolders spend 16ms
+:app:transformNativeLibsWithMergeJniLibsForDebug
+:app:transformNativeLibsWithMergeJniLibsForDebug spend 23ms
+:app:processDebugJavaRes UP-TO-DATE
+:app:processDebugJavaRes spend 1ms
+:app:transformResourcesWithMergeJavaResForDebug
+:app:transformResourcesWithMergeJavaResForDebug spend 71ms
+:app:validateSigningDebug
+:app:validateSigningDebug spend 1ms
+:app:packageDebug
+:app:packageDebug spend 513ms
+:app:assembleDebug
+:app:assembleDebug spend 0ms
+:app:checkReleaseManifest
+:app:checkReleaseManifest spend 1ms
+:app:prepareReleaseDependencies
+:app:prepareReleaseDependencies spend 0ms
+:app:compileReleaseAidl
+:app:compileReleaseAidl spend 22ms
+:app:compileReleaseRenderscript
+:app:compileReleaseRenderscript spend 11ms
+:app:generateReleaseBuildConfig
+:app:generateReleaseBuildConfig spend 25ms
+:app:generateReleaseResValues
+:app:generateReleaseResValues spend 2ms
+:app:generateReleaseResources
+:app:generateReleaseResources spend 0ms
+:app:mergeReleaseResources
+:app:mergeReleaseResources spend 3915ms
+:app:processReleaseManifest
+:app:processReleaseManifest spend 44ms
+:app:processReleaseResources
+:app:processReleaseResources spend 766ms
+:app:generateReleaseSources
+:app:generateReleaseSources spend 1ms
+:app:incrementalReleaseJavaCompilationSafeguard
+:app:incrementalReleaseJavaCompilationSafeguard spend 19ms
+:app:javaPreCompileRelease
+:app:javaPreCompileRelease spend 0ms
+:app:compileReleaseJavaWithJavac
+:app:compileReleaseJavaWithJavac - is not incremental (e.g. outputs have changed, no previous execution, etc.).
+:app:compileReleaseJavaWithJavac spend 1452ms
+:app:compileReleaseNdk UP-TO-DATE
+:app:compileReleaseNdk spend 3ms
+:app:compileReleaseSources
+:app:compileReleaseSources spend 0ms
+:app:lintVitalRelease
+:app:lintVitalRelease spend 1759ms
+:app:mergeReleaseShaders
+:app:mergeReleaseShaders spend 13ms
+:app:compileReleaseShaders
+:app:compileReleaseShaders spend 4ms
+:app:generateReleaseAssets
+:app:generateReleaseAssets spend 0ms
+:app:mergeReleaseAssets
+:app:mergeReleaseAssets spend 24ms
+:app:transformClassesWithAspectTransformForRelease
+=====================================
+transform running-- 2
+=====================================
+aspect start..........
+includeJar:::C:\Users\Administrator\.android\build-cache\06b8b61ca6fb075262024cfd2fb56bcff498006f\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\372e334f0aea2d8d95b2aa5979ef6c1c1307d4c5\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\216f9a319dbd01fa2d47fb2b959e90a2a970f588\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.2.6\de0c509ae6c9db5b5b6004a9d102c92708346f7c\rxjava-1.2.6.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.4.1\381fc1096ba65040d8e80ea43b2e1d9bad02345e\logging-interceptor-3.4.1.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\567d1ab1b072b9fc6db7d57b54e7f4f48949463e\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\87b75077c9de241ed58a14e4f2b906b149ea0253\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\df75a41fcac7fe08daee41b88c222dbe816d157c\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\81781d88e4948d996fc93e8be88ddd0fb7d1015f\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\6080f7d6208d632bd4eb541a3eeef4a4570a6faf\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\3d0ef03ef4427e9d5b0692bcd1c29f09f5cbd2e7\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\83cd053c5aa6d75059885c4de5c97ae5c361f533\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\50a657bec015aabb559bd952296fb0e18b3ce089\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\dec7137eab84256597d5dd4f0315c63b54bfc276\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar
+includeJar:::E:\DevTools\SDK\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.aspectj\aspectjrt\1.8.10\1a14fe9e912f6e8bdbb5429b78b4090d8b47bc1\aspectjrt-1.8.10.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\55d70d2d368f899ca9f6f52451cc4182b027c70e\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\55ad2d3ac8eee69a5f58780b7bf70a5bc93b4ede\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\30dfdaebf0e05f58adc4ca80526b6a9e4bd18d44\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\4d6f9be0077b29e8eb809b2da876b0116aacde70\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\74de1150fce0005f35991eab1837ff33dc7d961b\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\26.0.1\e1bb32b12b25e2f78e6786059ca7ea878f8345e0\support-annotations-26.0.1.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\a29c822e161f5e65f20731c85b26a8fb4ff80575\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\9ea987481821b1e2a1a98ceb2892199885e3ac28\output\jars\classes.jar
+includeJar:::C:\Users\Administrator\.android\build-cache\84a2403fa5cce0acddf4b96dc74d9137fe884a17\output\jars\classes.jar
+directoryInput:::E:\code\studio\my_github\Repository\Gradle\gradle_plugin_android_aspectjx_source\app\build\intermediates\classes\release
+aspect do work..........
+aspect jar merging..........
+aspect done...................
+:app:transformClassesWithAspectTransformForRelease spend 37736ms
+:app:transformClassesWithDexForRelease
+Dex: warning: Ignoring InnerClasses attribute for an anonymous inner class
+(org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl$1) that doesn't come with an
+associated EnclosingMethod attribute. This class was probably produced by a
+compiler that did not target the modern .class file format. The recommended
+solution is to recompile the class from source, using an up-to-date compiler
+and without specifying any "-target" type options. The consequence of ignoring
+this warning is that reflective operations on this class will incorrectly
+indicate that it is *not* an inner class.
+
+:app:transformClassesWithDexForRelease spend 5303ms
+:app:mergeReleaseJniLibFolders
+:app:mergeReleaseJniLibFolders spend 13ms
+:app:transformNativeLibsWithMergeJniLibsForRelease
+:app:transformNativeLibsWithMergeJniLibsForRelease spend 18ms
+:app:processReleaseJavaRes UP-TO-DATE
+:app:processReleaseJavaRes spend 1ms
+:app:transformResourcesWithMergeJavaResForRelease
+:app:transformResourcesWithMergeJavaResForRelease spend 59ms
+:app:packageRelease
+:app:packageRelease spend 1098ms
+:app:assembleRelease
+:app:assembleRelease spend 0ms
+:app:assemble
+:app:assemble spend 0ms
+:buildsrc:compileJava UP-TO-DATE
+:buildsrc:compileJava spend 25ms
+:buildsrc:compileGroovy
+:buildsrc:compileGroovy spend 709ms
+:buildsrc:processResources UP-TO-DATE
+:buildsrc:processResources spend 1ms
+:buildsrc:classes
+:buildsrc:classes spend 0ms
+:buildsrc:jar
+:buildsrc:jar spend 125ms
+:buildsrc:assemble
+:buildsrc:assemble spend 0ms
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 50.97 secs
+Task spend time:
+   4015ms   :app:mergeDebugResources
+     87ms   :app:processDebugManifest
+    798ms   :app:processDebugResources
+   1425ms   :app:compileDebugJavaWithJavac
+  37986ms   :app:transformClassesWithAspectTransformForDebug
+   9638ms   :app:transformClassesWithDexForDebug
+     71ms   :app:transformResourcesWithMergeJavaResForDebug
+    513ms   :app:packageDebug
+   3915ms   :app:mergeReleaseResources
+    766ms   :app:processReleaseResources
+   1452ms   :app:compileReleaseJavaWithJavac
+   1759ms   :app:lintVitalRelease
+  37736ms   :app:transformClassesWithAspectTransformForRelease
+   5303ms   :app:transformClassesWithDexForRelease
+     59ms   :app:transformResourcesWithMergeJavaResForRelease
+   1098ms   :app:packageRelease
+    709ms   :buildsrc:compileGroovy
+    125ms   :buildsrc:jar

@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+
+    repositories {
+        mavenLocal()
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+        maven { url 'https://jitpack.io' }
+        google()
+        mavenCentral()
+        jcenter()
+    }
+
+    compile gradleApi()
+    compile localGroovy()
+
+    def aspectjVersion = '1.8.9'
+    compile "org.aspectj:aspectjtools:${aspectjVersion}"
+    compile "org.aspectj:aspectjrt:${aspectjVersion}"
+    compile 'com.android.tools.build:transform-api:1.5.0'
+    compile 'com.android.tools.build:gradle:2.3.3'
+}

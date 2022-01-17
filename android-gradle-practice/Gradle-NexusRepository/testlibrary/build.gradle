@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    provided 'com.android.support:appcompat-v7:25.3.1'
+}
+
+//uploadArchive任务由maven插件提供
+uploadArchives {
+    //下面配置maven，具体参考：https://docs.gradle.org/current/userguide/maven_plugin.html
+    repositories {
+        mavenDeployer {
+            //定义library发布到哪个仓库
+            repository(url: 'http://127.0.0.1:8081/nexus/content/repositories/test_local/') {
+                authentication(userName: 'admin', password: 'admin123')
+            }
+            //定义项目的pom
+            pom {
+                setVersion '1.0'
+                setArtifactId 'toast'
+                setPackaging 'arr'
+                setGroupId 'com.ztiany'
+            }
+            //仓库地址为groupId:artifactId:version
+        }
+    }
+}
