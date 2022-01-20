@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.ztiany.androidx.jetpack.compatibility.CompatibilityActivity
 import com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity
 import com.ztiany.androidx.jetpack.livedata.LiveDataActivity
 import com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity
@@ -16,6 +17,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    fun openJetpackAppCompat(view: View) {
+        startActivity(Intent(this, CompatibilityActivity::class.java))
     }
 
     fun viewModelWithGlobalScope(view: View) {

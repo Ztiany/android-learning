@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ztiany.androidx.kotlin">
 
@@ -17,7 +18,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,RtlEnabled,UnusedAttribute">
 
-        <activity android:name="com.ztiany.androidx.MainActivity">
+        <activity
+            android:name="com.ztiany.androidx.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,35 +32,57 @@
         <!-- ====================================================================== -->
         <activity
             android:name="com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity"
+            android:exported="false"
             android:label="Lifecycle" />
+
         <activity
             android:name="com.ztiany.androidx.jetpack.livedata.LiveDataActivity"
+            android:exported="false"
             android:label="LiveData" />
+
         <activity
             android:name="com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity"
+            android:exported="false"
             android:label="viewmodel" />
+
         <activity
             android:name=".ktx.KtxActivity"
+            android:exported="false"
             android:label="Ktx" />
+
+        <activity
+            android:name="com.ztiany.androidx.jetpack.compatibility.CompatibilityActivity"
+            android:exported="false"
+            android:label="Compatibility" />
 
         <!-- ====================================================================== -->
         <!--Kotlin-->
         <!-- ====================================================================== -->
         <activity
             android:name=".coroutines.research.CoroutinesActivity"
+            android:exported="false"
             android:label="Coroutines Sample" />
+
         <activity
             android:name=".coroutines.official.jetbrains.CoroutineUIGuideActivity"
+            android:exported="false"
             android:label="CoroutineUIGuideActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".coroutines.research.LifecycleCoroutineExSampleActivity"
+            android:exported="false"
             android:label="LifecycleCoroutineExSample" />
+
         <activity
             android:name=".coroutines.research.CoroutineWithGlobalScopeActivity"
+            android:exported="false"
             android:label="CoroutineWithGlobalScope" />
-        <activity android:name=".coroutines.official.google.flow.OfficialFlowActivity"
-            android:label="Google Flow"/>
+
+        <activity
+            android:name=".coroutines.official.google.flow.OfficialFlowActivity"
+            android:exported="false"
+            android:label="Google Flow" />
 
     </application>
 

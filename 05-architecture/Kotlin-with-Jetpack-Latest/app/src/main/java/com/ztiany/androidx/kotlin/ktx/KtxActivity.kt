@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.ztiany.androidx.kotlin.R
-import com.ztiany.androidx.kotlin.ifNull
+import com.ztiany.androidx.common.ifNull
 
 /**
  *@author Ztiany

@@ -11,7 +11,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.ztiany.androidx.kotlin.R
-import com.ztiany.androidx.kotlin.ifNull
+import com.ztiany.androidx.common.ifNull
 
 private const val TAG = "LifecycleActivity"
 

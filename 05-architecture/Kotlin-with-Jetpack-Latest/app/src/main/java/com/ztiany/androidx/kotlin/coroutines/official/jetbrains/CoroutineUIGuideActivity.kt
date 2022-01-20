@@ -97,7 +97,7 @@ class CoroutineUIGuideActivity : AppCompatActivity() {
             // SendChannel 上的 offer 函数不会等待。它会立即将一个元素发送到 actor， 如果可能的话，或者丢弃一个元素。
             //反复点击圆形按钮。当倒计时动画进行中时， 点击动作会被忽略。这会发生的原因是 actor 正忙于执行而不会从通道中接收元素。
             // 默认的，一个 actor 的邮箱由 RendezvousChannel 支持，只有当 receive 在运行中的时候 offer 操作才会成功。
-            val offer = eventActor.offer(it)
+            val offer = eventActor.trySend(it).isSuccess
             Log.d(TAG, "offer result = $offer")//print true once, print false multi
         }
     }
@@ -118,7 +118,7 @@ class CoroutineUIGuideActivity : AppCompatActivity() {
         setOnClickListener {
             //现在，当动画运行中时如果这个圆形按钮被点击，动画将在结束后重新运行。仅仅一次。
             // 在倒数进行中时，重复点击将被合并 ，只有最近的事件才会被处理。
-            val offer = eventActor.offer(it)
+            val offer = eventActor.trySend(it).isSuccess
             Log.d(TAG, "offer result = $offer")//print true
         }
     }

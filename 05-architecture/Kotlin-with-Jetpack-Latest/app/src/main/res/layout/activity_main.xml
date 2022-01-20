@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText,UsingOnClickInXml">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,25 +17,29 @@
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="openJetpackAppCompat"
+            android:text="Jetpack：AppCompat" />
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="openJetpackLifecycle"
-            android:text="Jetpack：Lifecycle"
-            tools:ignore="UsingOnClickInXml" />
+            android:text="Jetpack：Lifecycle" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="openJetpackLiveData"
-            android:text="Jetpack：LiveData"
-            tools:ignore="UsingOnClickInXml" />
+            android:text="Jetpack：LiveData" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="openJetpackViewModel"
-            android:text="Jetpack：ViewModel"
-            tools:ignore="UsingOnClickInXml" />
+            android:text="Jetpack：ViewModel" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
