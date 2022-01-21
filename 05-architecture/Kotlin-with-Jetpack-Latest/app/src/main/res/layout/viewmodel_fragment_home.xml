@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/viewmodel_btn_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/viewmodel_btn_load"
@@ -21,7 +12,7 @@
         android:text="load"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewmodel_btn_save" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/viewmodel_btn_recreate"
@@ -31,5 +22,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewmodel_btn_load" />
+
+    <Button
+        android:id="@+id/viewmodel_btn_add_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="switchToTarget (Show/Hidden)"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewmodel_btn_recreate" />
+
+    <Button
+        android:id="@+id/viewmodel_btn_replace_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="switchToTarget (Replace)"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewmodel_btn_add_target" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
