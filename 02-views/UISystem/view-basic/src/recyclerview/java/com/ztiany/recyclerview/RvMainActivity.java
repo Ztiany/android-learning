@@ -14,6 +14,7 @@ import com.ztiany.recyclerview.layout_manager.CustomLayoutManagerFragment;
 import com.ztiany.recyclerview.layout_manager.SideCardLayoutManagerFragment;
 import com.ztiany.recyclerview.snap.SnapHelperFragment;
 import com.ztiany.recyclerview.swipe_menu.SwipeMenu1Fragment;
+import com.ztiany.recyclerview.viewpager2.ViewPager2Fragment;
 import com.ztiany.recyclerview.wrap_content.WithScrollViewFragment;
 import com.ztiany.view.R;
 
@@ -60,18 +61,19 @@ public class RvMainActivity extends AppCompatActivity {
 
     static {
         LIST.add(new Item("Wrap RecyclerView", WithScrollViewFragment.class));
-        LIST.add(new Item("ItemDecoration实现分组索引", ItemDecorationIndexFragment.class));
-        LIST.add(new Item("ItemTouchListener研究", ItemTouchListenerFragment.class));
+        LIST.add(new Item("ItemDecoration 实现分组索引", ItemDecorationIndexFragment.class));
+        LIST.add(new Item("ItemTouchListener 研究", ItemTouchListenerFragment.class));
         LIST.add(new Item("ItemTouch Linear", LinearFragment.class));
         LIST.add(new Item("ItemTouch Grid", GridFragment.class));
         LIST.add(new Item("Pager Snap Helper", SnapHelperFragment.class));
         LIST.add(new Item("ScrollView 实现 SwipeMenu", SwipeMenu1Fragment.class));
-        LIST.add(new Item("自定义LinearLayoutManager", CustomLayoutManagerFragment.class));
-        LIST.add(new Item("自定义卡片LayoutManager", SideCardLayoutManagerFragment.class));
-        LIST.add(new Item("DiffUtil示例", DiffUtilFragment.class));
-        LIST.add(new Item("AsyncListDiffer示例", AsyncListDifferFragment.class));
-        LIST.add(new Item("Adapter对比 ListView", ListViewFragment.class));
-        LIST.add(new Item("Adapter对比 RecyclerView", RecyclerViewFragment.class));
+        LIST.add(new Item("自定义 LinearLayoutManager", CustomLayoutManagerFragment.class));
+        LIST.add(new Item("自定义卡片 LayoutManager", SideCardLayoutManagerFragment.class));
+        LIST.add(new Item("DiffUtil 示例", DiffUtilFragment.class));
+        LIST.add(new Item("AsyncListDiffer 示例", AsyncListDifferFragment.class));
+        LIST.add(new Item("Adapter 对比 ListView", ListViewFragment.class));
+        LIST.add(new Item("Adapter 对比 RecyclerView", RecyclerViewFragment.class));
+        LIST.add(new Item("ViewPager 2", ViewPager2Fragment.class));
     }
 
 }
