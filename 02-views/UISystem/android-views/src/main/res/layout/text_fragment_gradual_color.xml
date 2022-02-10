@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <com.ztiany.view.draw.text.ColorChangeTextView
+            android:id="@+id/id_tab_01"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cctv_progress="1"
+            app:cctv_text="关注"
+            app:cctv_text_color="#ff000000"
+            app:cctv_text_color_change="#ffff0000"
+            app:cctv_text_size="18sp" />
+
+        <com.ztiany.view.draw.text.ColorChangeTextView
+            android:id="@+id/id_tab_02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cctv_text="热点"
+            app:cctv_text_color="#ff000000"
+            app:cctv_text_color_change="#ffff0000"
+            app:cctv_text_size="18sp" />
+
+        <com.ztiany.view.draw.text.ColorChangeTextView
+            android:id="@+id/id_tab_03"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cctv_text="推荐"
+            app:cctv_text_color="#ff000000"
+            app:cctv_text_color_change="#ffff0000"
+            app:cctv_text_size="18sp" />
+
+        <com.ztiany.view.draw.text.ColorChangeTextView
+            android:id="@+id/id_tab_04"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cctv_text="长沙"
+            app:cctv_text_color="#ff000000"
+            app:cctv_text_color_change="#ffff0000"
+            app:cctv_text_size="18sp" />
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/id_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
