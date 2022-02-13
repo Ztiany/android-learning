@@ -71,15 +71,15 @@ class ViewModelHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "onViewCreated() called with: view = $view, savedInstanceState = $savedInstanceState")
+        subscribeViewModelFlow()
+
         binding?.run {
 
             viewmodelBtnLoad.setOnClickListener {
                 viewModel.doSomething()
-
                 viewModel.doSomethingLiveData().observe(viewLifecycleOwner) {
                     Log.d(EVENT_TAG, "liveData-viewLifecycleOwner-$it")
                 }
-
                 viewModel.doSomethingSingleLiveData().observe(viewLifecycleOwner) {
                     Log.d(EVENT_TAG, "singleLiveData-viewLifecycleOwner-$it")
                 }
@@ -120,6 +120,48 @@ class ViewModelHomeFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy() called")
+    }
+
+    private fun subscribeViewModelFlow() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.sharedFlowRepeat0.onEach {
+                    Log.d(EVENT_TAG, "sharedFlow0-repeated-view-$it")
+                }.onCompletion {
+                    Log.d(EVENT_TAG, "sharedFlow0-repeated-view-onCompletion")
+                }.launchIn(this)
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.sharedFlowRepeat1.onEach {
+                    Log.d(EVENT_TAG, "sharedFlow1-repeated-view-$it")
+                }.onCompletion {
+                    Log.d(EVENT_TAG, "sharedFlow1-repeated-view-onCompletion")
+                }.launchIn(this)
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.stateFlowRepeat.onEach {
+                    Log.d(EVENT_TAG, "stateFlow-repeated-view-$it")
+                }.onCompletion {
+                    Log.d(EVENT_TAG, "stateFlow-repeated-view-onCompletion")
+                }.launchIn(this)
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.channelRepeat.onEach {
+                    Log.d(EVENT_TAG, "channel-repeated-view-$it")
+                }.onCompletion {
+                    Log.d(EVENT_TAG, "channel-repeated-view-onCompletion")
+                }.launchIn(this)
+            }
+        }
     }
 
     private fun subscribeViewModel() {
@@ -186,7 +228,6 @@ class ViewModelHomeFragment : Fragment() {
                 }.launchIn(this)
             }
         }
-
     }
 
 }

@@ -57,6 +57,22 @@ class HomeViewModel @Inject constructor(
     val channelRepeat: Flow<DemoState>
         get() = _channelRepeat.receiveAsFlow()
 
+    private val _sharedFlowRepeat0View = MutableSharedFlow<DemoState>(0)
+    val sharedFlowRepeat0View: Flow<DemoState>
+        get() = _sharedFlowRepeat0View
+
+    private val _sharedFlowRepeat1View = MutableSharedFlow<DemoState>(1)
+    val sharedFlowRepeat1View: Flow<DemoState>
+        get() = _sharedFlowRepeat1View
+
+    private val _stateFlowRepeatView = MutableStateFlow(DemoState(false, ""))
+    val stateFlowRepeatView: Flow<DemoState>
+        get() = _stateFlowRepeatView
+
+    private val _channelRepeatView = Channel<DemoState>(Channel.BUFFERED)
+    val channelRepeatView: Flow<DemoState>
+        get() = _channelRepeatView.receiveAsFlow()
+
     fun doSomething() {
         viewModelScope.launch {
             notifyLoading()
@@ -99,10 +115,16 @@ class HomeViewModel @Inject constructor(
         _sharedFlowRepeat1.emit(demoState)
         _stateFlowRepeat.emit(demoState)
         _channelRepeat.send(demoState)
+
+        _sharedFlowRepeat0View.emit(demoState)
+        _sharedFlowRepeat1View.emit(demoState)
+        _stateFlowRepeatView.emit(demoState)
+        _channelRepeatView.send(demoState)
     }
 
     private suspend fun notifySuccess() {
         val demoState = DemoState(false, "Succeeded")
+
         _liveData.postValue(demoState)
         _singleLiveData.postValue(demoState)
 
@@ -115,6 +137,11 @@ class HomeViewModel @Inject constructor(
         _sharedFlowRepeat1.emit(demoState)
         _stateFlowRepeat.emit(demoState)
         _channelRepeat.send(demoState)
+
+        _sharedFlowRepeat0View.emit(demoState)
+        _sharedFlowRepeat1View.emit(demoState)
+        _stateFlowRepeatView.emit(demoState)
+        _channelRepeatView.send(demoState)
     }
 
 }
