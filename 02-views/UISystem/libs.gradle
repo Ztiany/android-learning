@@ -41,6 +41,8 @@ ext {
             kotlinCoroutinesAndroid: 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0',
 
             vlayout                : "com.alibaba.android:vlayout:1.2.12@aar",
+
+            timber                    : "com.jakewharton.timber:timber:4.7.1",
     ]
 
     // for get the last version suggestions.

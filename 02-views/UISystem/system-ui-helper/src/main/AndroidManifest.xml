@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.ztiany.systemui"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ztiany.systemui">
 
     <application
         android:allowBackup="true"
@@ -12,34 +14,38 @@
 
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".uisapmle.SystemUIActivity"/>
+        <activity android:name=".uisapmle.SystemUIActivity" />
 
-        <activity android:name=".uisapmle.SystemUIWithFragmentActivity"/>
+        <activity android:name=".uisapmle.SystemUIWithFragmentActivity" />
 
         <activity
             android:name=".uimods.SystemUIModes"
-            android:theme="@android:style/Theme.Material"/>
+            android:theme="@android:style/Theme.Material"
+            tools:targetApi="lollipop" />
 
         <activity
             android:name=".uisapmle.VisibilityFullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme">
-        </activity>
+            android:theme="@style/FullscreenTheme" />
 
-        <activity android:name=".uisapmle.FullscreenActivity"/>
+        <activity android:name=".uisapmle.FullscreenActivity" />
 
-        <activity android:name=".uisapmle.FullscreenActivity2"/>
+        <activity android:name=".uisapmle.FullscreenActivity2" />
 
         <activity
             android:name=".insets.WindowInsetsActivity"
             android:theme="@style/AppTheme.TranslucentSystemBar" />
+
+        <activity
+            android:name=".cutout.CutoutActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

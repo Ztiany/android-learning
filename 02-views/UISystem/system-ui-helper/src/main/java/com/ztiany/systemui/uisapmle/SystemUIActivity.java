@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.ztiany.systemui.R;
-import com.ztiany.systemui.Utils;
+import com.ztiany.systemui.utils.Utils;
 import com.ztiany.systemui.systemuihelper.SystemUiHelper;
 
 /**
