@@ -1,9 +1,12 @@
 package com.ztiany.systemui.cutout
 
 import android.os.Bundle
-import android.view.View
+import android.util.Log
+import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import com.ztiany.systemui.R
+
+private const val TAG = "CutoutActivity"
 
 class CutoutActivity : AppCompatActivity() {
 
@@ -11,10 +14,18 @@ class CutoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cutout)
 
-        SystemWindowCompat.setFullScreen(this)
-        SystemWindowCompat.displayInNotch(this)
-        SystemWindowCompat.setTransparentSystemBarViaViewFlags(this)
-        SystemWindowCompat.addSystemUiVisibilityFlags(this, View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+        //SystemWindowCompat.setFullScreen(this)
+        //SystemWindowCompat.displayInNotch(this)
+       SystemWindowCompat.setTransparentSystemBarViaViewFlags(this)
+        //SystemWindowCompat.hideStatusAndNavigationBar(this)
+        //SystemWindowCompat.setTranslucentSystemBar(this, true, true)
+        window.decorView.post {
+            Log.d(TAG, window.decorView.rootWindowInsets.displayCutout.toString())
+            Log.d(TAG, window.decorView.rootWindowInsets.stableInsetBottom.toString())
+            Log.d(TAG, window.decorView.rootWindowInsets.stableInsetTop.toString())
+            Log.d(TAG, window.decorView.rootWindowInsets.getInsetsIgnoringVisibility(WindowInsets.Type.statusBars()).toString())
+            Log.d(TAG, window.decorView.rootWindowInsets.getInsetsIgnoringVisibility(WindowInsets.Type.navigationBars()).toString())
+        }
     }
 
 }

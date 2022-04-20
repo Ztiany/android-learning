@@ -31,8 +31,15 @@ import org.jetbrains.annotations.NotNull;
 
 import timber.log.Timber;
 
+/*
+[TODO]
+
+1. WindowInsets API
+2. WindowInsetsController
+ */
+
 /**
- * A tool for adjusting system bars.[TODO: using WindowInsets API instead.]
+ * A tool for adjusting system bars.
  *
  * <p>
  * other useful libs:
@@ -355,6 +362,18 @@ public class SystemWindowCompat {
         View decorView = activity.getWindow().getDecorView();
         int previousFlags = decorView.getSystemUiVisibility();
         decorView.setSystemUiVisibility(previousFlags | flags);
+    }
+
+    public static void hideStatusBar(Activity activity) {
+        addSystemUiVisibilityFlags(activity, View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+    }
+
+    public static void hideNavigationBar(Activity activity) {
+        addSystemUiVisibilityFlags(activity, View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+    }
+
+    public static void hideStatusAndNavigationBar(Activity activity) {
+        addSystemUiVisibilityFlags(activity, View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
     private static void setTransparentSystemBarViaViewFlags(Activity activity, boolean status, boolean navigation) {
