@@ -4,11 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ztiany.systemui">
 
+    <!-- 声明最大屏幕尺寸，如果应用没有适配超大屏幕，则可以使用此属性强制在以兼容模式绘制应用。 -->
+    <!--    <supports-screens android:largestWidthLimitDp="320" />-->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:resizeableActivity="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -46,6 +50,16 @@
         <activity
             android:name=".cutout.CutoutActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ratio.RatioActivity"
+            android:maxAspectRatio="1.33"
+            android:resizeableActivity="false">
+            <!-- Android 7.1 及更低版本-->
+            <meta-data
+                android:name="android.max_aspect"
+                android:value="1.33" />
+        </activity>
 
     </application>
 

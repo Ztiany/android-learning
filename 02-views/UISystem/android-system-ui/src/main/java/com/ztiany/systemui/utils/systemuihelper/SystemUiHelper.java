@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ztiany.systemui.systemuihelper;
+package com.ztiany.systemui.utils.systemuihelper;
 
 import android.app.Activity;
 import android.os.Build;
