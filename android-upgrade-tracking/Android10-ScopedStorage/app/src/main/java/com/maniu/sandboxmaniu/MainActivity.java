@@ -35,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
     public void createSAF(View view) {
         NewFileRequest newFileRequest = new NewFileRequest(new File(Environment.DIRECTORY_DOWNLOADS + "/Maniu"));
         FileAccessManager.getInstance().newCreateFile(this, newFileRequest);
     }
+
 }
