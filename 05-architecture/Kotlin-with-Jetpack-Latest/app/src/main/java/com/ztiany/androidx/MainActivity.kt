@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.ztiany.androidx.jetpack.compatibility.CompatibilityActivity
+import com.ztiany.androidx.jetpack.datastore.DataStoreActivity
 import com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity
 import com.ztiany.androidx.jetpack.livedata.LiveDataActivity
 import com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity
@@ -37,6 +38,10 @@ class MainActivity : AppCompatActivity() {
 
     fun openJetpackViewModel(view: View) {
         startActivity(Intent(this, ViewModelActivity::class.java))
+    }
+
+    fun openJetpackDataStore(view: View) {
+        startActivity(Intent(this, DataStoreActivity::class.java))
     }
 
     fun openKotlinGoogleFlow(view: android.view.View) {

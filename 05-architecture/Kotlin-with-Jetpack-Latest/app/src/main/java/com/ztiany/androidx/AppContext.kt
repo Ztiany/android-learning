@@ -1,25 +1,21 @@
 package com.ztiany.androidx
 
+import android.app.Application
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
+import kotlin.properties.Delegates
 
 /**
  *@author Ztiany
- *      Email: ztiany3@gmail.com
- *      Date : 2017-07-09 18:51
  */
 @HiltAndroidApp
 class AppContext : MultiDexApplication() {
 
-    private object C {
-        lateinit var instance: AppContext
-    }
-
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
-        C.instance = this
+        application = this
     }
 
     override fun onCreate() {
@@ -28,9 +24,13 @@ class AppContext : MultiDexApplication() {
     }
 
     companion object {
-        fun getInstance(): AppContext {
-            return C.instance
+
+        private var application by Delegates.notNull<Application>()
+
+        fun getInstance(): Application {
+            return application
         }
+
     }
 
 }

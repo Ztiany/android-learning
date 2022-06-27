@@ -51,6 +51,11 @@
             android:label="Ktx" />
 
         <activity
+            android:name="com.ztiany.androidx.jetpack.datastore.DataStoreActivity"
+            android:exported="false"
+            android:label="DataStore" />
+
+        <activity
             android:name="com.ztiany.androidx.jetpack.compatibility.CompatibilityActivity"
             android:exported="false"
             android:label="Compatibility" />

@@ -45,6 +45,13 @@
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="openJetpackDataStore"
+            android:text="Jetpack：DataStore" />
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:onClick="viewModelWithGlobalScope"
             android:text="协程：ViewModel with GlobalScope" />

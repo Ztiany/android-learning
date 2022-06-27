@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.ztiany.androidx.kotlin.databinding.ActivityCoroutineGuideBinding
+import com.ztiany.androidx.kotlin.databinding.CoroutineGuideActivityBinding
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.actor
@@ -20,13 +20,13 @@ class CoroutineUIGuideActivity : AppCompatActivity() {
         private val TAG = CoroutineUIGuideActivity::class.simpleName
     }
 
-    private lateinit var binding: ActivityCoroutineGuideBinding
+    private lateinit var binding: CoroutineGuideActivityBinding
 
     private var completableJob = Job()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCoroutineGuideBinding.inflate(layoutInflater).also {
+        binding = CoroutineGuideActivityBinding.inflate(layoutInflater).also {
             setContentView(it.root)
         }
         setSupportActionBar(binding.toolbarCoroutineGuide)

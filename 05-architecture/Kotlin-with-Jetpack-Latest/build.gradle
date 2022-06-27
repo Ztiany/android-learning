@@ -1,7 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '1.7.0'
+    ext.coroutinesVersion = "1.6.3"
 
     repositories {
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
@@ -18,7 +19,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.2"
         classpath "com.google.dagger:hilt-android-gradle-plugin:2.40.5"
     }
 }
@@ -38,43 +39,4 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-ext {
-
-    def coroutinesVersion = "1.6.0"
-
-    kotlinLibraries = [
-            //Kotlin
-            kotlinStdlib           : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-            kotlinReflect          : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
-
-            //https://github.com/JetBrains/kotlin/tree/master/libraries/kotlinx-metadata/
-            //https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-metadata-jvm
-            kotlinxMetadata        : "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.3.0",
-
-            //https://github.com/Kotlin/kotlinx.coroutines
-            kotlinCoroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}",//协程库
-            kotlinAndroidCoroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
-            kotlinxCoroutinesRx2   : "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:${coroutinesVersion}",
-
-            //rx
-            //https://github.com/ReactiveX/RxKotlin
-            rxKotlin2              : 'io.reactivex.rxjava2:rxkotlin:2.4.0',
-
-            //ext
-            //https://github.com/enbandari/KotlinTuples
-            tuples                 : "com.bennyhuo.kotlin:kotlin-tuples:1.0",
-            //https://github.com/enbandari/ObjectPropertyDelegate
-            opd                    : "com.bennyhuo.kotlin:opd:1.0-rc-2",
-            //https://github.com/enbandari/KotlinDeepCopy
-            deepCopyReflect        : "com.bennyhuo.kotlin:deepcopy-reflect:1.0",
-            deepCopy               : "com.bennyhuo.kotlin:deepcopy-annotations:1.1.0",
-            deepCopyApt            : "com.bennyhuo.kotlin:deepcopy-compiler:1.1.0",
-            //https://github.com/enbandari/ReleasableVar
-            releasableVar          : "com.bennyhuo.kotlin:releasable-nonnull-vars:1.1.0",
-            
-            //splitties
-            splittiesBase          : "com.louiscad.splitties:splitties-fun-pack-android-base:3.0.0"
-    ]
 }

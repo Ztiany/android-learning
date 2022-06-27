@@ -8,7 +8,7 @@ class CompatibilityActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_compatibility)
+        setContentView(R.layout.app_compatibility_activity)
     }
 
 }
