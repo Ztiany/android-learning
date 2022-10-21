@@ -1,13 +1,12 @@
 package me.ztiany.compose.wechat.ui.theme
 
-import androidx.compose.runtime.Composable
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.*
+import androidx.compose.animation.core.TweenSpec
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
-import com.google.accompanist.insets.ProvideWindowInsets
 
 private val LightColorPalette = WeColors(
     bottomBar = white1,
@@ -196,10 +195,9 @@ fun WeTheme(theme: WeTheme.Theme = WeTheme.Theme.Light, content: @Composable () 
 
     CompositionLocalProvider(LocalWeColors provides colors) {
         MaterialTheme(
-            shapes = shapes
-        ) {
-            ProvideWindowInsets(content = content)
-        }
+            shapes = shapes,
+            content = content
+        )
     }
 
 }

@@ -2,5 +2,5 @@
 
 參考：
 
-1. [WeCompose](https://github.com/rengwuxian/WeCompose)
-2. [Jetpack Compose：从上手到进阶再到高手](https://ke.qq.com/course/3292756)
+1. [WeCompose](https://github.com/liuhuiAndroid/WeCompose)
+2. [Jetpack Compose：从上手到进阶再到高手](https://edu.rengwuxian.com/p/t_pc/goods_pc_detail/goods_detail/course_2Dpw6101YdL7bHFs5LFpYyzSUS6?app_id=appuoykwnbg2526)

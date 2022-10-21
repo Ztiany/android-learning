@@ -1,18 +1,23 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         //common
-        maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url "https://maven.aliyun.com/repository/google"}
-        maven { url 'https://dl.google.com/dl/android/maven2/' }
-        maven { url 'https://jitpack.io' }
-        maven { url "https://kotlin.bintray.com/kotlinx" }
         google()
         mavenCentral()
-        jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
 rootProject.name = "UIJetpackCompose"
 include ':compose-learn'
 include ':compose-wechat'
+include ':compose-rwx'
