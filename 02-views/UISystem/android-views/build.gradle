@@ -16,8 +16,8 @@ android {
 
     sourceSets {
         main {
-//            java.srcDirs += "src/android-28/java"
-//            res.srcDirs += "src/android-28/res"
+            //java.srcDirs += "src/android-28/java"
+            //res.srcDirs += "src/android-28/res"
 
             java.srcDirs += "src/github/java"
             res.srcDirs += "src/github/res"
@@ -25,8 +25,8 @@ android {
             java.srcDirs += "src/base/java"
             res.srcDirs += "src/base/res"
 
-            java.srcDirs += "src/recyclerview/java"
-            res.srcDirs += "src/recyclerview/res"
+            java.srcDirs += "src/list/java"
+            res.srcDirs += "src/list/res"
         }
     }
 

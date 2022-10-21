@@ -5,7 +5,7 @@ ext {
             targetSdkVersion: 27
     ]
 
-    kotlin_version = '1.6.10'
+    kotlin_version = '1.6.20'
     commonCompileSdkVersion = 32
     commonBuildToolsVersion = '28.0.3'
 

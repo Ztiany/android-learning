@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ztiany.recyclerview.adapter.ConcatAdapterFragment;
@@ -53,7 +54,7 @@ public class RvMainActivity extends AppCompatActivity {
         }
 
         mRecyclerView = findViewById(R.id.activity_main);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         setAdapter();
     }
 

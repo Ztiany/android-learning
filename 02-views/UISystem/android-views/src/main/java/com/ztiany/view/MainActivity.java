@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ztiany.recyclerview.RvMainActivity;
@@ -52,8 +53,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-
     private static final List<Item> LIST = new ArrayList<>();
 
     @Override
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setContentInsetStartWithNavigation(0);
 
         RecyclerView recyclerView = findViewById(R.id.activity_main);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ItemAdapter(this, LIST));
     }
 
