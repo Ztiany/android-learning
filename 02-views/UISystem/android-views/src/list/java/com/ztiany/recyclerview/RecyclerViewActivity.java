@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +23,8 @@ import com.ztiany.recyclerview.snap.SnapHelperFragment;
 import com.ztiany.recyclerview.swipemenu.SwipeMenu1Fragment;
 import com.ztiany.recyclerview.viewpager2.MultiViewPager2Fragment;
 import com.ztiany.recyclerview.viewpager2.ViewPager2Fragment;
+import com.ztiany.view.Item;
+import com.ztiany.view.ItemAdapter;
 import com.ztiany.view.R;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ import java.util.List;
 /**
  * RecyclerView 技术研究。
  */
-public class RvMainActivity extends AppCompatActivity {
+public class RecyclerViewActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private static final List<Item> LIST = new ArrayList<>();
@@ -40,7 +41,7 @@ public class RvMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rv_common_rv_activity_main);
+        setContentView(R.layout.main_activity);
         initView();
     }
 

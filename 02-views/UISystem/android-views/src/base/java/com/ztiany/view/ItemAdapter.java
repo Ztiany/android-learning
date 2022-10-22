@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
 
-class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final Context mContext;
     private final List<Item> mItems;
 
-    ItemAdapter(Context context, List<Item> items) {
+    public ItemAdapter(Context context, List<Item> items) {
         mContext = context;
         mItems = items;
     }

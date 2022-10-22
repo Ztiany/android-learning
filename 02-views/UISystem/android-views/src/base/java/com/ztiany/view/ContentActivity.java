@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment;
 
 /**
  * @author Ztiany
- *         Email: ztiany3@gmail.com
- *         Date : 2017-08-05 15:27
+ * Email: ztiany3@gmail.com
+ * Date : 2017-08-05 15:27
  */
 public class ContentActivity extends AppCompatActivity {
 
@@ -53,7 +53,6 @@ public class ContentActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         String title = getIntent().getStringExtra("key1");
-        Log.d("RvContentActivity", title);
         mToolbar.setTitle(title);
     }
 

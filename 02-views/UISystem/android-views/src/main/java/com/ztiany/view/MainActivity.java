@@ -4,11 +4,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ztiany.recyclerview.RvMainActivity;
+import com.ztiany.recyclerview.RecyclerViewActivity;
 import com.ztiany.view.animation.circular_reveal.CircularRevealActivity;
 import com.ztiany.view.animation.reversal.ReversalActivity;
 import com.ztiany.view.animation.spring.SpringScrollViewFragment;
@@ -44,6 +43,7 @@ import com.ztiany.view.drawable.DrawableVectorFragment;
 import com.ztiany.view.drawable.FishDrawableFragment;
 import com.ztiany.view.drawable.SVGChinaFragment;
 import com.ztiany.view.inflater.LayoutInflaterActivity;
+import com.ztiany.view.material.MaterialComponentActivity;
 import com.ztiany.view.scroll.ScrollFragment;
 import com.ztiany.view.scroll.sticky.StickyNavigationFragment;
 import com.ztiany.view.window.RealWindowSizeActivity;
@@ -73,12 +73,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     static {
-        LIST.add(new Item("RecyclerView 学习", RvMainActivity.class));
+        LIST.add(new Item("RecyclerView 学习", RecyclerViewActivity.class));
+        LIST.add(new Item("Material 组件学习", MaterialComponentActivity.class));
 
         LIST.add(new Item("HenCoderPlus 练习", HenCoderPlusFragment.class));
         LIST.add(new Item("HenCoderPlus ViewRoot", ViewRootActivity.class));
 
-        LIST.add(new Item("Bitmap研究", BitmapActivity.class));
+        LIST.add(new Item("Bitmap 研究", BitmapActivity.class));
         LIST.add(new Item("事件 & 滑动", ScrollFragment.class));
         LIST.add(new Item("Sticky Navigation", StickyNavigationFragment.class));
         LIST.add(new Item("Canvas 绘制", CanvasFragment.class));
@@ -94,14 +95,14 @@ public class MainActivity extends AppCompatActivity {
         LIST.add(new Item("文字渐变 ViewPager", TextGradualViewPagerFragment.class));
         LIST.add(new Item("过度绘制", OverDrawFragment.class));
 
-        LIST.add(new Item("ViewDragHelper使用", ViewDragHelperFragment.class));
+        LIST.add(new Item("ViewDragHelper 使用", ViewDragHelperFragment.class));
         LIST.add(new Item("自定义 View", CustomViewFragment.class));
         LIST.add(new Item("消息的拖拽", MessageDragFragment.class));
         LIST.add(new Item("流式布局", FlowLayoutFragment.class));
         LIST.add(new Item("下拉刷新", PullToRefreshFragment.class));
 
-        LIST.add(new Item("Spring动画", SpringScrollViewFragment.class));
-        LIST.add(new Item("CircularReveal动画", CircularRevealActivity.class));
+        LIST.add(new Item("Spring 动画", SpringScrollViewFragment.class));
+        LIST.add(new Item("CircularReveal 动画", CircularRevealActivity.class));
         LIST.add(new Item("翻转动画", ReversalActivity.class));
 
         LIST.add(new Item("BitmapDrawable", DrawableBitmapFragment.class));

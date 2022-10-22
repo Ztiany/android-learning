@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 /**
  * @author Ztiany
  * Email: ztiany3@gmail.com
- * Date : 2020-11-08 15:40
  */
 public class BaseViewFragment extends Fragment {
 

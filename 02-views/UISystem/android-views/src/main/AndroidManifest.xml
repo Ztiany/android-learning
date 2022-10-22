@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ztiany.view">
 
@@ -34,13 +35,14 @@
         <!-- =================================== RecyclerView =================================== -->
 
         <activity
-            android:name="com.ztiany.recyclerview.RvMainActivity"
+            android:name="com.ztiany.recyclerview.RecyclerViewActivity"
             android:label="RecyclerView Learning"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <!-- =================================== Material Component =================================== -->
         <activity
-            android:name="com.ztiany.recyclerview.RvContentActivity"
-            android:label="RecyclerView Learning"
+            android:name="com.ztiany.view.material.MaterialComponentActivity"
+            android:label="MaterialComponent Learning"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- =================================== hencoderplus =================================== -->

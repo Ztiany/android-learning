@@ -1,11 +1,11 @@
 package com.ztiany.view;
 
-class Item {
+public class Item {
 
     final String mName;
     final Class mClazz;
 
-    Item(String name, Class clazz) {
+    public Item(String name, Class clazz) {
         mName = name;
         mClazz = clazz;
     }

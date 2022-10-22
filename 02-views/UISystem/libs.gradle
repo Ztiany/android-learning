@@ -1,7 +1,7 @@
 ext {
 
     buildVersion = [
-            minSdkVersion   : 14,
+            minSdkVersion   : 19,
             targetSdkVersion: 27
     ]
 
@@ -42,7 +42,7 @@ ext {
 
             vlayout                : "com.alibaba.android:vlayout:1.2.12@aar",
 
-            timber                    : "com.jakewharton.timber:timber:4.7.1",
+            timber                 : "com.jakewharton.timber:timber:4.7.1",
     ]
 
     // for get the last version suggestions.
