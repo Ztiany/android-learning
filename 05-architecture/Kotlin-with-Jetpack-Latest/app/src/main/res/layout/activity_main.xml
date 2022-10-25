@@ -15,42 +15,55 @@
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="openJetpackAppCompat"
             android:text="Jetpack：AppCompat" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openJetpackActivity"
+            android:text="Jetpack：Activities" />
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openJetpackFragment"
+            android:text="Jetpack：Fragments" />
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="openJetpackLifecycle"
             android:text="Jetpack：Lifecycle" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="openJetpackLiveData"
             android:text="Jetpack：LiveData" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="openJetpackViewModel"
             android:text="Jetpack：ViewModel" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="openJetpackDataStore"
             android:text="Jetpack：DataStore" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:onClick="viewModelWithGlobalScope"
@@ -58,7 +71,7 @@
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:onClick="openKotlinGoogleFlow"

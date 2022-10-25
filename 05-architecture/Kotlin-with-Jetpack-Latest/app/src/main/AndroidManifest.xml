@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ztiany.androidx.kotlin">
 
@@ -34,6 +33,21 @@
             android:name="com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity"
             android:exported="false"
             android:label="Lifecycle" />
+
+        <activity
+            android:name="com.ztiany.androidx.jetpack.fragment.FragmentDemoActivity"
+            android:exported="false"
+            android:label="Fragments" />
+
+        <activity
+            android:name="com.ztiany.androidx.jetpack.activity.FirstActivity"
+            android:exported="false"
+            android:label="FirstActivity" />
+
+        <activity
+            android:name="com.ztiany.androidx.jetpack.activity.SecondActivity"
+            android:exported="false"
+            android:label="SecondActivity" />
 
         <activity
             android:name="com.ztiany.androidx.jetpack.livedata.LiveDataActivity"
