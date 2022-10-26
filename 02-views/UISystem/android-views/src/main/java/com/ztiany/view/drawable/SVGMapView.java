@@ -28,7 +28,7 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class MapView extends View {
+public class SVGMapView extends View {
 
     //上下文
     private Context context;
@@ -39,20 +39,20 @@ public class MapView extends View {
     //矩形对象
     private RectF totalRect;
     //定义一个装载所有省份的集合
-    List<ProvinceItem> itemList;
+    List<SVGProvinceItem> itemList;
     //绘制地图的颜色
     private int[] colorArray = new int[]{0xFF239BD7, 0xFF30A9E5, 0xFF80CBF1, 0xFFFFFFFF};
     //是否XML已经解析完毕
     private boolean isEnd = false;
     //当前选中的省份
-    private ProvinceItem select;
+    private SVGProvinceItem select;
 
 
-    public MapView(Context context) {
+    public SVGMapView(Context context) {
         super(context);
     }
 
-    public MapView(Context context, AttributeSet attrs) {
+    public SVGMapView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
@@ -65,7 +65,7 @@ public class MapView extends View {
 
     }
 
-    public MapView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SVGMapView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -75,7 +75,7 @@ public class MapView extends View {
             //定义一个输入流对象去加载xml文件
             InputStream inputStream = context.getResources().openRawResource(R.raw.china);
             //定义一个装载所有省份的集合
-            List<ProvinceItem> list = new ArrayList<>();
+            List<SVGProvinceItem> list = new ArrayList<>();
             try {
                 //获取到解析器的工厂类
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -97,8 +97,8 @@ public class MapView extends View {
                     Element element = (Element) items.item(x);
                     String pathData = element.getAttribute("android:pathData");
                     Path path = PathParser.createPathFromPathData(pathData);
-                    ProvinceItem provinceItem = new ProvinceItem(path);
-                    list.add(provinceItem);
+                    SVGProvinceItem SVGProvinceItem = new SVGProvinceItem(path);
+                    list.add(SVGProvinceItem);
 
                     //初始化每个省份的矩形
                     RectF rect = new RectF();
@@ -168,11 +168,11 @@ public class MapView extends View {
         if (itemList != null && itemList.size() > 0) {
             canvas.save();
             canvas.scale(scale, scale);
-            for (ProvinceItem provinceItem : itemList) {
-                if (select == provinceItem) {
-                    provinceItem.drawItem(canvas, paint, true);
+            for (SVGProvinceItem SVGProvinceItem : itemList) {
+                if (select == SVGProvinceItem) {
+                    SVGProvinceItem.drawItem(canvas, paint, true);
                 } else {
-                    provinceItem.drawItem(canvas, paint, false);
+                    SVGProvinceItem.drawItem(canvas, paint, false);
                 }
             }
         }
@@ -218,11 +218,11 @@ public class MapView extends View {
             return;
         }
         //定义一个空的被选中的省份
-        ProvinceItem selectItem = null;
-        for (ProvinceItem provinceItem : itemList) {
+        SVGProvinceItem selectItem = null;
+        for (SVGProvinceItem SVGProvinceItem : itemList) {
             //入股点击的是这个省份的范围之内 就把当前省份的封装对象绘制的方法 传一个true
-            if (provinceItem.isTouch(x / scale, y / scale)) {
-                selectItem = provinceItem;
+            if (SVGProvinceItem.isTouch(x / scale, y / scale)) {
+                selectItem = SVGProvinceItem;
             }
         }
         if (selectItem != null) {

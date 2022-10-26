@@ -50,4 +50,15 @@
         <item name="cornerSizeBottomRight">50%</item>
     </style>
 
+    <!-- MaterialShapeDrawable -->
+    <declare-styleable name="MaterialShapeDrawable_Layout">
+        <attr name="shapeAppearance" />
+
+        <attr name="msd_strokeWidth" format="dimension" />
+        <attr name="msd_strokeColor_normal" format="color" />
+        <attr name="msd_strokeColor_press" format="color" />
+
+        <attr name="msd_tintColor_press" format="color" />
+    </declare-styleable>
+
 </resources>

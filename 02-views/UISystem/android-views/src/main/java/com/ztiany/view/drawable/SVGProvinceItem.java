@@ -11,14 +11,14 @@ import android.graphics.Region;
 /**
  * 省份的封装类
  */
-public class ProvinceItem {
+public class SVGProvinceItem {
 
     //path对象
     private Path path;
     //绘制的颜色
     private int drawColor;
 
-    public ProvinceItem(Path path) {
+    public SVGProvinceItem(Path path) {
         this.path = path;
     }
 
