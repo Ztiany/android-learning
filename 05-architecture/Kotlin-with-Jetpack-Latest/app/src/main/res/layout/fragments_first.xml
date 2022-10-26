@@ -11,6 +11,20 @@
         style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="startSecond" />
+        android:text="Add Second" />
+
+    <Button
+        android:id="@+id/btn_replace_second"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Replace by Second" />
+
+    <Button
+        android:id="@+id/btn_get_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Content" />
 
 </LinearLayout>
