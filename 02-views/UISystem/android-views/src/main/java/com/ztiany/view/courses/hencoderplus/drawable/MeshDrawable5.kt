@@ -3,7 +3,7 @@ package com.ztiany.view.courses.hencoderplus.drawable
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import androidx.core.graphics.toColorInt
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 
 private val INTERVAL = 50.dp
 

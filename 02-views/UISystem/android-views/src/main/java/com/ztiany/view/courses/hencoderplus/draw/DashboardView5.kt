@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 import android.graphics.*
 import kotlin.math.cos
 import kotlin.math.sin

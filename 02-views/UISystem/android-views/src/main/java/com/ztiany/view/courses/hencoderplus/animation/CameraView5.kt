@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.graphics.withSave
 import com.ztiany.view.R
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 
 private val BITMAP_SIZE = 200.dp
 private val BITMAP_PADDING = 100.dp

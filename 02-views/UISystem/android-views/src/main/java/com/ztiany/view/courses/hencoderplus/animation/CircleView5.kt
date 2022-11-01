@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 
 class CircleView5 @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

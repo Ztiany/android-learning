@@ -9,7 +9,7 @@ import android.util.AttributeSet
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.children
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 import java.util.*
 import kotlin.math.max
 

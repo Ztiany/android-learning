@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import com.ztiany.view.R
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 
 
 private val CIRCLE_COLOR = Color.parseColor("#90A4AE")

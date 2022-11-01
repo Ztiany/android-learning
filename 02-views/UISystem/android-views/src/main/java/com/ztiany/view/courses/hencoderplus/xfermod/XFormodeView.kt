@@ -9,7 +9,7 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 
 private val XFERMODE = PorterDuffXfermode(PorterDuff.Mode.DST_OVER)
 

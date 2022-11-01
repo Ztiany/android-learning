@@ -20,4 +20,5 @@
 
     <color name="transparent">#00000000</color><!--透明-->
 
+    <color name="ic_launcher_background">#5962CB</color>
 </resources>

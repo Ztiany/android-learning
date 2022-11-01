@@ -75,9 +75,7 @@ public class MainActivity extends AppCompatActivity {
     static {
         LIST.add(new Item("RecyclerView 学习", RecyclerViewActivity.class));
         LIST.add(new Item("Material 组件学习", MaterialComponentActivity.class));
-
         LIST.add(new Item("HenCoderPlus 练习", HenCoderPlusFragment.class));
-        LIST.add(new Item("HenCoderPlus ViewRoot", ViewRootActivity.class));
 
         LIST.add(new Item("Bitmap 研究", BitmapActivity.class));
         LIST.add(new Item("事件 & 滑动", ScrollFragment.class));
@@ -121,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
 
         LIST.add(new Item("ConstraintLayout 基础", ConstraintLayoutActivity.class));
         LIST.add(new Item("ViewPager 多页同屏", ViewPagerFragment.class));
+
+        LIST.add(new Item("子线程更新 UI", ViewRootActivity.class));
     }
 
 }

@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.view.View;
 
-import com.ztiany.view.courses.hencoderplus.Utils;
+import com.ztiany.view.courses.hencoderplus.utils.Utils;
 import com.ztiany.view.utils.UnitConverter;
 
 public class ImageTextView extends View {

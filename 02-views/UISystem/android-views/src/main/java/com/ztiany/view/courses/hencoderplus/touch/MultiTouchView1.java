@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.ztiany.view.courses.hencoderplus.Utils;
+import com.ztiany.view.courses.hencoderplus.utils.Utils;
 import com.ztiany.view.utils.UnitConverter;
 
 import androidx.annotation.Nullable;

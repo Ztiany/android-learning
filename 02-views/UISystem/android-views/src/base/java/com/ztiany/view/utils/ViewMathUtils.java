@@ -5,7 +5,6 @@ import android.graphics.PointF;
 
 public class ViewMathUtils {
 
-
     /**
      * 获取状态栏高度
      */

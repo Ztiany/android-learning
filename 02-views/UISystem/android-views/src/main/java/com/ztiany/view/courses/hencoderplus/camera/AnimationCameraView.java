@@ -9,7 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.View;
 
-import com.ztiany.view.courses.hencoderplus.Utils;
+import com.ztiany.view.courses.hencoderplus.utils.Utils;
 import com.ztiany.view.utils.UnitConverter;
 
 public class AnimationCameraView extends View {

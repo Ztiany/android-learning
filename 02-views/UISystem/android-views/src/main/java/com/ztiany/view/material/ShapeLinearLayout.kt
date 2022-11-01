@@ -3,13 +3,15 @@ package com.ztiany.view.material
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
+import android.widget.LinearLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
-class ShapeFrameLayout @JvmOverloads constructor(
+class ShapeLinearLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
-) : FrameLayout(context, attrs), EnhancedShapeable {
+) : LinearLayout(context, attrs), EnhancedShapeable {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs)
 

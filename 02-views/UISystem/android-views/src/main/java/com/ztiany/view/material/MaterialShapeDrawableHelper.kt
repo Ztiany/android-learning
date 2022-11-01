@@ -32,11 +32,12 @@ import com.ztiany.view.R
  *  2. [Material Components——ShapeableImageView](https://xuyisheng.top/mdc-shape/)
  *  3. [to create rounded corners for a view without having to create a separate drawable](https://stackoverflow.com/questions/59046711/android-is-there-a-simple-way-to-create-rounded-corners-for-a-view-without-havi)
  *
+ * notes: the background attribute of views that uses MaterialShapeDrawableHelper may not work.
  *@author Ztiany
  */
 class MaterialShapeDrawableHelper(
     context: Context, attrs: AttributeSet?, defaultStyleAttr: Int = 0, defaultStyleRes: Int = 0
-) {
+) : EnhancedShapeable {
 
     private var shapeAppearanceModel: ShapeAppearanceModel
 
@@ -64,14 +65,12 @@ class MaterialShapeDrawableHelper(
     private fun MaterialShapeDrawable.setDrawableStyle(shapeTypedValue: TypedArray, bgTypedValue: TypedArray) {
         if (bgTypedValue.hasValue(R.styleable.ViewBackgroundHelper_backgroundTint)) {
             tintList = bgTypedValue.getColorStateList(R.styleable.ViewBackgroundHelper_backgroundTint)
-            Log.d(TAG, "setDrawableStyle.tintList: $tintList")
         }
 
         if (bgTypedValue.hasValue(R.styleable.ViewBackgroundHelper_backgroundTintMode)) {
             val tintModeValue = shapeTypedValue.getInt(R.styleable.ViewBackgroundHelper_backgroundTintMode, -1)
             val tintMode = DrawableUtils.parseTintMode(tintModeValue, PorterDuff.Mode.SRC_IN)
             setTintMode(tintMode)
-            Log.d(TAG, "setDrawableStyle.setTintMode: $tintMode")
         }
 
         fillColor = createFillColorListCustomAttr(shapeTypedValue)
@@ -168,8 +167,8 @@ class MaterialShapeDrawableHelper(
             paddings[2] = paddingHorizontal
         }
         if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding_left)) {
-            val paddingTop = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_left, 0)
-            paddings[0] = paddingTop
+            val paddingLeft = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_left, 0)
+            paddings[0] = paddingLeft
         }
         if (shapeTypedValue.hasValue(R.styleable.MaterialShapeDrawableView_msd_padding_top)) {
             val paddingTop = shapeTypedValue.getDimensionPixelOffset(R.styleable.MaterialShapeDrawableView_msd_padding_top, 0)
@@ -200,6 +199,12 @@ class MaterialShapeDrawableHelper(
         target.background = drawable
     }
 
-}
+    override fun setShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {
+        drawable.shapeAppearanceModel = shapeAppearanceModel
+    }
 
-private const val TAG = "MaterialShapeDrawable"
+    override fun getShapeAppearanceModel(): ShapeAppearanceModel {
+        return drawable.shapeAppearanceModel
+    }
+
+}

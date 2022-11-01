@@ -60,6 +60,34 @@
             app:msd_strokeWidth="4dp"
             app:shapeAppearance="@style/StyleShapeable_Hexagon" />
 
+        <TextView
+            android:id="@+id/material_tv_01"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Ztiany"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/material_tv_02"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="50dp"
+            android:gravity="center"
+            android:text="Ztiany"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/material_view_test1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
     </LinearLayout>
 
 </ScrollView>

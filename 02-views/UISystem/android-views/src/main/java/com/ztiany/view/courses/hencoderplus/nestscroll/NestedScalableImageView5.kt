@@ -15,8 +15,8 @@ import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.NestedScrollingChild3
 import androidx.core.view.NestedScrollingChildHelper
 import androidx.core.view.ViewCompat
-import com.ztiany.view.courses.hencoderplus.Utils.getAvatar
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.Utils.getAvatar
+import com.ztiany.view.courses.hencoderplus.utils.dp
 import kotlin.math.max
 import kotlin.math.min
 
@@ -69,7 +69,7 @@ class NestedScalableImageView5 @JvmOverloads constructor(
         scaleAnimator.setFloatValues(smallScale, bigScale)
     }
 
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
+    override fun onTouchEvent(event: MotionEvent): Boolean {
         scaleGestureDetector.onTouchEvent(event)
         if (!scaleGestureDetector.isInProgress) {
             gestureDetector.onTouchEvent(event)

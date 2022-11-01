@@ -10,7 +10,7 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
 import com.ztiany.view.R
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 
 private val IMAGE_SIZE = 150.dp
 private val IMAGE_PADDING = 50.dp

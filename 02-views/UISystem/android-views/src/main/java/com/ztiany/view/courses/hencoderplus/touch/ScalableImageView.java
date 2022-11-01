@@ -13,7 +13,7 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.OverScroller;
 
-import com.ztiany.view.courses.hencoderplus.Utils;
+import com.ztiany.view.courses.hencoderplus.utils.Utils;
 import com.ztiany.view.utils.UnitConverter;
 
 import androidx.annotation.Nullable;

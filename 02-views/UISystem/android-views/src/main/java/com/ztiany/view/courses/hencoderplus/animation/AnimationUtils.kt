@@ -3,7 +3,7 @@ package com.ztiany.view.courses.hencoderplus.animation
 import android.animation.*
 import android.graphics.PointF
 import android.view.View
-import com.ztiany.view.courses.hencoderplus.dp
+import com.ztiany.view.courses.hencoderplus.utils.dp
 
 fun doProvinceAnimation(view: View) {
     val animator = ObjectAnimator.ofObject(view, "province", ProvinceEvaluator(), "澳门特别行政区")

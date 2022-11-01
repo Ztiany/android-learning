@@ -1,4 +1,4 @@
-package com.ztiany.view.courses.hencoderplus
+package com.ztiany.view.courses.hencoderplus.utils
 
 import android.content.res.Resources
 import android.util.TypedValue
