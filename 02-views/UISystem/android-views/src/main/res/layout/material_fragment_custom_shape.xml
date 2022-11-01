@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.ztiany.view.material.ShapeFrameLayout
+            style="@style/StyleShapeLayout"
+            app:backgroundTint="@color/colorPrimary"
+            app:shapeAppearance="@style/StyleShapeable_Rounded10" />
+
+        <!-- 注意这里 padding 的数值是描边宽度的一半 -->
+        <com.ztiany.view.material.ShapeFrameLayout
+            style="@style/StyleShapeLayout"
+            android:padding="2dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:msd_strokeColor_disabled="#AABBDD"
+            app:msd_strokeColor_normal="@color/red"
+            app:msd_strokeWidth="4dp"
+            app:shapeAppearance="@style/StyleShapeable_Cut10" />
+
+        <com.ztiany.view.material.ShapeFrameLayout
+            style="@style/StyleShapeLayout"
+            android:padding="2dp"
+            app:msd_background_normal="@color/colorPrimary"
+            app:msd_strokeColor_normal="@color/red"
+            app:msd_strokeWidth="4dp"
+            app:shapeAppearance="@style/StyleShapeable_Cut50Percent" />
+
+        <com.ztiany.view.material.ShapeFrameLayout
+            style="@style/StyleShapeLayout"
+            android:padding="2dp"
+            app:msd_background_normal="@color/green"
+            app:msd_strokeColor_normal="@color/red"
+            app:msd_strokeWidth="4dp"
+            app:shapeAppearance="@style/StyleShapeable_Leaf" />
+
+        <com.ztiany.view.material.ShapeFrameLayout
+            style="@style/StyleShapeLayout"
+            android:padding="2dp"
+            app:msd_strokeColor_normal="@color/red"
+            app:msd_strokeWidth="4dp"
+            app:shapeAppearance="@style/StyleShapeable_TopCircle" />
+
+        <com.ztiany.view.material.ShapeFrameLayout
+            style="@style/StyleShapeLayout"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:padding="2dp"
+            app:msd_strokeColor_normal="@color/red"
+            app:msd_strokeWidth="4dp"
+            app:shapeAppearance="@style/StyleShapeable_Hexagon" />
+
+    </LinearLayout>
+
+</ScrollView>

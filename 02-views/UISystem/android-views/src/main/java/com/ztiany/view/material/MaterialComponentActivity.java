@@ -46,6 +46,8 @@ public class MaterialComponentActivity extends AppCompatActivity {
 
     static {
         LIST.add(new Item("ShapeableImageView", ShapeableImageViewFragment.class));
+        LIST.add(new Item("MaterialButton", MaterialButtonFragment.class));
+        LIST.add(new Item("CustomShapeLayout", MaterialShapeDrawableFragment.class));
     }
 
 }

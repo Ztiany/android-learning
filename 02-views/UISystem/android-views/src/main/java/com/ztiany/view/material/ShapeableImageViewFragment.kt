@@ -59,5 +59,4 @@ class ShapeableImageViewFragment : SimpleLayoutFragment() {
 
     }
 
-
 }
