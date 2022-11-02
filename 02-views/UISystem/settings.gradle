@@ -1,6 +1,16 @@
 include ':android-views'
+include ':android-touch-conflict'
+include ':android-system-ui'
+
 include ':constraint-layout'
 include ':constraint-motion'
 include ':constraint-transition'
-include ':android-touch-conflict'
-include ':android-system-ui'
+
+include ':hencoder-practice-draw1'
+include ':hencoder-practice-draw2'
+include ':hencoder-practice-draw3'
+include ':hencoder-practice-draw4'
+include ':hencoder-practice-draw5'
+include ':hencoder-practice-draw6'
+include ':hencoder-practice-draw7'
+include ':hencoder-practice-layout1'
