@@ -1,4 +1,4 @@
-package com.ztiany.systemui.cutout;
+package com.ztiany.systemui.utils;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -26,8 +26,6 @@ import androidx.annotation.NonNull;
 
 import com.ztiany.systemui.utils.AndroidVersion;
 import com.ztiany.systemui.R;
-
-import org.jetbrains.annotations.NotNull;
 
 import timber.log.Timber;
 
@@ -64,9 +62,9 @@ import timber.log.Timber;
  * @author Ztiany
  * Date :   2016-03-16 21:52
  */
-public class SystemWindowCompat {
+public class SystemUICompat {
 
-    private SystemWindowCompat() {
+    private SystemUICompat() {
         throw new UnsupportedOperationException();
     }
 

@@ -1,7 +1,4 @@
-package com.ztiany.systemui
-
-import com.ztiany.systemui.utils.AndroidVersion
-
+package com.ztiany.systemui.utils
 
 inline fun ifSDKAbove(sdkVersion: Int, block: () -> Unit) {
     if (AndroidVersion.above(sdkVersion)) {

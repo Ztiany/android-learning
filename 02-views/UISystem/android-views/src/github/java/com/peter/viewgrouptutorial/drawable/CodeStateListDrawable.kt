@@ -5,7 +5,10 @@ import android.graphics.drawable.StateListDrawable
 import android.os.Build
 
 /**
- * 参考 [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)。
+ * 参考
+ *
+ * - [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)
+ * - [CodeStateListDrawable](https://github.com/lizijin/zijiexiaozhan/blob/main/app/src/main/java/com/peter/viewgrouptutorial/drawable/CodeStateListDrawable.kt)
  *
  * TODO: 增加缓存机制。
  */

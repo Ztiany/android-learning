@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import com.ztiany.systemui.R
+import com.ztiany.systemui.utils.SystemUICompat
 
 private const val TAG = "CutoutActivity"
 
@@ -16,7 +17,7 @@ class CutoutActivity : AppCompatActivity() {
 
         //SystemWindowCompat.setFullScreen(this)
         //SystemWindowCompat.displayInNotch(this)
-       SystemWindowCompat.setTransparentSystemBarViaViewFlags(this)
+       SystemUICompat.setTransparentSystemBarViaViewFlags(this)
         //SystemWindowCompat.hideStatusAndNavigationBar(this)
         //SystemWindowCompat.setTranslucentSystemBar(this, true, true)
         window.decorView.post {

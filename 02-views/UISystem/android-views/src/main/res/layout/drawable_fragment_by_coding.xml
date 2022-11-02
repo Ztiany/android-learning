@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Use by Coding"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/drawable_view01"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view02"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view03"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view04"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/drawable_tv01"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/drawable_view05"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true" />
+
+            <View
+                android:id="@+id/drawable_view06"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view07"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/drawable_view08"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Use by CustomView"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

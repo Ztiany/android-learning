@@ -9,11 +9,10 @@ import com.google.android.material.textview.MaterialTextView
 class ShapeTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = android.R.attr.textViewStyle,
-    defStyleRes: Int = 0,
-) : MaterialTextView(context, attrs, defStyleAttr, defStyleRes), EnhancedShapeable {
+    defStyleAttr: Int = android.R.attr.textViewStyle
+) : MaterialTextView(context, attrs, defStyleAttr), EnhancedShapeable {
 
-    private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
+    private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
 
     init {
         mdHelper.update(this)

@@ -8,7 +8,12 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import java.lang.ref.WeakReference
 
-/** 参考 [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)。*/
+/**
+ * 参考
+ *
+ * - [又一个减少冗余 Drawable 资源的解决方案](https://mp.weixin.qq.com/s/qxMoI7UTw3WtiRR6oIDGKA)
+ * - [CodeGradientDrawable](https://github.com/lizijin/zijiexiaozhan/blob/main/app/src/main/java/com/peter/viewgrouptutorial/drawable/CodeGradientDrawable.kt)
+ */
 class CodeGradientDrawable private constructor(
     theme: Resources.Theme,
     shapeType: Int,
@@ -33,6 +38,7 @@ class CodeGradientDrawable private constructor(
         solidColor?.let {
             color = it
         }
+
         gradient?.let {
             with(it) {
                 setGradientCenter(this.centerX, this.centerY)
@@ -130,10 +136,10 @@ class CodeGradientDrawable private constructor(
         }
 
         @JvmOverloads
-        fun size(width: Int, widthUnit: Int = DP_UNIT, height: Int, heightUnit: Int = DP_UNIT) =
+        fun size(width: Int, height: Int, unit: Int = DP_UNIT) =
             apply {
-                this.width = getDimensionPixelSize(widthUnit, width.toFloat(), metrics)
-                this.height = getDimensionPixelSize(heightUnit, height.toFloat(), metrics)
+                this.width = getDimensionPixelSize(unit, width.toFloat(), metrics)
+                this.height = getDimensionPixelSize(unit, height.toFloat(), metrics)
             }
 
         fun build(): CodeGradientDrawable {
@@ -200,7 +206,6 @@ class CodeGradientDrawable private constructor(
         }
     }
 }
-
 
 class Gradient private constructor(
     internal val centerX: Float,
@@ -315,35 +320,28 @@ class Corner private constructor(
         @JvmOverloads
         fun radii(
             topLeftRadius: Float = 0f,
-            topLeftRadiusUnit: Int = DP_UNIT,
             topRightRadius: Float = 0f,
-            topRightRadiusUnit: Int = DP_UNIT,
             bottomRightRadius: Float = 0f,
-            bottomRightRadiusUnit: Int = DP_UNIT,
             bottomLeftRadius: Float = 0f,
-            bottomLeftRadiusUnit: Int = DP_UNIT,
+            radiusUnit: Int = DP_UNIT,
         ) = apply {
 
             val radii = FloatArray(8)
 
-            val newTopLeftRadius =
-                getDimensionPixelSize(topLeftRadiusUnit, topLeftRadius, metrics).toFloat()
+            val newTopLeftRadius = getDimensionPixelSize(radiusUnit, topLeftRadius, metrics).toFloat()
             radii[0] = newTopLeftRadius
             radii[1] = newTopLeftRadius
 
-            val newTopRightRadius =
-                getDimensionPixelSize(topRightRadiusUnit, topRightRadius, metrics).toFloat()
+            val newTopRightRadius = getDimensionPixelSize(radiusUnit, topRightRadius, metrics).toFloat()
             radii[2] = newTopRightRadius
             radii[3] = newTopRightRadius
 
-            val newBottomRightRadius =
-                getDimensionPixelSize(bottomRightRadiusUnit, bottomRightRadius, metrics).toFloat()
+            val newBottomRightRadius = getDimensionPixelSize(radiusUnit, bottomRightRadius, metrics).toFloat()
 
             radii[4] = newBottomRightRadius
             radii[5] = newBottomRightRadius
 
-            val newBottomLeftRadius =
-                getDimensionPixelSize(bottomLeftRadiusUnit, bottomLeftRadius, metrics).toFloat()
+            val newBottomLeftRadius = getDimensionPixelSize(radiusUnit, bottomLeftRadius, metrics).toFloat()
 
             radii[6] = newBottomLeftRadius
             radii[7] = newBottomLeftRadius
@@ -468,18 +466,15 @@ class Padding private constructor(
         @JvmOverloads
         fun setPadding(
             top: Int = 0,
-            topUnit: Int = DP_UNIT,
             bottom: Int = 0,
-            bottomUnit: Int = DP_UNIT,
             left: Int = 0,
-            leftUnit: Int = DP_UNIT,
             right: Int = 0,
-            rightUnit: Int = DP_UNIT,
+            unit: Int = DP_UNIT,
         ) = apply {
-            this.top = getDimensionPixelSize(topUnit, top.toFloat(), metrics)
-            this.bottom = getDimensionPixelSize(bottomUnit, bottom.toFloat(), metrics)
-            this.left = getDimensionPixelSize(leftUnit, left.toFloat(), metrics)
-            this.right = getDimensionPixelSize(rightUnit, right.toFloat(), metrics)
+            this.top = getDimensionPixelSize(unit, top.toFloat(), metrics)
+            this.bottom = getDimensionPixelSize(unit, bottom.toFloat(), metrics)
+            this.left = getDimensionPixelSize(unit, left.toFloat(), metrics)
+            this.right = getDimensionPixelSize(unit, right.toFloat(), metrics)
         }
 
         internal fun build(): Padding {

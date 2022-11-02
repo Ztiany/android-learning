@@ -21,14 +21,11 @@ public class Utils {
     public static void printSize(final Activity activity) {
         final String TAG = activity.getClass().getSimpleName();
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
-        Log.d(TAG, "displayMetrics.widthPixels:" + displayMetrics.widthPixels);
-        Log.d(TAG, "displayMetrics.heightPixels:" + displayMetrics.heightPixels);
-        activity.getWindow().getDecorView().post(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "activity.getWindow().getDecorView().getMeasuredHeight():" + activity.getWindow().getDecorView().getMeasuredHeight());
-                Log.d(TAG, "activity.getWindow().getDecorView().getMeasuredWidth():" + activity.getWindow().getDecorView().getMeasuredWidth());
-            }
+        Timber.d("displayMetrics.widthPixels:%d", displayMetrics.widthPixels);
+        Timber.d("displayMetrics.heightPixels:%d", displayMetrics.heightPixels);
+        activity.getWindow().getDecorView().post(() -> {
+            Timber.d("activity.getWindow().getDecorView().getMeasuredHeight():%d", activity.getWindow().getDecorView().getMeasuredHeight());
+            Timber.d("activity.getWindow().getDecorView().getMeasuredWidth():%d", activity.getWindow().getDecorView().getMeasuredWidth());
         });
     }
 
@@ -84,6 +81,5 @@ public class Utils {
 
         Timber.tag("DEVICES").i(sb.toString());
     }
-
 
 }
