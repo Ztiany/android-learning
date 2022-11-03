@@ -24,17 +24,31 @@ class CodeDrawableHelper(
     }
 
     private fun buildDrawableByAttributes(codingDrawableView: TypedArray) {
-        val drawableType = codingDrawableView.getInt(R.styleable.CodingDrawableView_csv_drawable_type, -1)
+        val drawableType = codingDrawableView.getInt(R.styleable.CodingDrawableView_cdv_drawable_type, -1)
         if (drawableType == 1/*gradient*/) {
             buildGradientDrawable()
-        } else if (drawableType == 2/*selector*/) {
+            return
+        }
+        if (drawableType == 2/*selector*/) {
             buildSelectorDrawable()
+            return
+        }
+
+        var resourceId = codingDrawableView.getResourceId(R.styleable.CodingDrawableView_cdv_gradient_appearance, -1)
+        if (resourceId != -1) {
+            drawable = parseGradientDrawableAttributeByStyle(context, resourceId)
+            return
+        }
+
+        resourceId = codingDrawableView.getResourceId(R.styleable.CodingDrawableView_cdv_selector_appearance, -1)
+        if (resourceId != -1) {
+            drawable = parseSelectorDrawableAttributeByStyle(context, resourceId)
         }
     }
 
     private fun buildSelectorDrawable() {
         withStyleable(R.styleable.CodingSelectorDrawable) {
-            drawable = parseSelectorDrawableAttribute(this)
+            drawable = parseSelectorDrawableAttribute(context, this)
         }
     }
 
@@ -45,7 +59,9 @@ class CodeDrawableHelper(
     }
 
     fun setBackground(view: View) {
-        view.background = drawable
+        drawable?.let {
+            view.background = it
+        }
     }
 
     private fun withStyleable(styleId: IntArray, action: TypedArray.() -> Unit) {

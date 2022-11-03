@@ -1,5 +1,7 @@
 <resources>
 
+    <!-- =============================================== Style =============================================== -->
+
     <style name="TabTextAppearance">
         <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
@@ -10,6 +12,8 @@
         <item name="android:layout_height">120dp</item>
         <item name="android:layout_margin">20dp</item>
     </style>
+
+    <!-- =============================================== Coding Drawable Declare-Styleable =============================================== -->
 
     <declare-styleable name="CodingGradientDrawableCorner">
         <attr name="cgd_corner" format="dimension|reference" />
@@ -42,24 +46,36 @@
         <attr name="cgd_gradient_start_color" format="color|reference" />
         <attr name="cgd_gradient_center_color" format="color|reference" />
         <attr name="cgd_gradient_end_color" format="color|reference" />
-        <attr name="cgd_gradient_angle" format="integer" />
+        <!-- value 与 GradientDrawable 中的常量对应 -->
+        <attr name="cgd_gradient_orientation" format="enum">
+            <enum name="TOP_BOTTOM" value="0" />
+            <enum name="TR_BL" value="1" />
+            <enum name="RIGHT_LEFT" value="2" />
+            <enum name="BR_TL" value="3" />
+            <enum name="BOTTOM_TOP" value="4" />
+            <enum name="BL_TR" value="5" />
+            <enum name="LEFT_RIGHT" value="6" />
+            <enum name="TL_BR" value="7" />
+        </attr>
         <attr name="cgd_gradient_center_x" format="float" />
         <attr name="cgd_gradient_center_y" format="float" />
-        <attr name="cgd_gradient_radius" format="integer" />
+        <attr name="cgd_gradient_radius" format="dimension|reference" />
         <attr name="cgd_gradient_user_level" format="boolean" />
+        <!-- value 与 GradientDrawable 中的常量对应 -->
         <attr name="cgd_gradient_type" format="enum">
-            <enum name="linear" value="1" />
-            <enum name="radial" value="2" />
-            <enum name="sweep" value="3" />
+            <enum name="linear" value="0" />
+            <enum name="radial" value="1" />
+            <enum name="sweep" value="2" />
         </attr>
     </declare-styleable>
 
     <declare-styleable name="CodingGradientDrawable">
+        <!-- value 与 GradientDrawable 中的常量对应 -->
         <attr name="cgd_shape" format="enum">
-            <enum name="rectangle" value="1" />
-            <enum name="oval" value="2" />
-            <enum name="line" value="3" />
-            <enum name="ring" value="4" />
+            <enum name="rectangle" value="0" />
+            <enum name="oval" value="1" />
+            <enum name="line" value="2" />
+            <enum name="ring" value="3" />
         </attr>
 
         <attr name="cgd_solid" format="color|reference" />
@@ -71,13 +87,6 @@
         <attr name="cgd_padding_style" format="reference" />
     </declare-styleable>
 
-    <declare-styleable name="CodingDrawableView">
-        <attr name="csv_drawable_type" format="enum">
-            <enum name="gradient" value="1" />
-            <enum name="selector" value="2" />
-        </attr>
-    </declare-styleable>
-
     <declare-styleable name="CodingSelectorDrawable">
         <attr name="csd_state_disabled" format="reference" />
         <attr name="csd_state_checked" format="reference" />
@@ -87,22 +96,44 @@
     </declare-styleable>
 
     <declare-styleable name="CodingColorStateList">
-        <attr name="ccd_color_disabled" format="color|reference" />
-        <attr name="ccd_color_checked" format="color|reference" />
-        <attr name="ccd_color_selected" format="color|reference" />
-        <attr name="ccd_color_pressed" format="color|reference" />
-        <attr name="ccd_color_normal" format="color|reference" />
+        <attr name="ccl_color_disabled" format="color|reference" />
+        <attr name="ccl_color_checked" format="color|reference" />
+        <attr name="ccl_color_selected" format="color|reference" />
+        <attr name="ccl_color_pressed" format="color|reference" />
+        <attr name="ccl_color_normal" format="color|reference" />
     </declare-styleable>
 
-    <declare-styleable name="DrawableTextView">
-        <attr name="csv_drawable_type" />
+    <declare-styleable name="CodingDrawableView">
+        <attr name="cdv_drawable_type" format="enum">
+            <enum name="gradient" value="1" />
+            <enum name="selector" value="2" />
+        </attr>
+        <attr name="cdv_selector_appearance" format="reference" />
+        <attr name="cdv_gradient_appearance" format="reference" />
+    </declare-styleable>
 
+    <declare-styleable name="DETextView">
+        <!-- 指定一个 CodingColorStateList style，或者可以直接使用下面的 color 属性 -->
+        <attr name="ccl_color_style" format="reference" />
+        <attr name="ccl_color_disabled" />
+        <attr name="ccl_color_checked" />
+        <attr name="ccl_color_selected" />
+        <attr name="ccl_color_pressed" />
+        <attr name="ccl_color_normal" />
+
+        <!-- 下面三个属性互斥，如果选择 drawable_type，则按照 type 设置相关属性，也可以用 appearance 属性直接引用一个相关的 style -->
+        <attr name="cdv_drawable_type" />
+        <attr name="cdv_selector_appearance" />
+        <attr name="cdv_gradient_appearance" />
+
+        <!-- 当 cdv_drawable_type = selector 时，可以按需指定下面属性-->
         <attr name="csd_state_disabled" />
         <attr name="csd_state_checked" />
         <attr name="csd_state_selected" />
         <attr name="csd_state_pressed" />
         <attr name="csd_state_normal" />
 
+        <!-- 当 cdv_drawable_type = gradient 时，可以按需指定下面属性-->
         <attr name="cgd_shape" />
         <attr name="cgd_solid" />
         <attr name="cgd_corner_style" />
@@ -110,8 +141,40 @@
         <attr name="cgd_gradient_style" />
         <attr name="cgd_stroke_style" />
         <attr name="cgd_padding_style" />
-
-        <attr name="dt_text_color" format="reference" />
     </declare-styleable>
+
+    <!-- =============================================== Coding Drawable Style =============================================== -->
+    <style name="CodingGradientDrawableCorner_10">
+        <item name="cgd_corner">10dp</item>
+    </style>
+
+    <style name="CodingGradientDrawableCorner_tl_20">
+        <item name="cgd_corner_top_left">20dp</item>
+    </style>
+
+    <style name="CodingGradientDrawableGradient_1">
+        <item name="cgd_gradient_start_color">#FF0000</item>
+        <item name="cgd_gradient_center_color">#0000FF</item>
+        <item name="cgd_gradient_end_color">#00FF00</item>
+    </style>
+
+    <style name="CodingGradientDrawableStroke_1">
+        <item name="cgd_stroke_dash_color">#FF0000</item>
+        <item name="cgd_stroke_dash_gap">10dp</item>
+        <item name="cgd_stroke_dash_width">4dp</item>
+        <item name="cgd_stroke_width">4dp</item>
+    </style>
+
+    <style name="CodingGradientDrawable_Normal">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_corner_style">@style/CodingGradientDrawableCorner_tl_20</item>
+        <item name="cgd_gradient_style">@style/CodingGradientDrawableGradient_1</item>
+    </style>
+
+    <style name="CodingGradientDrawable_Disabled">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_corner_style">@style/CodingGradientDrawableCorner_tl_20</item>
+        <item name="cgd_solid">@color/black</item>
+    </style>
 
 </resources>

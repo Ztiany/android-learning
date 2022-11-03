@@ -74,7 +74,6 @@ class CodingDrawableFragment : SimpleLayoutFragment() {
             corner(corner)
         }.build()
 
-
         val codeColor1 = CodeColorStateList.Builder().apply {
             this.addSelectorColorItem(SelectorColorItem.Builder().apply {
                 this.color(Color.parseColor("#ff0000"))
@@ -109,7 +108,6 @@ class CodingDrawableFragment : SimpleLayoutFragment() {
 
         println("codeColor1 equals codeColor2: ${codeColor1 == codeColor2}")
         (getView(R.id.drawable_tv01) as TextView).setTextColor(codeColor1)
-
 
         getView(R.id.drawable_view05).background = CodeStateListDrawable.Builder().apply {
             this.addSelectorDrawableItem(SelectorDrawableItem.Builder().apply {

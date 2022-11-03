@@ -1,6 +1,7 @@
 package com.peter.viewgrouptutorial.drawable
 
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.util.SparseArray
 import androidx.annotation.ColorInt
 import java.lang.ref.WeakReference
@@ -103,7 +104,7 @@ class SelectorColorItem private constructor(val color: Int, val states: MutableL
 
     class Builder {
 
-        private var color: Int = -1
+        private var color: Int = Color.WHITE
         private var states: MutableList<Int> = arrayListOf()
 
         fun color(color: Int): Builder = apply {
@@ -125,8 +126,6 @@ class SelectorColorItem private constructor(val color: Int, val states: MutableL
         }
 
         internal fun build(): SelectorColorItem {
-            if (color == -1) throw IllegalArgumentException("must call color method")
-
             /** 两个SelectorColorItem添加state的内容相同，添加顺序不同，会被认为是相同
              * @see CodeColorStateList.equals(other: Any?)
              */
