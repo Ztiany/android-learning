@@ -1,4 +1,4 @@
-package com.ztiany.view.material
+package com.android.common.ui.shape
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,11 +8,11 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.DrawableUtils
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
+import com.peter.viewgrouptutorial.drawable.*
 import com.ztiany.view.R
 
 /**
@@ -37,7 +37,7 @@ import com.ztiany.view.R
  */
 class MaterialShapeDrawableHelper(
     context: Context, attrs: AttributeSet?, defaultStyleAttr: Int = 0, defaultStyleRes: Int = 0
-) : EnhancedShapeable {
+) {
 
     private var shapeAppearanceModel: ShapeAppearanceModel
 
@@ -96,56 +96,28 @@ class MaterialShapeDrawableHelper(
     }
 
     private fun createFillColorListCustomAttr(typedArray: TypedArray): ColorStateList {
-        val stateList = mutableListOf<IntArray>()
-        val colorList = mutableListOf<Int>()
-
-        if (typedArray.hasValue(R.styleable.MaterialShapeDrawableView_msd_background_disabled)) {
-            stateList.add(intArrayOf(-android.R.attr.state_enabled))
-            colorList.add(typedArray.getColor(R.styleable.MaterialShapeDrawableView_msd_background_disabled, Color.BLACK))
-        }
-
-        if (typedArray.hasValue(R.styleable.MaterialShapeDrawableView_msd_background_selected)) {
-            stateList.add(intArrayOf(android.R.attr.state_selected))
-            colorList.add(typedArray.getColor(R.styleable.MaterialShapeDrawableView_msd_background_selected, Color.BLACK))
-        }
-
-        if (typedArray.hasValue(R.styleable.MaterialShapeDrawableView_msd_background_pressed)) {
-            stateList.add(intArrayOf(android.R.attr.state_pressed))
-            colorList.add(typedArray.getColor(R.styleable.MaterialShapeDrawableView_msd_background_pressed, Color.BLACK))
-        }
-
-        //default color
-        stateList.add(intArrayOf())
-        colorList.add(typedArray.getColor(R.styleable.MaterialShapeDrawableView_msd_background_normal, Color.WHITE))
-
-        return ColorStateList(stateList.toTypedArray(), colorList.toIntArray())
+        return parseCodeColorStateListAttribute(typedArray, buildBackgroundResourceList()) ?: ColorStateList.valueOf(Color.WHITE)
     }
+
+    private fun buildBackgroundResourceList() = listOf(
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_disabled, StateEnabled, false),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_checked, StateChecked, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_selected, StateSelected, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_pressed, StatePressed, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_background_normal, null, false)
+    )
 
     private fun createStrokeListByCustomAttr(typedArray: TypedArray): ColorStateList {
-        val stateList = mutableListOf<IntArray>()
-        val colorList = mutableListOf<Int>()
-
-        if (typedArray.hasValue(R.styleable.MaterialShapeDrawableView_msd_strokeColor_disabled)) {
-            stateList.add(intArrayOf(-android.R.attr.state_enabled))
-            colorList.add(typedArray.getColor(R.styleable.MaterialShapeDrawableView_msd_strokeColor_disabled, Color.BLACK))
-        }
-
-        if (typedArray.hasValue(R.styleable.MaterialShapeDrawableView_msd_strokeColor_selected)) {
-            stateList.add(intArrayOf(android.R.attr.state_selected))
-            colorList.add(typedArray.getColor(R.styleable.MaterialShapeDrawableView_msd_strokeColor_selected, Color.BLACK))
-        }
-
-        if (typedArray.hasValue(R.styleable.MaterialShapeDrawableView_msd_strokeColor_pressed)) {
-            stateList.add(intArrayOf(android.R.attr.state_pressed))
-            colorList.add(typedArray.getColor(R.styleable.MaterialShapeDrawableView_msd_strokeColor_pressed, Color.BLACK))
-        }
-
-        //default color
-        stateList.add(intArrayOf())
-        colorList.add(typedArray.getColor(R.styleable.MaterialShapeDrawableView_msd_strokeColor_normal, Color.WHITE))
-
-        return ColorStateList(stateList.toTypedArray(), colorList.toIntArray())
+        return parseCodeColorStateListAttribute(typedArray, buildStrokeResourceList()) ?: ColorStateList.valueOf(Color.WHITE)
     }
+
+    private fun buildStrokeResourceList() = listOf(
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_disabled, StateEnabled, false),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_checked, StateChecked, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_selected, StateSelected, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_pressed, StatePressed, true),
+        ResourceInfo(R.styleable.MaterialShapeDrawableView_msd_strokeColor_normal, null, false)
+    )
 
     private fun MaterialShapeDrawable.setDrawablePaddings(shapeTypedValue: TypedArray) {
         val paddings = intArrayOf(0, 0, 0, 0)
@@ -199,11 +171,11 @@ class MaterialShapeDrawableHelper(
         target.background = drawable
     }
 
-    override fun setShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {
+    fun updateShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {
         drawable.shapeAppearanceModel = shapeAppearanceModel
     }
 
-    override fun getShapeAppearanceModel(): ShapeAppearanceModel {
+    fun obtainShapeAppearanceModel(): ShapeAppearanceModel {
         return drawable.shapeAppearanceModel
     }
 

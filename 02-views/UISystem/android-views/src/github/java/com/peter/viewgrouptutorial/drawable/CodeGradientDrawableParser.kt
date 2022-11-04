@@ -5,11 +5,8 @@ import android.content.res.TypedArray
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
-import android.text.style.TtsSpan.TimeBuilder
-import android.util.Log
 import android.view.ContextThemeWrapper
 import com.ztiany.view.R
-import java.util.TimeZone
 
 /** refer [R.styleable.CodingGradientDrawable] */
 internal fun parseGradientDrawableAttribute(context: Context, typedArray: TypedArray): Drawable? {
@@ -41,8 +38,8 @@ private fun internalParseGradientDrawableAttribute(
     return CodeGradientDrawable.Builder(context).apply {
         shape(shapeValue)
 
-        if (typedArray.hasValue(R.styleable.CodingGradientDrawable_cgd_solid)) {
-            solidColor(CodeColorStateList.valueOf(typedArray.getColor(R.styleable.CodingGradientDrawable_cgd_solid, Color.WHITE)))
+        if (typedArray.hasValue(R.styleable.CodingGradientDrawable_cgd_shape_solid)) {
+            solidColor(CodeColorStateList.valueOf(typedArray.getColor(R.styleable.CodingGradientDrawable_cgd_shape_solid, Color.WHITE)))
         }
 
         size?.let { size(it[0], it[2], PX_UNIT) }
@@ -54,7 +51,7 @@ private fun internalParseGradientDrawableAttribute(
 }
 
 private fun parseGradientAttribute(context: Context, typedArray: TypedArray): Gradient.Builder? {
-    val gradientResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_gradient_style, -1)
+    val gradientResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_gradient_style, -1)
     if (gradientResourceId == -1) {
         return null
     }
@@ -91,7 +88,7 @@ private fun parseGradientAttribute(context: Context, typedArray: TypedArray): Gr
 }
 
 private fun parseStrokeAttribute(context: Context, typedArray: TypedArray): Stroke.Builder? {
-    val strokeResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_stroke_style, -1)
+    val strokeResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_stroke_style, -1)
     if (strokeResourceId == -1) {
         return null
     }
@@ -109,7 +106,7 @@ private fun parseStrokeAttribute(context: Context, typedArray: TypedArray): Stro
 }
 
 private fun parsePaddingAttribute(context: Context, typedArray: TypedArray): Padding.Builder? {
-    val paddingResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_padding_style, -1)
+    val paddingResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_padding_style, -1)
     if (paddingResourceId == -1) {
         return null
     }
@@ -127,7 +124,7 @@ private fun parsePaddingAttribute(context: Context, typedArray: TypedArray): Pad
 }
 
 private fun parseSizeAttribute(context: Context, typedArray: TypedArray): IntArray? {
-    val sizeResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_size_style, -1)
+    val sizeResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_size_style, -1)
     if (sizeResourceId == -1) {
         return null
     }
@@ -141,7 +138,7 @@ private fun parseSizeAttribute(context: Context, typedArray: TypedArray): IntArr
 }
 
 private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corner.Builder? {
-    val cornerResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_corner_style, -1)
+    val cornerResourceId = typedArray.getResourceId(R.styleable.CodingGradientDrawable_cgd_shape_corner_style, -1)
     if (cornerResourceId == -1) {
         return null
     }
@@ -175,67 +172,4 @@ private fun parseCornerAttribute(context: Context, typedArray: TypedArray): Corn
             radiusUnit = PX_UNIT
         )
     }
-}
-
-private class DrawableInfo(val drawable: Drawable, val state: State?, val add: Boolean)
-
-internal fun parseSelectorDrawableAttributeByStyle(context: Context, resourceId: Int): Drawable? {
-    val contextThemeWrapper = ContextThemeWrapper(context, resourceId)
-    val gradientTypedValue = contextThemeWrapper.obtainStyledAttributes(R.styleable.CodingSelectorDrawable)
-    val drawable = parseSelectorDrawableAttribute(contextThemeWrapper, gradientTypedValue)
-    gradientTypedValue.recycle()
-    return drawable
-}
-
-/** refer [R.styleable.CodingSelectorDrawable] */
-internal fun parseSelectorDrawableAttribute(context: Context, typedArray: TypedArray): Drawable? {
-    val drawableList = mutableListOf<DrawableInfo>()
-
-    val collectStateDrawable = fun(drawableResourceId: Int, state: State?, add: Boolean) {
-        getSelectorDrawable(context, typedArray, drawableResourceId)?.let {
-            drawableList.add(DrawableInfo(it, state, add = add))
-        }
-    }
-
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_state_disabled, StateEnabled, false)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_state_selected, StateSelected, true)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_state_checked, StateChecked, true)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_state_pressed, StatePressed, true)
-    collectStateDrawable(R.styleable.CodingSelectorDrawable_csd_state_normal, null, false)
-
-    if (drawableList.isEmpty()) {
-        return null
-    }
-
-    return CodeStateListDrawable.Builder().apply {
-        drawableList.forEach {
-            addSelectorDrawableItem(SelectorDrawableItem.Builder().apply {
-                drawable(it.drawable)
-                if (it.state != null) {
-                    if (it.add) {
-                        addState(it.state)
-                    } else {
-                        minusState(it.state)
-                    }
-                }
-            })
-        }
-    }.build()
-}
-
-private fun getSelectorDrawable(context: Context, typedArray: TypedArray, drawableResourceId: Int): Drawable? {
-    if (!typedArray.hasValue(drawableResourceId)) {
-        return null
-    }
-    val resourceId = typedArray.getResourceId(drawableResourceId, -1)
-    val typeName = context.resources.getResourceTypeName(resourceId)
-    if (typeName == "drawable") {
-        return typedArray.getDrawable(drawableResourceId)
-    } else if (typeName == "style") {
-        val gradientTypedArray = ContextThemeWrapper(context, resourceId).obtainStyledAttributes(R.styleable.CodingGradientDrawable)
-        val drawable = parseGradientDrawableAttribute(context, gradientTypedArray)
-        gradientTypedArray.recycle()
-        return drawable
-    }
-    return null
 }

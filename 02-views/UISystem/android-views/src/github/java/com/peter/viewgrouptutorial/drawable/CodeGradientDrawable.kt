@@ -2,9 +2,11 @@ package com.peter.viewgrouptutorial.drawable
 
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.util.DisplayMetrics
+import android.util.Log
 import android.util.TypedValue
 import androidx.annotation.IntDef
 import java.lang.ref.WeakReference
@@ -27,13 +29,17 @@ class CodeGradientDrawable private constructor(
     height: Int
 ) : GradientDrawable() {
 
-    companion object {
+    /*
+    当将该 Drawable 设置为某个 View 的背景时，该 Drawable 的 setBounds 方法将会被调用，然后 Drawable 的绘制区域也会发生变化，
+    而如果启动缓存机制的话，多个 View 可能共享同一个  Drawable，而如果不同 View 的 Size 不同，或者 View 的 Size 动态变化，都会导致
+    Drawable 的共享出现问题，此问题貌似无法解决，因此暂时禁用缓存。
+     */
+    /*companion object {
         private val sCache = HashMap<Int, WeakReference<CodeGradientDrawable>>()
-    }
+    }*/
 
     init {
         applyTheme(theme)
-
         shape = shapeType
 
         solidColor?.let {
@@ -143,7 +149,10 @@ class CodeGradientDrawable private constructor(
         }
 
         fun build(): CodeGradientDrawable {
-            synchronized(sCache) {
+            return CodeGradientDrawable(
+                theme, shape, gradient?.build(), corner?.build(), solidColor, stroke?.build(), padding?.build(), width, height
+            )
+            /*synchronized(sCache) {
                 val key = hashCode()
                 val cached = sCache[key]?.get()
                 if (cached == null) {
@@ -157,8 +166,7 @@ class CodeGradientDrawable private constructor(
                     println("CodeGradientDrawable not null $this")
                     return cached
                 }
-            }
-
+            }*/
         }
 
         override fun equals(other: Any?): Boolean {
@@ -425,6 +433,7 @@ class Stroke private constructor(
 class Padding private constructor(
     internal val top: Int, internal val bottom: Int, internal val left: Int, internal val right: Int
 ) {
+
     class Builder constructor(context: Context) {
         private var top: Int = 0
         private var bottom: Int = 0
@@ -486,7 +495,7 @@ const val DP_UNIT = 1
 annotation class UnixValue
 
 // copy from  #TypedValue.complexToDimensionPixelSize
-fun getDimensionPixelSize(unit: Int, value: Float, metrics: DisplayMetrics): Int {
+private fun getDimensionPixelSize(unit: Int, value: Float, metrics: DisplayMetrics): Int {
     val f = TypedValue.applyDimension(
         unit, value, metrics
     )

@@ -23,17 +23,33 @@ class CodeDrawableHelper(
         }
     }
 
-    private fun buildDrawableByAttributes(codingDrawableView: TypedArray) {
-        val drawableType = codingDrawableView.getInt(R.styleable.CodingDrawableView_cdv_drawable_type, -1)
-        if (drawableType == 1/*gradient*/) {
-            buildGradientDrawable()
-            return
+    fun setBackground(view: View) {
+        drawable?.let {
+            view.background = it
         }
-        if (drawableType == 2/*selector*/) {
-            buildSelectorDrawable()
+    }
+
+    private fun withStyleable(styleId: IntArray, action: TypedArray.() -> Unit) {
+        context.obtainStyledAttributes(attrs, styleId, defaultStyleAttr, defaultStyleRes).use {
+            it.action()
+        }
+    }
+
+    private fun buildDrawableByAttributes(codingDrawableView: TypedArray) {
+        if (codingDrawableView.hasValue(R.styleable.CodingDrawableView_cdv_drawable_type)) {
+            when (codingDrawableView.getInt(R.styleable.CodingDrawableView_cdv_drawable_type, -1)) {
+                1/*gradient*/ -> buildGradientDrawable()
+                2/*selector*/ -> buildSelectorDrawable()
+                3/*selector*/ -> buildRippleDrawable()
+                else -> throw IllegalArgumentException("Unsupported drawable type")
+            }
             return
         }
 
+        buildDrawableByAppearance(codingDrawableView)
+    }
+
+    private fun buildDrawableByAppearance(codingDrawableView: TypedArray) {
         var resourceId = codingDrawableView.getResourceId(R.styleable.CodingDrawableView_cdv_gradient_appearance, -1)
         if (resourceId != -1) {
             drawable = parseGradientDrawableAttributeByStyle(context, resourceId)
@@ -43,6 +59,13 @@ class CodeDrawableHelper(
         resourceId = codingDrawableView.getResourceId(R.styleable.CodingDrawableView_cdv_selector_appearance, -1)
         if (resourceId != -1) {
             drawable = parseSelectorDrawableAttributeByStyle(context, resourceId)
+            return
+        }
+
+        resourceId = codingDrawableView.getResourceId(R.styleable.CodingDrawableView_cdv_ripple_appearance, -1)
+        if (resourceId != -1) {
+            drawable = parseRippleDrawableAttributeByStyle(context, resourceId)
+            return
         }
     }
 
@@ -58,15 +81,9 @@ class CodeDrawableHelper(
         }
     }
 
-    fun setBackground(view: View) {
-        drawable?.let {
-            view.background = it
-        }
-    }
-
-    private fun withStyleable(styleId: IntArray, action: TypedArray.() -> Unit) {
-        context.obtainStyledAttributes(attrs, styleId, defaultStyleAttr, defaultStyleRes).use {
-            it.action()
+    private fun buildRippleDrawable() {
+        withStyleable(R.styleable.CodingRippleDrawable) {
+            drawable = parseRippleDrawableAttribute(context, this)
         }
     }
 

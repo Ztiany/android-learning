@@ -8,85 +8,156 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
-        <com.ztiany.view.material.ShapeFrameLayout
-            style="@style/StyleShapeLayout"
-            app:backgroundTint="@color/colorPrimary"
-            app:shapeAppearance="@style/StyleShapeable_Rounded10" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <!-- 注意这里 padding 的数值是描边宽度的一半 -->
-        <com.ztiany.view.material.ShapeFrameLayout
-            style="@style/StyleShapeLayout"
-            android:padding="2dp"
-            app:backgroundTint="@color/colorPrimary"
-            app:msd_strokeColor_disabled="#AABBDD"
-            app:msd_strokeColor_normal="@color/red"
-            app:msd_strokeWidth="4dp"
-            app:shapeAppearance="@style/StyleShapeable_Cut10" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Use by Coding"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-        <com.ztiany.view.material.ShapeFrameLayout
-            style="@style/StyleShapeLayout"
-            android:padding="2dp"
-            app:msd_background_normal="@color/colorPrimary"
-            app:msd_strokeColor_normal="@color/red"
-            app:msd_strokeWidth="4dp"
-            app:shapeAppearance="@style/StyleShapeable_Cut50Percent" />
+            <TextView
+                android:id="@+id/material_tv_01"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
-        <com.ztiany.view.material.ShapeFrameLayout
-            style="@style/StyleShapeLayout"
-            android:padding="2dp"
-            app:msd_background_normal="@color/green"
-            app:msd_strokeColor_normal="@color/red"
-            app:msd_strokeWidth="4dp"
-            app:shapeAppearance="@style/StyleShapeable_Leaf" />
+            <TextView
+                android:id="@+id/material_tv_02"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="50dp"
+                android:gravity="center"
+                android:text="Ztiany"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
-        <com.ztiany.view.material.ShapeFrameLayout
-            style="@style/StyleShapeLayout"
-            android:padding="2dp"
-            app:msd_strokeColor_normal="@color/red"
-            app:msd_strokeWidth="4dp"
-            app:shapeAppearance="@style/StyleShapeable_TopCircle" />
+            <View
+                android:id="@+id/material_view_test1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp" />
 
-        <com.ztiany.view.material.ShapeFrameLayout
-            style="@style/StyleShapeLayout"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:padding="2dp"
-            app:msd_strokeColor_normal="@color/red"
-            app:msd_strokeWidth="4dp"
-            app:shapeAppearance="@style/StyleShapeable_Hexagon" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/material_tv_01"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="Ztiany"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/material_tv_02"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_margin="50dp"
-            android:gravity="center"
-            android:text="Ztiany"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Use by CustomView"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-        <View
-            android:id="@+id/material_view_test1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp" />
+            <com.android.common.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeLayout"
+                app:backgroundTint="@color/colorPrimary"
+                app:shapeAppearance="@style/StyleShapeable_Rounded10" />
+
+            <!-- 注意这里 padding 的数值是描边宽度的一半 -->
+            <com.android.common.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeLayout"
+                android:padding="2dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:msd_strokeColor_disabled="#AABBDD"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Cut10" />
+
+            <com.android.common.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeLayout"
+                android:padding="2dp"
+                app:msd_background_normal="@color/colorPrimary"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Cut50Percent" />
+
+            <com.android.common.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeLayout"
+                android:padding="2dp"
+                app:msd_background_normal="@color/green"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Leaf" />
+
+            <com.android.common.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeLayout"
+                android:padding="2dp"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_TopCircle" />
+
+            <com.android.common.ui.shape.ShapeFrameLayout
+                style="@style/StyleShapeLayout"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:padding="2dp"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Hexagon" />
+
+            <com.android.common.ui.shape.ShapeTextView
+                style="@style/StyleShapeLayout"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Ztiany"
+                android:textStyle="bold"
+                app:msd_strokeColor_normal="@color/red"
+                app:msd_strokeColor_pressed="@color/black"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Hexagon"
+                app:stv_text_color_normal="@color/red"
+                app:stv_text_color_pressed="@color/black" />
+
+            <com.android.common.ui.shape.ShapeButton
+                style="@style/StyleShapeLayout"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Ztiany"
+                android:textStyle="bold"
+                app:msd_strokeColor_normal="@color/gold"
+                app:msd_strokeColor_pressed="@color/red"
+                app:msd_strokeWidth="4dp"
+                app:shapeAppearance="@style/StyleShapeable_Hexagon"
+                app:stv_text_color_normal="@color/gold"
+                app:stv_text_color_pressed="@color/red" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

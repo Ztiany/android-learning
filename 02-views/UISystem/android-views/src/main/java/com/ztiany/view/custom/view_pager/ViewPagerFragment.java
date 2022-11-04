@@ -23,7 +23,7 @@ import androidx.viewpager.widget.ViewPager;
  */
 public class ViewPagerFragment extends Fragment {
 
-    private int[] imgRes = {R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d};
+    private int[] imgRes = {R.drawable.img_scenery_a, R.drawable.img_scenery_b, R.drawable.img_scenery_c, R.drawable.img_scenery_d};
 
     @Nullable
     @Override

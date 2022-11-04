@@ -55,74 +55,8 @@
         <item name="android:src">@drawable/avatar_rengwuxian</item>
     </style>
 
-    <!-- =============================================== Custom MaterialShapeDrawable  declare-styleable =============================================== -->
+    <!-- =============================================== CustomShapeableLayout  =============================================== -->
 
-    <!-- MaterialShapeDrawable -->
-    <declare-styleable name="MaterialShapeDrawableView">
-        <attr name="shapeAppearance" />
-        <attr name="shapeAppearanceOverlay" />
-
-        <!-- 是否使用 shapeAppearance 初始化 Shape -->
-        <attr name="msd_useShapeAppearance" format="boolean" />
-
-        <attr name="msd_strokeWidth" format="dimension" />
-
-        <attr name="msd_PaintStyle" format="enum">
-            <enum name="FILL" value="1" />
-            <enum name="STROKE" value="2" />
-            <enum name="FILL_AND_STROKE" value="3" />
-        </attr>
-
-        <attr name="msd_strokeColor_disabled" format="color|reference" />
-        <attr name="msd_strokeColor_selected" format="color|reference" />
-        <attr name="msd_strokeColor_pressed" format="color|reference" />
-        <attr name="msd_strokeColor_normal" format="color|reference" />
-
-        <attr name="msd_background_disabled" format="color|reference" />
-        <attr name="msd_background_selected" format="color|reference" />
-        <attr name="msd_background_pressed" format="color|reference" />
-        <attr name="msd_background_normal" format="color|reference" />
-
-        <attr name="msd_shadow_color" format="color|reference" />
-        <attr name="msd_use_tint_color_for_shadow" format="boolean" />
-        <attr name="msd_padding" format="dimension|reference" />
-        <attr name="msd_padding_vertical" format="dimension|reference" />
-        <attr name="msd_padding_horizontal" format="dimension|reference" />
-        <attr name="msd_padding_left" format="dimension|reference" />
-        <attr name="msd_padding_right" format="dimension|reference" />
-        <attr name="msd_padding_top" format="dimension|reference" />
-        <attr name="msd_padding_bottom" format="dimension|reference" />
-    </declare-styleable>
-
-    <declare-styleable name="ShapeFrameLayout">
-        <attr name="shapeAppearance" />
-        <attr name="shapeAppearanceOverlay" />
-        <attr name="msd_useShapeAppearance" />
-        <attr name="msd_strokeWidth" />
-
-        <attr name="msd_strokeColor_disabled" />
-        <attr name="msd_strokeColor_selected" />
-        <attr name="msd_strokeColor_pressed" />
-        <attr name="msd_strokeColor_normal" />
-
-        <attr name="msd_background_disabled" />
-        <attr name="msd_background_selected" />
-        <attr name="msd_background_pressed" />
-        <attr name="msd_background_normal" />
-
-        <attr name="msd_shadow_color" />
-        <attr name="msd_use_tint_color_for_shadow" />
-        <attr name="msd_padding" />
-        <attr name="msd_padding_vertical" />
-        <attr name="msd_padding_horizontal" />
-        <attr name="msd_padding_left" />
-        <attr name="msd_padding_right" />
-        <attr name="msd_padding_top" />
-        <attr name="msd_padding_bottom" />
-
-    </declare-styleable>
-
-    <!-- ShapeableImageView Styles -->
     <style name="StyleShapeLayout">
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">60dp</item>

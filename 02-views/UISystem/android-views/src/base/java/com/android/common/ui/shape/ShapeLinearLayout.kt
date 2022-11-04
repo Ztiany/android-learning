@@ -1,10 +1,8 @@
-package com.ztiany.view.material
+package com.android.common.ui.shape
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.FrameLayout
 import android.widget.LinearLayout
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
@@ -19,12 +17,16 @@ class ShapeLinearLayout @JvmOverloads constructor(
         mdHelper.update(this)
     }
 
+    override fun updateShapeDrawable() {
+        mdHelper.update(this)
+    }
+
     override fun setShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {
-        mdHelper.shapeAppearanceModel = shapeAppearanceModel
+        mdHelper.updateShapeAppearanceModel(shapeAppearanceModel)
     }
 
     override fun getShapeAppearanceModel(): ShapeAppearanceModel {
-        return mdHelper.shapeAppearanceModel
+        return mdHelper.obtainShapeAppearanceModel()
     }
 
 }

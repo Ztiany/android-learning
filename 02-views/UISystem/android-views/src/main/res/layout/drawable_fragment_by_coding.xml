@@ -107,7 +107,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
-            <com.peter.viewgrouptutorial.drawable.DETextView
+            <com.peter.viewgrouptutorial.drawable.ETextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
@@ -117,9 +117,9 @@
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
                 app:cgd_shape="oval"
-                app:cgd_solid="@color/colorPrimary" />
+                app:cgd_shape_solid="@color/colorPrimary" />
 
-            <com.peter.viewgrouptutorial.drawable.DETextView
+            <com.peter.viewgrouptutorial.drawable.ETextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
@@ -128,11 +128,11 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
-                app:cgd_corner_style="@style/CodingGradientDrawableCorner_10"
                 app:cgd_shape="rectangle"
-                app:cgd_solid="@color/colorPrimary" />
+                app:cgd_shape_corner_style="@style/CodingGradientDrawableCorner_10"
+                app:cgd_shape_solid="@color/colorPrimary" />
 
-            <com.peter.viewgrouptutorial.drawable.DETextView
+            <com.peter.viewgrouptutorial.drawable.ETextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
@@ -141,11 +141,11 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
-                app:cgd_corner_style="@style/CodingGradientDrawableCorner_tl_20"
                 app:cgd_shape="rectangle"
-                app:cgd_solid="@color/colorPrimary" />
+                app:cgd_shape_corner_style="@style/CodingGradientDrawableCorner_tl_20"
+                app:cgd_shape_solid="@color/colorPrimary" />
 
-            <com.peter.viewgrouptutorial.drawable.DETextView
+            <com.peter.viewgrouptutorial.drawable.ETextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
@@ -154,12 +154,12 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
-                app:cgd_corner_style="@style/CodingGradientDrawableCorner_tl_20"
-                app:cgd_gradient_style="@style/CodingGradientDrawableGradient_1"
                 app:cgd_shape="rectangle"
-                app:cgd_stroke_style="@style/CodingGradientDrawableStroke_1" />
+                app:cgd_shape_corner_style="@style/CodingGradientDrawableCorner_tl_20"
+                app:cgd_shape_gradient_style="@style/CodingGradientDrawableGradient_1"
+                app:cgd_shape_stroke_style="@style/CodingGradientDrawableStroke_1" />
 
-            <com.peter.viewgrouptutorial.drawable.DETextView
+            <com.peter.viewgrouptutorial.drawable.ETextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
@@ -170,11 +170,11 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="selector"
-                app:csd_state_disabled="@style/CodingGradientDrawable_Disabled"
-                app:csd_state_normal="@style/CodingGradientDrawable_Normal"
-                app:csd_state_pressed="@drawable/avatar_rengwuxian" />
+                app:csd_selector_state_disabled="@style/CodingGradientDrawable_Solid_1"
+                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
+                app:csd_selector_state_pressed="@drawable/avatar_rengwuxian" />
 
-            <com.peter.viewgrouptutorial.drawable.DETextView
+            <com.peter.viewgrouptutorial.drawable.ETextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
@@ -185,11 +185,11 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="selector"
-                app:csd_state_disabled="@style/CodingGradientDrawable_Disabled"
-                app:csd_state_normal="@style/CodingGradientDrawable_Normal"
-                app:csd_state_pressed="@drawable/avatar_rengwuxian" />
+                app:csd_selector_state_disabled="@style/CodingGradientDrawable_Solid_1"
+                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
+                app:csd_selector_state_pressed="@drawable/avatar_rengwuxian" />
 
-            <com.peter.viewgrouptutorial.drawable.DETextView
+            <com.peter.viewgrouptutorial.drawable.ETextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
@@ -197,10 +197,52 @@
                 android:gravity="center"
                 android:text="Ztiany"
                 android:textStyle="bold"
-                app:ccl_color_disabled="@color/black"
-                app:ccl_color_normal="@color/purple"
-                app:ccl_color_pressed="@color/red"
-                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Normal" />
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:etv_text_color_disabled="@color/purple"
+                app:etv_text_color_normal="@color/black"
+                app:etv_text_color_pressed="@color/red" />
+
+            <com.peter.viewgrouptutorial.drawable.EButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Click Me!"
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:etv_text_color_disabled="@color/purple"
+                app:etv_text_color_normal="@color/black"
+                app:etv_text_color_pressed="@color/red" />
+
+            <com.peter.viewgrouptutorial.drawable.EButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:enabled="false"
+                android:text="Click Me!"
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_1"
+                app:etv_text_color_disabled="@color/purple"
+                app:etv_text_color_normal="@color/black"
+                app:etv_text_color_pressed="@color/red" />
+
+            <com.peter.viewgrouptutorial.drawable.EFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_ripple_appearance="@style/CodingRippleDrawable_WithGradientGradient" />
+
+            <com.peter.viewgrouptutorial.drawable.EFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_ripple_appearance="@style/CodingRippleDrawable_WithSelector" />
+
+            <com.peter.viewgrouptutorial.drawable.EFrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                app:cdv_gradient_appearance="@style/CodingGradientDrawable_Gradient_2" />
 
         </LinearLayout>
 

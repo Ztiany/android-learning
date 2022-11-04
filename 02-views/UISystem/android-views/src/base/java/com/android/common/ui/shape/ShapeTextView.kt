@@ -1,4 +1,4 @@
-package com.ztiany.view.material
+package com.android.common.ui.shape
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,20 +10,31 @@ class ShapeTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.textViewStyle
-) : MaterialTextView(context, attrs, defStyleAttr), EnhancedShapeable {
+) : MaterialTextView(context, attrs, defStyleAttr), EnhancedShapeable, ShapeTextColor {
 
     private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
 
+    private val colorHelper = ShapeTextColorHelper(context, attrs, defStyleAttr)
+
     init {
+        mdHelper.update(this)
+        colorHelper.setTextColor(this)
+    }
+
+    override fun updateShapeDrawable() {
         mdHelper.update(this)
     }
 
+    override fun updateTextColor() {
+        colorHelper.setTextColor(this)
+    }
+
     override fun setShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {
-        mdHelper.shapeAppearanceModel = shapeAppearanceModel
+        mdHelper.updateShapeAppearanceModel(shapeAppearanceModel)
     }
 
     override fun getShapeAppearanceModel(): ShapeAppearanceModel {
-        return mdHelper.shapeAppearanceModel
+        return mdHelper.obtainShapeAppearanceModel()
     }
 
 }

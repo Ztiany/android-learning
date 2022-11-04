@@ -17,6 +17,7 @@ class DrawablesActivity : BaseMainActivity() {
         items.add(Item("LayerDrawable", DrawableLayerFragment::class.java))
         items.add(Item("RotateDrawable", DrawableRotateFragment::class.java))
         items.add(Item("SelectorDrawable", DrawableSelectorFragment::class.java))
+        items.add(Item("RippleDrawable", RippleDrawableFragment::class.java))
         items.add(Item("VectorDrawable", DrawableVectorFragment::class.java))
         items.add(Item("FishDrawable", FishDrawableFragment::class.java))
         items.add(Item("SVG China Map", SVGChinaFragment::class.java))

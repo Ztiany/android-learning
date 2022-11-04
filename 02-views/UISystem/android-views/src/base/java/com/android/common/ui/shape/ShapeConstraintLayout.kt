@@ -1,4 +1,4 @@
-package com.ztiany.view.material
+package com.android.common.ui.shape
 
 import android.content.Context
 import android.util.AttributeSet
@@ -19,12 +19,16 @@ class ShapeConstraintLayout @JvmOverloads constructor(
         mdHelper.update(this)
     }
 
+    override fun updateShapeDrawable() {
+        mdHelper.update(this)
+    }
+
     override fun setShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {
-        mdHelper.shapeAppearanceModel = shapeAppearanceModel
+        mdHelper.updateShapeAppearanceModel(shapeAppearanceModel)
     }
 
     override fun getShapeAppearanceModel(): ShapeAppearanceModel {
-        return mdHelper.shapeAppearanceModel
+        return mdHelper.obtainShapeAppearanceModel()
     }
 
 }
