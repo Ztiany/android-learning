@@ -1,4 +1,4 @@
-package com.android.common.ui.shape
+package com.com.android.base.ui.shape
 
 interface ShapeTextColor {
 

@@ -94,7 +94,7 @@ class MessageDragListener implements View.OnTouchListener, MessageBubbleView.OnM
         // 移除消息气泡贝塞尔View,同时添加一个爆炸的View动画(帧动画)
         mWindowManager.removeView(mMessageBubbleView);
         mWindowManager.addView(mBombLayout, mParams);
-        mBombView.setBackgroundResource(R.drawable.anim_bubble_bomb);
+        mBombView.setBackgroundResource(R.drawable.frame_animation_bubble_bomb);
 
         AnimationDrawable bombDrawable = (AnimationDrawable) mBombView.getBackground();
         // 矫正爆炸时,位置偏下的问题

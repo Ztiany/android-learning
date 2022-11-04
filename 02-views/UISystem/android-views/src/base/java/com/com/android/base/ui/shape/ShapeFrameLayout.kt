@@ -1,32 +1,24 @@
-package com.android.common.ui.shape
+package com.com.android.base.ui.shape
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatButton
+import android.widget.FrameLayout
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
-class ShapeButton @JvmOverloads constructor(
+class ShapeFrameLayout @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = android.R.attr.buttonStyle
-) : AppCompatButton(context, attrs, defStyleAttr), EnhancedShapeable, ShapeTextColor {
+    attrs: AttributeSet? = null
+) : FrameLayout(context, attrs), EnhancedShapeable {
 
-    private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr)
-
-    private val colorHelper = ShapeTextColorHelper(context, attrs, defStyleAttr)
+    private val mdHelper = MaterialShapeDrawableHelper(context, attrs)
 
     init {
         mdHelper.update(this)
-        colorHelper.setTextColor(this)
     }
 
     override fun updateShapeDrawable() {
         mdHelper.update(this)
-    }
-
-    override fun updateTextColor() {
-        colorHelper.setTextColor(this)
     }
 
     override fun setShapeAppearanceModel(shapeAppearanceModel: ShapeAppearanceModel) {

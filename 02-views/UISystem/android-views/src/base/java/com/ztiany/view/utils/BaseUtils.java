@@ -9,13 +9,11 @@ import android.util.DisplayMetrics;
 
 
 /**
- * <pre>
- *          工具类基础
- * </pre>
+ * 工具类基础
  *
  * @author Ztiany
- *         date :   2016-03-19 23:09
- *         email:    ztiany3@gmail.com
+ * date :   2016-03-19 23:09
+ * email:    ztiany3@gmail.com
  */
 public class BaseUtils {
 

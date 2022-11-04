@@ -75,13 +75,13 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
-            <com.android.common.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeFrameLayout
                 style="@style/StyleShapeLayout"
                 app:backgroundTint="@color/colorPrimary"
                 app:shapeAppearance="@style/StyleShapeable_Rounded10" />
 
             <!-- 注意这里 padding 的数值是描边宽度的一半 -->
-            <com.android.common.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeFrameLayout
                 style="@style/StyleShapeLayout"
                 android:padding="2dp"
                 app:backgroundTint="@color/colorPrimary"
@@ -90,7 +90,7 @@
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_Cut10" />
 
-            <com.android.common.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeFrameLayout
                 style="@style/StyleShapeLayout"
                 android:padding="2dp"
                 app:msd_background_normal="@color/colorPrimary"
@@ -98,7 +98,7 @@
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_Cut50Percent" />
 
-            <com.android.common.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeFrameLayout
                 style="@style/StyleShapeLayout"
                 android:padding="2dp"
                 app:msd_background_normal="@color/green"
@@ -106,14 +106,14 @@
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_Leaf" />
 
-            <com.android.common.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeFrameLayout
                 style="@style/StyleShapeLayout"
                 android:padding="2dp"
                 app:msd_strokeColor_normal="@color/red"
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_TopCircle" />
 
-            <com.android.common.ui.shape.ShapeFrameLayout
+            <com.com.android.base.ui.shape.ShapeFrameLayout
                 style="@style/StyleShapeLayout"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
@@ -123,7 +123,7 @@
                 app:msd_strokeWidth="4dp"
                 app:shapeAppearance="@style/StyleShapeable_Hexagon" />
 
-            <com.android.common.ui.shape.ShapeTextView
+            <com.com.android.base.ui.shape.ShapeTextView
                 style="@style/StyleShapeLayout"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
@@ -140,7 +140,7 @@
                 app:stv_text_color_normal="@color/red"
                 app:stv_text_color_pressed="@color/black" />
 
-            <com.android.common.ui.shape.ShapeButton
+            <com.com.android.base.ui.shape.ShapeButton
                 style="@style/StyleShapeLayout"
                 android:layout_width="100dp"
                 android:layout_height="50dp"

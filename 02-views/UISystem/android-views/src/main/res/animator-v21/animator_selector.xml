@@ -3,8 +3,8 @@
 
     <!--
         StateListAnimator 是和 Material Design 一同在 API 21 引入的，可以用来方便的实现交互反馈的视觉效果
-        对于代码的方法为：setStateListAnimator
-        使用AnimatorInflater.loadStateListAnimator()加载这个StateListAnimator
+        代码设置对应的方法为：setStateListAnimator
+        使用 AnimatorInflater.loadStateListAnimator() 加载这个 StateListAnimator
     -->
 
     <!--pressed放前面-->

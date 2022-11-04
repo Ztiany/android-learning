@@ -1,19 +1,17 @@
-package com.android.common.ui.shape
+package com.com.android.base.ui.shape
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.RelativeLayout
 import com.google.android.material.shape.ShapeAppearanceModel
 
 /** Please refer [MaterialShapeDrawableHelper] for details. */
-class ShapeConstraintLayout @JvmOverloads constructor(
+class ShapeRelativeLayout @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
-    defStyleRes: Int = 0,
-) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), EnhancedShapeable {
+    attrs: AttributeSet? = null
+) : RelativeLayout(context, attrs), EnhancedShapeable {
 
-    private val mdHelper = MaterialShapeDrawableHelper(context, attrs, defStyleAttr, defStyleRes)
+    private val mdHelper = MaterialShapeDrawableHelper(context, attrs)
 
     init {
         mdHelper.update(this)

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <!-- 没错，帧动画就是定义在 drawable 中的，对应的是 AnimationDrawable。 -->
+    <item
+        android:drawable="@drawable/bomb1"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/bomb2"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/bomb3"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/bomb4"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/bomb5"
+        android:duration="100" />
+</animation-list>
