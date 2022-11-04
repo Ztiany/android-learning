@@ -14,15 +14,7 @@
     </style>
 
     <!-- =============================================== Coding Drawable Style =============================================== -->
-    <style name="CodingGradientDrawableCorner_10">
-        <item name="cgd_corner">10dp</item>
-    </style>
-
-    <style name="CodingGradientDrawableCorner_20">
-        <item name="cgd_corner">20dp</item>
-    </style>
-
-    <style name="CodingGradientDrawableCorner_tl_20">
+    <style name="CodingGradientDrawableCorner_TL_20">
         <item name="cgd_corner_top_left">20dp</item>
     </style>
 
@@ -48,32 +40,37 @@
 
     <style name="CodingGradientDrawable_Gradient_1">
         <item name="cgd_shape">rectangle</item>
-        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_tl_20</item>
+        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_TL_20</item>
         <item name="cgd_shape_gradient_style">@style/CodingGradientDrawableGradient_1</item>
     </style>
 
     <style name="CodingGradientDrawable_Gradient_2">
         <item name="cgd_shape">rectangle</item>
-        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_20</item>
+        <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round20</item>
         <item name="cgd_shape_gradient_style">@style/CodingGradientDrawableGradient_2</item>
     </style>
 
     <style name="CodingGradientDrawable_Solid_1">
         <item name="cgd_shape">rectangle</item>
-        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_tl_20</item>
+        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_TL_20</item>
         <item name="cgd_shape_solid">@color/gold</item>
     </style>
 
     <style name="CodingGradientDrawable_Solid_2">
         <item name="cgd_shape">rectangle</item>
-        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_tl_20</item>
+        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_TL_20</item>
         <item name="cgd_shape_solid">@color/green</item>
     </style>
 
     <style name="CodingGradientDrawable_Solid_3">
         <item name="cgd_shape">rectangle</item>
-        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_tl_20</item>
+        <item name="cgd_shape_corner_style">@style/CodingGradientDrawableCorner_TL_20</item>
         <item name="cgd_shape_solid">@color/gray</item>
+    </style>
+
+    <style name="CodingGradientDrawable_Solid_4">
+        <item name="cgd_shape">rectangle</item>
+        <item name="cgd_shape_solid">@color/gold</item>
     </style>
 
     <style name="CodingSelectorDrawable_Solid_1">

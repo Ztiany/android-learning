@@ -129,7 +129,7 @@
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
                 app:cgd_shape="rectangle"
-                app:cgd_shape_corner_style="@style/CodingGradientDrawableCorner_10"
+                app:cgd_shape_corner_style="@style/StyleGradientDrawableView_Round10"
                 app:cgd_shape_solid="@color/colorPrimary" />
 
             <com.peter.viewgrouptutorial.drawable.ETextView
@@ -142,7 +142,7 @@
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
                 app:cgd_shape="rectangle"
-                app:cgd_shape_corner_style="@style/CodingGradientDrawableCorner_tl_20"
+                app:cgd_shape_corner_style="@style/CodingGradientDrawableCorner_TL_20"
                 app:cgd_shape_solid="@color/colorPrimary" />
 
             <com.peter.viewgrouptutorial.drawable.ETextView
@@ -155,7 +155,7 @@
                 android:textStyle="bold"
                 app:cdv_drawable_type="gradient"
                 app:cgd_shape="rectangle"
-                app:cgd_shape_corner_style="@style/CodingGradientDrawableCorner_tl_20"
+                app:cgd_shape_corner_style="@style/CodingGradientDrawableCorner_TL_20"
                 app:cgd_shape_gradient_style="@style/CodingGradientDrawableGradient_1"
                 app:cgd_shape_stroke_style="@style/CodingGradientDrawableStroke_1" />
 
@@ -170,8 +170,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cdv_drawable_type="selector"
-                app:csd_selector_state_disabled="@style/CodingGradientDrawable_Solid_1"
-                app:csd_selector_state_normal="@style/CodingGradientDrawable_Gradient_1"
+                app:csd_selector_state_normal="@style/CodingGradientDrawable_Solid_4"
                 app:csd_selector_state_pressed="@drawable/avatar_rengwuxian" />
 
             <com.peter.viewgrouptutorial.drawable.ETextView
