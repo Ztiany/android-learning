@@ -1,4 +1,4 @@
-package com.ztiany.systemui.larges
+package com.ztiany.systemui.usecase.sadaptation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

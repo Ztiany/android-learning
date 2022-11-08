@@ -6,61 +6,78 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context="com.ztiany.systemui.MainActivity"
     tools:ignore="HardcodedText,UsingOnClickInXml">
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openSystemUI"
         android:text="System UI" />
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openFullscreen"
         android:text="Fullscreen" />
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openFullscreen2"
         android:text="Fullscreen2" />
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openFullscreen3"
         android:text="Fullscreen with fragment" />
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openVisibilityFullscreen"
         android:text=" UI Visibility Fullscreen" />
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openSystemModes"
         android:text="System Mods" />
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openWindowInsets"
         android:text="Window Insets" />
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openCutout"
         android:text="Cutout" />
 
     <Button
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openRatio"
         android:text="Ratio" />
+
+    <Button
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openEdge2Edge"
+        android:text="Edge to Edge UI" />
 
 </LinearLayout>

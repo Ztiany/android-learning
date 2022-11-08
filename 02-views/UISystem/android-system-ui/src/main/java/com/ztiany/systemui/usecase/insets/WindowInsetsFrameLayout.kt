@@ -1,4 +1,4 @@
-package com.ztiany.systemui.insets
+package com.ztiany.systemui.usecase.insets
 
 import android.content.Context
 import android.util.AttributeSet

@@ -7,15 +7,16 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ztiany.systemui.cutout.CutoutActivity;
-import com.ztiany.systemui.insets.WindowInsetsActivity;
-import com.ztiany.systemui.ratio.RatioActivity;
-import com.ztiany.systemui.uimods.SystemUIModes;
-import com.ztiany.systemui.uisapmle.FullscreenActivity;
-import com.ztiany.systemui.uisapmle.FullscreenActivity2;
-import com.ztiany.systemui.uisapmle.SystemUIActivity;
-import com.ztiany.systemui.uisapmle.SystemUIWithFragmentActivity;
-import com.ztiany.systemui.uisapmle.VisibilityFullscreenActivity;
+import com.ztiany.systemui.usecase.cutout.CutoutActivity;
+import com.ztiany.systemui.usecase.edge2edge.Edge2EdgeActivity;
+import com.ztiany.systemui.usecase.insets.WindowInsetsActivity;
+import com.ztiany.systemui.usecase.sadaptation.MaxAspectRatioActivity;
+import com.ztiany.systemui.usecase.uimods.SystemUIModes;
+import com.ztiany.systemui.usecase.uisapmle.FullscreenActivity;
+import com.ztiany.systemui.usecase.uisapmle.FullscreenActivity2;
+import com.ztiany.systemui.usecase.uisapmle.SystemUIActivity;
+import com.ztiany.systemui.usecase.uisapmle.SystemUIWithFragmentActivity;
+import com.ztiany.systemui.usecase.uisapmle.VisibilityFullscreenActivity;
 import com.ztiany.systemui.utils.Utils;
 
 import timber.log.Timber;
@@ -69,7 +70,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openRatio(View view) {
-        startActivity(new Intent(this, RatioActivity.class));
+        startActivity(new Intent(this, MaxAspectRatioActivity.class));
+    }
+
+    public void openEdge2Edge(View view) {
+        startActivity(new Intent(this, Edge2EdgeActivity.class));
     }
 
 }

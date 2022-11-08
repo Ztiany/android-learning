@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ztiany.systemui.uimods;
+package com.ztiany.systemui.usecase.uimods;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;

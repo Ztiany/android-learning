@@ -8,7 +8,7 @@
 
     <view
         android:id="@+id/image"
-        class="com.ztiany.systemui.uimods.SystemUIModes$IV"
+        class="com.ztiany.systemui.usecase.uimods.SystemUIModes$IV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"

@@ -1,13 +1,11 @@
-package com.ztiany.systemui.ratio
+package com.ztiany.systemui.usecase.sadaptation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ztiany.systemui.R
 import timber.log.Timber
 
-private const val TAG = "RatioActivity"
-
-class RatioActivity : AppCompatActivity() {
+class MaxAspectRatioActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

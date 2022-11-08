@@ -1,4 +1,4 @@
-package com.ztiany.systemui.uisapmle;
+package com.ztiany.systemui.usecase.uisapmle;
 
 import android.graphics.Color;
 import android.os.Bundle;

@@ -46,7 +46,7 @@
 
     <style name="CodingGradientDrawable_Gradient_2">
         <item name="cgd_shape">rectangle</item>
-        <item name="cgd_shape_corner_style">@style/StyleGradientDrawableView_Round20</item>
+        <item name="cgd_shape_corner_style">@style/StyleCodeDrawable_Shape_CornerStyle_Rounded20</item>
         <item name="cgd_shape_gradient_style">@style/CodingGradientDrawableGradient_2</item>
     </style>
 

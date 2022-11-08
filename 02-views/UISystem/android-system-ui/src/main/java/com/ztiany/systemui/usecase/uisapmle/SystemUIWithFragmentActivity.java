@@ -1,4 +1,4 @@
-package com.ztiany.systemui.uisapmle;
+package com.ztiany.systemui.usecase.uisapmle;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;

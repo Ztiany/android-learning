@@ -1,4 +1,4 @@
-package com.ztiany.systemui.uisapmle;
+package com.ztiany.systemui.usecase.uisapmle;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

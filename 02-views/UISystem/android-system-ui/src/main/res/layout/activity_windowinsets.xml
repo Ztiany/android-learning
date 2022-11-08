@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ztiany.systemui.insets.WindowInsetsFrameLayout
+<com.ztiany.systemui.usecase.insets.WindowInsetsFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.ztiany.systemui.insets.WindowInsetsView
+    <com.ztiany.systemui.usecase.insets.WindowInsetsView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#FF0000" />
@@ -14,4 +14,4 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom" />
 
-</com.ztiany.systemui.insets.WindowInsetsFrameLayout>
+</com.ztiany.systemui.usecase.insets.WindowInsetsFrameLayout>
