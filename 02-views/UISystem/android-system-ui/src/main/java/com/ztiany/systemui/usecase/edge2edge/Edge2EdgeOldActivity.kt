@@ -1,8 +1,6 @@
 package com.ztiany.systemui.usecase.edge2edge
 
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -11,7 +9,7 @@ import androidx.core.view.updatePadding
 import com.ztiany.systemui.R
 import timber.log.Timber
 
-class Edge2EdgeActivity : AppCompatActivity(R.layout.activity_edge_2_edge) {
+class Edge2EdgeOldActivity : AppCompatActivity(R.layout.activity_edge_2_edge) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

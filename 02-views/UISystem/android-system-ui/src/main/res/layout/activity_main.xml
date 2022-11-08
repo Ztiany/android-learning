@@ -11,73 +11,80 @@
     tools:ignore="HardcodedText,UsingOnClickInXml">
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openSystemUI"
         android:text="System UI" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openFullscreen"
         android:text="Fullscreen" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openFullscreen2"
         android:text="Fullscreen2" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openFullscreen3"
         android:text="Fullscreen with fragment" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openVisibilityFullscreen"
         android:text=" UI Visibility Fullscreen" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openSystemModes"
         android:text="System Mods" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openWindowInsets"
         android:text="Window Insets" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openCutout"
         android:text="Cutout" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openRatio"
         android:text="Ratio" />
 
     <Button
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="openEdge2Edge"
-        android:text="Edge to Edge UI" />
+        android:onClick="openEdge2EdgeNew"
+        android:text="Edge to Edge UI【WindowInsets】" />
+
+    <Button
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openEdge2EdgeOld"
+        android:text="Edge to Edge UI【SystemUI Flags】" />
 
 </LinearLayout>

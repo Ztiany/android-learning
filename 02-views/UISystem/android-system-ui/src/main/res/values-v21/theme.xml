@@ -2,10 +2,18 @@
 <resources>
 
     <style name="AppTheme.TranslucentSystemBar" parent="AppTheme.NoActionBar">
+        <!--仅仅设置 windowTranslucentStatus = true，状态栏会有一次半透明遮罩 -->
         <item name="android:windowTranslucentStatus">false</item>
         <!--仅仅设置 windowTranslucentNavigation，就可以让 UI 延伸到 StatusBar 和 NavigationBar 下-->
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.EdgeToEdge">
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- Optional: set to transparent if your app is drawing behind the status bar. -->
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 

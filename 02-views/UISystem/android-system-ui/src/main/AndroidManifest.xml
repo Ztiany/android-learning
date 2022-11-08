@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ztiany.systemui">
 
@@ -26,8 +27,12 @@
         <activity android:name=".usecase.uisapmle.SystemUIActivity" />
 
         <activity
-            android:name=".usecase.edge2edge.Edge2EdgeActivity"
+            android:name=".usecase.edge2edge.Edge2EdgeNewActivity"
             android:theme="@style/AppTheme.NoActionBar.EdgeToEdge" />
+
+        <activity
+            android:name=".usecase.edge2edge.Edge2EdgeOldActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".usecase.uisapmle.SystemUIWithFragmentActivity" />
 
@@ -40,7 +45,7 @@
             android:name=".usecase.uisapmle.VisibilityFullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/AppTheme.FullscreenTheme" />
 
         <activity android:name=".usecase.uisapmle.FullscreenActivity" />
 

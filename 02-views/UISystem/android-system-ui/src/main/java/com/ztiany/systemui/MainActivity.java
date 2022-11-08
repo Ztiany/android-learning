@@ -8,7 +8,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ztiany.systemui.usecase.cutout.CutoutActivity;
-import com.ztiany.systemui.usecase.edge2edge.Edge2EdgeActivity;
+import com.ztiany.systemui.usecase.edge2edge.Edge2EdgeNewActivity;
+import com.ztiany.systemui.usecase.edge2edge.Edge2EdgeOldActivity;
 import com.ztiany.systemui.usecase.insets.WindowInsetsActivity;
 import com.ztiany.systemui.usecase.sadaptation.MaxAspectRatioActivity;
 import com.ztiany.systemui.usecase.uimods.SystemUIModes;
@@ -73,8 +74,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, MaxAspectRatioActivity.class));
     }
 
-    public void openEdge2Edge(View view) {
-        startActivity(new Intent(this, Edge2EdgeActivity.class));
+    public void openEdge2EdgeNew(View view) {
+        startActivity(new Intent(this, Edge2EdgeNewActivity.class));
+    }
+
+    public void openEdge2EdgeOld(View view) {
+        startActivity(new Intent(this, Edge2EdgeOldActivity.class));
     }
 
 }
