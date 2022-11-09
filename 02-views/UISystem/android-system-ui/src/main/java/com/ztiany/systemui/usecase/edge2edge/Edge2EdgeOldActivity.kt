@@ -7,6 +7,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import com.ztiany.systemui.R
+import com.ztiany.systemui.utils.SystemBarCompat
 import timber.log.Timber
 
 class Edge2EdgeOldActivity : AppCompatActivity(R.layout.activity_edge_2_edge) {
@@ -17,7 +18,7 @@ class Edge2EdgeOldActivity : AppCompatActivity(R.layout.activity_edge_2_edge) {
         //step 1
         //Build.VERSION.SDK_INT < 30，通过 SystemUIFlag
         //Build.VERSION.SDK_INT >= 30，通过 WindowInsets，参考 https://android.googlesource.com/platform/frameworks/base/+/master/core/java/com/android/internal/policy/PhoneWindow.java
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+        SystemBarCompat.setDecorFitsSystemWindows(this)
 
         //step 2
         /*
@@ -28,7 +29,7 @@ class Edge2EdgeOldActivity : AppCompatActivity(R.layout.activity_edge_2_edge) {
         val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView)
         //windowInsetsController?.hide(WindowInsetsCompat.Type.statusBars())
 
-        //step 3：根据需求，调整与 WindowInsets 的交叠区域
+        //step 3：根据需求，调整与 WindowInsets 的交叠区域【这个只能在 API 21 及以上工作，对于 API 19，可以考虑使用 fitsSystemWindows 或者手动设置 Padding】
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.edge_to_edge_root)) { view, windowInsets ->
             val insetsGestures = windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
             val insetsBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -37,7 +38,7 @@ class Edge2EdgeOldActivity : AppCompatActivity(R.layout.activity_edge_2_edge) {
             // Apply the insets as padding to the view. Here we're setting all of the
             // dimensions, but apply as appropriate to your layout. You could also
             // update the views margin if more appropriate.
-             view.updatePadding(insetsBars.left, insetsBars.top, insetsBars.right, insetsBars.bottom)
+            view.updatePadding(insetsBars.left, insetsBars.top, insetsBars.right, insetsBars.bottom)
             // Return CONSUMED if we don't want the window insets to keep being passed
             // down to descendant views.
             WindowInsetsCompat.CONSUMED

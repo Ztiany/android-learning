@@ -10,12 +10,7 @@ class CutoutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cutout)
-
-        //SystemWindowCompat.setFullScreen(this)
-        //SystemWindowCompat.displayInNotch(this)
-        SystemBarCompat.setTransparentSystemBarViaViewFlags(this)
-        //SystemWindowCompat.hideStatusAndNavigationBar(this)
-        //SystemWindowCompat.setTranslucentSystemBar(this, true, true)
+        SystemBarCompat.displayInNotch(this)
     }
 
 }

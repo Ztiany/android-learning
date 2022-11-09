@@ -7,7 +7,7 @@ import android.view.WindowManager;
 
 import com.ztiany.systemui.R;
 
-public class FullscreenActivity extends AppCompatActivity {
+public class FullscreenActivity1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

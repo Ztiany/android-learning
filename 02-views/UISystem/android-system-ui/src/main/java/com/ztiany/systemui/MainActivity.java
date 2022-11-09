@@ -13,7 +13,7 @@ import com.ztiany.systemui.usecase.edge2edge.Edge2EdgeOldActivity;
 import com.ztiany.systemui.usecase.insets.WindowInsetsActivity;
 import com.ztiany.systemui.usecase.sadaptation.MaxAspectRatioActivity;
 import com.ztiany.systemui.usecase.uimods.SystemUIModes;
-import com.ztiany.systemui.usecase.uisapmle.FullscreenActivity;
+import com.ztiany.systemui.usecase.uisapmle.FullscreenActivity1;
 import com.ztiany.systemui.usecase.uisapmle.FullscreenActivity2;
 import com.ztiany.systemui.usecase.uisapmle.SystemUIActivity;
 import com.ztiany.systemui.usecase.uisapmle.SystemUIWithFragmentActivity;
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, VisibilityFullscreenActivity.class));
     }
 
-    public void openFullscreen(View view) {
-        startActivity(new Intent(this, FullscreenActivity.class));
+    public void openFullscreen1(View view) {
+        startActivity(new Intent(this, FullscreenActivity1.class));
     }
 
     public void openFullscreen2(View view) {
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, CutoutActivity.class));
     }
 
-    public void openRatio(View view) {
+    public void openMaxAspectRatio(View view) {
         startActivity(new Intent(this, MaxAspectRatioActivity.class));
     }
 

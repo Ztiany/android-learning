@@ -21,15 +21,15 @@
         style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="openFullscreen"
-        android:text="Fullscreen" />
+        android:onClick="openFullscreen1"
+        android:text="Fullscreen 1" />
 
     <Button
         style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openFullscreen2"
-        android:text="Fullscreen2" />
+        android:text="Fullscreen 2" />
 
     <Button
         style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
@@ -70,21 +70,21 @@
         style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="openRatio"
-        android:text="Ratio" />
+        android:onClick="openMaxAspectRatio"
+        android:text="MaxAspectRatio" />
 
     <Button
         style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openEdge2EdgeNew"
-        android:text="Edge to Edge UI【WindowInsets】" />
+        android:text="Edge to Edge UI by Official【API 20】" />
 
     <Button
         style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openEdge2EdgeOld"
-        android:text="Edge to Edge UI【SystemUI Flags】" />
+        android:text="Edge to Edge UI by Customization【API 19】" />
 
 </LinearLayout>
