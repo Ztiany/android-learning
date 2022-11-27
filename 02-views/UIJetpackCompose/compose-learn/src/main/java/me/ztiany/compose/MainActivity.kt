@@ -5,10 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +19,6 @@ import me.ztiany.compose.foundation.local.CompositionLocalActivity
 import me.ztiany.compose.foundation.material.MaterialActivity
 import me.ztiany.compose.foundation.sideeffect.SideEffectActivity
 import me.ztiany.compose.foundation.tutor.TutorActivity
-import me.ztiany.compose.rengxuxian.RengWuXianComposeActivity
 
 class MainActivity : ComponentActivity() {
 
@@ -45,7 +41,6 @@ class MainActivity : ComponentActivity() {
         EnterButton(CompositionLocalActivity::class.java, "CompositionLocal 演示")
         EnterButton(MaterialActivity::class.java, "Material 演示")
         EnterButton(CustomLayoutActivity::class.java, "Custom Layout 演示")
-        EnterButton(RengWuXianComposeActivity::class.java, "扔物线 Compose 课程")
     }
 
     @Composable
@@ -74,7 +69,7 @@ class MainActivity : ComponentActivity() {
     private fun EnterButton(clazz: Class<out Activity>, name: String) {
         Button(onClick = {
             startActivity(Intent(this@MainActivity, clazz))
-        }, Modifier.padding(5.dp)) {
+        }, Modifier.padding(5.dp).fillMaxWidth()) {
             Icon(
                 painter = painterResource(id = android.R.drawable.star_on),
                 contentDescription = ""

@@ -1,7 +1,6 @@
-package me.ztiany.compose.rengxuxian
+package me.ztiany.compose.rwx.version1
 
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

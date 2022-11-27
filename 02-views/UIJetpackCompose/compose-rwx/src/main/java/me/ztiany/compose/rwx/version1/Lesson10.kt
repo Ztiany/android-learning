@@ -1,4 +1,4 @@
-package me.ztiany.compose.rengxuxian
+package me.ztiany.compose.rwx.version1
 
 import android.graphics.Color
 import android.widget.TextView
@@ -9,7 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.viewinterop.AndroidView
-import me.ztiany.compose.R
+import me.ztiany.compose.rwx.R
 
 
 fun Lesson10_interactWithTraditionalView(activity: AppCompatActivity) = with(activity) {

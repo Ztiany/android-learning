@@ -1,4 +1,4 @@
-package me.ztiany.compose.rengxuxian
+package me.ztiany.compose.rwx.version1
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import me.ztiany.compose.R
+import me.ztiany.compose.rwx.R
 
 /**类比：RecyclerView*/
 @Composable

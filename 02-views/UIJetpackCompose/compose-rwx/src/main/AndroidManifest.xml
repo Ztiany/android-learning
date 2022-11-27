@@ -22,6 +22,10 @@
         </activity>
 
         <activity
+            android:name=".version1.Version1Activity"
+            android:theme="@style/Theme.UIJetpackCompose" />
+
+        <activity
             android:name=".ContentActivity"
             android:theme="@style/Theme.UIJetpackCompose" />
 

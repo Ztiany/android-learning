@@ -1,11 +1,11 @@
-package me.ztiany.compose.rengxuxian
+package me.ztiany.compose.rwx.version1
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import me.ztiany.compose.commom.UIJetpackComposeTheme
+import me.ztiany.compose.rwx.ui.theme.UIJetpackComposeTheme
 
-class RengWuXianComposeActivity : AppCompatActivity() {
+class Version1Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

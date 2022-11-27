@@ -1,8 +1,7 @@
-package me.ztiany.compose.rengxuxian
+package me.ztiany.compose.rwx.version1
 
 import android.R
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
