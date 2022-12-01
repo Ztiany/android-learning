@@ -5,8 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
 
+/** 演示 LayoutComposable 的使用*/
 @Composable
-fun IntrinsicHeightExample() {
+fun SimpleColumnExample() {
     CustomBasicColumn {
         Text("MyBasicColumn")
         Text("places items")
@@ -18,7 +19,7 @@ fun IntrinsicHeightExample() {
 /*
 LayoutModifier 可以类比于定制单元View。如果想在 Compose 中类似定制"ViewGroup"，就需要使用 LayoutComposable 了。
 
-LayoutComposable需要填写三个参数：modifier、content、measurePolicy。
+LayoutComposable 需要填写三个参数：modifier、content、measurePolicy。
 
     - Modifier 表示是由外部传入的修饰符
     - content 就是我们声明的子组件信息

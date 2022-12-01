@@ -34,16 +34,6 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun Entrances() {
-        EnterButton(TutorActivity::class.java, "Tutor")
-        EnterButton(LayoutBasicActivity::class.java, "Compose 布局基础基础")
-        EnterButton(SideEffectActivity::class.java, "Compose Side Effect 演示")
-        EnterButton(CompositionLocalActivity::class.java, "CompositionLocal 演示")
-        EnterButton(MaterialActivity::class.java, "Material 演示")
-        EnterButton(CustomLayoutActivity::class.java, "Custom Layout 演示")
-    }
-
-    @Composable
     private fun MainContent() {
         UIJetpackComposeTheme {
             /*
@@ -66,13 +56,23 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
+    private fun Entrances() {
+        EnterButton(TutorActivity::class.java, "Compose 博物馆入门教程")
+        EnterButton(LayoutBasicActivity::class.java, "Compose 基础组件学习")
+        EnterButton(MaterialActivity::class.java, "Compose Material 组件学习")
+        EnterButton(CompositionLocalActivity::class.java, "CompositionLocal 学习")
+        EnterButton(SideEffectActivity::class.java, "Side Effect API 学习")
+        EnterButton(CustomLayoutActivity::class.java, "自定义 Compose 渲染流程")
+    }
+
+    @Composable
     private fun EnterButton(clazz: Class<out Activity>, name: String) {
         Button(onClick = {
             startActivity(Intent(this@MainActivity, clazz))
         }, Modifier.padding(5.dp).fillMaxWidth()) {
             Icon(
                 painter = painterResource(id = android.R.drawable.star_on),
-                contentDescription = ""
+                contentDescription = name
             )
             Spacer(modifier = Modifier.padding(2.dp))
             Text(name)

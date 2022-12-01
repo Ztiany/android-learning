@@ -1,7 +1,6 @@
 package me.ztiany.compose.foundation.custom
 
 import android.util.Log
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
@@ -13,14 +12,12 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/** 演示 layout 修饰符的使用*/
 @Composable
-fun LayoutModifierExample() {
-    Column {
-        Text("Example of layout Modifier：】", Modifier.padding(20.dp))
-        Row {
-            Text("Hi there!【Using layoutModifier】", Modifier.firstBaselineToTop(24.dp))
-            Text("Hi there!【Using Pading】",Modifier.padding(top = 24.dp))
-        }
+fun FirstBaselineToTopExample() {
+    Row {
+        Text("Hi there!【Using layoutModifier】", Modifier.firstBaselineToTop(24.dp))
+        Text("Hi there!【Using Padding】",Modifier.padding(top = 24.dp))
     }
 }
 

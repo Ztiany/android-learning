@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 
 /** 演示 Canvas Composable 的使用。*/
 @Composable
-fun LoadingProgressBar() {
+fun DrawLoadingProgressBar() {
     val sweepAngle by remember { mutableStateOf(162F) }
 
     Box(

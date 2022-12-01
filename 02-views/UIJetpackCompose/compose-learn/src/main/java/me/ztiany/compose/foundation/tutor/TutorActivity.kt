@@ -25,6 +25,7 @@ import me.ztiany.compose.commom.UIJetpackComposeTheme
 data class Message(val author: String, val body: String)
 
 private const val author = "Jetpack Compose 博物馆"
+
 private val messages = listOf(
     Message(author, "我们开始更新啦"),
     Message(author, "为了给广大的读者一个更好的体验，从今天起，我们公众号决定陆续发一些其他作者的高质量文章"),
