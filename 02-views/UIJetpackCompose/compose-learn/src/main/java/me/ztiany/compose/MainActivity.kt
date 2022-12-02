@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import me.ztiany.compose.commom.UIJetpackComposeTheme
+import me.ztiany.compose.foundation.animation.AnimationActivity
 import me.ztiany.compose.foundation.custom.CustomLayoutActivity
 import me.ztiany.compose.foundation.layout.LayoutBasicActivity
 import me.ztiany.compose.foundation.local.CompositionLocalActivity
@@ -63,6 +64,7 @@ class MainActivity : ComponentActivity() {
         EnterButton(CompositionLocalActivity::class.java, "CompositionLocal 学习")
         EnterButton(SideEffectActivity::class.java, "Side Effect API 学习")
         EnterButton(CustomLayoutActivity::class.java, "自定义 Compose 渲染流程")
+        EnterButton(AnimationActivity::class.java, "动画 API 学习")
     }
 
     @Composable

@@ -24,32 +24,33 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".foundation.tutor.TutorActivity"
-            android:label="Compose Tutor Example" />
-
         <activity
-            android:name=".rengxuxian.RengWuXianComposeActivity"
-            android:label="扔物线 Compose" />
+            android:name=".foundation.tutor.TutorActivity"
+            android:label="Jetpack Compose Museum 示例" />
 
         <activity
             android:name=".foundation.layout.LayoutBasicActivity"
-            android:label="布局基础基础" />
+            android:label="布局基础" />
 
         <activity
             android:name=".foundation.sideeffect.SideEffectActivity"
-            android:label="Side Effect 演示" />
+            android:label="Side Effect API" />
 
         <activity
             android:name=".foundation.local.CompositionLocalActivity"
-            android:label="CompositionLocal 演示" />
+            android:label="CompositionLocal 的使用" />
 
         <activity
             android:name=".foundation.material.MaterialActivity"
-            android:label="material 演示" />
+            android:label="MaterialDesign 组件" />
 
         <activity
             android:name=".foundation.custom.CustomLayoutActivity"
-            android:label="Custom Layout 演示" />
+            android:label="自定义布局与绘制" />
+
+        <activity
+            android:name=".foundation.animation.AnimationActivity"
+            android:label="动画 API" />
 
     </application>
 
