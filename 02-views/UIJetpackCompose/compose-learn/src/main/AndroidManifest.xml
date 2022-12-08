@@ -52,6 +52,10 @@
             android:name=".foundation.animation.AnimationActivity"
             android:label="动画 API" />
 
+        <activity
+            android:name=".foundation.gesture.GestureActivity"
+            android:label="手势 API" />
+
     </application>
 
 </manifest>
