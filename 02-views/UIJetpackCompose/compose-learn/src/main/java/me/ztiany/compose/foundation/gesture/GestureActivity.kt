@@ -12,12 +12,24 @@ import me.ztiany.compose.commom.onClick
 class GestureActivity : AppCompatActivity() {
 
     private val layouts = linkedMapOf<String, @Composable () -> Unit>(
+        //高级 API
         "Clickable" to { ClickableViews() },
         "Draggable" to { DraggableViews() },
         "Swipeable" to { SwipeableViews() },
         "Transformable" to { TransformableViews() },
         "Scrollable" to { ScrollableViews() },
         "Scrollable" to { NestedScrollViews() },
+        //中层 API
+        "DetectTapGestures" to { DetectTapGesturesViews() },
+        "DetectDragGestures" to { DetectDragGesturesViews() },
+        "TransformGesture" to { TransformGestureViews() },
+        "ForEachGesture" to { ForEachGestureViews() },
+        //底层 API
+        "AwaitPointerEvent" to { AwaitPointerEventViews() },
+        "AwaitFirstDown" to { AwaitFirstDownViews() },
+        "Drag" to { DragViews() },
+        "AwaitDragOrCancellation" to { AwaitDragOrCancellationViews() },
+        "AwaitTouchSlopOrCancellation" to { AwaitTouchSlopOrCancellationViews() }
     )
 
     private val layout = mutableStateOf("Clickable")

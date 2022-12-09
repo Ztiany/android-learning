@@ -27,6 +27,37 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 private const val TAG = "NestedScrollExample"
 
+/*
+我们在开发时，可能经常需要通过处理嵌套滑动来解决手势冲突问题。简单地说，就是协调父 View 与子 View 的交互逻辑关系，从而实现各类手势需求。在 View 体系中，可以通过重写
+ViewGroup 的 onInterceptTouchEvent 来定制处理。这么做可能比较麻烦，一般都会直接使用 NestedScrollView 来实现。在 Compose 中官方为我们实现了 nestedScroll 修饰符，可以
+专门用来处理嵌套滑动手势，这也为父组件劫持消费子组件所触发的滑动手势提供了可能。
+
+在使用 nestedScroll 修饰符时，需要传入一个必选参数 connection 和一个可选参数 dispatcher。
+
+            • connection：包含了嵌套滑动手势处理的核心逻辑，通过内部回调可以在子布局获得滑动事件前，预先消费掉部分或全部手势偏移量，当然也可以获取子布局消费后剩下的手势偏移量。
+            • dispatcher：包含用于父布局的 NestedScrollConnection，可以使用包含的 dispatch* 系列方法动态控制组件完成滑动。
+ */
+@Composable
+fun NestedScrollViews() {
+    SmartSwipeRefresh(onRefresh = {
+        Log.d(TAG, "onRefresh")
+    }) {
+        Column(Modifier.verticalScroll(rememberScrollState())) {
+            for (i in 0..100) {
+                Box(
+                    Modifier
+                        .padding(5.dp)
+                        .fillMaxWidth()
+                        .height(60.dp)
+                        .background(Color.Blue)
+                ) {
+                    Text(text = i.toString(), color = Color.White, modifier = Modifier.align(Alignment.Center))
+                }
+            }
+        }
+    }
+}
+
 class SmartSwipeRefreshState {
     private val indicatorOffsetAnimatable = Animatable(0.dp, Dp.VectorConverter)
 
@@ -161,37 +192,6 @@ fun SmartSwipeRefresh(
                 onRefresh()
                 state.animateToOffset(0.dp)
                 state.isRefreshing = false
-            }
-        }
-    }
-}
-
-/*
-我们在开发时，可能经常需要通过处理嵌套滑动来解决手势冲突问题。简单地说，就是协调父 View 与子 View 的交互逻辑关系，从而实现各类手势需求。在 View 体系中，可以通过重写
-ViewGroup 的 onInterceptTouchEvent 来定制处理。这么做可能比较麻烦，一般都会直接使用 NestedScrollView 来实现。在 Compose 中官方为我们实现了 nestedScroll 修饰符，可以
-专门用来处理嵌套滑动手势，这也为父组件劫持消费子组件所触发的滑动手势提供了可能。
-
-在使用 nestedScroll 修饰符时，需要传入一个必选参数 connection 和一个可选参数 dispatcher。
-
-            • connection：包含了嵌套滑动手势处理的核心逻辑，通过内部回调可以在子布局获得滑动事件前，预先消费掉部分或全部手势偏移量，当然也可以获取子布局消费后剩下的手势偏移量。
-            • dispatcher：包含用于父布局的 NestedScrollConnection，可以使用包含的 dispatch* 系列方法动态控制组件完成滑动。
- */
-@Composable
-fun NestedScrollViews() {
-    SmartSwipeRefresh(onRefresh = {
-        Log.d(TAG, "onRefresh")
-    }) {
-        Column(Modifier.verticalScroll(rememberScrollState())) {
-            for (i in 0..100) {
-                Box(
-                    Modifier
-                        .padding(5.dp)
-                        .fillMaxWidth()
-                        .height(60.dp)
-                        .background(Color.Blue)
-                ) {
-                    Text(text = i.toString(), color = Color.White, modifier = Modifier.align(Alignment.Center))
-                }
             }
         }
     }
