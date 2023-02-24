@@ -5,7 +5,7 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import com.peter.viewgrouptutorial.drawable.*
+import com.android.base.ui.drawable.*
 import com.ztiany.view.R
 import com.ztiany.view.SimpleLayoutFragment
 

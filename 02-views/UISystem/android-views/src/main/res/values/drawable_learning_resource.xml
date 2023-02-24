@@ -15,27 +15,27 @@
 
     <!-- =============================================== Coding Drawable Style =============================================== -->
     <style name="CodingGradientDrawableCorner_TL_20">
-        <item name="cgd_corner_top_left">20dp</item>
+        <item name="corner_style_top_left">20dp</item>
     </style>
 
     <style name="CodingGradientDrawableGradient_1">
-        <item name="cgd_gradient_start_color">#FF0000</item>
-        <item name="cgd_gradient_center_color">#0000FF</item>
-        <item name="cgd_gradient_end_color">#00FF00</item>
+        <item name="gradient_style_start_color">#FF0000</item>
+        <item name="gradient_style_center_color">#0000FF</item>
+        <item name="gradient_style_end_color">#00FF00</item>
     </style>
 
     <style name="CodingGradientDrawableGradient_2">
-        <item name="cgd_gradient_start_color">#FF0000</item>
-        <item name="cgd_gradient_center_color">#0000FF</item>
-        <item name="cgd_gradient_end_color">#00FF00</item>
-        <item name="cgd_gradient_orientation">TOP_BOTTOM</item>
+        <item name="gradient_style_start_color">#FF0000</item>
+        <item name="gradient_style_center_color">#0000FF</item>
+        <item name="gradient_style_end_color">#00FF00</item>
+        <item name="gradient_style_orientation">TOP_BOTTOM</item>
     </style>
 
     <style name="CodingGradientDrawableStroke_1">
-        <item name="cgd_stroke_dash_color">#FF0000</item>
-        <item name="cgd_stroke_dash_gap">10dp</item>
-        <item name="cgd_stroke_dash_width">4dp</item>
-        <item name="cgd_stroke_width">4dp</item>
+        <item name="stroke_style_color">#FF0000</item>
+        <item name="stroke_style_dash_gap">10dp</item>
+        <item name="stroke_style_dash_width">4dp</item>
+        <item name="stroke_style_width">4dp</item>
     </style>
 
     <style name="CodingGradientDrawable_Gradient_1">

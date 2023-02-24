@@ -71,5 +71,5 @@ dependencies {
     //third
     implementation libraries.multiType
     implementation libraries.glide
-    implementation 'io.github.ztiany:android-drawable-view:1.0.6'
+    implementation 'io.github.ztiany:android-drawable-view:1.1.3'
 }
