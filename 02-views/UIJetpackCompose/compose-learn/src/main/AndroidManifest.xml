@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,45 +17,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="Compose 学习"
+            android:label="JetpackCompose 学习"
             android:theme="@style/Theme.UIJetpackCompose.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".foundation.tutor.TutorActivity"
-            android:label="Jetpack Compose Museum 示例" />
-
-        <activity
-            android:name=".foundation.layout.LayoutBasicActivity"
-            android:label="布局基础" />
-
-        <activity
-            android:name=".foundation.sideeffect.SideEffectActivity"
-            android:label="Side Effect API" />
-
-        <activity
-            android:name=".foundation.local.CompositionLocalActivity"
-            android:label="CompositionLocal 的使用" />
-
-        <activity
-            android:name=".foundation.material.MaterialActivity"
-            android:label="MaterialDesign 组件" />
-
-        <activity
-            android:name=".foundation.custom.CustomLayoutActivity"
-            android:label="自定义布局与绘制" />
-
-        <activity
-            android:name=".foundation.animation.AnimationActivity"
-            android:label="动画 API" />
-
-        <activity
-            android:name=".foundation.gesture.GestureActivity"
-            android:label="手势 API" />
 
     </application>
 

@@ -5,11 +5,9 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.Scaffold
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import me.ztiany.compose.commom.UIJetpackComposeTheme
+import me.ztiany.compose.theme.UIJetpackComposeTheme
 
 private fun MenuItem.onClick(onClick: () -> Unit) {
     setOnMenuItemClickListener {

@@ -18,7 +18,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import me.ztiany.compose.commom.UIJetpackComposeTheme
+import me.ztiany.compose.theme.UIJetpackComposeTheme
 
 class SideEffectActivity : AppCompatActivity() {
 

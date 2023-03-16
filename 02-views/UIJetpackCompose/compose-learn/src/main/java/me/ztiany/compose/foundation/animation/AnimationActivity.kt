@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import me.ztiany.compose.commom.UIJetpackComposeTheme
-import me.ztiany.compose.commom.onClick
+import me.ztiany.compose.theme.UIJetpackComposeTheme
+import me.ztiany.compose.theme.onClick
 import me.ztiany.compose.foundation.animation.practice.FavButton
 import me.ztiany.compose.foundation.animation.practice.Shimmer
 

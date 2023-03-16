@@ -1,4 +1,4 @@
-package me.ztiany.compose.commom
+package me.ztiany.compose.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

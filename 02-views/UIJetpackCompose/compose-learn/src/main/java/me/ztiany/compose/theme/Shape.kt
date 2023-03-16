@@ -1,4 +1,4 @@
-package me.ztiany.compose.commom
+package me.ztiany.compose.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
