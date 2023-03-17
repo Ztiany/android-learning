@@ -1,4 +1,4 @@
-package me.ztiany.compose.foundation.material
+package me.ztiany.compose.foundation.widgets
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer

@@ -21,9 +21,7 @@ class LayoutBasicActivity : AppCompatActivity() {
         },
         "QuotesDemo" to { QuotesDemo() },
         "UserPortraitDemo" to { UserPortraitDemo() },
-        "InputFieldLayoutDemo" to { InputFieldLayoutDemo() },
         "ConstraintLayoutDemo" to { ConstraintLayoutDemo() },
-        "SearchBar" to { SearchBar() },
     )
 
     private val layout = mutableStateOf("ArtistCard")

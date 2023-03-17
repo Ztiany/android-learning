@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">UIJetpackCompose</string>
+
+    <string name="app_name">UI JetpackCompose</string>
+
     <string name="fruit_title">Fruit: %s</string>
+
+    <string name="text_layout_result_explanation">Callback that is executed when a new text layout is calculated. A TextLayoutResult object that callback provides contains paragraph information, size of the text, baselines and other details. The callback can be used to add additional decoration or functionality to the text. For example, to draw a cursor or selection around the text.</string>
+    <string name="launched_effect_explanation">When LaunchedEffect enters the composition it will launch block into the composition’s CoroutineContext. The coroutine will be cancelled and re-launched when LaunchedEffect is recomposed with a different key1 or key2. The coroutine will be cancelled when the LaunchedEffect leaves the composition.</string>
+
 </resources>

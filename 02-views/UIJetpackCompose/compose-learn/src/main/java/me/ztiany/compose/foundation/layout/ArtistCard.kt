@@ -1,7 +1,5 @@
 package me.ztiany.compose.foundation.layout
 
-import android.content.res.Configuration
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -19,6 +17,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import me.ztiany.compose.R
 
+/**
+ * Column/Row/Card 等布局的使用。
+ */
 @Composable
 fun ArtistCard(
     onClick: () -> Unit

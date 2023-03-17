@@ -25,6 +25,10 @@ fun WidgetsScreen() {
         }
         //Button
         ExampleArea(exampleName = "Button") {
+            TextFiledExample(context)
+        }
+        //Button
+        ExampleArea(exampleName = "Button") {
 
         }
     }

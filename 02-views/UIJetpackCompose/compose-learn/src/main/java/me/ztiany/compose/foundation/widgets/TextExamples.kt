@@ -2,11 +2,17 @@ package me.ztiany.compose.foundation.widgets
 
 import android.content.Context
 import android.widget.Toast
+import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.material.ContentAlpha
+import androidx.compose.material.LocalContentAlpha
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -18,6 +24,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.ztiany.compose.R
 
@@ -51,13 +58,72 @@ fun TextExample(context: Context) {
 
     SelectableText()
 
-    ExpandableText()
+    ExpandableText(text = stringResource(id = R.string.text_layout_result_explanation), minimizedMaxLines = 2)
+    Spacer(modifier = Modifier.height(10.dp))
+    ExpandableText(text = stringResource(id = R.string.launched_effect_explanation), minimizedMaxLines = 3)
+    Spacer(modifier = Modifier.height(10.dp))
+
+    CustomMaterialText()
+}
+
+@Composable
+private fun CustomMaterialText() {
+    // 将内部 Text 组件的 alpha 强调程度设置为高
+    // 注意: MaterialTheme 已经默认将强调程度设置为 high
+    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.high) {
+        Text("这里是 high 强调效果")
+    }
+    // 将内部 Text 组件的 alpha 强调程度设置为中
+    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+        Text("这里是 medium 强调效果")
+    }
+    // 将内部 Text 组件的 alpha 强调程度设置为禁用
+    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.disabled) {
+        Text("这里是禁用后的效果")
+    }
 }
 
 //https://proandroiddev.com/expandabletext-in-jetpack-compose-b924ea424774
 @Composable
-private fun ExpandableText() {
+private fun ExpandableText(modifier: Modifier = Modifier, text: String, minimizedMaxLines: Int = 2) {
 
+    var isExpanded by remember { mutableStateOf(false) }
+    val textLayoutResultState = remember { mutableStateOf<TextLayoutResult?>(null) }
+    var isClickable by remember { mutableStateOf(false) }
+    var finalText by remember { mutableStateOf(text) }
+
+    val textLayoutResult = textLayoutResultState.value
+
+    LaunchedEffect(textLayoutResult) {
+        if (textLayoutResult == null) return@LaunchedEffect
+
+        when {
+            isExpanded -> {
+                finalText = "$text Show Less"
+            }
+            !isExpanded && textLayoutResult.hasVisualOverflow -> {
+                val lastCharIndex = textLayoutResult.getLineEnd(minimizedMaxLines - 1)
+                val showMoreString = "... Show More"
+                val adjustedText = text
+                    .substring(startIndex = 0, endIndex = lastCharIndex)
+                    .dropLast(showMoreString.length)
+                    .dropLastWhile { it == ' ' || it == '.' }//去掉所有的点和空字符
+
+                finalText = "$adjustedText$showMoreString"
+                isClickable = true
+            }
+        }
+    }
+
+    Text(
+        text = finalText,
+        maxLines = if (isExpanded) Int.MAX_VALUE else minimizedMaxLines,
+        //A TextLayoutResult object that callback provides contains paragraph information, size of the text, baselines and other details.
+        onTextLayout = { textLayoutResultState.value = it },
+        modifier = modifier
+            .clickable(enabled = isClickable) { isExpanded = !isExpanded }
+            .animateContentSize(),
+    )
 }
 
 @Composable

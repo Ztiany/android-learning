@@ -20,6 +20,9 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import me.ztiany.compose.R
 
+/**
+ * ConstraintLayout 的使用。
+ */
 @Composable
 fun UserPortraitDemo() {
     ConstraintLayout(
