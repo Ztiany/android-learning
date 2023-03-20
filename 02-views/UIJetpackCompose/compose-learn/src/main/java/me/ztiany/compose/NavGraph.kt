@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import me.ztiany.compose.foundation.layout.layoutScreen
 import me.ztiany.compose.foundation.tutor.tutorScreen
 import me.ztiany.compose.foundation.widgets.widgetScreen
 
@@ -22,5 +23,6 @@ fun AppNavGraph(
         mainScreen(navController)
         tutorScreen()
         widgetScreen()
+        layoutScreen()
     }
 }

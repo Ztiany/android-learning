@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.ztiany.compose.R
 
-//https://jetpackcompose.cn/docs/elements/text
+//参考：https://jetpackcompose.cn/docs/elements/text
 @Composable
 fun TextExample(context: Context) {
     BasicTextFieldDemo()
@@ -83,7 +83,7 @@ private fun CustomMaterialText() {
     }
 }
 
-//https://proandroiddev.com/expandabletext-in-jetpack-compose-b924ea424774
+//参考：https://proandroiddev.com/expandabletext-in-jetpack-compose-b924ea424774
 @Composable
 private fun ExpandableText(modifier: Modifier = Modifier, text: String, minimizedMaxLines: Int = 2) {
 
@@ -149,7 +149,7 @@ private fun SelectableText() {
     }
 }
 
-//https://stackoverflow.com/questions/67243761/partially-color-text-and-make-it-clickable-in-jetpack-compose
+//参考：https://stackoverflow.com/questions/67243761/partially-color-text-and-make-it-clickable-in-jetpack-compose
 @Composable
 private fun AnnotatedClickableText() {
     val context = LocalContext.current

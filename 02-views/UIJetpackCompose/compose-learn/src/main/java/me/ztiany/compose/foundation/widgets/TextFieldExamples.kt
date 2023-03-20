@@ -24,7 +24,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import me.ztiany.compose.R
 
-//https://jetpackcompose.cn/docs/elements/textfield
+//参考：https://jetpackcompose.cn/docs/elements/textfield
 @Composable
 fun TextFiledExample(context: Context) {
     SimpleTextField()

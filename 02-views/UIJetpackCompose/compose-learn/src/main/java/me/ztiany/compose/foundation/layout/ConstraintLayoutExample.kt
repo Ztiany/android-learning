@@ -29,7 +29,9 @@ fun ConstraintLayoutDemo() {
             .height(100.dp)
             .padding(10.dp)
     ) {
+
         val (portraitImageRef, usernameTextRef, desTextRef) = remember { createRefs() }
+
         Image(
             painter = painterResource(id = R.drawable.head_portrait1),
             contentDescription = "portrait",
@@ -39,6 +41,7 @@ fun ConstraintLayoutDemo() {
                 start.linkTo(parent.start)
             }
         )
+
         Text(
             text = "Compose 技术爱好者",
             fontSize = 16.sp,
@@ -51,6 +54,7 @@ fun ConstraintLayoutDemo() {
 
                 }
         )
+
         Text(
             text = "我的个人描述...",
             fontSize = 14.sp,
@@ -63,4 +67,5 @@ fun ConstraintLayoutDemo() {
                 }
         )
     }
+
 }
