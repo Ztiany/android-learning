@@ -1,23 +1,48 @@
 package me.ztiany.compose.foundation.custom
 
-import android.util.Log
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.FirstBaseline
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import timber.log.Timber
 
 /** 演示 layout 修饰符的使用*/
 @Composable
 fun FirstBaselineToTopExample() {
-    Row {
-        Text("Hi there!【Using layoutModifier】", Modifier.firstBaselineToTop(24.dp))
-        Text("Hi there!【Using Padding】",Modifier.padding(top = 24.dp))
+    Column {
+
+        Row(modifier = Modifier.height(IntrinsicSize.Min)) {
+            Text("【LayoutModifier】", textAlign = TextAlign.Center, modifier = Modifier.weight(1F))
+            Spacer(modifier = Modifier.width(1.dp).fillMaxHeight().background(Color.Black))
+            Text("【Padding】", textAlign = TextAlign.Center, modifier = Modifier.weight(1F))
+        }
+
+        Divider()
+
+        Row(modifier = Modifier.background(Color.Green)) {
+            Text(
+                "Hi there!",
+                Modifier
+                    .firstBaselineToTop(24.dp)
+                    .weight(1F)
+            )
+
+            Text(
+                "Hi there!",
+                Modifier
+                    .padding(top = 24.dp)
+                    .weight(1F)
+            )
+        }
     }
 }
 
@@ -44,7 +69,7 @@ fun Modifier.firstBaselineToTop(
     现在 Text 组件本身的 LayoutNode 已经完成了测量，需要根据测量结果计算被修饰后的 LayoutNode 应占有的宽高并通过 layout 方法
     进行指定。
 
-    我们期望的宽度就是文本宽度，而高度是指定的Text顶部到文本基线的高度与文本基线到 Text 底部的高度之和。
+    我们期望的宽度就是文本宽度，而高度是指定的 Text 顶部到文本基线的高度与文本基线到 Text 底部的高度之和。
      */
     // Check the composable has a first baseline
     check(placeable[FirstBaseline] != AlignmentLine.Unspecified)
@@ -55,13 +80,13 @@ fun Modifier.firstBaselineToTop(
     // 该组件占有的高度为应摆放高度加上实际内容的高度
     val height = placeable.height + placeableY
 
-    Log.d("firstBaselineToTop", "firstBaseline = $firstBaseline")
-    Log.d("firstBaselineToTop", "placeableY = $placeableY")
-    Log.d("firstBaselineToTop", "height = $height")
+    Timber.tag("firstBaselineToTop").d("firstBaseline = %s", firstBaseline)
+    Timber.tag("firstBaselineToTop").d("placeableY = %s", placeableY)
+    Timber.tag("firstBaselineToTop").d("height = %s", height)
 
-    //通过调用 layout(width, height) 方法指定可组合项的尺寸，该方法还会提供一个用于放置被封装元素的 lambda。
+    //通过调用 layout(width, height) 方法指定可组合项的尺寸，该方法还会提供一个用于放置被封装元素的 lambda。【layout 影响的是父组件的 size】
     layout(placeable.width, height) {// 这里是指定组件的大小
-        //  这里就是指定组件的放置位置
+        //  这里就是指定组件的放置位置【即在指定父组件的 size 后，在该 size 范围内摆放自己】
         // 通过调用 placeable.place(x, y) 将被封装的元素放到屏幕上。如果未放置被封装的元素，它们将不可见。
         // 这里的 placeRelative 方法会根据布局方向自动调整位置，比如阿拉伯国家一般更习惯于 RTL 这种布局方向。
         placeable.placeRelative(0, placeableY)

@@ -2,6 +2,7 @@ package me.ztiany.compose.foundation.custom
 
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -24,8 +25,7 @@ fun DrawLoadingProgressBar() {
     val sweepAngle by remember { mutableStateOf(162F) }
 
     Box(
-        modifier = Modifier
-            .size(375.dp),
+        modifier = Modifier.size(300.dp).background(Color.Magenta),
         contentAlignment = Alignment.Center
     ) {
 
@@ -36,9 +36,10 @@ fun DrawLoadingProgressBar() {
         ) {
             drawCircle(
                 color = Color(0xFF1E7171),
-                center = Offset(drawContext.size.width / 2f, drawContext.size.height / 2f),
+                center = Offset(drawContext.size.width / 2F, drawContext.size.height / 2F),
                 style = Stroke(width = 20.dp.toPx())
             )
+
             drawArc(
                 color = Color(0xFF3BDCCE),
                 startAngle = -90f,

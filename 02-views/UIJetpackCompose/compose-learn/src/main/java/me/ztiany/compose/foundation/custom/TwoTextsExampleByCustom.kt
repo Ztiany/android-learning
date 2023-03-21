@@ -11,7 +11,7 @@ import androidx.compose.ui.layout.*
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 
-/** 演示如何实现 IntrinsicSize*/
+/** 演示如何实现 IntrinsicSize */
 @Composable
 fun TwoTextsExampleByCustom(
     modifier: Modifier = Modifier,
@@ -47,7 +47,7 @@ fun TwoTextsExampleByCustom(
 }
 
 /*
-使用 Layout 实现一个 Row。【实现 TwoTextWithDivider.png 中展示的效果】
+使用 Layout 实现一个 Row。【实现 TwoTextsWithDivider.png 中展示的效果】
  */
 @Composable
 private fun IntrinsicRow(
@@ -60,7 +60,7 @@ private fun IntrinsicRow(
         measurePolicy = object : MeasurePolicy {
 
             /*
-                因为我们的需求场景只使用了 Modifier.height(IntrinsicSize. Min)，所以仅重写minIntrinsicHeight方法就可以了。
+                因为我们的需求场景只使用了 Modifier.height(IntrinsicSize. Min)，所以仅重写 minIntrinsicHeight 方法就可以了。
 
                 在重写的 minIntrinsicHeight 方法中，可以拿到子组件预先测量句柄 measurables。这个与  measure 方法中传入的 measurables 用法完全相同。在预先测量所有
                 子组件后，就可以根据子组件的高度计算其中的高度最大值，此值将会影响到正式测量时父组件获取到的 constraints 的高度信息。此时 constraints 中的 maxHeight
@@ -76,7 +76,7 @@ private fun IntrinsicRow(
             }
 
             /*
-                接下来只需在定制的Row组件中使用固有特性测量就可以了：
+                接下来只需在定制的 Row 组件中使用固有特性测量就可以了：
 
                         此时，由于为 IntrinsicRow 声明了 Modifier.fillMaxWidth()，导致自定义 Layout 宽度是确定的（constraints 参数中 minWidth 与 maxWidth 相等），
                         又因为我们使用了固有特性测量，使组件高度也为一个确定值（constraints 参数中 minHeight 与 maxHeight 相等）。如果直接使用该 constraints 去测量 Divider，

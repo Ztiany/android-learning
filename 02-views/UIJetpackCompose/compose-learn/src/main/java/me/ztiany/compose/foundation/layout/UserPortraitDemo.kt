@@ -30,8 +30,10 @@ fun UserPortraitDemo() {
             .fillMaxSize()
             .background(Color.LightGray),
     ) {
+
         val (userPortraitBackgroundRef, userPortraitImgRef, welcomeRef, quotesRef) = remember { createRefs() }
         val guideLine = createGuidelineFromTop(0.2f)
+
         Box(modifier = Modifier
             .constrainAs(userPortraitBackgroundRef) {
                 top.linkTo(parent.top)
@@ -41,6 +43,7 @@ fun UserPortraitDemo() {
             }
             .background(Color(0xFF1E9FFF))
         )
+
         Image(painter = painterResource(id = R.drawable.head_portrait1),
             contentDescription = "portrait",
             modifier = Modifier
@@ -53,6 +56,7 @@ fun UserPortraitDemo() {
                 .size(100.dp)
                 .clip(CircleShape)
                 .border(width = 2.dp, color = Color(0xFF5FB878), shape = CircleShape))
+
         Text(
             text = "Compose 技术爱好者",
             color = Color.White,
@@ -63,5 +67,6 @@ fun UserPortraitDemo() {
                 end.linkTo(parent.end)
             }
         )
+
     }
 }

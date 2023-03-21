@@ -39,7 +39,7 @@ fun TwoTextsExampleBySubcomposeLayout(
 }
 
 /*
-使用 SubcomposeLayout 实现一个 Row。【实现 TwoTextWithDivider.png 中展示的效果】
+使用 SubcomposeLayout 实现一个 Row。【实现 TwoTextsWithDivider.png 中展示的效果】
 
 SubcomposeLayout 说明：
    （1）利用 SubcomposeLayout，可以做到将某个子组件的组合阶段延迟至其所依赖的同级子组件测量结束后进行，

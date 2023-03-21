@@ -24,8 +24,10 @@ fun QuotesDemo() {
             .fillMaxSize()
             .background(Color.Gray)
     ) {
+
         val (quotesFirstLineRef, quotesSecondLineRef, quotesThirdLineRef, quotesForthLineRef) = remember { createRefs() }
         createVerticalChain(quotesFirstLineRef, quotesSecondLineRef, quotesThirdLineRef, quotesForthLineRef, chainStyle = ChainStyle.Spread)
+
         Text(text = "寄蜉蝣于天地，",
             color = Color.White,
             fontSize = 30.sp,
@@ -34,6 +36,7 @@ fun QuotesDemo() {
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
             })
+
         Text(text = "渺沧海之一粟。",
             color = Color.White,
             fontSize = 30.sp,
@@ -51,6 +54,7 @@ fun QuotesDemo() {
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
             })
+
         Text(text = "羡长江之无穷。",
             color = Color.White,
             fontSize = 30.sp,

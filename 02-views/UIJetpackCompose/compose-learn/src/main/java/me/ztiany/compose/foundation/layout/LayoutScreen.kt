@@ -1,22 +1,24 @@
 package me.ztiany.compose.foundation.layout
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import me.ztiany.compose.facilities.widget.Entrance
+import me.ztiany.compose.facilities.widget.EntranceList
 
 @Composable
-fun WidgetsScreen() {
-    val context = LocalContext.current
-    Column(
-        Modifier
-            .verticalScroll(rememberScrollState())
-            .padding(10.dp)
-    ) {
+fun LayoutsScreen(navController: NavHostController) {
+    EntranceList(entranceList = buildEntrances(navController))
+}
 
-    }
+private fun buildEntrances(navController: NavController): List<Entrance> {
+    return listOf(
+        Entrance("Row/Colum 的使用") { navController.navigateToArtistCard() },
+        Entrance("Constrains-1") { navController.navigateToConstrains1() },
+        Entrance("Constrains-2") { navController.navigateToConstrains2() },
+        Entrance("Constrains-3") { navController.navigateToConstrains3() },
+        Entrance("Scaffold-1") { navController.navigateToScaffold() },
+        Entrance("Surface") { navController.navigateToSurface() },
+        Entrance("BottomSheet") { navController.navigateToBottomSheet() },
+    )
 }

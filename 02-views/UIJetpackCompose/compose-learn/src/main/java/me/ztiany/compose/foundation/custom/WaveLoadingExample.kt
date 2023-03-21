@@ -26,8 +26,7 @@ fun WaveLoadingDemo() {
         200.dp.toPx().roundToInt()
     }
 
-    val _bitmap = ImageBitmap.imageResource(id = R.drawable.logo_nba)
-        .asAndroidBitmap().scale(size, size)
+    val _bitmap = ImageBitmap.imageResource(id = R.drawable.logo_nba).asAndroidBitmap().scale(size, size)
 
     Column {
         Box(

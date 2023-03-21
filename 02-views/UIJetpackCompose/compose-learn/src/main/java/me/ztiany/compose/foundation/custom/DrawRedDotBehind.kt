@@ -18,9 +18,9 @@ import me.ztiany.compose.R
 
 /** 演示  DrawBehind 的使用*/
 @Composable
-fun DrawRedDotBehind() {
+fun DrawRedDotBehind(modifier: Modifier) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Card(

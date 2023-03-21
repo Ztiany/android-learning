@@ -17,7 +17,7 @@ data class Entrance(
 )
 
 @Composable
-fun EntranceList(spanCount: Int = 2, entranceList: List<Entrance>) {
+fun EntranceList(spanCount: Int = 1, entranceList: List<Entrance>) {
     LazyVerticalGrid(columns = GridCells.Fixed(spanCount),
         // content padding
         contentPadding = PaddingValues(

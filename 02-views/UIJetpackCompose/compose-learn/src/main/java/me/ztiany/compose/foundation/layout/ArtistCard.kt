@@ -16,26 +16,29 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import me.ztiany.compose.R
+import timber.log.Timber
 
 /**
  * Column/Row/Card 等布局的使用。
  */
 @Composable
-fun ArtistCard(
-    onClick: () -> Unit
-) {
+fun ArtistCard() {
     Column(
         Modifier
-            .clickable { onClick() }
+            .clickable { Timber.d("ArtistCard is clicked.") }
             .padding(16.dp)
             .fillMaxWidth()) {
+
         //头部
         ArtistCardTop()
         //间隔
         Spacer(Modifier.size(16.dp))
-        //大图
+        //详情介绍
         Card(elevation = 4.dp) {
-
+            Text(
+                modifier = Modifier.padding(5.dp),
+                text = "Ah, here we go again with the big gestures and the pukeworthy chat-up lines that are supposed to be witty and original. I'm sorry, but in 99% of cases this is only going to succeed in making you look like a Massive Wanker. An Intolerable Twat. Another Dickhead who needs pulling down a peg or two with an equally witty put-down. Why must you show off with your need to impress and your peacock feathers on show? It's off-putting!"
+            )
         }
     }
 }

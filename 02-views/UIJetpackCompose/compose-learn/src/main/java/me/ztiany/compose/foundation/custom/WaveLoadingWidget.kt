@@ -174,7 +174,7 @@ private fun buildWavePath(
 ): Path {
 
     //调整振幅，振幅不大于剩余空间
-    var adjustHeight = min(height * Math.max(0f, 1 - progress), amplitude)
+    val adjustHeight = min(height * 0F.coerceAtLeast(1 - progress), amplitude)
 
     return Path().apply {
         reset()

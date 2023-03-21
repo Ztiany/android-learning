@@ -51,7 +51,6 @@ fun ConstraintLayoutDemo() {
                     top.linkTo(portraitImageRef.top)
                     start.linkTo(portraitImageRef.end, 10.dp)
                     width = Dimension.preferredWrapContent
-
                 }
         )
 

@@ -17,7 +17,7 @@ fun SimpleColumnExample() {
 }
 
 /*
-LayoutModifier 可以类比于定制单元View。如果想在 Compose 中类似定制"ViewGroup"，就需要使用 LayoutComposable 了。
+LayoutModifier 可以类比于定制单元 View。而如果想在 Compose 中类似定制"ViewGroup"，就需要使用 LayoutComposable 了。
 
 LayoutComposable 需要填写三个参数：modifier、content、measurePolicy。
 

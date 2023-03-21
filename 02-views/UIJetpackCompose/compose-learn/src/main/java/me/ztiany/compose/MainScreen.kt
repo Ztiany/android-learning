@@ -16,6 +16,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import me.ztiany.compose.facilities.widget.Entrance
 import me.ztiany.compose.facilities.widget.EntranceList
+import me.ztiany.compose.foundation.custom.navigateToCustomDrawAndLayout
 import me.ztiany.compose.foundation.layout.navigateToLayouts
 import me.ztiany.compose.foundation.tutor.navigateToTutor
 import me.ztiany.compose.foundation.widgets.navigateToWidgets
@@ -57,14 +58,21 @@ fun MainScreen(navController: NavHostController) {
 
 private fun buildEntrances(navController: NavController): List<Entrance> {
     return listOf(
+        //一个入门示例
         Entrance("入门示例") { navController.navigateToTutor() },
+        //学习基础组件的使用
         Entrance("基础组件") { navController.navigateToWidgets() },
+        //学习基础布局的使用
         Entrance("基础布局") { navController.navigateToLayouts() },
+        //学习自定义布局与绘制 API
+        Entrance("自定义绘制与布局") { navController.navigateToCustomDrawAndLayout() },
+        //动画
+        Entrance("Animation API") { navController.navigateToTutor() },
+        //手势
+        Entrance("Gesture API") { navController.navigateToTutor() },
+
+        //功能性组件
         Entrance("CompositionLocal") { navController.navigateToTutor() },
         Entrance("Side Effect") { navController.navigateToTutor() },
-        Entrance("Custom Draw") { navController.navigateToTutor() },
-        Entrance("Custom Layout") { navController.navigateToTutor() },
-        Entrance("Animation API") { navController.navigateToTutor() },
-        Entrance("Gesture API") { navController.navigateToTutor() },
     )
 }

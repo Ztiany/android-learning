@@ -18,9 +18,9 @@ import me.ztiany.compose.R
 
 /** 演示  drawWithContent 的使用*/
 @Composable
-fun DrawRedDotFront() {
+fun DrawRedDotFront(modifier: Modifier) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Card(

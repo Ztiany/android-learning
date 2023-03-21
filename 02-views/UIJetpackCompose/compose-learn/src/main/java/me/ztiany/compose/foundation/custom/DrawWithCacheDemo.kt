@@ -23,12 +23,12 @@ import me.ztiany.compose.R
 /** 演示  drawWithCache 的使用*/
 @Preview
 @Composable
-fun DrawFuWa() {
+fun DrawWithCacheDemo() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         val transition = rememberInfiniteTransition()
 
         val alpha by transition.animateFloat(
-            initialValue = 0f, targetValue = 1f, animationSpec = infiniteRepeatable(
+            initialValue = 0f, targetValue = 1F, animationSpec = infiniteRepeatable(
                 animation = tween(2000, easing = LinearEasing), repeatMode = RepeatMode.Reverse
             )
         )
