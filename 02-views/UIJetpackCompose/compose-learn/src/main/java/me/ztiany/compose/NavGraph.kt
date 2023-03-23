@@ -10,6 +10,7 @@ import me.ztiany.compose.foundation.custom.customScreen
 import me.ztiany.compose.foundation.layout.layoutScreen
 import me.ztiany.compose.foundation.tutor.tutorScreen
 import me.ztiany.compose.foundation.widgets.widgetScreen
+import me.ztiany.compose.realistic.realisticScreen
 
 @Composable
 fun AppNavGraph(
@@ -28,5 +29,6 @@ fun AppNavGraph(
         layoutScreen(navController)
         customScreen(navController)
         animationScreen(navController)
+        realisticScreen(navController)
     }
 }

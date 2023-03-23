@@ -19,19 +19,31 @@ fun AnimationScreen(navController: NavHostController) {
 
 private fun buildEntrances(navController: NavController): List<Entrance> {
     return entrances.map {
-        Entrance(it.key) { navController.navigate(it.key) }
+        Entrance(it.key) {
+            navController.navigate(it.key)
+        }
     }
 }
 
-private const val LAYOUT_PAGE = "animation_page"
-
-private const val LAYOUT_INTERNAL_PAGE = "animation_internal_page"
-
-fun NavController.navigateToAnimation() {
-    this.navigate(LAYOUT_PAGE)
-}
-
 private val entrances = linkedMapOf<String, @Composable () -> Unit>(
+    //======================================================
+    // 高级动画 API
+    //======================================================
+    //AnimatedVisibility
+    "AnimatedVisibility Text 1" to { AnimatedVisibilityText() },
+    "AnimatedVisibility Text 2" to { AnimatedVisibilityTextStartWhenEnter() },
+    "AnimatedVisibility Specified" to { AnimatedVisibilitySpecialChildren() },
+    "AnimatedVisibility Customized" to { AnimatedVisibilityCustomized() },
+    //AnimatedContent
+    "AnimatedContent Text" to { AnimatedContentText() },
+    "AnimatedContent Content" to { AnimatedContentTextContentTransform() },
+    "AnimatedContent Size" to { AnimatedContentTextSizeTransform() },
+    //CrossFade
+    "CrossFadePage" to { CrossFadePage() },
+    //Modifier.animateContentSize
+    "AnimateContentSizeBox" to { AnimateContentSizeBox() },
+
+
     //======================================================
     // 低级动画 API
     //======================================================
@@ -50,33 +62,28 @@ private val entrances = linkedMapOf<String, @Composable () -> Unit>(
     "AnimationSpec-Spring" to { SpringDemo() },
     //AnimationVector
     "AnimationVector" to { AnimationVectorExample() },
-    //Practice
+
+
+    //======================================================
+    // Practice
+    //======================================================
     "Shimmer" to { Shimmer() },
     "FavButton" to { FavButton() },
 
-    //======================================================
-    // 高级动画 API
-    //======================================================
-    //AnimatedVisibility
-    "AnimatedVisibility Text 1" to { AnimatedVisibilityText() },
-    "AnimatedVisibility Text 2" to { AnimatedVisibilityTextStartWhenEnter() },
-    "AnimatedVisibility Specified" to { AnimatedVisibilitySpecialChildren() },
-    "AnimatedVisibility Customized" to { AnimatedVisibilityCustomized() },
-    //AnimatedContent
-    "AnimatedContent Text" to { AnimatedContentText() },
-    "AnimatedContent Content" to { AnimatedContentTextContentTransform() },
-    "AnimatedContent Size" to { AnimatedContentTextSizeTransform() },
-    //CrossFade
-    "CrossFadePage" to { CrossFadePage() },
-    //Modifier.animateContentSize
-    "AnimateContentSizeBox" to { AnimateContentSizeBox() },
 
     //======================================================
     // Google Animation CodeLab
     //======================================================
     "Google Animation CodeLab" to { GoogleAnimationHome() },
-
 )
+
+
+private const val LAYOUT_PAGE = "animation_page"
+private const val LAYOUT_INTERNAL_PAGE = "animation_internal_page"
+
+fun NavController.navigateToAnimation() {
+    this.navigate(LAYOUT_PAGE)
+}
 
 fun NavGraphBuilder.animationScreen(navController: NavHostController) {
     navigation(startDestination = LAYOUT_INTERNAL_PAGE, route = LAYOUT_PAGE) {

@@ -17,6 +17,8 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 
 /*
+Button: Compose provides different types of Button according to the Material Design Buttons spec—Button, ElevatedButton, FilledTonalButton, OutlinedButton, and TextButton.
+
 参考：
     1. https://jetpackcompose.cn/docs/elements/button
     2. https://jetpackcompose.cn/docs/elements/floatingactionbutton

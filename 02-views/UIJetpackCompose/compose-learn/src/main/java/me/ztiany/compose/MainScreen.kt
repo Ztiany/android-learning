@@ -21,6 +21,7 @@ import me.ztiany.compose.foundation.custom.navigateToCustomDrawAndLayout
 import me.ztiany.compose.foundation.layout.navigateToLayouts
 import me.ztiany.compose.foundation.tutor.navigateToTutor
 import me.ztiany.compose.foundation.widgets.navigateToWidgets
+import me.ztiany.compose.realistic.navigateToRealistic
 
 const val MAIN_SCREEN = "main_screen"
 
@@ -71,9 +72,10 @@ private fun buildEntrances(navController: NavController): List<Entrance> {
         Entrance("Animation API") { navController.navigateToAnimation() },
         //手势
         Entrance("Gesture API") { navController.navigateToTutor() },
-
         //功能性组件
         Entrance("CompositionLocal") { navController.navigateToTutor() },
         Entrance("Side Effect") { navController.navigateToTutor() },
+        //真实案例
+        Entrance("Realistic Pages") { navController.navigateToRealistic() },
     )
 }

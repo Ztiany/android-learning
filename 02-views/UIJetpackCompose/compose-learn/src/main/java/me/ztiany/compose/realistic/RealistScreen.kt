@@ -1,4 +1,4 @@
-package me.ztiany.compose.foundation.layout
+package me.ztiany.compose.realistic
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
@@ -10,7 +10,7 @@ import me.ztiany.compose.facilities.widget.Entrance
 import me.ztiany.compose.facilities.widget.EntranceList
 
 @Composable
-fun LayoutsScreen(navController: NavHostController) {
+fun RealisticScreen(navController: NavHostController) {
     EntranceList(entranceList = buildEntrances(navController))
 }
 
@@ -23,27 +23,21 @@ private fun buildEntrances(navController: NavController): List<Entrance> {
 }
 
 
-private const val LAYOUT_PAGE = "layout_page"
-private const val LAYOUT_INTERNAL_PAGE = "layout_internal_page"
-
+private const val REALISTIC_PAGE = "realistic_page"
+private const val REALISTIC_INTERNAL_PAGE = "realistic_internal_page"
 
 private val entrances = linkedMapOf<String, @Composable () -> Unit>(
-    "Row & Colum" to { ArtistCard() },
-    "Constrains-1" to { ConstraintLayoutDemo() },
-    "Constrains-2" to { ConstraintLayoutDemo() },
-    "Constrains-2" to { QuotesDemo() },
-    "Constrains-3" to { UserPortraitDemo() },
-    "SimpleLazyList" to { SimpleLazyListDemo() },
+    "GoogleBaseLayoutCodeLab" to { GoogleBaseLayoutCodeLab() },
 )
 
-fun NavController.navigateToLayouts() {
-    this.navigate(LAYOUT_PAGE)
+fun NavController.navigateToRealistic() {
+    this.navigate(REALISTIC_PAGE)
 }
 
-fun NavGraphBuilder.layoutScreen(navController: NavHostController) {
-    navigation(startDestination = LAYOUT_INTERNAL_PAGE, route = LAYOUT_PAGE) {
-        composable(LAYOUT_INTERNAL_PAGE) {
-            LayoutsScreen(navController)
+fun NavGraphBuilder.realisticScreen(navController: NavHostController) {
+    navigation(startDestination = REALISTIC_INTERNAL_PAGE, route = REALISTIC_PAGE) {
+        composable(REALISTIC_INTERNAL_PAGE) {
+            RealisticScreen(navController)
         }
         for (entrance in entrances) {
             composable(entrance.key) {

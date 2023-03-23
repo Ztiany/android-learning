@@ -84,6 +84,7 @@ dependencies {
     implementation "androidx.compose.foundation:foundation-layout:$compose_version"
 
     //compose material 实现
+    // implementation 'androidx.compose.material3:material3'
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation 'com.google.android.material:compose-theme-adapter:1.1.20'// When using a MDC theme
