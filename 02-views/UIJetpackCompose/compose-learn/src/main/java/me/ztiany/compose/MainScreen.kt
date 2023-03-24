@@ -19,7 +19,7 @@ import me.ztiany.compose.facilities.widget.EntranceList
 import me.ztiany.compose.foundation.animation.navigateToAnimation
 import me.ztiany.compose.foundation.custom.navigateToCustomDrawAndLayout
 import me.ztiany.compose.foundation.layout.navigateToLayouts
-import me.ztiany.compose.foundation.tutor.navigateToTutor
+import me.ztiany.compose.foundation.state.navigateToStateManaging
 import me.ztiany.compose.foundation.widgets.navigateToWidgets
 import me.ztiany.compose.realistic.navigateToRealistic
 
@@ -60,8 +60,6 @@ fun MainScreen(navController: NavHostController) {
 
 private fun buildEntrances(navController: NavController): List<Entrance> {
     return listOf(
-        //一个入门示例
-        Entrance("An Example of JetpackCompose") { navController.navigateToTutor() },
         //学习基础组件的使用
         Entrance("Basic Widgets") { navController.navigateToWidgets() },
         //学习基础布局的使用
@@ -71,10 +69,12 @@ private fun buildEntrances(navController: NavController): List<Entrance> {
         //动画
         Entrance("Animation API") { navController.navigateToAnimation() },
         //手势
-        Entrance("Gesture API") { navController.navigateToTutor() },
+        Entrance("Gesture API") { navController.navigateToAnimation() },
+        //状态管理
+        Entrance("State Management") { navController.navigateToStateManaging() },
         //功能性组件
-        Entrance("CompositionLocal") { navController.navigateToTutor() },
-        Entrance("Side Effect") { navController.navigateToTutor() },
+        Entrance("CompositionLocal") { navController.navigateToAnimation() },
+        Entrance("Side Effect") { navController.navigateToAnimation() },
         //真实案例
         Entrance("Realistic Pages") { navController.navigateToRealistic() },
     )

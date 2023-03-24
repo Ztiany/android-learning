@@ -36,6 +36,7 @@ import java.util.*
 
 @Composable
 fun GoogleBaseLayoutCodeLab() {
+    //用新主题，覆盖根主题。
     MySootheTheme {
         Scaffold(
             bottomBar = { SootheBottomNavigation() }
@@ -84,7 +85,7 @@ private fun AlignYourBodyElement(
                 .clip(CircleShape)
         )
         Text(
-            style = MaterialTheme.typography.body2,
+            style = typography.body2,
             text = stringResource(text),
             modifier = Modifier.paddingFromBaseline(top = 24.dp, bottom = 8.dp)
         )
@@ -99,7 +100,7 @@ private fun FavoriteCollectionCard(
 ) {
     // Since the designer didn't specify a color, we can assume that the color will be defined by the theme. For such a container, we use Material's Surface composable.
     Surface(
-        shape = MaterialTheme.shapes.small,
+        shape = shapes.small,
         modifier = modifier
     ) {
         Row(
@@ -114,7 +115,7 @@ private fun FavoriteCollectionCard(
             )
             Text(
                 text = stringResource(text),
-                style = MaterialTheme.typography.body2,
+                style = typography.body2,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
@@ -176,7 +177,7 @@ private fun HomeSection(
     Column(modifier) {
         Text(
             text = stringResource(title).uppercase(Locale.getDefault()),
-            style = MaterialTheme.typography.h5,
+            style = typography.h5,
             modifier = Modifier
                 .paddingFromBaseline(top = 40.dp, bottom = 8.dp)
                 .padding(horizontal = 16.dp)

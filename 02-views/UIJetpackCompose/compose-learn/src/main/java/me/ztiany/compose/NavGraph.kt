@@ -8,7 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import me.ztiany.compose.foundation.animation.animationScreen
 import me.ztiany.compose.foundation.custom.customScreen
 import me.ztiany.compose.foundation.layout.layoutScreen
-import me.ztiany.compose.foundation.tutor.tutorScreen
+import me.ztiany.compose.foundation.state.stateManagingScreen
 import me.ztiany.compose.foundation.widgets.widgetScreen
 import me.ztiany.compose.realistic.realisticScreen
 
@@ -24,11 +24,11 @@ fun AppNavGraph(
         modifier = modifier,
     ) {
         mainScreen(navController)
-        tutorScreen()
         widgetScreen()
         layoutScreen(navController)
         customScreen(navController)
         animationScreen(navController)
         realisticScreen(navController)
+        stateManagingScreen(navController)
     }
 }

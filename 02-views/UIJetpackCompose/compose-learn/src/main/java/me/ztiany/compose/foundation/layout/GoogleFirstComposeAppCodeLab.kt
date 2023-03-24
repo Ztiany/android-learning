@@ -18,10 +18,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 /**
-参考：[Jetpack Compose basics](https://developer.android.com/codelabs/jetpack-compose-basics?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fjetpack-compose-for-android-developers-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fjetpack-compose-basics#0)
+参考：[Basic layouts in Compose](https://developer.android.com/codelabs/jetpack-compose-basics?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fjetpack-compose-for-android-developers-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fjetpack-compose-basics#0)
  */
 @Composable
-fun SimpleLazyListDemo() {
+fun GoogleFirstComposeAppCodeLabScreen() {
     var shouldShowOnboarding by rememberSaveable {
         mutableStateOf(true)
     }
@@ -35,9 +35,8 @@ fun SimpleLazyListDemo() {
     }
 }
 
-
 @Composable
-fun OnboardingScreen(
+private fun OnboardingScreen(
     onContinueClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
