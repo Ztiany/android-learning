@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import kotlin.math.roundToInt
 
 private const val TAG = "AwaitPointerEventScope"
@@ -42,7 +43,7 @@ PointerInputScope 允许我们通过使用 awaitPointerEventScope 方法获得 A
 fun AwaitPointerEventViews() {
     /*
     awaitPointerEvent 简介：
-        awaitPointerEvent 可以称为”事件之源“，之所以称这个API为事件之源，是因为上层所有手势监听 API 都是基于它实现的，它的作用类似于传统 View 中的 onTouchEvent()。
+        awaitPointerEvent 可以称为”事件之源“，之所以称这个 API 为事件之源，是因为上层所有手势监听 API 都是基于它实现的，它的作用类似于传统 View 中的 onTouchEvent()。
         无论用户是按下、移动或抬起，都将视作一次手势事件，当手势事件发生时，awaitPointerEvent 会返回当前监听到的所有手势交互信息。
 
 
@@ -67,6 +68,7 @@ fun AwaitPointerEventViews() {
 
 
     事件的消费：
+
         awaitPointerEvent 返回了一个 PointerEvent 实例。从 PointerEvent 类的声明中可以看到包含了两个属性：changes 与 motionEvent。
 
                 • motionEvent：实际上就是传统 View 系统中的 MotionEvent，由于被声明 internal，说明官方并不希望我们直接拿来使用。
@@ -94,7 +96,7 @@ fun AwaitPointerEventViews() {
                 changedToUpIgnoreConsumed：是否已经抬起，忽略按下手势已消费标记。
 
                 positionChanged：位置是否发生了改变，移动手势已消费则返回 false。
-                positionChangedIgnoreConsumed：位置发生了改变(忽略已消费标记。
+                positionChangedIgnoreConsumed：位置发生了改变，略已消费标记。
                 positionChange：位置改变量，移动手势已消费则返回 Offset.Zero。
                 positionChangeIgnoreConsumed：位置改变量 ，忽略移动手势已消费标记。
 
@@ -108,7 +110,7 @@ fun AwaitPointerEventViews() {
                 isOutOfBounds：当前手势是否在固定范围内。
 
     可以通过设置 PointerEventPass 来定制嵌套组件间手势事件分发顺序。假设分发流程中组件 A 预先获取到了手势信息并进行消费，手势事件仍然会被之后的组件 B 获取到。
-    组件 B 在使用 positionChange 获取的偏移值时会返回 Offset.ZERO，这是因为此时该手势事件已被标记为已消费的状态。当然组件B也可以通过 IgnoreConsumed 系列 API
+    组件 B 在使用 positionChange 获取的偏移值时会返回 Offset.ZERO，这是因为此时该手势事件已被标记为已消费的状态。当然组件 B 也可以通过 IgnoreConsumed 系列 API
     突破已消费标记的限制获取到手势信息。
      */
     Column(Modifier.fillMaxSize()) {
@@ -210,7 +212,6 @@ fun AwaitFirstDownViews() {
                 .padding(20.dp)
                 .background(Color.Green, RoundedCornerShape(10.dp))
                 .size(250.dp)
-                // Clickable 修饰符用来监听组件的点击操作，并且当点击事件发生时，会为被点击的组件施加一个波纹涟漪效果动画的蒙层。
                 .pointerInput(Unit) {
                     forEachGesture {
                         awaitPointerEventScope {
@@ -290,8 +291,10 @@ fun AwaitDragOrCancellationViews() {
                 forEachGesture {
                     awaitPointerEventScope {
                         var downPointer = awaitFirstDown().id
+                        Timber.d("downPointer = $downPointer")
                         while (true) {
                             val event = awaitDragOrCancellation(downPointer) ?: /*拖动被取消*/break
+                            Timber.d("event.id = ${event.id}")
                             if (event.changedToUpIgnoreConsumed()) {
                                 //所有手指抬起
                                 break

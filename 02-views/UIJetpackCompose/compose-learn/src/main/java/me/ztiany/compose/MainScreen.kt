@@ -18,6 +18,7 @@ import me.ztiany.compose.facilities.widget.Entrance
 import me.ztiany.compose.facilities.widget.EntranceList
 import me.ztiany.compose.foundation.animation.navigateToAnimation
 import me.ztiany.compose.foundation.custom.navigateToCustomDrawAndLayout
+import me.ztiany.compose.foundation.gesture.navigateToGesture
 import me.ztiany.compose.foundation.layout.navigateToLayouts
 import me.ztiany.compose.foundation.state.navigateToStateManaging
 import me.ztiany.compose.foundation.widgets.navigateToWidgets
@@ -69,7 +70,7 @@ private fun buildEntrances(navController: NavController): List<Entrance> {
         //动画
         Entrance("Animation API") { navController.navigateToAnimation() },
         //手势
-        Entrance("Gesture API") { navController.navigateToAnimation() },
+        Entrance("Gesture API") { navController.navigateToGesture() },
         //状态管理
         Entrance("State Management") { navController.navigateToStateManaging() },
         //功能性组件

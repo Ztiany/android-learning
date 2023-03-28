@@ -1,7 +1,9 @@
 package me.ztiany.compose.foundation.gesture
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.*
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,7 +30,7 @@ Draggable 修饰符、Swipeable 修饰符、Transformable 修饰符以及 Nested
 使用 PointerInput 修饰符时，需要传入两个参数：keys 与 block。
 
             • keys：当 Composable 组件发生重组时，如果传入的 keys 发生了变化，则手势事件处理过程会被中断。
-            • block：在这个 PointerInputScope 类型作用域代码块中，便可以声明手势事件处理逻辑了。通 过suspend 关键字可知这是一个协程体，意味着在 Compose 中手势处理最终都发生在协程中。
+            • block：在这个 PointerInputScope 类型作用域代码块中，便可以声明手势事件处理逻辑了。通过 suspend 关键字可知这是一个协程体，意味着在 Compose 中手势处理最终都发生在协程中。
 
 在 PointerInputScope 接口声明中能够找到所有可用的手势处理方法，可以通过这些方法获取到更加详细的手势信息，以及更加细粒度的手势事件处理，
 
@@ -77,7 +79,6 @@ fun DetectTapGesturesViews() {
                 }) {
             Text(text = "操作我", Modifier.align(Alignment.Center))
         }
-
 
         Text(text = result)
     }
@@ -184,11 +185,12 @@ fun TransformGestureViews() {
 fun ForEachGestureViews() {
     /*
     forEachGesture 存在的意义：Compose 手势操作实际上是在协程中监听处理的，当协程处理完一次手势交互后便会结束（从 DOWN 到 UP），当进行第二次手势交互时由于负责手势
-    监听的协程已经结束，    手势事件便会被丢弃掉。那么怎样才能让手势监听协程不断地处理每一轮的手势交互呢？    我们很容易想到可以在外层嵌套一个 while(true) 进行实现，然而
+    监听的协程已经结束，手势事件便会被丢弃掉。那么怎样才能让手势监听协程不断地处理每一轮的手势交互呢？    我们很容易想到可以在外层嵌套一个 while(true) 进行实现，然而
     这么做并不优雅，且存在着一些问题。
 
-            1. 当用户出现一连串手势操作时，很难保证各手势之间有清晰分界，即无法保证每一轮手势结束后，所有手指都是离开屏幕的。在传统 View 体系中，手指按下一次、移动到抬起过
-            程中的所有手势事件可以看作是一个完整的手势交互序列。每当用户触摸屏幕交互时，可以根据这一次用户输入的手势交互序列中的信息进行相应的处理。
+            1. 当用户出现一连串手势操作时，很难保证各手势之间有清晰分界，即无法保证每一轮手势结束后，所有手指都是离开屏幕的（由于协程机制的导致，总之这在 Compose 中是可能发生的）。
+            在传统 View 体系中，手指按下一次、移动到抬起过程中的所有手势事件可以看作是一个完整的手势交互序列。每当用户触摸屏幕交互时，可以根据这一次用户输入的手势交互序列中的信息
+            进行相应的处理。
             2. 当第一轮手势处理结束或者被中断取消后，如果采用 while(true)，当第一轮手势因发生异常而中断处理时，此时手势仍在屏幕之上，则可能会影响第二轮手势处理，导致出现不
             符合预期的行为处理结果。
             3. Compose 为我们提供了 forEachGesture 方法，保证了每一轮手势处理逻辑的一致性。实际上上面的 GestureDetect 系列 API，其内部实现都使用了 forEachGesture。

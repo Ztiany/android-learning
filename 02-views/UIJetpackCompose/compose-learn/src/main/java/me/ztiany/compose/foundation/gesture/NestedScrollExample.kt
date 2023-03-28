@@ -1,7 +1,5 @@
 package me.ztiany.compose.foundation.gesture
 
-import androidx.compose.ui.unit.dp
-
 import android.util.Log
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.VectorConverter
@@ -10,7 +8,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -112,9 +111,15 @@ private class SmartSwipeRefreshNestedScrollConnection(
     override suspend fun onPreFling(available: Velocity): Velocity {
         Log.d(TAG, "onPreFling available.y=${available.y}")
         if (state.indicatorOffset > height / 2) {
+            Log.d(TAG, "onPreFling 1 state.isRefreshing=${state.isRefreshing}")
+            if (state.isRefreshing) {
+                //取消往回滑动的动画
+                state.isRefreshing = false
+            }
             state.animateToOffset(height)
             state.isRefreshing = true
         } else {
+            Log.d(TAG, "onPreFling 2")
             state.animateToOffset(0.dp)
         }
         return super.onPreFling(available)
@@ -130,7 +135,7 @@ private class SmartSwipeRefreshNestedScrollConnection(
 @Composable
 private fun SubcomposeSmartSwipeRefresh(
     indicator: @Composable () -> Unit,
-    //注意：这里的 content 不是外部传入的 SmartSwipeRefresh 参数中的 content，这里主要是为了得到 header 的高
+    //注意：这里主要是为了得到 header 的高
     content: @Composable (Dp) -> Unit
 ) {
     SubcomposeLayout { constraints: Constraints ->
@@ -188,7 +193,9 @@ fun SmartSwipeRefresh(
         }
 
         LaunchedEffect(state.isRefreshing) {
+            Log.d(TAG, "LaunchedEffect-Back-1")
             if (state.isRefreshing) {
+                Log.d(TAG, "LaunchedEffect-Back-2")
                 onRefresh()
                 state.animateToOffset(0.dp)
                 state.isRefreshing = false

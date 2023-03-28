@@ -17,18 +17,25 @@ private enum class State {
 }
 
 /** 演示 Swipeable 的使用*/
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun SwipeableViews() {
+    Box(Modifier.fillMaxSize()) {
+        SwipeableSwitch(Modifier.align(Alignment.Center))
+    }
+}
 
+@Composable
+@OptIn(ExperimentalMaterialApi::class)
+private fun SwipeableSwitch(modifier: Modifier = Modifier) {
     /*
     与 Draggable 修饰符不同的是，Swipeable 修饰符允许开发者通过锚点设置，为组件增加位置吸附交互效果，常用于开关、下拉刷新等。
 
     与 Draggable 修饰符一样，Swipeable 修饰符只能监听水平或垂直方向的手势事件，并且不会为被修饰组件提供任何默认动画，只能提供手势的偏移量信息，可依照自身需求来定制交互效果。
 
     使用 Swipeable 修饰符至少需要传入 4 个参数 State、Anchors、Orientation、Thresholds：
+
                 • State：手势状态，通过状态可实时获取当前手势的偏移信息。
-                • Anchors：锚点，用于记录不同状态对应数值的映射关系。
+                • Anchors：锚点，用于记录不同状态对应数值的映射关系【其实就是听译不同状态对应的位置】。
                 • Orientation：手势方向，被修饰组件的手势方向只能是水平或垂直方向。
                 • thresholds（可选）：不同锚点之间吸附的临界阈值，常用的阈值有 FixedThreshold(Dp) 和 FractionalThreshold(Float) 两种。
 
@@ -37,10 +44,13 @@ fun SwipeableViews() {
     val blockSize = 48.dp
     val blockSizePx = with(LocalDensity.current) { blockSize.toPx() }
     val swipeableState = rememberSwipeableState(initialValue = State.Closed)
-    val anchors = mapOf(0F to State.Closed, blockSizePx * 2 to State.Opened)
+    val anchors = mapOf(
+        0F to State.Closed,
+        blockSizePx * 2 to State.Opened
+    )
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .width(blockSize * 3)
             .height(blockSize)
             .background(Color.LightGray)

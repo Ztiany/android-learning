@@ -1,6 +1,5 @@
 package me.ztiany.compose.foundation.gesture
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.Orientation
@@ -30,6 +29,7 @@ fun DraggableViews() {
     }
 
     val initOffsetY = with(LocalDensity.current) { 20.dp.toPx() }
+
     var offsetY by remember {
         mutableStateOf(initOffsetY)
     }
@@ -51,15 +51,17 @@ fun DraggableViews() {
 
         Box(
             Modifier
-                .size(20.dp)
+                .size(40.dp)
                 //由于 Modifier 是链式执行的，所以此时 offset 修饰符需在 draggable 修饰符与 background 修饰符之前执行。
                 .offset {
                     IntOffset(offsetX.toInt(), 0)
                 }
+                //注意：如果 draggable 在 offset 前面，则第二次拖动时 UI 控件拖动只能拖动初始位置才生效，不会跟随 UI 控件而移动监听，原因是每次拖动时 draggable 都监听的都是初始位置，不是偏移后位置。
                 .draggable(
                     orientation = Orientation.Horizontal,
                     state = draggableStateX
                 )
+                    //注意：如果 background 在 offset 前面，则 UI 控件绘制的黑块不会跟手，原因在于每次绘制时 background 都在初始位置绘制，不是偏移后位置。
                 .background(Color.Red)
         ) {
 
@@ -67,7 +69,7 @@ fun DraggableViews() {
 
         Box(
             Modifier
-                .size(20.dp)
+                .size(40.dp)
                 .offset {
                     IntOffset(0, offsetY.toInt())
                 }

@@ -1,24 +1,23 @@
 package me.ztiany.compose.foundation.gesture
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layout
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
-
-private const val TAG = "ScrollableExample"
+import timber.log.Timber
 
 /** 演示 Scrollable 的使用*/
 @Composable
@@ -64,27 +63,26 @@ fun ScrollableViews() {
             //.offset(x = with(LocalDensity.current) { -scrollableState.value.toDp() })
             .height(136.dp)
             .scrollable(scrollableState, Orientation.Horizontal, reverseDirection = true)
-             //我们需要创建一个新的约束，用于测量组件的真实宽度，主动设置组件所应占有的宽高尺寸空间，并根据组件的滚动偏移量来摆放组件内容。
+            //我们需要创建一个新的约束，用于测量组件的真实宽度，主动设置组件所应占有的宽高尺寸空间，并根据组件的滚动偏移量来摆放组件内容。
             .layout { measurable, constraints ->
                 //约束中默认最大宽度为父组件所允许的最大宽度，此处为屏慕宽度，这里将最大宽度设置为无限大。
-                val childConstrains = constraints.copy(maxWidth = Constraints.Infinity)
-                val placeable = measurable.measure(childConstrains)
-                Log.d(TAG, "constraints: ${constraints.maxWidth}x${constraints.maxHeight}")
-                Log.d(TAG, "placeable: ${placeable.width}x${placeable.height}")
+                val placeable = measurable.measure(constraints.copy(maxWidth = Constraints.Infinity))
+                Timber.d("constraints w*h: %dx%d", constraints.maxWidth, constraints.maxHeight)
+                Timber.d("placeable w*h:  %dx%d", placeable.width, placeable.height)
 
                 // 计算当前组件宽度与父组件所允许的最大宽度中取一个最小值
-                // 如果组件超出屏幕,此时 width 为屏幕宽度。如果没有超出,则为组件本文宽度
+                // 如果组件超出屏幕，时 width 为屏幕宽度。如果没有超出，则为组件本文宽度
                 val width = placeable.width.coerceAtMost(constraints.maxWidth)
                 val height = placeable.height.coerceAtMost(constraints.maxHeight)
                 //可滑动距离
                 val scrollableDistance = placeable.width - width
-                Log.d(TAG, "layout: ${width}x${height},  scrollableDistance = $scrollableDistance")
+                Timber.d("layout w*h: %dx%d, scrollableDistance: %d", width, height, scrollableDistance)
 
                 layout(width, height) {
                     // 根据可滚动的距离来计算滚动位置
                     val scroll = scrollableState.value.coerceIn(0, scrollableDistance)
                     val offsetX = -scroll
-                    Log.d(TAG, "scroll: scrollableState.value = ${scrollableState.value} offsetX=$offsetX")
+                    Timber.d("scroll: scrollableState.value = ${scrollableState.value} offsetX=$offsetX")
                     placeable.placeRelativeWithLayer(offsetX, 0)
                 }
             }

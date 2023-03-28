@@ -16,21 +16,21 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import timber.log.Timber
 import kotlin.math.roundToInt
 
 
 /** 演示 Transformable 的使用*/
 @Composable
 fun TransformableViews() {
-
     /*
     双指拖动、缩放与旋转手势在日常开发中十分常见，常用于图片阅览编辑等需求场景。Transformable 修饰符可以使开发者十分轻松地监听组件的双指拖动、缩放或旋转手势事件，
     通过定制 UI 动画实现完整的交互效果。
      */
-    val boxSize = 100.dp
+    val boxSize = 200.dp
     var offset by remember { mutableStateOf(Offset.Zero) }
-    var rotationAngle by remember { mutableStateOf(0f) }
-    var scale by remember { mutableStateOf(1f) }
+    var rotationAngle by remember { mutableStateOf(45F) }
+    var scale by remember { mutableStateOf(1F) }
 
     /*
     可以使用 rememberTransformableState 来创建一个 transformableState 状态传入 Transformable 修饰符中。
@@ -41,14 +41,17 @@ fun TransformableViews() {
         scale *= zoomChange
         offset += panChange
         rotationAngle += rotationChange
+        Timber.tag("TransformableViews").d("zoomChange: %f, panChange: %s, rotationChange: %f", zoomChange, panChange.toString(), rotationChange)
     }
 
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Timber.tag("TransformableViews").d("TransformableViews.Box 1")
         Box(
             Modifier
                 .size(boxSize)
-                // 注意：rotate 修饰符需要先于 offset 调用，若先用 offset 再调用 rotate，则组件会先偏移再旋转，这会导致组件最终位置不可预期。
-                .rotate(rotationAngle) // 需要注意 offset 与 rotate 的调用先后顺序
+                // 注意：一般情况下我们都需要组件在旋转后，当出现双指拖动时组件会跟随手指发生偏移。若 offset 在 rotate 之前调用，则会出现组件旋转后，当双指拖动时组件会以当前
+                // 旋转角度为基本坐标轴进行偏移。这是由于当你先进行 offset ，则说明已经发生了偏移，而 rotate 时会改变当前 UI 组件整个坐标轴，所以出现与预期不符的情况出现。
+                .rotate(rotationAngle)
                 .offset {
                     IntOffset(offset.x.roundToInt(), offset.y.roundToInt())
                 }
@@ -59,6 +62,10 @@ fun TransformableViews() {
                     // 当 lockRotationOnZoomPan 为 true 时，在发生双指拖动或缩放时，不会同时监听用户的旋转手势信息。
                     lockRotationOnZoomPan = false
                 )
-        )
+        ) {
+            Timber.tag("TransformableViews").d("TransformableViews.Box 2")
+        }
+
     }
+
 }
