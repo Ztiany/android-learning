@@ -16,6 +16,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import me.ztiany.compose.facilities.widget.Entrance
 import me.ztiany.compose.facilities.widget.EntranceList
+import me.ztiany.compose.facilities.widget.Header
+import me.ztiany.compose.facilities.widget.Item
 import me.ztiany.compose.foundation.animation.navigateToAnimation
 import me.ztiany.compose.foundation.custom.navigateToCustomDrawAndLayout
 import me.ztiany.compose.foundation.gesture.navigateToGesture
@@ -59,23 +61,34 @@ fun MainScreen(navController: NavHostController) {
     )
 }
 
-private fun buildEntrances(navController: NavController): List<Entrance> {
+private fun buildEntrances(navController: NavController): List<Item> {
     return listOf(
+        Header("UI Widgets"),
         //学习基础组件的使用
         Entrance("Basic Widgets") { navController.navigateToWidgets() },
         //学习基础布局的使用
         Entrance("Basic Layout") { navController.navigateToLayouts() },
         //学习自定义布局与绘制 API
         Entrance("Custom Draw&Layout") { navController.navigateToCustomDrawAndLayout() },
+
+
+        Header("UI Interaction"),
         //动画
         Entrance("Animation API") { navController.navigateToAnimation() },
         //手势
         Entrance("Gesture API") { navController.navigateToGesture() },
+
+
+        Header("Functionality"),
         //状态管理
         Entrance("State Management") { navController.navigateToStateManaging() },
         //功能性组件
         Entrance("CompositionLocal") { navController.navigateToAnimation() },
+        //副作用 API
         Entrance("Side Effect") { navController.navigateToAnimation() },
+
+
+        Header("Real Samples"),
         //真实案例
         Entrance("Realistic Pages") { navController.navigateToRealistic() },
     )
