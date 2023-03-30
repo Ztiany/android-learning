@@ -22,6 +22,7 @@ import me.ztiany.compose.foundation.animation.navigateToAnimation
 import me.ztiany.compose.foundation.custom.navigateToCustomDrawAndLayout
 import me.ztiany.compose.foundation.gesture.navigateToGesture
 import me.ztiany.compose.foundation.layout.navigateToLayouts
+import me.ztiany.compose.foundation.modifiers.navigateToModifier
 import me.ztiany.compose.foundation.state.navigateToStateManaging
 import me.ztiany.compose.foundation.widgets.navigateToWidgets
 import me.ztiany.compose.realistic.navigateToRealistic
@@ -63,6 +64,7 @@ fun MainScreen(navController: NavHostController) {
 
 private fun buildEntrances(navController: NavController): List<Item> {
     return listOf(
+        //UI 组件
         Header("UI Widgets"),
         //学习基础组件的使用
         Entrance("Basic Widgets") { navController.navigateToWidgets() },
@@ -72,6 +74,7 @@ private fun buildEntrances(navController: NavController): List<Item> {
         Entrance("Custom Draw&Layout") { navController.navigateToCustomDrawAndLayout() },
 
 
+        //UI 交互
         Header("UI Interaction"),
         //动画
         Entrance("Animation API") { navController.navigateToAnimation() },
@@ -79,7 +82,10 @@ private fun buildEntrances(navController: NavController): List<Item> {
         Entrance("Gesture API") { navController.navigateToGesture() },
 
 
+        //功能性组件
         Header("Functionality"),
+        //Modifier 原理探索
+        Entrance("Modifier Exploring") { navController.navigateToModifier() },
         //状态管理
         Entrance("State Management") { navController.navigateToStateManaging() },
         //功能性组件
@@ -88,8 +94,8 @@ private fun buildEntrances(navController: NavController): List<Item> {
         Entrance("Side Effect") { navController.navigateToAnimation() },
 
 
-        Header("Real Samples"),
         //真实案例
+        Header("Real Samples"),
         Entrance("Realistic Pages") { navController.navigateToRealistic() },
     )
 }

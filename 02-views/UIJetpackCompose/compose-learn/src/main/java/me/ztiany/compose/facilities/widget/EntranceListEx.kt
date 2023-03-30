@@ -8,7 +8,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 
-typealias ComposableLambda = @Composable (NavBackStackEntry) -> Unit
+private class KeyComposable(
+    val name: String,
+    val screen: @Composable (NavBackStackEntry) -> Unit,
+)
+
 
 fun NavGraphBuilder.buildNavigation(
     routeName: String,
@@ -39,6 +43,7 @@ fun buildEntrances(
     }
 }
 
+@NavigationDsl
 class EntranceNavigationBuilder {
 
     private var routeName: String = ""
@@ -55,9 +60,9 @@ class EntranceNavigationBuilder {
         this.startScreen = screen
     }
 
-    fun entranceList(buildBlack: EntranceListBuilder.() -> Unit) = EntranceListBuilder().apply {
+    fun sections(buildBlack: EntranceListBuilder.() -> Unit) = EntranceListBuilder().apply {
         buildBlack()
-        entranceListBuilder = this
+        this@EntranceNavigationBuilder.entranceListBuilder = this
     }
 
     fun toEntranceNavigationMaker(): EntranceNavigationMaker {
@@ -71,24 +76,32 @@ class EntranceNavigationBuilder {
 
 }
 
+@NavigationDsl
 class EntranceListBuilder {
 
     private val _items = mutableListOf<Any>()
     val items: List<Any>
         get() = _items
 
-    fun header(name: String) {
-        _items.add(name)
+    fun newSection(header: String, entrances: EntranceListScope.() -> Unit) {
+        _items.add(header)
+        object : EntranceListScope {
+            override fun entrance(name: String, screen: @Composable (NavBackStackEntry) -> Unit) {
+                this@EntranceListBuilder._items.add(KeyComposable(name, screen))
+            }
+
+            override fun String.to(screen: @Composable (NavBackStackEntry) -> Unit) {
+                this@EntranceListBuilder._items.add(KeyComposable(this, screen))
+            }
+        }.entrances()
     }
 
-    fun entrance(name: String, screen: @Composable (NavBackStackEntry) -> Unit) {
-        _items.add(name to screen)
-    }
+}
 
-    infix fun String.to(screen: @Composable (NavBackStackEntry) -> Unit) {
-        _items.add(Pair(this, screen))
-    }
-
+@NavigationDsl
+interface EntranceListScope {
+    fun entrance(name: String, screen: @Composable (NavBackStackEntry) -> Unit)
+    infix fun String.to(screen: @Composable (NavBackStackEntry) -> Unit)
 }
 
 fun buildEntranceNavigation(buildBlock: EntranceNavigationBuilder.() -> Unit) = EntranceNavigationBuilder().apply(buildBlock)
@@ -105,22 +118,19 @@ class EntranceNavigationMaker(
             composable(startDestination) {
                 screen(buildEntrances(navHostController), it)
             }
-            items.filterIsInstance<Pair<*, *>>().forEach {
-                composable(it.first as String) { navEntry ->
-                    @Suppress("UNCHECKED_CAST")
-                    (it.second as ComposableLambda)(navEntry)
-                }
+            items.filterIsInstance<KeyComposable>().forEach {
+                composable(it.name) { navEntry -> it.screen(navEntry) }
             }
         }
     }
 
-    fun buildEntrances(navController: NavController): List<Item> {
+    private fun buildEntrances(navController: NavController): List<Item> {
         return items.map {
             when (it) {
                 is String -> Header(it)
 
-                is Pair<*, *> -> Entrance(it.first as String) {
-                    navController.navigate(it.first as String)
+                is KeyComposable -> Entrance(it.name) {
+                    navController.navigate(it.name)
                 }
 
                 else -> throw IllegalStateException("internal error.")
@@ -129,3 +139,6 @@ class EntranceNavigationMaker(
     }
 
 }
+
+@DslMarker
+annotation class NavigationDsl

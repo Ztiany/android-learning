@@ -101,7 +101,7 @@ onTouchSlopReached 会在超过 ViewConfiguration 中所设定的阈值 touchSlo
 
                             forEachGesture {
 
-                                //对于拖动手势，首先需要使用 awaitFirstDown 获取 ACTION_DOWN 手势事件信息。值得注意的是，当上一轮 Fling 未结束本轮
+                                // 对于拖动手势，首先需要使用 awaitFirstDown 获取 ACTION_DOWN 手势事件信息。值得注意的是，当上一轮 Fling 未结束，而本轮
                                 // 手势便开始时，可以使用 Animatable 提供的 stop 方法来中断结束上一轮动画。
                                 val down = awaitPointerEventScope { awaitFirstDown() }
                                 offset.stop()

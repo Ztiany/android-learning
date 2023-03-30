@@ -36,7 +36,7 @@ fun EntranceList(spanCount: Int = 1, entranceList: List<Item>) {
         //items
         content = {
             items(entranceList) {
-                //TODO: make header full span.
+                //TODO: make the header always full span.
                 if (it is Header) {
                     Text(text = it.name, style = MaterialTheme.typography.h5)
                 } else if (it is Entrance) {

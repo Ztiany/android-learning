@@ -9,6 +9,7 @@ import me.ztiany.compose.foundation.animation.animationScreen
 import me.ztiany.compose.foundation.custom.customScreen
 import me.ztiany.compose.foundation.gesture.gestureScreen
 import me.ztiany.compose.foundation.layout.layoutScreen
+import me.ztiany.compose.foundation.modifiers.modifierScreen
 import me.ztiany.compose.foundation.state.stateManagingScreen
 import me.ztiany.compose.foundation.widgets.widgetScreen
 import me.ztiany.compose.realistic.realisticScreen
@@ -25,12 +26,13 @@ fun AppNavGraph(
         modifier = modifier,
     ) {
         mainScreen(navController)
-        widgetScreen()
+        widgetScreen(navController)
         layoutScreen(navController)
         customScreen(navController)
         animationScreen(navController)
         gestureScreen(navController)
         realisticScreen(navController)
         stateManagingScreen(navController)
+        modifierScreen(navController)
     }
 }

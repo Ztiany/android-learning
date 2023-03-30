@@ -26,42 +26,45 @@ private val NavigationMaker = buildEntranceNavigation {
         EntranceList(entranceList = list)
     }
 
-    entranceList {
+    sections {
         //===================================
         //高级 API
         //===================================
-        header("高级 API")
-        //点击、双击、长按
-        "Clickable" to { ClickableViews() }
-        //水平、垂直方向拖动
-        "Draggable" to { DraggableViews() }
-        //水平、垂直方向拖动
-        "Swipeable" to { SwipeableViews() }
-        //多指触控
-        "Transformable" to { TransformableViews() }
-        //滚动
-        "ScrollableViews" to { ScrollableViews() }
-        //嵌套滚动
-        "NestedScrollViews" to { NestedScrollViews() }
+        newSection("高级 API"){
+            //点击、双击、长按
+            "Clickable" to { ClickableViews() }
+            //水平、垂直方向拖动
+            "Draggable" to { DraggableViews() }
+            //水平、垂直方向拖动
+            "Swipeable" to { SwipeableViews() }
+            //多指触控
+            "Transformable" to { TransformableViews() }
+            //滚动
+            "ScrollableViews" to { ScrollableViews() }
+            //嵌套滚动
+            "NestedScrollViews" to { NestedScrollViews() }
+        }
 
         //===================================
         //PointerInputScope 扩展
         //===================================
-        header("PointerInputScope 扩展")
-        "DetectTapGestures" to { DetectTapGesturesViews() }
-        "DetectDragGestures" to { DetectDragGesturesViews() }
-        "TransformGesture" to { TransformGestureViews() }
-        "ForEachGesture" to { ForEachGestureViews() }
+        newSection("PointerInputScope 扩展"){
+            "DetectTapGestures" to { DetectTapGesturesViews() }
+            "DetectDragGestures" to { DetectDragGesturesViews() }
+            "TransformGesture" to { TransformGestureViews() }
+            "ForEachGesture" to { ForEachGestureViews() }
+        }
 
         //===================================
         //底层 API：forEachGesture 应用
         //===================================
-        header("forEachGesture 应用")
-        "ForEach-AwaitPointerEvent" to { AwaitPointerEventViews() }
-        "ForEach-AwaitFirstDown" to { AwaitFirstDownViews() }
-        "ForEach-Drag" to { DragViews() }
-        "ForEach-AwaitDragOrCancellation" to { AwaitDragOrCancellationViews() }
-        "ForEach-AwaitTouchSlopOrCancellation" to { AwaitTouchSlopOrCancellationViews() }
+        newSection("forEachGesture 应用"){
+            "ForEach-AwaitPointerEvent" to { AwaitPointerEventViews() }
+            "ForEach-AwaitFirstDown" to { AwaitFirstDownViews() }
+            "ForEach-Drag" to { DragViews() }
+            "ForEach-AwaitDragOrCancellation" to { AwaitDragOrCancellationViews() }
+            "ForEach-AwaitTouchSlopOrCancellation" to { AwaitTouchSlopOrCancellationViews() }
+        }
     }
 
 }.toEntranceNavigationMaker()
