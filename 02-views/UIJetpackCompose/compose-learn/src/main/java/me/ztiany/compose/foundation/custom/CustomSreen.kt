@@ -24,6 +24,8 @@ private val NavigationMaker = buildEntranceNavigation {
             "Canvas 组件" to { DrawLoadingProgressBar() }
             //drawWithCache 修饰符
             "DrawWithCache" to { DrawWithCacheDemo() }
+            //GraphicLayer 的使用
+            "GraphicLayerScreen" to { GraphicLayerScreen() }
             //实践 + 原始 Canvas API
             "WaveLoading" to { WaveLoadingDemo() }
         }

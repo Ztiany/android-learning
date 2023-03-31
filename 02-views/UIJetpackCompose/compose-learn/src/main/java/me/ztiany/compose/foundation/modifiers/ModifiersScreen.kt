@@ -1,20 +1,10 @@
 package me.ztiany.compose.foundation.modifiers
 
-import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import me.ztiany.compose.facilities.widget.EntranceList
 import me.ztiany.compose.facilities.widget.buildEntranceNavigation
-
-/*
-1. https://stackoverflow.com/questions/64989659/when-do-you-need-modifier-composed
- */
-@Composable
-fun ModifiersScreen() {
-
-}
-
 
 private const val MODIFIER_PAGE = "modifier_page"
 private const val MODIFIER_INTERNAL_PAGE = "modifier_internal_page"

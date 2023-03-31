@@ -23,39 +23,43 @@ fun OrderOfModifier() {
     Layout({
 
     }, measurePolicy = { _, constraints ->
+        //测量链条的末端，返回给 2
         Timber.d("measurePolicy constraints: $constraints")
         Timber.d("measurePolicy layout: ${constraints.minWidth}x${constraints.minHeight}")
-        layout(constraints.minWidth, constraints.minHeight) {//最终确定大小
-
+        layout(constraints.minWidth, constraints.minHeight) {
+            Timber.d("measurePolicy layout")
         }
     }, modifier = Modifier
-        .backgroundCopy("0", Color.Red)
+        .backgroundCopy("0", Color.Red)//画布还没有偏移
         .clickable {
 
         }
         .layout { measurable, constraints ->
             Timber.d("layout 1 constraints: $constraints")
-            val placement = measurable.measure(constraints)
+            val placement = measurable.measure(constraints)//拿到的是下游 size 的测量结果
             Timber.d("layout 1 result: ${placement.width}x${placement.height}")
-            layout(placement.width, placement.height) {
-                placement.placeRelative(placement.width / 2, placement.height / 2)//受到前面 place 的影响
+            layout(placement.width, placement.height) {//最终确定大小，所有的绘制都以这个大小为准。
+                Timber.d("layout 1 placeRelative-before")
+                placement.placeRelative(placement.width / 2, placement.height / 2)//影响后续绘制位置，相当于调整了画布的坐标
+                Timber.d("layout 1 placeRelative-after")
             }
         }
         .backgroundCopy("1", Color.Blue)
         .size(200.dp)//size 具有强制性，第一次设置后，后面都不能再改了，除非你自定义测量过程。
         .layout { measurable, constraints ->
             Timber.d("layout 2 constraints: $constraints")
-            val placement = measurable.measure(constraints)
+            val placement = measurable.measure(constraints)//拿到的是 measurePolicy 测量测量的结果
             Timber.d("layout 2 result: ${placement.width}x${placement.height}")
-            layout(placement.width, placement.height) {
-                placement.placeRelative(placement.width / 4, placement.height / 4)//受到前面 place 的影响
+            layout(placement.width, placement.height) {//返回给 1
+                Timber.d("layout 2 placeRelative-before")
+                placement.placeRelative(placement.width / 4, placement.height / 4)//受到前面 place 的影响，且影响后续绘制位置，相当于调整了画布的坐标
+                Timber.d("layout 2 placeRelative-after")
             }
         }
         .backgroundCopy("2", Color.Green))
-
 }
 
-fun Modifier.backgroundCopy(
+private fun Modifier.backgroundCopy(
     flag: String = "",
     color: Color,
     shape: Shape = RectangleShape
@@ -134,6 +138,6 @@ private class Background constructor(
                 shape == otherModifier.shape
     }
 
-    override fun toString(): String =
-        "Background(color=$color, brush=$brush, alpha = $alpha, shape=$shape)"
+    override fun toString(): String = "Background(color=$color, brush=$brush, alpha = $alpha, shape=$shape)"
+
 }
