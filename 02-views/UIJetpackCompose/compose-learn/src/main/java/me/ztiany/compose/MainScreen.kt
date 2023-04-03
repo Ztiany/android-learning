@@ -7,6 +7,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,6 +27,7 @@ import me.ztiany.compose.foundation.modifiers.navigateToModifier
 import me.ztiany.compose.foundation.state.navigateToStateManaging
 import me.ztiany.compose.foundation.widgets.navigateToWidgets
 import me.ztiany.compose.realistic.navigateToRealistic
+import timber.log.Timber
 
 const val MAIN_SCREEN = "main_screen"
 
@@ -37,6 +39,10 @@ fun NavGraphBuilder.mainScreen(navController: NavHostController) {
 
 @Composable
 fun MainScreen(navController: NavHostController) {
+    LaunchedEffect(Unit) {
+        Timber.d("enter MainScreen")
+    }
+    Timber.d("compose/recompose MainScreen")
     /*
       A surface container using the 'background' color from the theme
         1. Surface 是 MD 里面的一个概念。
