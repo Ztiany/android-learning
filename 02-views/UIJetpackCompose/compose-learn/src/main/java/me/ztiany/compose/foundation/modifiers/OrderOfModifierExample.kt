@@ -19,7 +19,7 @@ import timber.log.Timber
 
 
 @Composable
-fun OrderOfModifier() {
+fun OrderOfModifierExample() {
     Layout({
 
     }, measurePolicy = { _, constraints ->

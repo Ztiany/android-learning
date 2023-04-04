@@ -19,7 +19,7 @@ import timber.log.Timber
 import kotlin.math.roundToInt
 
 @Composable
-fun CenterByModifier() {
+fun CenterByModifierExample() {
     Box(
         Modifier
             .fillMaxSizeCopy()
