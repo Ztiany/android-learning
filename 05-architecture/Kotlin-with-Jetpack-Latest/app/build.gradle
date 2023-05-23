@@ -6,8 +6,7 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.ztiany.androidx"
@@ -26,6 +25,7 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs = ["-Xcontext-receivers"]
     }
 
     buildTypes {
@@ -40,52 +40,40 @@ android {
         viewBinding true
     }
 }
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.13.2'
 
+    /*
+    *AndroidX: https://developer.android.com/jetpack/androidx/releases/activity
+    */
+
     /*arch*/
-    implementation "androidx.arch.core:core-runtime:2.1.0"
-    implementation "androidx.arch.core:core-common:2.1.0"
+    implementation "androidx.arch.core:core-runtime:2.2.0"
+    implementation "androidx.arch.core:core-common:2.2.0"
 
     /*appcompat*/
-    implementation "androidx.appcompat:appcompat:1.4.2"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    // For loading and tinting drawables on older versions of the platform
+    implementation "androidx.appcompat:appcompat-resources:1.6.1"
     /*activity*/
-    implementation "androidx.activity:activity-ktx:1.4.0"
+    implementation 'androidx.activity:activity-ktx:1.7.1'
     /*fragment*/
-    implementation "androidx.fragment:fragment-ktx:1.4.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.7"
 
     //lifecycle, livedata, viewmodel
-    implementation "androidx.lifecycle:lifecycle-common:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-process:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-common:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-process:2.6.1"
 
     //https://android.github.io/android-ktx/core-ktx/index.html
-    implementation 'androidx.core:core-ktx:1.8.0'
-
-    /*ui component*/
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
-    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.percentlayout:percentlayout:1.0.0"
-    implementation "androidx.cardview:cardview:1.0.0"
-    implementation "androidx.viewpager:viewpager:1.0.0"
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
-    implementation "androidx.asynclayoutinflater:asynclayoutinflater:1.0.0"
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-    implementation "androidx.transition:transition:1.4.1"
-    implementation "androidx.dynamicanimation:dynamicanimation:1.0.0"
-    //https://github.com/material-components/material-components-android
-    implementation "com.google.android.material:material:1.6.1"
-    //https://github.com/google/flexbox-layout/
-    implementation 'com.google.android:flexbox:2.0.1'
-    // For loading and tinting drawables on older versions of the platform
-    implementation "androidx.appcompat:appcompat-resources:1.4.2"
+    implementation 'androidx.core:core-ktx:1.10.1'
 
     /*paging*/
     implementation "androidx.paging:paging-common-ktx:3.1.1"
@@ -93,29 +81,20 @@ dependencies {
     implementation "androidx.paging:paging-rxjava2-ktx:3.1.1"
 
     /*room*/
-    implementation "androidx.room:room-common:2.4.2"
-    implementation "androidx.room:room-guava:2.4.2"
-    implementation "androidx.room:room-migration:2.4.2"
-    implementation "androidx.room:room-runtime:2.4.2"
-    implementation "androidx.room:room-rxjava2:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-common:2.5.1"
+    implementation "androidx.room:room-guava:2.5.1"
+    implementation "androidx.room:room-migration:2.5.1"
+    implementation "androidx.room:room-runtime:2.5.1"
+    implementation "androidx.room:room-rxjava2:2.5.1"
+    kapt "androidx.room:room-compiler:2.5.1"
 
     //sqlite
-    implementation "androidx.sqlite:sqlite-framework:2.2.0"
-    implementation "androidx.sqlite:sqlite-ktx:2.2.0"
+    implementation "androidx.sqlite:sqlite-framework:2.3.1"
+    implementation "androidx.sqlite:sqlite-ktx:2.3.1"
 
     //navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
-    implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
-
-    //tools
-    implementation "androidx.annotation:annotation:1.4.0"
-    implementation "androidx.documentfile:documentfile:1.0.1"
-    implementation "androidx.exifinterface:exifinterface:1.3.3"
-    implementation "androidx.biometric:biometric:1.1.0"
-    implementation "androidx.startup:startup-runtime:1.1.1"
-    implementation "androidx.concurrent:concurrent-futures:1.1.0"
-    implementation "androidx.concurrent:concurrent-futures-ktx:1.1.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
 
     //data store
     implementation "androidx.datastore:datastore-core:1.0.0"
@@ -128,11 +107,36 @@ dependencies {
 
     //multi-dex
     implementation "androidx.multidex:multidex:2.0.1"
-    implementation "androidx.multidex:multidex-instrumentation:2.0.0"
 
     //Hilt
-    implementation 'com.google.dagger:hilt-android:2.40.5'
-    kapt 'com.google.dagger:hilt-android-compiler:2.40.5'
+    implementation 'com.google.dagger:hilt-android:2.44'
+    kapt 'com.google.dagger:hilt-android-compiler:2.44'
+
+    /*ui component*/
+    implementation "androidx.recyclerview:recyclerview:1.3.0"
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation "androidx.percentlayout:percentlayout:1.0.0"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.viewpager:viewpager:1.0.0"
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.asynclayoutinflater:asynclayoutinflater:1.0.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation "androidx.transition:transition:1.4.1"
+    implementation "androidx.dynamicanimation:dynamicanimation:1.0.0"
+    //https://github.com/material-components/material-components-android
+    implementation "com.google.android.material:material:1.9.0"
+    //https://github.com/google/flexbox-layout/
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+    //tools
+    implementation "androidx.annotation:annotation:1.6.0"
+    implementation "androidx.documentfile:documentfile:1.0.1"
+    implementation "androidx.exifinterface:exifinterface:1.3.6"
+    implementation "androidx.biometric:biometric:1.1.0"
+    implementation "androidx.startup:startup-runtime:1.1.1"
+    implementation "androidx.concurrent:concurrent-futures:1.1.0"
+    implementation "androidx.concurrent:concurrent-futures-ktx:1.1.0"
 
     //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -143,19 +147,16 @@ dependencies {
     //https://github.com/Kotlin/kotlinx.coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}"//协程库
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:${coroutinesVersion}"
-    //https://github.com/ReactiveX/RxKotlin
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
     //https://github.com/enbandari/KotlinTuples
-    implementation "com.bennyhuo.kotlin:kotlin-tuples:1.0"
+    //implementation "com.bennyhuo.kotlin:kotlin-tuples:1.0"
     //https://github.com/enbandari/ObjectPropertyDelegate
-    implementation "com.bennyhuo.kotlin:opd:1.0-rc-2"
+    //implementation "com.bennyhuo.kotlin:opd:1.0-rc-2"
     //https://github.com/enbandari/KotlinDeepCopy
-    implementation "com.bennyhuo.kotlin:deepcopy-reflect:1.0"
+    //implementation "com.bennyhuo.kotlin:deepcopy-reflect:1.0"
     //https://github.com/enbandari/ReleasableVar
-    implementation "com.bennyhuo.kotlin:releasable-nonnull-vars:1.1.0"
+    //implementation "com.bennyhuo.kotlin:releasable-nonnull-vars:1.1.0"
 
     //splitties
-    //implementation "com.louiscad.splitties:splitties-fun-pack-android-base:3.0.0"
+    implementation "com.louiscad.splitties:splitties-fun-pack-android-base:3.0.0"
 }
 

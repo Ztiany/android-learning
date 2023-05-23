@@ -72,18 +72,19 @@ object HiDataBus {
         //lastVersion 和livedata的version 对齐的原因，就是为控制黏性事件的分发。
         //sticky 不等于true , 只能接收到注册之后发送的消息，如果要接收黏性事件，则sticky需要传递为true
         private var lastVersion = stickyLiveData.mVersion
-        override fun onChanged(t: T) {
+        override fun onChanged(value: T) {
 
             if (lastVersion >= stickyLiveData.mVersion) {
                 //就说明stickyLiveData  没有更新的数据需要发送。
-                if (sticky && stickyLiveData.mStickyData != null) {
-                    observer.onChanged(stickyLiveData.mStickyData)
+                val mStickyData = stickyLiveData.mStickyData
+                if (sticky && mStickyData != null) {
+                    observer.onChanged(mStickyData)
                 }
                 return
             }
 
             lastVersion = stickyLiveData.mVersion
-            observer.onChanged(t)
+            observer.onChanged(value)
         }
 
     }
