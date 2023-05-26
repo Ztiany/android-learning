@@ -5,12 +5,13 @@ plugins {
 
 android {
     namespace 'me.ztiany.compose.rwx'
-    compileSdk 33
+
+    compileSdk AppConfig.compileSdkVersion
 
     defaultConfig {
         applicationId "me.ztiany.compose.rwx"
-        minSdk 21
-        targetSdk 32
+        minSdk AppConfig.minSdkVersion
+        targetSdk AppConfig.targetSdkVersion
         versionCode 1
         versionName "1.0"
         vectorDrawables {
@@ -51,58 +52,62 @@ android {
 
 dependencies {
     //架构组件
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.activity:activity-ktx:1.7.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.core:core-ktx:1.9.0'
-
-    //compose activity
-    implementation 'androidx.activity:activity-compose:1.7.0'
+    implementation AndroidX.appcompat
+    implementation AndroidX.activityKtx
+    implementation AndroidX.lifecycleRuntimeKtx
+    implementation AndroidX.lifecycleViewModelKtx
+    implementation AndroidX.ktx
+    implementation AndroidX.material
 
     //compose ui 基础
-    implementation "androidx.compose.ui:ui:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    implementation AndroidCompose.composeUI
+    implementation AndroidCompose.composeUIGraphics
+    implementation AndroidCompose.composeUIToolingPreview
+
+    debugImplementation AndroidCompose.composeUITooling
+    debugImplementation AndroidCompose.composeUITestManifest
 
     //ui 组件
-    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+    implementation AndroidCompose.composeUIConstraint
 
     //compose 动画
-    implementation "androidx.compose.animation:animation:$compose_version"
-    implementation "androidx.compose.animation:animation-core:$compose_version"
-    implementation "androidx.compose.animation:animation-graphics:$compose_version"
+    implementation AndroidCompose.composeAnimation
+    implementation AndroidCompose.composeAnimationCore
+    implementation AndroidCompose.composeAnimationGraphics
 
     //compose 通用组件
-    implementation "androidx.compose.foundation:foundation:$compose_version"
-    implementation "androidx.compose.foundation:foundation-layout:$compose_version"
+    implementation AndroidCompose.composeFoundation
+    implementation AndroidCompose.composeFoundationLayout
 
-    //compose material 实现
-    // implementation 'androidx.compose.material3:material3'
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.material:material-icons-extended:$compose_version"
-    implementation 'com.google.android.material:compose-theme-adapter:1.2.1'// When using a MDC theme
+    //compose material2 实现
+    implementation AndroidCompose.composeMaterial
+    implementation AndroidCompose.composeMaterialThemeAdapter
+    //compose material3 实现
+    implementation AndroidCompose.composeMaterial3
+    implementation AndroidCompose.composeMaterial3WindowSize
+    implementation AndroidCompose.composeMaterial3ThemeAdapter
+    //compose material icons
+    implementation AndroidCompose.composeMaterialIconExtended
 
-    //Integration with ViewModels, Hilt and Navigation
-    implementation "androidx.navigation:navigation-compose:2.6.0-alpha08"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
-    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
-    implementation "com.google.dagger:hilt-android:2.44.2"
-    //kapt "com.google.dagger:hilt-android-compiler:2.44.2"
+
+    //compose 与架构组件集成
+    implementation AndroidCompose.composeActivity
+    implementation AndroidCompose.composeViewModel
+    implementation AndroidCompose.composeNavigation
+    implementation AndroidCompose.composeHiltNavigation
 
     //第三方扩展
-    //implementation "com.google.accompanist:accompanist-appcompat-theme:0.16.0"// When using a AppCompat theme
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
-    implementation "com.google.accompanist:accompanist-pager:0.25.0"
-    implementation "com.google.accompanist:accompanist-pager-indicators:0.25.0"
-    implementation "com.google.accompanist:accompanist-swiperefresh:0.18.0"
-    implementation "com.google.accompanist:accompanist-flowlayout:0.28.0"
-    implementation "com.google.accompanist:accompanist-placeholder-material:0.18.0"
-    implementation "com.google.accompanist:accompanist-insets:0.18.0"
-    implementation "io.coil-kt:coil-compose:2.2.2"
+    implementation AndroidCompose.composeAccompanistSystemUIController
+    implementation AndroidCompose.composeAccompanistViewPager
+    implementation AndroidCompose.composeAccompanistViewPagerIndicator
+    implementation AndroidCompose.composeAccompanistSwipeRefresh
+    implementation AndroidCompose.composeAccompanistFlowLayout
+    implementation AndroidCompose.composeAccompanistMaterialPlaceHolder
+    implementation AndroidCompose.composeAccompanistMaterial3PlaceHolder
+    implementation AndroidCompose.composeAccompanistInsets
+    implementation AndroidCompose.composeAccompanistInsetsUI
+
+    implementation AndroidCompose.composeCoil
 
     //Log
     implementation 'com.jakewharton.timber:timber:5.0.1'
@@ -111,5 +116,4 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 }
