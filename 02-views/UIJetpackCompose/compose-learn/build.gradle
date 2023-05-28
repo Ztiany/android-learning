@@ -65,6 +65,7 @@ dependencies {
     implementation AndroidCompose.composeUI
     implementation AndroidCompose.composeUIGraphics
     implementation AndroidCompose.composeUIToolingPreview
+    implementation AndroidCompose.composeRuntimeLiveData
 
     debugImplementation AndroidCompose.composeUITooling
     debugImplementation AndroidCompose.composeUITestManifest

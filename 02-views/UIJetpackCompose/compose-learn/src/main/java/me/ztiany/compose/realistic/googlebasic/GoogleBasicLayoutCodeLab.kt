@@ -1,10 +1,20 @@
-package me.ztiany.compose.realistic
+package me.ztiany.compose.realistic.googlebasic
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
@@ -13,9 +23,17 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.material.MaterialTheme.typography
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Search
@@ -24,7 +42,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -32,8 +49,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.ztiany.compose.R
 import me.ztiany.compose.theme.UIJetpackComposeTheme
-import java.util.*
+import java.util.Locale
 
+/**
+ * 参考 [Basic layouts in Compose](https://developer.android.com/codelabs/jetpack-compose-layouts) 。
+ */
 @Composable
 fun GoogleBaseLayoutCodeLab() {
     //用新主题，覆盖根主题。
@@ -259,48 +279,4 @@ private val favoriteCollectionsData = listOf(
 private data class DrawableStringPair(
     @DrawableRes val drawable: Int,
     @StringRes val text: Int
-)
-
-@Composable
-private fun MySootheTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
-
-    MaterialTheme(
-        colors = colors,
-        typography = typography,
-        shapes = shapes,
-        content = content
-    )
-}
-
-private val taupe100 = Color(0xFFF0EAE2)
-private val taupe800 = Color(0xFF655454)
-private val rust300 = Color(0xFFE1AFAF)
-private val rust600 = Color(0xFF886363)
-private val gray900 = Color(0xFF333333)
-
-private val LightColorPalette = lightColors(
-    primary = gray900,
-    secondary = rust600,
-    background = taupe100,
-    surface = Color.White.copy(alpha = .85f),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onBackground = taupe800,
-    onSurface = gray900.copy(alpha = 0.8f)
-)
-
-private val DarkColorPalette = darkColors(
-    primary = Color.White,
-    secondary = rust300,
-    background = gray900,
-    surface = Color.White.copy(alpha = 0.15f),
-    onPrimary = gray900,
-    onSecondary = gray900,
-    onBackground = taupe100,
-    onSurface = Color.White.copy(alpha = .8f)
 )

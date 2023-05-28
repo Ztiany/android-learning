@@ -61,8 +61,11 @@ ext {
 
             //compose ui 基础
             composeUI                              : "androidx.compose.ui:ui:$compose_version",
-            composeUIGraphics                              : "androidx.compose.ui:ui-graphics:$compose_version",
+            composeUIGraphics                      : "androidx.compose.ui:ui-graphics:$compose_version",
             composeUIToolingPreview                : "androidx.compose.ui:ui-tooling-preview:$compose_version",
+
+            composeRuntime                         : "androidx.compose.runtime:runtime:$compose_version",
+            composeRuntimeLiveData                 : "androidx.compose.runtime:runtime-livedata:$compose_version",
 
             //compose ui tool (debugImplementation)
             composeUITooling                       : "androidx.compose.ui:ui-tooling:$compose_version",

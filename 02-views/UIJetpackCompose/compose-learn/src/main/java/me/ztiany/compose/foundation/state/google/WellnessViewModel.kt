@@ -1,4 +1,4 @@
-package me.ztiany.compose.foundation.state
+package me.ztiany.compose.foundation.state.google
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

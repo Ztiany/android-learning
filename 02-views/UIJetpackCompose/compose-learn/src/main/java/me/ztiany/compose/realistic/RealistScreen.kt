@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import me.ztiany.compose.facilities.widget.EntranceList
 import me.ztiany.compose.facilities.widget.buildEntrances
 import me.ztiany.compose.facilities.widget.buildNavigation
+import me.ztiany.compose.realistic.googlebasic.GoogleBaseLayoutCodeLab
 
 private const val REALISTIC_PAGE = "realistic_page"
 private const val REALISTIC_INTERNAL_PAGE = "realistic_internal_page"

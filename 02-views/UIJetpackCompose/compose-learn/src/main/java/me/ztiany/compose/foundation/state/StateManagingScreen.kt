@@ -8,6 +8,8 @@ import androidx.navigation.NavHostController
 import me.ztiany.compose.facilities.widget.Entrance
 import me.ztiany.compose.facilities.widget.EntranceList
 import me.ztiany.compose.facilities.widget.buildNavigation
+import me.ztiany.compose.foundation.state.google.GoogleStateInComposeCodeLab
+import me.ztiany.compose.foundation.state.statetest.HelloStateScreen
 
 private const val STATE_MANAGING_PAGE = "state_managing_page"
 private const val STATE_MANAGING_INTERNAL_PAGE = "state_managing_internal_page"
@@ -26,6 +28,7 @@ private fun buildEntrances(navController: NavController): List<Entrance> {
 }
 
 private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> Unit>(
+    "HelloStateScreen" to { HelloStateScreen() },
     "Google StateInCompose CodeLab" to { GoogleStateInComposeCodeLab() }
 )
 
