@@ -3,8 +3,8 @@ package me.ztiany.compose.foundation.custom
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import me.ztiany.compose.facilities.widget.EntranceList
-import me.ztiany.compose.facilities.widget.buildEntranceNavigation
+import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.buildEntranceNavigation
 
 private const val CUSTOM_PAGE = "custom_page"
 private const val CUSTOM_INTERNAL_PAGE = "custom_internal_page"

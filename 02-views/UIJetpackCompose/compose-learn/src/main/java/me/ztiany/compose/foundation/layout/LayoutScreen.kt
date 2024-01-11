@@ -5,9 +5,9 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import me.ztiany.compose.facilities.widget.EntranceList
-import me.ztiany.compose.facilities.widget.buildEntrances
-import me.ztiany.compose.facilities.widget.buildNavigation
+import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.buildEntrances
+import me.ztiany.compose.facility.widget.buildNavigation
 
 private const val LAYOUT_PAGE = "layout_page"
 private const val LAYOUT_INTERNAL_PAGE = "layout_internal_page"
@@ -22,9 +22,9 @@ fun NavController.navigateToLayouts() {
 }
 
 fun NavGraphBuilder.layoutScreen(navController: NavHostController) {
-        buildNavigation(LAYOUT_PAGE,LAYOUT_INTERNAL_PAGE, entrances){
-            LayoutsScreen(navController)
-        }
+    buildNavigation(LAYOUT_PAGE, entrances, LAYOUT_INTERNAL_PAGE) {
+        LayoutsScreen(navController)
+    }
 }
 
 private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> Unit>(

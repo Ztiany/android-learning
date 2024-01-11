@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 import kotlinx.coroutines.delay
 
 @Composable
-private fun MutableState() {
+private fun S303_RecompositionScope() {
     val text = remember {
         mutableStateOf("1")
     }

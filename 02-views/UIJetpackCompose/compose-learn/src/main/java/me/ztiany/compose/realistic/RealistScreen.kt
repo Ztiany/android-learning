@@ -5,9 +5,9 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import me.ztiany.compose.facilities.widget.EntranceList
-import me.ztiany.compose.facilities.widget.buildEntrances
-import me.ztiany.compose.facilities.widget.buildNavigation
+import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.buildEntrances
+import me.ztiany.compose.facility.widget.buildNavigation
 import me.ztiany.compose.realistic.googlebasic.GoogleBaseLayoutCodeLab
 
 private const val REALISTIC_PAGE = "realistic_page"
@@ -27,7 +27,7 @@ fun NavController.navigateToRealistic() {
 }
 
 fun NavGraphBuilder.realisticScreen(navController: NavHostController) {
-    buildNavigation(REALISTIC_PAGE, REALISTIC_INTERNAL_PAGE, entrances) {
+    buildNavigation(REALISTIC_PAGE, entrances, REALISTIC_INTERNAL_PAGE) {
         RealisticScreen(navController)
     }
 }

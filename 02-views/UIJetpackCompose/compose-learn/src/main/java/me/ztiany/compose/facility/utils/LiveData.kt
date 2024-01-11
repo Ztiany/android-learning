@@ -1,4 +1,4 @@
-package me.ztiany.compose.facilities.utils
+package me.ztiany.compose.facility.utils
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

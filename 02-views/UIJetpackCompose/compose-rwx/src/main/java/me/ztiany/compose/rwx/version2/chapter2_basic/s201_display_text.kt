@@ -4,7 +4,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-private fun Texts() {
+private fun S201_Texts() {
     // 本地图片：底层依赖于 drawText
     Text("Hello Compose")
 }

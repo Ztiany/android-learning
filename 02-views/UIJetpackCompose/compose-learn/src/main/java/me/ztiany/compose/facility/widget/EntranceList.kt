@@ -1,4 +1,4 @@
-package me.ztiany.compose.facilities.widget
+package me.ztiany.compose.facility.widget
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth

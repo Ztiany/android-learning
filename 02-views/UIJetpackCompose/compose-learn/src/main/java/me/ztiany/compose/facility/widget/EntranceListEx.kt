@@ -1,4 +1,4 @@
-package me.ztiany.compose.facilities.widget
+package me.ztiany.compose.facility.widget
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
@@ -13,16 +13,15 @@ private class KeyComposable(
     val screen: @Composable (NavBackStackEntry) -> Unit,
 )
 
-
 fun NavGraphBuilder.buildNavigation(
     routeName: String,
-    startDestination: String,
     entrances: Map<String, @Composable (NavBackStackEntry) -> Unit>,
-    screen: @Composable (NavBackStackEntry) -> Unit
+    startDestination: String,
+    startScreen: @Composable (NavBackStackEntry) -> Unit
 ) {
     navigation(startDestination = startDestination, route = routeName) {
         composable(startDestination) {
-            screen(it)
+            startScreen(it)
         }
         for (entrance in entrances) {
             composable(entrance.key) {
@@ -60,8 +59,8 @@ class EntranceNavigationBuilder {
         this.startScreen = screen
     }
 
-    fun sections(buildBlack: EntranceListBuilder.() -> Unit) = EntranceListBuilder().apply {
-        buildBlack()
+    fun sections(buildBlock: EntranceListBuilder.() -> Unit) = EntranceListBuilder().apply {
+        buildBlock()
         this@EntranceNavigationBuilder.entranceListBuilder = this
     }
 
@@ -70,7 +69,7 @@ class EntranceNavigationBuilder {
             throw IllegalStateException("routeName and startDestination cannot be empty.")
         }
         return EntranceNavigationMaker(
-            routeName, startDestination, startScreen, entranceListBuilder?.items ?: emptyList()
+            routeName, entranceListBuilder?.items ?: emptyList(), startDestination, startScreen
         )
     }
 
@@ -108,15 +107,15 @@ fun buildEntranceNavigation(buildBlock: EntranceNavigationBuilder.() -> Unit) = 
 
 class EntranceNavigationMaker(
     private var routeName: String,
+    private val items: List<Any>,
     private var startDestination: String,
-    private var screen: @Composable (List<Item>, NavBackStackEntry) -> Unit,
-    private val items: List<Any>
+    private var startScreen: @Composable (List<Item>, NavBackStackEntry) -> Unit
 ) {
 
     fun buildNavigation(navHostController: NavHostController, navGraphBuilder: NavGraphBuilder) {
         navGraphBuilder.navigation(route = routeName, startDestination = startDestination) {
             composable(startDestination) {
-                screen(buildEntrances(navHostController), it)
+                startScreen(buildEntrances(navHostController), it)
             }
             items.filterIsInstance<KeyComposable>().forEach {
                 composable(it.name) { navEntry -> it.screen(navEntry) }

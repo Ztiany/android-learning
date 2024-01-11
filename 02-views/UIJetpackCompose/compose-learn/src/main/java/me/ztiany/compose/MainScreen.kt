@@ -15,10 +15,10 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import me.ztiany.compose.facilities.widget.Entrance
-import me.ztiany.compose.facilities.widget.EntranceList
-import me.ztiany.compose.facilities.widget.Header
-import me.ztiany.compose.facilities.widget.Item
+import me.ztiany.compose.facility.widget.Entrance
+import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.Header
+import me.ztiany.compose.facility.widget.Item
 import me.ztiany.compose.foundation.animation.navigateToAnimation
 import me.ztiany.compose.foundation.custom.navigateToCustomDrawAndLayout
 import me.ztiany.compose.foundation.gesture.navigateToGesture

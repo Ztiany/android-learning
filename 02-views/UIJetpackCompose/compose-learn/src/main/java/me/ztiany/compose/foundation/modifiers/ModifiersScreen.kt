@@ -3,8 +3,8 @@ package me.ztiany.compose.foundation.modifiers
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import me.ztiany.compose.facilities.widget.EntranceList
-import me.ztiany.compose.facilities.widget.buildEntranceNavigation
+import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.buildEntranceNavigation
 
 private const val MODIFIER_PAGE = "modifier_page"
 private const val MODIFIER_INTERNAL_PAGE = "modifier_internal_page"

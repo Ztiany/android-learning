@@ -8,7 +8,7 @@ import me.ztiany.compose.rwx.R
 
 
 @Composable
-private fun Images() {
+private fun S201_Images() {
     // 本地图片：底层依赖于 drawBitmap
     Image(painterResource(id = R.mipmap.ic_launcher),"Icon")
 

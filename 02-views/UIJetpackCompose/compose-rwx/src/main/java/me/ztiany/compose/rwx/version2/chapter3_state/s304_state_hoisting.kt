@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 
 @Composable
-private fun StateHoisting() {
+private fun S304_StateHoisting() {
     // 状态
     val field = remember {
         mutableStateOf("")

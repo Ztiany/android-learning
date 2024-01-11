@@ -1,5 +1,6 @@
 package me.ztiany.compose.foundation.widgets
 
+import androidx.compose.material.Surface
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -13,6 +14,8 @@ fun NavController.navigateToWidgets() {
 
 fun NavGraphBuilder.widgetScreen(navController: NavHostController) {
     composable(route = WIDGETS_PAGE) {
-        WidgetsScreen()
+       Surface {
+           WidgetsScreen()
+       }
     }
 }

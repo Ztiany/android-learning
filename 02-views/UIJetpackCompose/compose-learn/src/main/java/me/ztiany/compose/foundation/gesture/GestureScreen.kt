@@ -3,13 +3,17 @@ package me.ztiany.compose.foundation.gesture
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import me.ztiany.compose.facilities.widget.EntranceList
-import me.ztiany.compose.facilities.widget.buildEntranceNavigation
+import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.buildEntranceNavigation
 import me.ztiany.compose.foundation.gesture.pointerinput.DetectDragGesturesViews
 import me.ztiany.compose.foundation.gesture.pointerinput.DetectTapGesturesViews
 import me.ztiany.compose.foundation.gesture.pointerinput.ForEachGestureViews
 import me.ztiany.compose.foundation.gesture.pointerinput.TransformGestureViews
-import me.ztiany.compose.foundation.gesture.pointerinput.foreach.*
+import me.ztiany.compose.foundation.gesture.pointerinput.foreach.AwaitDragOrCancellationViews
+import me.ztiany.compose.foundation.gesture.pointerinput.foreach.AwaitFirstDownViews
+import me.ztiany.compose.foundation.gesture.pointerinput.foreach.AwaitPointerEventViews
+import me.ztiany.compose.foundation.gesture.pointerinput.foreach.AwaitTouchSlopOrCancellationViews
+import me.ztiany.compose.foundation.gesture.pointerinput.foreach.DragViews
 
 private const val GESTURE_PAGE = "gesture_page"
 private const val GESTURE_INTERNAL_PAGE = "gesture_internal_page"

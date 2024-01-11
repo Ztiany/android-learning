@@ -12,7 +12,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import me.ztiany.compose.facilities.utils.asImmutable
+import me.ztiany.compose.facility.utils.asImmutable
 import timber.log.Timber
 import javax.inject.Inject
 

@@ -5,9 +5,9 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import me.ztiany.compose.facilities.widget.EntranceList
-import me.ztiany.compose.facilities.widget.buildEntrances
-import me.ztiany.compose.facilities.widget.buildNavigation
+import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.buildEntrances
+import me.ztiany.compose.facility.widget.buildNavigation
 import me.ztiany.compose.foundation.animation.google.GoogleAnimationHome
 import me.ztiany.compose.foundation.animation.practice.FavButton
 import me.ztiany.compose.foundation.animation.practice.Shimmer
@@ -77,7 +77,7 @@ fun NavController.navigateToAnimation() {
 }
 
 fun NavGraphBuilder.animationScreen(navController: NavHostController) {
-    buildNavigation(LAYOUT_PAGE, LAYOUT_INTERNAL_PAGE, entrances) {
+    buildNavigation(LAYOUT_PAGE, entrances, LAYOUT_INTERNAL_PAGE) {
         AnimationScreen(navController)
     }
 }

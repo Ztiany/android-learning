@@ -5,9 +5,9 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import me.ztiany.compose.facilities.widget.Entrance
-import me.ztiany.compose.facilities.widget.EntranceList
-import me.ztiany.compose.facilities.widget.buildNavigation
+import me.ztiany.compose.facility.widget.Entrance
+import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.buildNavigation
 import me.ztiany.compose.foundation.state.google.GoogleStateInComposeCodeLab
 import me.ztiany.compose.foundation.state.statetest.HelloStateScreen
 
@@ -37,7 +37,7 @@ fun NavController.navigateToStateManaging() {
 }
 
 fun NavGraphBuilder.stateManagingScreen(navController: NavHostController) {
-    buildNavigation(STATE_MANAGING_PAGE, STATE_MANAGING_INTERNAL_PAGE, entrances) {
+    buildNavigation(STATE_MANAGING_PAGE, entrances, STATE_MANAGING_INTERNAL_PAGE) {
         StateManagingScreen(navController)
     }
 }

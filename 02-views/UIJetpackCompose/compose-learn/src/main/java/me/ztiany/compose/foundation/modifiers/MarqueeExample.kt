@@ -11,7 +11,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import me.ztiany.compose.facilities.widget.ExampleArea
+import me.ztiany.compose.facility.widget.ExampleArea
 
 
 /**

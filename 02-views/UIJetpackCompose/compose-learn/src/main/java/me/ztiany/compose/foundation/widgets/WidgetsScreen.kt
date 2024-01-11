@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import me.ztiany.compose.facilities.widget.ExampleArea
+import me.ztiany.compose.facility.widget.ExampleArea
 
 @Composable
 fun WidgetsScreen() {

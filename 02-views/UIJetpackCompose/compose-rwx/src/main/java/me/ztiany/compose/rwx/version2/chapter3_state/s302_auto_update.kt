@@ -9,7 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 
 @Composable
-private fun AutoUpdate() {
+fun S302_AutoUpdate() {
     val test = remember {
         mutableStateOf("1")
     }
@@ -23,5 +23,4 @@ private fun AutoUpdate() {
         // 这个对 test 的写发生在组合过程中，这个会使得 snapshot.writeObserver 发送通知。这里就会将这个区域标记为需要更新。
         test.value = "3"
     }
-
 }
