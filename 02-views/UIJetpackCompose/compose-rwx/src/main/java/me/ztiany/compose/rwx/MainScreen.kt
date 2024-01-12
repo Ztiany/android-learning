@@ -20,6 +20,7 @@ import me.ztiany.compose.rwx.facility.EntranceList
 import me.ztiany.compose.rwx.facility.Header
 import me.ztiany.compose.rwx.facility.Item
 import me.ztiany.compose.rwx.version2.chapter4_anim.navigateToChapter4
+import me.ztiany.compose.rwx.version2.chapter5_modifier.navigateToChapter5
 import timber.log.Timber
 
 const val MAIN_SCREEN = "main_screen"
@@ -57,9 +58,9 @@ fun MainScreen(navController: NavHostController) {
 
 private fun buildEntrances(navController: NavController): List<Item> {
     return listOf(
-        //UI 组件
         Header("Chapter 04: Animation"),
-        //学习基础组件的使用
         Entrance("Animation Screen") { navController.navigateToChapter4() },
+        Header("Chapter 05: Animation"),
+        Entrance("Modifier Screen") { navController.navigateToChapter5() },
     )
 }

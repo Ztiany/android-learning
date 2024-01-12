@@ -1,5 +1,6 @@
 package me.ztiany.compose.rwx.version2.chapter4_anim
 
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 
@@ -46,5 +47,5 @@ import androidx.compose.runtime.Composable
  */
 @Composable
 fun S409_AnimationSpec_OtherSpecs() {
-
+    Text(text = "S409_AnimationSpec_OtherSpecs")
 }

@@ -27,6 +27,14 @@ private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> U
     "S406_AnimationSpec_SpringSpec" to { S406_AnimationSpec_SpringSpec() },
     "S407_AnimationSpec_RepeatableSpec" to { S407_AnimationSpec_RepeatableSpec() },
     "S408_AnimationSpec_InfiniteRepeatableSpec" to { S408_AnimationSpec_InfiniteRepeatableSpec() },
+    "S409_AnimationSpec_OtherSpecs" to { S409_AnimationSpec_OtherSpecs() },
+    "S410_AnimateDecay" to { S410_AnimateDecay() },
+    "411_ObserveFrame" to { S411_ObserveFrame() },
+    "S412_Animation_Stop_Cancel" to { S412_Animation_Stop_Cancel() },
+    "S413_Transition" to { S413_Transition() },
+    "S414_AnimatedVisibility" to { S414_AnimatedVisibility() },
+    "S415_Crossfade" to { S415_Crossfade() },
+    "S416_AnimatedContent" to { S416_AnimatedContent() },
 )
 
 fun NavController.navigateToChapter4() {
