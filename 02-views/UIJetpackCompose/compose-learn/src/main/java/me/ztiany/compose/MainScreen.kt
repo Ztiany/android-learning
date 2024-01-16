@@ -19,14 +19,14 @@ import me.ztiany.compose.facility.widget.Entrance
 import me.ztiany.compose.facility.widget.EntranceList
 import me.ztiany.compose.facility.widget.Header
 import me.ztiany.compose.facility.widget.Item
-import me.ztiany.compose.foundation.animation.navigateToAnimation
-import me.ztiany.compose.foundation.custom.navigateToCustomDrawAndLayout
-import me.ztiany.compose.foundation.gesture.navigateToGesture
-import me.ztiany.compose.foundation.layout.navigateToLayouts
-import me.ztiany.compose.foundation.modifiers.navigateToModifier
-import me.ztiany.compose.foundation.state.navigateToStateManaging
-import me.ztiany.compose.foundation.widgets.navigateToWidgets
-import me.ztiany.compose.realistic.navigateToRealistic
+import me.ztiany.compose.learn.animation.navigateToAnimation
+import me.ztiany.compose.learn.custom.navigateToCustomDrawAndLayout
+import me.ztiany.compose.learn.gesture.navigateToGesture
+import me.ztiany.compose.learn.layout.navigateToLayouts
+import me.ztiany.compose.learn.modifiers.navigateToModifier
+import me.ztiany.compose.learn.state.navigateToStateManaging
+import me.ztiany.compose.learn.widgets.navigateToWidgets
+import me.ztiany.compose.sample.navigateToSamples
 import timber.log.Timber
 
 const val MAIN_SCREEN = "main_screen"
@@ -101,7 +101,7 @@ private fun buildEntrances(navController: NavController): List<Item> {
 
 
         //真实案例
-        Header("Real Samples"),
-        Entrance("Realistic Pages") { navController.navigateToRealistic() },
+        Header("Real Sample"),
+        Entrance("Samples Page") { navController.navigateToSamples() },
     )
 }

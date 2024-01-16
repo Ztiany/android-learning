@@ -1,4 +1,4 @@
-# 用 Compose 写一个 WeChat 界面
+# 用 Jetpack Compose 写一个 WeChat 界面
 
 參考：
 
