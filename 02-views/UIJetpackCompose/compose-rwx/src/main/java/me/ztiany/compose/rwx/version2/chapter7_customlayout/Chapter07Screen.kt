@@ -27,7 +27,7 @@ private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> U
     "S706_NestedScroll" to { S706_NestedScroll() },
     "S707_2DimensionScrollObservation" to { S707_2DimensionScrollObservation() },
     "S708_MultiFingers" to { S708_MultiFingers() },
-    "S709_Underlying" to { S709_Underlying() },
+    "S709_Underlying" to { S709_UnderlyingEventHandling() },
 )
 
 fun NavController.navigateToChapter7() {

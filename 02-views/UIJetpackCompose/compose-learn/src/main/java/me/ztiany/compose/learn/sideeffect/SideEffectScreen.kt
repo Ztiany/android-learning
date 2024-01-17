@@ -12,13 +12,19 @@ private const val SIDE_EFFECT_INTERNAL_PAGE = "side_effect_internal_page"
 private val NavigationMaker = buildEntranceNavigation {
     route(SIDE_EFFECT_PAGE)
 
-    startDestination(SIDE_EFFECT_INTERNAL_PAGE) { list, _ ->
+    startDestination(SIDE_EFFECT_INTERNAL_PAGE, true) { list, _ ->
         EntranceList(entranceList = list)
     }
 
     sections {
         newSection("Side Effect API 示例") {
-//            "SideEffectDemo" to { SideEffectExample() }
+            "SideEffectExample" asTitleTo { SideEffectExample() }
+            "DisposableEffectExample" asTitleTo { DisposableEffectExample() }
+            "DerivedStateOfExample" asTitleTo { DerivedStateOfExample() }
+            "ProduceStateExample" asTitleTo { ProduceStateExample() }
+            "RememberUpdatedStateExample" asTitleTo { RememberUpdatedStateExample() }
+            "LaunchedEffectExample" to { LaunchedEffectExample() }
+            "RememberCoroutineScopeExample" to { RememberCoroutineScopeExample() }
         }
 
     }

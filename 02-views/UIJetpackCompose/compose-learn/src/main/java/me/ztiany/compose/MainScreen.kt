@@ -24,6 +24,7 @@ import me.ztiany.compose.learn.custom.navigateToCustomDrawAndLayout
 import me.ztiany.compose.learn.gesture.navigateToGesture
 import me.ztiany.compose.learn.layout.navigateToLayouts
 import me.ztiany.compose.learn.modifier.navigateToModifier
+import me.ztiany.compose.learn.sideeffect.navigateToSideEffect
 import me.ztiany.compose.learn.state.navigateToStateManaging
 import me.ztiany.compose.learn.widgets.navigateToWidgets
 import me.ztiany.compose.sample.navigateToSamples
@@ -97,7 +98,7 @@ private fun buildEntrances(navController: NavController): List<Item> {
         //功能性组件
         Entrance("CompositionLocal") { navController.navigateToAnimation() },
         //副作用 API
-        Entrance("Side Effect") { navController.navigateToAnimation() },
+        Entrance("Side Effect") { navController.navigateToSideEffect() },
 
 
         //真实案例

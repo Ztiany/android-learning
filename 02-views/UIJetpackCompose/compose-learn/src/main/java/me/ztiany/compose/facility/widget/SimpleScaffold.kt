@@ -16,6 +16,7 @@ fun SimpleScaffold(modifier: Modifier = Modifier, title: String, content: @Compo
             TopAppBar(title = { Text(text = title) })
         },
     ) {
+
         Box(modifier = Modifier.padding(it)) {
             content()
         }

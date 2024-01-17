@@ -10,6 +10,7 @@ import me.ztiany.compose.learn.custom.customScreen
 import me.ztiany.compose.learn.gesture.gestureScreen
 import me.ztiany.compose.learn.layout.layoutScreen
 import me.ztiany.compose.learn.modifier.modifierScreen
+import me.ztiany.compose.learn.sideeffect.sideEffectScreen
 import me.ztiany.compose.learn.state.stateManagingScreen
 import me.ztiany.compose.learn.widgets.widgetScreen
 import me.ztiany.compose.sample.samplesScreen
@@ -34,5 +35,6 @@ fun AppNavGraph(
         samplesScreen(navController)
         stateManagingScreen(navController)
         modifierScreen(navController)
+        sideEffectScreen(navController)
     }
 }
