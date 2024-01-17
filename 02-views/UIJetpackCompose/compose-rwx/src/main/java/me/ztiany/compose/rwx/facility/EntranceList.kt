@@ -13,6 +13,53 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
+
+fun buildEntrances(
+    entrances: Map<String, @Composable (NavBackStackEntry) -> Unit>,
+    navController: NavController
+): List<Item> {
+    return entrances.map {
+        Entrance(it.key) {
+            navController.navigate(it.key)
+        }
+    }
+}
+
+fun NavGraphBuilder.buildNavigation(
+    withScaffold: Boolean = false,
+    routeName: String,
+    entrances: Map<String, @Composable (NavBackStackEntry) -> Unit>,
+    startDestination: String,
+    startScreen: @Composable (NavBackStackEntry) -> Unit
+) {
+    navigation(startDestination = startDestination, route = routeName) {
+        composable(startDestination) {
+            if (withScaffold) {
+                SimpleScaffold(title = startDestination) {
+                    startScreen(it)
+                }
+            } else {
+                startScreen(it)
+            }
+        }
+        for (entrance in entrances) {
+            composable(entrance.key) {
+                if (withScaffold) {
+                    SimpleScaffold(title = entrance.key) {
+                        entrance.value(it)
+                    }
+                } else {
+                    entrance.value(it)
+                }
+            }
+        }
+    }
+}
 
 sealed interface Item
 

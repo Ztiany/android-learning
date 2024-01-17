@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.modifiers
+package me.ztiany.compose.facility.debug
 
 import android.annotation.SuppressLint
 import androidx.compose.runtime.Stable
@@ -35,6 +35,10 @@ import androidx.compose.ui.unit.dp
 import timber.log.Timber
 import kotlin.math.roundToInt
 
+/*
+    用于 Debug 的 Modifier，可以在 Modifier 中添加 flag，方便在日志中查看 Modifier 的执行顺序。
+*/
+
 fun Modifier.backgroundCopy(
     flag: String,
     color: Color,
@@ -67,7 +71,6 @@ private fun createFillSizeModifier(flag: String, fraction: Float) = FillModifier
         properties["fraction"] = fraction
     }
 )
-
 
 fun Modifier.wrapContentSizeCopy(
     flag: String,

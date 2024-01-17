@@ -8,39 +8,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 
+fun buildEntranceNavigation(buildBlock: EntranceNavigationBuilder.() -> Unit) = EntranceNavigationBuilder().apply(buildBlock)
+
 private class KeyComposable(
     val name: String,
     val screen: @Composable (NavBackStackEntry) -> Unit,
 )
 
-fun NavGraphBuilder.buildNavigation(
-    routeName: String,
-    entrances: Map<String, @Composable (NavBackStackEntry) -> Unit>,
-    startDestination: String,
-    startScreen: @Composable (NavBackStackEntry) -> Unit
-) {
-    navigation(startDestination = startDestination, route = routeName) {
-        composable(startDestination) {
-            startScreen(it)
-        }
-        for (entrance in entrances) {
-            composable(entrance.key) {
-                entrance.value(it)
-            }
-        }
-    }
-}
-
-fun buildEntrances(
-    entrances: Map<String, @Composable (NavBackStackEntry) -> Unit>,
-    navController: NavController
-): List<Item> {
-    return entrances.map {
-        Entrance(it.key) {
-            navController.navigate(it.key)
-        }
-    }
-}
+@DslMarker
+annotation class NavigationDsl
 
 @NavigationDsl
 class EntranceNavigationBuilder {
@@ -54,9 +30,17 @@ class EntranceNavigationBuilder {
         this.routeName = routeName
     }
 
-    fun startDestination(startDestination: String, screen: @Composable (List<Item>, NavBackStackEntry) -> Unit) {
+    fun startDestination(startDestination: String, asTitle: Boolean = false, screen: @Composable (List<Item>, NavBackStackEntry) -> Unit) {
         this.startDestination = startDestination
-        this.startScreen = screen
+        this.startScreen = if (asTitle) {
+            { items, navBackStackEntry ->
+                SimpleScaffold(title = startDestination) {
+                    screen(items, navBackStackEntry)
+                }
+            }
+        } else {
+            screen
+        }
     }
 
     fun sections(buildBlock: EntranceListBuilder.() -> Unit) = EntranceListBuilder().apply {
@@ -69,7 +53,10 @@ class EntranceNavigationBuilder {
             throw IllegalStateException("routeName and startDestination cannot be empty.")
         }
         return EntranceNavigationMaker(
-            routeName, entranceListBuilder?.items ?: emptyList(), startDestination, startScreen
+            routeName,
+            entranceListBuilder?.items ?: emptyList(),
+            startDestination,
+            startScreen
         )
     }
 
@@ -85,12 +72,28 @@ class EntranceListBuilder {
     fun newSection(header: String, entrances: EntranceListScope.() -> Unit) {
         _items.add(header)
         object : EntranceListScope {
-            override fun entrance(name: String, screen: @Composable (NavBackStackEntry) -> Unit) {
-                this@EntranceListBuilder._items.add(KeyComposable(name, screen))
+            override fun entrance(name: String, asTitle: Boolean, screen: @Composable (NavBackStackEntry) -> Unit) {
+                val value: @Composable (NavBackStackEntry) -> Unit = if (asTitle) {
+                    { navBackStackEntry ->
+                        SimpleScaffold(title = name) {
+                            screen(navBackStackEntry)
+                        }
+                    }
+                } else {
+                    screen
+                }
+
+                this@EntranceListBuilder._items.add(KeyComposable(name, value))
             }
 
             override fun String.to(screen: @Composable (NavBackStackEntry) -> Unit) {
                 this@EntranceListBuilder._items.add(KeyComposable(this, screen))
+            }
+
+            override fun String.asTitleTo(screen: @Composable (NavBackStackEntry) -> Unit) {
+                this@EntranceListBuilder._items.add(KeyComposable(this) {
+                    SimpleScaffold(title = this, content = { screen(it) })
+                })
             }
         }.entrances()
     }
@@ -99,11 +102,11 @@ class EntranceListBuilder {
 
 @NavigationDsl
 interface EntranceListScope {
-    fun entrance(name: String, screen: @Composable (NavBackStackEntry) -> Unit)
+    fun entrance(name: String, asTitle: Boolean = false, screen: @Composable (NavBackStackEntry) -> Unit)
     infix fun String.to(screen: @Composable (NavBackStackEntry) -> Unit)
-}
 
-fun buildEntranceNavigation(buildBlock: EntranceNavigationBuilder.() -> Unit) = EntranceNavigationBuilder().apply(buildBlock)
+    infix fun String.asTitleTo(screen: @Composable (NavBackStackEntry) -> Unit)
+}
 
 class EntranceNavigationMaker(
     private var routeName: String,
@@ -138,6 +141,3 @@ class EntranceNavigationMaker(
     }
 
 }
-
-@DslMarker
-annotation class NavigationDsl

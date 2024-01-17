@@ -9,8 +9,8 @@ import me.ztiany.compose.facility.widget.EntranceList
 import me.ztiany.compose.facility.widget.buildEntrances
 import me.ztiany.compose.facility.widget.buildNavigation
 
-private const val LAYOUT_PAGE = "layout_page"
-private const val LAYOUT_INTERNAL_PAGE = "layout_internal_page"
+private const val ROUTE_NAME = "layout_route"
+private const val START_PAGE = "Layouts"
 
 @Composable
 private fun LayoutsScreen(navController: NavHostController) {
@@ -18,11 +18,11 @@ private fun LayoutsScreen(navController: NavHostController) {
 }
 
 fun NavController.navigateToLayouts() {
-    this.navigate(LAYOUT_PAGE)
+    this.navigate(ROUTE_NAME)
 }
 
 fun NavGraphBuilder.layoutScreen(navController: NavHostController) {
-    buildNavigation(LAYOUT_PAGE, entrances, LAYOUT_INTERNAL_PAGE) {
+    buildNavigation(true, ROUTE_NAME, entrances, START_PAGE) {
         LayoutsScreen(navController)
     }
 }

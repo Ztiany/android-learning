@@ -10,11 +10,11 @@ import me.ztiany.compose.rwx.facility.buildEntrances
 import me.ztiany.compose.rwx.facility.buildNavigation
 
 
-private const val LAYOUT_PAGE = "chapter05_modifier"
-private const val LAYOUT_INTERNAL_PAGE = "chapter05_modifier_screen"
+private const val ROUTE_NAME = "chapter05_modifier"
+private const val START_PAGE = "Chapter 5: Modifier"
 
 @Composable
-private fun AnimationScreen(navController: NavHostController) {
+private fun ModifierScreen(navController: NavHostController) {
     EntranceList(entranceList = buildEntrances(entrances, navController))
 }
 
@@ -39,11 +39,11 @@ private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> U
 )
 
 fun NavController.navigateToChapter5() {
-    this.navigate(LAYOUT_PAGE)
+    this.navigate(ROUTE_NAME)
 }
 
 fun NavGraphBuilder.chapter5Screen(navController: NavHostController) {
-    buildNavigation(LAYOUT_PAGE, entrances, LAYOUT_INTERNAL_PAGE) {
-        AnimationScreen(navController)
+    buildNavigation(true, ROUTE_NAME, entrances, START_PAGE) {
+        ModifierScreen(navController)
     }
 }

@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.modifiers
+package me.ztiany.compose.learn.modifier
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -6,13 +6,13 @@ import androidx.navigation.NavHostController
 import me.ztiany.compose.facility.widget.EntranceList
 import me.ztiany.compose.facility.widget.buildEntranceNavigation
 
-private const val MODIFIER_PAGE = "modifier_page"
-private const val MODIFIER_INTERNAL_PAGE = "modifier_internal_page"
+private const val ROUTE_NAME = "modifier_page"
+private const val START_PAGE = "modifier_internal_page"
 
 private val NavigationMaker = buildEntranceNavigation {
-    route(MODIFIER_PAGE)
+    route(ROUTE_NAME)
 
-    startDestination(MODIFIER_INTERNAL_PAGE) { list, _ ->
+    startDestination(START_PAGE) { list, _ ->
         EntranceList(entranceList = list)
     }
 
@@ -28,7 +28,7 @@ private val NavigationMaker = buildEntranceNavigation {
 }.toEntranceNavigationMaker()
 
 fun NavController.navigateToModifier() {
-    this.navigate(MODIFIER_PAGE)
+    this.navigate(ROUTE_NAME)
 }
 
 fun NavGraphBuilder.modifierScreen(navController: NavHostController) {

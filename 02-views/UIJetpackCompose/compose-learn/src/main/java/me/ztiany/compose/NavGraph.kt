@@ -9,7 +9,7 @@ import me.ztiany.compose.learn.animation.animationScreen
 import me.ztiany.compose.learn.custom.customScreen
 import me.ztiany.compose.learn.gesture.gestureScreen
 import me.ztiany.compose.learn.layout.layoutScreen
-import me.ztiany.compose.learn.modifiers.modifierScreen
+import me.ztiany.compose.learn.modifier.modifierScreen
 import me.ztiany.compose.learn.state.stateManagingScreen
 import me.ztiany.compose.learn.widgets.widgetScreen
 import me.ztiany.compose.sample.samplesScreen

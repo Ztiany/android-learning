@@ -6,18 +6,21 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.SimpleScaffold
 import me.ztiany.compose.facility.widget.buildEntrances
 import me.ztiany.compose.facility.widget.buildNavigation
 import me.ztiany.compose.learn.animation.google.GoogleAnimationHome
 import me.ztiany.compose.learn.animation.practice.FavButton
 import me.ztiany.compose.learn.animation.practice.Shimmer
 
-private const val LAYOUT_PAGE = "animation_page"
-private const val LAYOUT_INTERNAL_PAGE = "animation_internal_page"
+private const val ROUTE_NAME = "animation_page"
+private const val START_PAGE = "animation_internal_page"
 
 @Composable
 private fun AnimationScreen(navController: NavHostController) {
-    EntranceList(entranceList = buildEntrances(entrances, navController))
+    SimpleScaffold(title = "Animation") {
+        EntranceList(entranceList = buildEntrances(entrances, navController))
+    }
 }
 
 private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> Unit>(
@@ -73,11 +76,11 @@ private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> U
 )
 
 fun NavController.navigateToAnimation() {
-    this.navigate(LAYOUT_PAGE)
+    this.navigate(ROUTE_NAME)
 }
 
 fun NavGraphBuilder.animationScreen(navController: NavHostController) {
-    buildNavigation(LAYOUT_PAGE, entrances, LAYOUT_INTERNAL_PAGE) {
+    buildNavigation(false, ROUTE_NAME, entrances, START_PAGE) {
         AnimationScreen(navController)
     }
 }

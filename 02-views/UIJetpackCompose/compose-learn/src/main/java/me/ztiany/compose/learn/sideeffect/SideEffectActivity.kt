@@ -6,9 +6,30 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
+import androidx.compose.material.Scaffold
+import androidx.compose.material.ScaffoldState
+import androidx.compose.material.Text
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.State
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -30,10 +51,10 @@ class SideEffectActivity : AppCompatActivity() {
             UIJetpackComposeTheme {
                 val scaffoldState = rememberScaffoldState()
                 Scaffold(scaffoldState = scaffoldState) {
-                    Column {
+                    Column(Modifier.padding(it)) {
                         //LaunchedEffect 示例
                         Divider("LaunchedEffect")
-                        Example01(state = viewModel.uiState, scaffoldState)
+                        SideEffectExample(state = viewModel.uiState, scaffoldState)
 
                         //rememberCoroutineScope 示例
                         Divider("rememberCoroutineScope")
@@ -78,31 +99,6 @@ class SideEffectActivity : AppCompatActivity() {
                 .padding(5.dp)
                 .fillMaxWidth()
         )
-    }
-
-    @Composable
-    private fun Example01(
-        state: MutableState<UiState<List<String>>>,
-        scaffoldState: ScaffoldState
-    ) {
-
-        // If the UI state contains an error, show snackbar
-        if (state.value.hasError) {
-            // `LaunchedEffect` will cancel and re-launch if
-            // `scaffoldState.snackbarHostState` changes
-            LaunchedEffect(scaffoldState.snackbarHostState) {
-                // Show snackbar using a coroutine, when the coroutine is cancelled the
-                // snackbar will automatically dismiss. This coroutine will cancel whenever
-                // `state.hasError` is false, and only start when `state.hasError` is true
-                // (due to the above if-check), or if `scaffoldState.snackbarHostState` changes.
-                scaffoldState.snackbarHostState.showSnackbar(
-                    message = "Error message",
-                    actionLabel = "Retry message"
-                )
-            }
-        }
-
-        Text(text = "3 seconds late, a snackbar will be showing.")
     }
 
     @Composable

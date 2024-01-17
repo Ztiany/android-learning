@@ -23,7 +23,7 @@ import me.ztiany.compose.learn.animation.navigateToAnimation
 import me.ztiany.compose.learn.custom.navigateToCustomDrawAndLayout
 import me.ztiany.compose.learn.gesture.navigateToGesture
 import me.ztiany.compose.learn.layout.navigateToLayouts
-import me.ztiany.compose.learn.modifiers.navigateToModifier
+import me.ztiany.compose.learn.modifier.navigateToModifier
 import me.ztiany.compose.learn.state.navigateToStateManaging
 import me.ztiany.compose.learn.widgets.navigateToWidgets
 import me.ztiany.compose.sample.navigateToSamples

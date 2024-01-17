@@ -10,8 +10,8 @@ import me.ztiany.compose.facility.widget.buildEntrances
 import me.ztiany.compose.facility.widget.buildNavigation
 import me.ztiany.compose.sample.googlebasic.GoogleBaseLayoutCodeLab
 
-private const val REALISTIC_PAGE = "samples_page"
-private const val REALISTIC_INTERNAL_PAGE = "samples_internal_page"
+private const val ROUTE_NAME = "samples_route"
+private const val START_PAGE = "Samples"
 
 @Composable
 private fun SampleScreen(navController: NavHostController) {
@@ -23,11 +23,11 @@ private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> U
 )
 
 fun NavController.navigateToSamples() {
-    this.navigate(REALISTIC_PAGE)
+    this.navigate(ROUTE_NAME)
 }
 
 fun NavGraphBuilder.samplesScreen(navController: NavHostController) {
-    buildNavigation(REALISTIC_PAGE, entrances, REALISTIC_INTERNAL_PAGE) {
+    buildNavigation(true, ROUTE_NAME, entrances, START_PAGE) {
         SampleScreen(navController)
     }
 }

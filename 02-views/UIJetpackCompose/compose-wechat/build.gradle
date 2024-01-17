@@ -83,9 +83,9 @@ dependencies {
     implementation AndroidCompose.composeMaterial
     implementation AndroidCompose.composeMaterialThemeAdapter
     //compose material3 实现
-    implementation AndroidCompose.composeMaterial3
-    implementation AndroidCompose.composeMaterial3WindowSize
-    implementation AndroidCompose.composeMaterial3ThemeAdapter
+    //implementation AndroidCompose.composeMaterial3
+    //implementation AndroidCompose.composeMaterial3WindowSize
+    //implementation AndroidCompose.composeMaterial3ThemeAdapter
     //compose material icons
     implementation AndroidCompose.composeMaterialIconExtended
 

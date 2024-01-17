@@ -11,7 +11,6 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.viewinterop.AndroidView
 import me.ztiany.compose.rwx.R
 
-
 fun Lesson10_interactWithTraditionalView(activity: AppCompatActivity) = with(activity) {
     val context = this
 

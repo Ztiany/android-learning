@@ -7,16 +7,19 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import me.ztiany.compose.facility.widget.Entrance
 import me.ztiany.compose.facility.widget.EntranceList
+import me.ztiany.compose.facility.widget.SimpleScaffold
 import me.ztiany.compose.facility.widget.buildNavigation
 import me.ztiany.compose.learn.state.google.GoogleStateInComposeCodeLab
 import me.ztiany.compose.learn.state.statetest.HelloStateScreen
 
-private const val STATE_MANAGING_PAGE = "state_managing_page"
-private const val STATE_MANAGING_INTERNAL_PAGE = "state_managing_internal_page"
+private const val ROUTE_NAME = "state_managing_page"
+private const val START_PAGE = "state_managing_internal_page"
 
 @Composable
 private fun StateManagingScreen(navController: NavHostController) {
-    EntranceList(entranceList = buildEntrances(navController))
+    SimpleScaffold(title = "State Managing") {
+        EntranceList(entranceList = buildEntrances(navController))
+    }
 }
 
 private fun buildEntrances(navController: NavController): List<Entrance> {
@@ -33,11 +36,11 @@ private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> U
 )
 
 fun NavController.navigateToStateManaging() {
-    this.navigate(STATE_MANAGING_PAGE)
+    this.navigate(ROUTE_NAME)
 }
 
 fun NavGraphBuilder.stateManagingScreen(navController: NavHostController) {
-    buildNavigation(STATE_MANAGING_PAGE, entrances, STATE_MANAGING_INTERNAL_PAGE) {
+    buildNavigation(false, ROUTE_NAME, entrances, START_PAGE) {
         StateManagingScreen(navController)
     }
 }

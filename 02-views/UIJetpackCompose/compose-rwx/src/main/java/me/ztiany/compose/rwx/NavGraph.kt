@@ -7,6 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import me.ztiany.compose.rwx.version2.chapter4_anim.chapter4Screen
 import me.ztiany.compose.rwx.version2.chapter5_modifier.chapter5Screen
+import me.ztiany.compose.rwx.version2.chapter6_sideeffect.chapter6Screen
+import me.ztiany.compose.rwx.version2.chapter7_customlayout.chapter7Screen
 
 @Composable
 fun AppNavGraph(
@@ -22,5 +24,7 @@ fun AppNavGraph(
         mainScreen(navController)
         chapter4Screen(navController)
         chapter5Screen(navController)
+        chapter6Screen(navController)
+        chapter7Screen(navController)
     }
 }

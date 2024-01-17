@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.modifiers
+package me.ztiany.compose.learn.modifier
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.size
@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.unit.dp
+import me.ztiany.compose.facility.debug.backgroundCopy
 import timber.log.Timber
 
 @Composable

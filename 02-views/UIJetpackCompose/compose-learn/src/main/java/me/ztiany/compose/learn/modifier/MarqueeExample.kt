@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.modifiers
+package me.ztiany.compose.learn.modifier
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*

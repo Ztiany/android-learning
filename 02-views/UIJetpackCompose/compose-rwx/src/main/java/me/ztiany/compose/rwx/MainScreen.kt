@@ -21,6 +21,8 @@ import me.ztiany.compose.rwx.facility.Header
 import me.ztiany.compose.rwx.facility.Item
 import me.ztiany.compose.rwx.version2.chapter4_anim.navigateToChapter4
 import me.ztiany.compose.rwx.version2.chapter5_modifier.navigateToChapter5
+import me.ztiany.compose.rwx.version2.chapter6_sideeffect.navigateToChapter6
+import me.ztiany.compose.rwx.version2.chapter7_customlayout.navigateToChapter7
 import timber.log.Timber
 
 const val MAIN_SCREEN = "main_screen"
@@ -62,5 +64,9 @@ private fun buildEntrances(navController: NavController): List<Item> {
         Entrance("Animation Screen") { navController.navigateToChapter4() },
         Header("Chapter 05: Animation"),
         Entrance("Modifier Screen") { navController.navigateToChapter5() },
+        Header("Chapter 06: SideEffect"),
+        Entrance("SideEffect Screen") { navController.navigateToChapter6() },
+        Header("Chapter 07: Custom Draw and Layout"),
+        Entrance("Custom Screen") { navController.navigateToChapter7() },
     )
 }
