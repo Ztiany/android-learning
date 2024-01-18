@@ -51,12 +51,12 @@ fun S405_AnimationSpec_KeyframesSpec() {
             使用构造函数创建 KeyframesSpec 比较麻烦，不过可以使用 KeyframesSpec.Companion.keyframes() 来简化创建过程。
          */
         sizeAnimatable.animateTo(size, animationSpec = keyframes {
-            delayMillis = 1000 // 动画延迟 1000ms
-            durationMillis = 450 // 动画总时长
+            //delayMillis = 1000 // 动画延迟 1000ms
+            //durationMillis = 450 // 动画总时长
 
-            58.dp at 0 with FastOutSlowInEasing // 这是设置 0 时刻为 58（即起始值），其实是没必要，这么写是为了设置动画曲线，如果不设置动画曲线，可以直接不写。
+            58.dp at 0 with FastOutSlowInEasing // 这是设置 0 时刻为 58（注意，这里 58 是动画的起始值），这么写是为了设置动画曲线，如果不设置动画曲线，可以直接不写。
 
-            144.dp at 150 with FastOutLinearInEasing// 表示在 150ms 时，动画完成度为 144.dp，这里 with 直到的 150ms 到 300ms 之间的动画曲线。
+            144.dp at 150 with FastOutLinearInEasing// 表示在 150ms 时，动画完成度为 144.dp，这里 with 指定的是 150ms 到 300ms 之间的动画曲线。
             20.dp at 300 // 表示在 300ms 时，动画完成度为 20.dp，默认的动画曲线是 LinearEasing。
 
 
