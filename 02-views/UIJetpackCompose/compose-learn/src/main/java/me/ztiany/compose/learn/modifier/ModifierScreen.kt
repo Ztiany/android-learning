@@ -7,12 +7,12 @@ import me.ztiany.compose.facility.widget.EntranceList
 import me.ztiany.compose.facility.widget.buildEntranceNavigation
 
 private const val ROUTE_NAME = "modifier_page"
-private const val START_PAGE = "modifier_internal_page"
+private const val START_PAGE = "Modifier"
 
 private val NavigationMaker = buildEntranceNavigation {
     route(ROUTE_NAME)
 
-    startDestination(START_PAGE) { list, _ ->
+    startDestination(START_PAGE, true) { list, _ ->
         EntranceList(entranceList = list)
     }
 
@@ -22,7 +22,8 @@ private val NavigationMaker = buildEntranceNavigation {
             "Order of Modifier" to { OrderOfModifierExample() }
         }
         newSection("UI 效果相关的 Modifier") {
-            "Marquee" to { MarqueeExample() }
+            "Marquee" asTitleTo { MarqueeExample() }
+            "MagnifierExample" asTitleTo { MagnifierExample() }
         }
     }
 }.toEntranceNavigationMaker()
