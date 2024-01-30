@@ -1,1 +1,1 @@
-# Android AIDL Sample
+# Android IPC Samples
