@@ -15,8 +15,6 @@ private const val TAG = "WSService"
 
 /**
  *@author Ztiany
- *      Email: ztiany3@gmail.com
- *      Date : 2020-12-08 14:21
  */
 class WSService : Service() {
 

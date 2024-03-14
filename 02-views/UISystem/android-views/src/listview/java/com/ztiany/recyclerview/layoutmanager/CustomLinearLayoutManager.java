@@ -16,10 +16,10 @@ import androidx.recyclerview.widget.RecyclerView.LayoutManager;
  */
 class CustomLinearLayoutManager extends LayoutManager {
 
-    private OrientationHelper mOrientationHelper;
+    private final OrientationHelper mOrientationHelper;
 
     CustomLinearLayoutManager() {
-        mOrientationHelper = OrientationHelper.createOrientationHelper(this, OrientationHelper.VERTICAL);
+        mOrientationHelper = OrientationHelper.createOrientationHelper(this, RecyclerView.VERTICAL);
     }
 
     @Override
@@ -27,27 +27,27 @@ class CustomLinearLayoutManager extends LayoutManager {
         return new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
-    //在初始化布局以及adapter数据发生改变（或更换adapter）的时候调用。所以我们在这个方法中对我们的item进行测量以及初始化。
+    //在初始化布局以及 adapter 数据发生改变（或更换 adapter）的时候调用，所以我们在这个方法中对我们的 item 进行测量以及初始化。
     @Override
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        //如果没有item
+        //如果没有 item
         if (getItemCount() <= 0) {
-            detachAndScrapAttachedViews(recycler);//分离所有的子view
+            detachAndScrapAttachedViews(recycler);//分离所有的子 view
             return;
         }
-        // 跳过preLayout，preLayout用于支持动画
+        // 跳过 preLayout，preLayout 用于支持动画
         if (state.isPreLayout()) {
             return;
         }
-        detachAndScrapAttachedViews(recycler);//先分离所有的子view
+        detachAndScrapAttachedViews(recycler);//先分离所有的子 view
         recycleAndFillItems(recycler, state, 0);
     }
 
     /**
-     * 回收不需要的Item，并且将需要显示的Item从缓存中取出
+     * 回收不需要的 Item，并且将需要显示的 Item 从缓存中取出
      */
     private void recycleAndFillItems(RecyclerView.Recycler recycler, RecyclerView.State state, int dy) {
-        // 跳过preLayout，preLayout用于支持动画
+        // 跳过 preLayout，preLayout 用于支持动画
         if (state.isPreLayout()) {
             return;
         }
@@ -65,7 +65,7 @@ class CustomLinearLayoutManager extends LayoutManager {
         View scrap;
 
         if (dy >= 0) {//上滑动
-            if (getChildCount() > 0) {//如果存在view，就找到最后那个，继续填充
+            if (getChildCount() > 0) {//如果存在 view，就找到最后那个，继续填充
                 View lastChild = getChildAt(getChildCount() - 1);
                 startOffset = getDecoratedBottom(lastChild);
                 startPosition = getPosition(lastChild) + 1;
@@ -106,7 +106,7 @@ class CustomLinearLayoutManager extends LayoutManager {
             return;
         }
 
-        if (dy >= 0) {//上滑动，顶部的view可能被滑出屏幕，所以检测是否要被回收
+        if (dy >= 0) {//上滑动，顶部的 view 可能被滑出屏幕，所以检测是否要被回收
             int topEdge = mOrientationHelper.getStartAfterPadding();
             int fixIndex = 0;
             for (int i = 0; i < childCount; i++) {
@@ -137,7 +137,7 @@ class CustomLinearLayoutManager extends LayoutManager {
 
     @Override
     public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
-        //往下拉dy<0，往上拉dy>0，verticalScrollOffset的范围在 0 到 totalHeight之间
+        //往下拉 dy<0，往上拉 dy>0，verticalScrollOffset 的范围在 0 到 totalHeight 之间
         if (getChildCount() == 0 || dy == 0) {
             return 0;
         }
@@ -163,8 +163,8 @@ class CustomLinearLayoutManager extends LayoutManager {
                 }
             }
         }
-        recycleAndFillItems(recycler, state, -delta);//根据将要滑动的距离填充新的子view和移除不再需要的view
-        offsetChildrenVertical(delta);//调整子view的偏移
+        recycleAndFillItems(recycler, state, -delta);//根据将要滑动的距离填充新的子 view 和移除不再需要的 view
+        offsetChildrenVertical(delta);//调整子 view 的偏移
         return -delta;
     }
 

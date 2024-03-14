@@ -1,0 +1,1 @@
+[AndroidBitmapMonitor](https://github.com/shixinzhang/AndroidBitmapMonitor) 分析，源码版本：e396f624735151f559ee5b236350ff2340e77c46。
