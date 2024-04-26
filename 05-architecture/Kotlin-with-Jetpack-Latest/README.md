@@ -1,3 +1,3 @@
-# Android：Kotlin with The Newest Jetpack
+# Android：The Newest Kotlin with The Newest Jetpack Components
 
-Kotlin 与 最新的 Jetpack 实践
+The newest Kotlin , the newest Jetpack components and the newest AGP(Android Gradle Plugin) trial in Android development.
