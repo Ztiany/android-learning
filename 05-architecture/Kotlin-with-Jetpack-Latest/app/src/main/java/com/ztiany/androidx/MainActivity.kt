@@ -3,7 +3,6 @@ package com.ztiany.androidx
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build.VERSION_CODES.M
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +12,7 @@ import com.ztiany.androidx.jetpack.activity.FirstActivity
 import com.ztiany.androidx.jetpack.compatibility.CompatibilityActivity
 import com.ztiany.androidx.jetpack.datastore.DataStoreActivity
 import com.ztiany.androidx.jetpack.fragment.FragmentDemoActivity
+import com.ztiany.androidx.jetpack.hilt.HiltActivity
 import com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity
 import com.ztiany.androidx.jetpack.livedata.LiveDataActivity
 import com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity
@@ -24,9 +24,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_activity)
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) ==
+            PackageManager.PERMISSION_DENIED
+        ) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 100)
         }
     }
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, FragmentDemoActivity::class.java))
     }
 
-    fun viewModelWithGlobalScope(view: View) {
+    fun openViewModelWithGlobalScope(view: View) {
         startActivity(Intent(this, CoroutineWithGlobalScopeActivity::class.java))
     }
 
@@ -65,6 +67,10 @@ class MainActivity : AppCompatActivity() {
 
     fun openKotlinGoogleFlow(view: android.view.View) {
         startActivity(Intent(this, OfficialFlowActivity::class.java))
+    }
+
+    fun openHiltActivity(view: android.view.View) {
+        startActivity(Intent(this, HiltActivity::class.java))
     }
 
 }

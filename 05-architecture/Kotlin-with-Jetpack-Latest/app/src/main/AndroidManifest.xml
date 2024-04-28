@@ -77,6 +77,11 @@
             android:exported="false"
             android:label="Compatibility" />
 
+        <activity
+            android:name="com.ztiany.androidx.jetpack.hilt.HiltActivity"
+            android:exported="false"
+            android:label="Compatibility" />
+
         <!-- ====================================================================== -->
         <!--Kotlin-->
         <!-- ====================================================================== -->

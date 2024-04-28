@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:onClick="openJetpackActivity"
             android:text="Jetpack：Activities" />
+
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="match_parent"
@@ -66,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:onClick="viewModelWithGlobalScope"
+            android:onClick="openViewModelWithGlobalScope"
             android:text="协程：ViewModel with GlobalScope" />
 
         <Button
@@ -76,6 +77,14 @@
             android:layout_margin="5dp"
             android:onClick="openKotlinGoogleFlow"
             android:text="协程：Google Flow" />
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="openHiltActivity"
+            android:text="Hilt：依赖注入" />
 
     </LinearLayout>
 
