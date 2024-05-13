@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/rabbit_white"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <ImageView
+        android:id="@+id/mDevToolsMainFeatureIvIcon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/rabbit_icon_business" />
+
+    <TextView
+        android:id="@+id/mDevToolsMainFeatureTvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="网络日志"
+        android:textColor="@color/rabbit_black"
+        android:textSize="@dimen/rabbit_font_big" />
+
+</merge>

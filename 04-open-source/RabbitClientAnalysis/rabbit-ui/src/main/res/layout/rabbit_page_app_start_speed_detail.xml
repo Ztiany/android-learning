@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rabbit_white"
+    android:orientation="vertical">
+
+    <TextView
+        android:textSize="@dimen/rabbit_font_small"
+        android:padding="5dp"
+        android:text="冷启动测速 -> 不要忘记打开应用测速功能并配置主页面哦"
+        android:textStyle="bold"
+        android:textColor="@color/rabbit_black"
+        android:background="@color/rabbit_bg_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_margin="5dp"
+        android:textSize="@dimen/rabbit_font_middle"
+        android:padding="5dp"
+        android:text="耗时概略"
+        android:textStyle="bold"
+        android:textColor="@color/rabbit_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/rabbit_divider_line"/>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:background="@color/rabbit_bg_card"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="OnCreate平均耗时"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/mRabbitAppSpeedPageTvAvgOnCreate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="MainActivity"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="冷启动平均耗时"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/mRabbitAppSpeedPageTvAvgFullTime"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="110ms"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="onCreate耗时区间"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/mRabbitAppSpeedPageTvRangeOnCreate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="MainActivity"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="冷启动耗时区间"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/mRabbitAppSpeedPageTvRangeFullStart"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="MainActivity"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="记录数"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/mRabbitAppSpeedPageTvLogNumber"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/rabbit_font_small"
+                android:text="110ms"
+                android:textColor="@color/rabbit_black"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_margin="5dp"
+        android:textSize="@dimen/rabbit_font_middle"
+        android:padding="5dp"
+        android:text="耗时曲线"
+        android:textStyle="bold"
+        android:textColor="@color/rabbit_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/rabbit_divider_line"/>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_margin="10dp"
+        android:id="@+id/mRabbitAppSpeedPageChart"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+
+
+</LinearLayout>

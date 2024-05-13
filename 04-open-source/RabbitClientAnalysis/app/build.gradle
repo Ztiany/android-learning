@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../buildsystem/rabbit-plugin.gradle'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    signingConfigs {
+        rabbit {
+            storeFile file('../key-store.jks')
+            storePassword 'rabbit'
+            keyAlias = 'rabbit'
+            keyPassword 'rabbit'
+        }
+    }
+    compileSdkVersion BuildInfo.compileSdkVersion
+    buildToolsVersion BuildInfo.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildInfo.minSdkVersion
+        targetSdkVersion BuildInfo.targetSdkVersion
+        applicationId BuildInfo.applicationId
+
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true //Add this
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.rabbit
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+
+    debugApi project(':rabbit')
+    releaseApi project(':rabbit-noop')
+    implementation project(":rabbit-native-crash")
+    implementation project(":rabbit-native-jvmti")
+//    implementation rootProject.ext.rabbitDependence
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation LibDepen.kotlinStdlibJdk7Version
+    implementation AndroidXDepen.recyclerView
+    implementation AndroidXDepen.appcompat
+    implementation LibDepen.greenDao
+    implementation LibDepen.retrofit2
+    implementation LibDepen.gson
+    implementation LibDepen.rxjava2
+    implementation LibDepen.rxandroid2
+    implementation LibDepen.retrofit2ConvertJson
+    implementation LibDepen.retrofit2RxJavaAdapter
+    implementation LibDepen.lifeClean
+
+}

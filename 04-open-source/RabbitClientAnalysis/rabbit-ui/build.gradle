@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../buildsystem/publish.gradle'
+
+android {
+    compileSdkVersion BuildInfo.compileSdkVersion
+    buildToolsVersion BuildInfo.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildInfo.minSdkVersion
+        targetSdkVersion BuildInfo.targetSdkVersion
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':rabbit-storage')
+    implementation project(':rabbit-base')
+    implementation project(':rabbit-gradle-interface')
+
+    implementation AndroidXDepen.recyclerView
+    implementation AndroidXDepen.appcompat
+    implementation AndroidXDepen.lifeExtensions
+    implementation AndroidXDepen.swipeRefreshLayout
+
+    implementation LibDepen.kotlinStdlibJdk7Version
+    implementation LibDepen.rxjava2
+    implementation LibDepen.rxandroid2
+    implementation LibDepen.gson
+    implementation LibDepen.rxbinding3
+    implementation LibDepen.mpAndroidChart
+    implementation LibDepen.greenDao
+    implementation LibDepen.lifeClean
+
+}

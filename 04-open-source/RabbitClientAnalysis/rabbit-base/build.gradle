@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+apply from: '../buildsystem/publish.gradle'
+
+
+android {
+    compileSdkVersion BuildInfo.compileSdkVersion
+    buildToolsVersion BuildInfo.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildInfo.minSdkVersion
+        targetSdkVersion BuildInfo.targetSdkVersion
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+greendao {
+    schemaVersion 1017
+    daoPackage 'com.susion.rabbit.base.greendao'
+    targetGenDir 'src/main/java'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation LibDepen.kotlinStdlibJdk7Version
+    implementation AndroidXDepen.appcompat
+    implementation AndroidXDepen.recyclerView
+    implementation AndroidXDepen.lifeExtensions
+    implementation AndroidXDepen.swipeRefreshLayout
+
+    implementation LibDepen.greenDao
+    implementation LibDepen.gson
+    implementation LibDepen.rxjava2
+    implementation LibDepen.rxandroid2
+    implementation LibDepen.rxbinding3
+    implementation LibDepen.retrofit2
+    implementation LibDepen.lifeClean
+}

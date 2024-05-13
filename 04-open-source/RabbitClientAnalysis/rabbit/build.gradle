@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../buildsystem/publish.gradle'
+
+
+android {
+    compileSdkVersion BuildInfo.compileSdkVersion
+    buildToolsVersion BuildInfo.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildInfo.minSdkVersion
+        targetSdkVersion BuildInfo.targetSdkVersion
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':rabbit-gradle-interface')
+    api project(':rabbit-report')
+    api project(':rabbit-base')
+    api project(':rabbit-monitor')
+    api project(':rabbit-ui')
+    api project(':rabbit-storage')
+    api project(':rabbit-native-jvmti')
+
+    implementation AndroidXDepen.appcompat
+    implementation AndroidXDepen.lifeExtensions
+
+    implementation LibDepen.kotlinStdlibJdk7Version
+    debugApi LibDepen.leakCanary
+    implementation LibDepen.retrofit2
+
+}

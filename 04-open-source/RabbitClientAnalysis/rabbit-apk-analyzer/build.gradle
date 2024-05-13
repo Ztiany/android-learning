@@ -1,0 +1,64 @@
+import org.gradle.api.internal.artifacts.configurations.DefaultConfiguration
+
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation LibDepen.gson
+    implementation 'com.android.tools:common:25.1.0'
+    implementation files('libs/apktool-lib.jar')
+    implementation LibDepen.kotlinStdlibJdk7Version
+    implementation LibDepen.retrofit2
+    implementation LibDepen.rxjava2
+    implementation LibDepen.retrofit2RxJavaAdapter
+    implementation LibDepen.retrofit2ConvertJson
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
+
+project.afterEvaluate {
+    def canBeResolvedField = DefaultConfiguration.class.getDeclaredField('canBeResolved')
+    canBeResolvedField.setAccessible(true)
+    canBeResolvedField.set(configurations.implementation, true)
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.susion.rabbit.ApkAnalyzer'
+        attributes 'Manifest-Version': "1.0.0"
+    }
+    from {
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+        exclude 'META-INF/*.RSA'
+        configurations.implementation.resolve().collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    from {
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+        exclude 'META-INF/*.RSA'
+        configurations.runtime.resolve().collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+// copy the jar to work directory
+task buildApkCheckJar(type: Copy, dependsOn: [build, jar]) {
+    group = "rabbit"
+    from('build/libs') {
+        include '*.jar'
+        exclude '*-javadoc.jar'
+        exclude '*-sources.jar'
+    }
+    into(project.file("../localRepo/apk-analyzer"))
+}

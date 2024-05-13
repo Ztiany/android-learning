@@ -1,0 +1,11 @@
+{
+  "home_activity": "MainActivity",
+  "page_list": [
+    {
+      "page": "MainActivity",
+      "api": [
+        "wxarticle/chapters/json"
+      ]
+    }
+  ]
+}

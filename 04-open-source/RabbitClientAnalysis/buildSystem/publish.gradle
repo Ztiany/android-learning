@@ -1,0 +1,14 @@
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'susion'
+    repoName = 'rabbit'
+    groupId = 'com.susion'
+    artifactId = ARTIFACT_ID
+    publishVersion = '1.0.3'
+    desc = 'android apm client'
+    website = 'https://github.com/SusionSuc/Rabbit'  
+}
+
+
+//./gradlew clean build bintrayUpload -PbintrayUser=susion -PbintrayKey= -PdryRun=false
