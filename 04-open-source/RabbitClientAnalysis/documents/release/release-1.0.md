@@ -1,12 +1,11 @@
-
-[rabbit](https://github.com/SusionSuc/rabbit-client)是一个Android APM框架(工具), 它不仅可以让开发者很方便的在本地对App做性能监控,
+[rabbit](https://github.com/SusionSuc/rabbit-client)是一个 Android APM 框架(工具), 它不仅可以让开发者很方便的在本地对 App 做性能监控,
 也提供了完整的数据上报系统。目前包含的主要功能如下图:
 
 ![](../pic/entry.jpg)
 
 本文将对`rabbit`的功能做一个简单的介绍,详细的使用文档地址: [使用文档](https://github.com/SusionSuc/rabbit-client/blob/master/documents/README.md)
 
->多图警告⚠️⚠️⚠️
+> 多图警告 ⚠️⚠️⚠️
 
 # 功能介绍
 
@@ -24,17 +23,17 @@
 
 ### 页面渲染与网络请求耗时统计
 
-与网络请求耗时结合后，`rabbit`可以统计出一个页面的完全渲染耗时。这里的完全渲染耗时是指**从页面create到页面拿到请求结果并刷新页面所用的时间**。核心思想参考自:[Android自动化页面测速在美团的实践](https://tech.meituan.com/2018/07/12/autospeed.html)。最终统计的页面耗时如下图所示:
+与网络请求耗时结合后，`rabbit`可以统计出一个页面的完全渲染耗时。这里的完全渲染耗时是指**从页面 create 到页面拿到请求结果并刷新页面所用的时间**。核心思想参考自:[Android 自动化页面测速在美团的实践](https://tech.meituan.com/2018/07/12/autospeed.html)。最终统计的页面耗时如下图所示:
 
 ![](../pic/page-start.jpg)
 
 ## 慢函数检测
 
-基于编译时代码插桩, rabbit可以准确的统计每一个函数的耗时，并筛选出**慢函数**。
+基于编译时代码插桩, rabbit 可以准确的统计每一个函数的耗时，并筛选出**慢函数**。
 
->慢函数定义为: **在主线程消耗时间超过一定阈值的函数**(rabbit也支持配置检测其他线程的慢函数)。
+> 慢函数定义为: **在主线程消耗时间超过一定阈值的函数**(rabbit 也支持配置检测其他线程的慢函数)。
 
-rabbit支持分包检测慢函数:
+rabbit 支持分包检测慢函数:
 
 ![](../pic/slow-method-pkg.jpg)
 
@@ -44,10 +43,9 @@ rabbit支持分包检测慢函数:
 
 ![](../pic/slow-method-stack.jpg)
 
-
 ## 代码扫描
 
-通过提供给`rabbit`一份代码扫描列表,rabbit可以在编译时扫描出这些代码调用的位置。默认会扫描一些阻塞代码, 比如下面这种:
+通过提供给`rabbit`一份代码扫描列表,rabbit 可以在编译时扫描出这些代码调用的位置。默认会扫描一些阻塞代码, 比如下面这种:
 
 ```
 SharePreferences$Editor.commit()
@@ -59,13 +57,13 @@ SharePreferences$Editor.commit()
 
 ## 网络日志监控
 
-rabbit可以记录网络请求日志并方便的查看返回的`json`数据:
+rabbit 可以记录网络请求日志并方便的查看返回的`json`数据:
 
 ![](../pic/net-log.jpg)
 
 ## 卡顿日志监控
 
-rabbit通过`Choreographer`来检测主线程的运行情况,并异步采集主线程堆栈来还原卡顿现场。
+rabbit 通过`Choreographer`来检测主线程的运行情况,并异步采集主线程堆栈来还原卡顿现场。
 
 对于下面代码:
 
@@ -73,23 +71,23 @@ rabbit通过`Choreographer`来检测主线程的运行情况,并异步采集主�
 Thread.sleep(2000)
 ```
 
-rabbit会获得如下的卡顿采集结果:
+rabbit 会获得如下的卡顿采集结果:
 
 ![](../pic/block-stack.jpg)
 
-## FPS分析
+## FPS 分析
 
-rabbit会在主线程looper运行时计算主线程FPS并实时的显示出来:
+rabbit 会在主线程 looper 运行时计算主线程 FPS 并实时的显示出来:
 
 ![](../pic/fps.jpg)
 
-rabbit支持分页面分析FPS:
+rabbit 支持分页面分析 FPS:
 
 ![](../pic/fps-analyzer.jpg)
 
 ## 内存分析
 
-功能类似于`FPS分析`,rabbit支持实时显示内存使用情况并分页面分析内存占用情况:
+功能类似于`FPS分析`,rabbit 支持实时显示内存使用情况并分页面分析内存占用情况:
 
 ![](../pic/memory.jpg)
 
@@ -99,17 +97,17 @@ rabbit支持分页面分析FPS:
 
 ## 异常捕获
 
-通过设置`Thread.setDefaultUncaughtExceptionHandler`,rabbit可以捕获java层异常并展示出来:
+通过设置`Thread.setDefaultUncaughtExceptionHandler`,rabbit 可以捕获 java 层异常并展示出来:
 
 ![](../pic/crash.jpg)
 
 ## 内存泄漏捕获
 
-rabbit集成了`leakcanary 2.0`。
+rabbit 集成了`leakcanary 2.0`。
 
-## apk包分析
+## apk 包分析
 
-rabbit提供了一个可执行的jar包, 它可以准确的分析出apk中的大图、重复文件、apk包大小与内容组成。核心思路参考自[Matrix APK包分析](https://github.com/Tencent/matrix/wiki/Matrix-Android-ApkChecker)。
+rabbit 提供了一个可执行的 jar 包, 它可以准确的分析出 apk 中的大图、重复文件、apk 包大小与内容组成。核心思路参考自[Matrix APK 包分析](https://github.com/Tencent/matrix/wiki/Matrix-Android-ApkChecker)。
 
 运行方式为:
 
@@ -117,7 +115,7 @@ rabbit提供了一个可执行的jar包, 它可以准确的分析出apk中的大
 java -jar apk-analyzer.jar apk-analyzer-config.json
 ```
 
-`apk-analyzer-config.json`用来配置待分析的apk路径以及mapping文件位置等信息:
+`apk-analyzer-config.json`用来配置待分析的 apk 路径以及 mapping 文件位置等信息:
 
 ```
 {
@@ -131,9 +129,10 @@ java -jar apk-analyzer.jar apk-analyzer-config.json
 }
 ```
 
-最终分析结果会输出到一个json文件中:
+最终分析结果会输出到一个 json 文件中:
 
->apk-analyzer-result.json
+> apk-analyzer-result.json
+
 ```
 {
     "AppInfo": {
@@ -180,7 +179,7 @@ java -jar apk-analyzer.jar apk-analyzer-config.json
 }
 ```
 
-### 上报APK分析结果
+### 上报 APK 分析结果
 
 需要在`apk-analyzer-config.json`中配置上报路径:
 
@@ -192,11 +191,11 @@ java -jar apk-analyzer.jar apk-analyzer-config.json
 }
 ```
 
-上报的数据格式与rabbit的基本上报数据格式保证一致:
+上报的数据格式与 rabbit 的基本上报数据格式保证一致:
 
 ## 数据上报
 
-rabbit目前支持上报大部分检测数据。通过一些简单的配置就可以把检测数据上报到后台。rabbit数据上报的基本格式如下:
+rabbit 目前支持上报大部分检测数据。通过一些简单的配置就可以把检测数据上报到后台。rabbit 数据上报的基本格式如下:
 
 ```
 {
@@ -209,11 +208,11 @@ rabbit目前支持上报大部分检测数据。通过一些简单的配置就�
 ```
 
 - type : 上报的数据类型
-- device_info_str : 设备信息, 格式json字符串
-- info_str: 该类型的数据的具体内容, 格式为json字符串
+- device_info_str : 设备信息, 格式 json 字符串
+- info_str: 该类型的数据的具体内容, 格式为 json 字符串
 - use_time: 应用当前使用时长
 
-**rabbit提供了上报回调,可以通过这个回调很方便的来实现自定义的上报逻辑:**
+**rabbit 提供了上报回调,可以通过这个回调很方便的来实现自定义的上报逻辑:**
 
 ```
 rabbitConfig.reportConfig.dataReportListener = object :RabbitReportConfig.DataReportListener{
@@ -225,48 +224,47 @@ rabbitConfig.reportConfig.dataReportListener = object :RabbitReportConfig.DataRe
 
 ## 自定义面板
 
-rabbit向外提供了`UI`扩展API,使用这些API可以很方便的把应用的“后门“放到rabbit中。
+rabbit 向外提供了`UI`扩展 API,使用这些 API 可以很方便的把应用的“后门“放到 rabbit 中。
 
-具体操作见 : [在rabbit中自定义页面](https://github.com/SusionSuc/rabbit-client/blob/master/documents/custom-page.md)
-
+具体操作见 : [在 rabbit 中自定义页面](https://github.com/SusionSuc/rabbit-client/blob/master/documents/custom-page.md)
 
 # 可用性与可配置性
 
-rabbit的接入十分简单, 基本上就是一个init代码:
+rabbit 的接入十分简单, 基本上就是一个 init 代码:
 
 ```
 Rabbit.init(rabbitConfig)
 ```
 
->相关支持配置见:[RabbitConfig](https://github.com/SusionSuc/rabbit-client/blob/master/rabbit-base/src/main/java/com/susion/rabbit/base/config/RabbitConfig.kt)。
+> 相关支持配置见:[RabbitConfig](https://github.com/SusionSuc/rabbit-client/blob/master/rabbit-base/src/main/java/com/susion/rabbit/base/config/RabbitConfig.kt)。
 
-对于每一个功能,rabbit都提供了丰富的配置API和详细的[使用文档](https://github.com/SusionSuc/rabbit-client/tree/master/documents)。
+对于每一个功能,rabbit 都提供了丰富的配置 API 和详细的[使用文档](https://github.com/SusionSuc/rabbit-client/tree/master/documents)。
 
-在rabbit控制面板中你也可以很方便的控制这些功能:
+在 rabbit 控制面板中你也可以很方便的控制这些功能:
 
->监控开关设置
+> 监控开关设置
 
 ![](../pic/config-page.jpg)
 
->快捷功能
+> 快捷功能
 
 ![](../pic/quick-page.jpg)
 
->查看当前配置
+> 查看当前配置
 
 ![](../pic/view-config.jpg)
 
-# noop包
+# noop 包
 
-rabbit目前没有经过线上环境的验证，为了方便接入，提供了noop包。
+rabbit 目前没有经过线上环境的验证，为了方便接入，提供了 noop 包。
 
-具体引入步骤见[引入noop包](https://github.com/SusionSuc/rabbit-client/blob/master/documents/noop-document.md)
+具体引入步骤见[引入 noop 包](https://github.com/SusionSuc/rabbit-client/blob/master/documents/noop-document.md)
 
-**noop包中可以继续使用rabbit的UI功能**
+**noop 包中可以继续使用 rabbit 的 UI 功能**
 
 # 代码结构
 
-rabbit并没有使用什么很特别架构,不过各功能间都使用module的形式做了组件隔离:
+rabbit 并没有使用什么很特别架构,不过各功能间都使用 module 的形式做了组件隔离:
 
 ![](../pic/rabbit-client-arc.png)
 
@@ -274,11 +272,11 @@ rabbit并没有使用什么很特别架构,不过各功能间都使用module的�
 
 ## 完善现有功能
 
-rabbit目前提供的功能还是比较简单的,接下来会更细致的完善每一个功能来提高可用性。
+rabbit 目前提供的功能还是比较简单的,接下来会更细致的完善每一个功能来提高可用性。
 
 ## 性能测量模式
 
-rabbit会利用现有的功能来做一个全局的性能检测并输出一个检测分数来评估应用的性能。具体实现逻辑我还在思考中。
+rabbit 会利用现有的功能来做一个全局的性能检测并输出一个检测分数来评估应用的性能。具体实现逻辑我还在思考中。
 
 ## 管理后台
 
@@ -286,11 +284,11 @@ rabbit会利用现有的功能来做一个全局的性能检测并输出一个�
 
 # 贡献代码
 
-rabbit目前维护者只有我一个人。 一个人的力量终究有限, 如果你对rabbit有兴趣或者感觉哪些功能不完善,欢迎提pr来加入到rabbit的开发中！
+rabbit 目前维护者只有我一个人。 一个人的力量终究有限, 如果你对 rabbit 有兴趣或者感觉哪些功能不完善,欢迎提 pr 来加入到 rabbit 的开发中！
 
 # 最后
 
-既然都看到这里了, 给[Rabbit](https://github.com/SusionSuc/rabbit-client)个✨吧! 奥利给!
+既然都看到这里了, 给[Rabbit](https://github.com/SusionSuc/rabbit-client)个 ✨ 吧! 奥利给!
 
 再推广一下我的个人公众微信号:
 

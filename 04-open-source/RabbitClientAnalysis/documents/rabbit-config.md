@@ -19,7 +19,7 @@ class RabbitConfig(
 
 下面包含了`rabbit grale plugin`所支持的所有配置:
 
->[配置示例](https://github.com/SusionSuc/rabbit-client/blob/master/buildSystem/rabbit-plugin.gradle)
+> [配置示例](https://github.com/SusionSuc/rabbit-client/blob/master/buildSystem/rabbit-plugin.gradle)
 
 ```
  rabbitConfig {
@@ -52,9 +52,9 @@ class RabbitConfig(
 }
 ```
 
-# 快速查看rabbit当前配置
+# 快速查看 rabbit 当前配置
 
-可以点击rabbit主面板右上角的火箭(🚀)按钮,然后点击**查看当前配置**:
+可以点击 rabbit 主面板右上角的火箭(🚀)按钮,然后点击**查看当前配置**:
 
 ![](./pic/current-config.jpg)
 
@@ -71,10 +71,11 @@ rabbitConfig.monitorConfig.autoOpenMonitors.addAll(autoOpenMonitors)
 
 Rabbit.config(rabbitConfig)
 ```
->上面配置会自动打开**网络日志监控**和**异常日志监控**功能
 
-## UI配置
+> 上面配置会自动打开**网络日志监控**和**异常日志监控**功能
 
-当然也可以在UI浮窗中配置各项功能打开与否。点击**监控配置**即可看到具体功能配置页面:
+## UI 配置
+
+当然也可以在 UI 浮窗中配置各项功能打开与否。点击**监控配置**即可看到具体功能配置页面:
 
 ![](./pic/config-page.jpg)

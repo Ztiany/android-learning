@@ -1,14 +1,14 @@
-# Apk包分析
+# Apk 包分析
 
-`rabbit`提供了一个**apk-analyzer.jar**文件，可以通过运行这个jar包来分析`apk`的内容，目前分析的点包括:
+`rabbit`提供了一个**apk-analyzer.jar**文件，可以通过运行这个 jar 包来分析`apk`的内容，目前分析的点包括:
 
-1. app基本信息
+1. app 基本信息
 2. 大图
-3. apk组成
+3. apk 组成
 4. 重复文件
-5. apk方法数
+5. apk 方法数
 
-可用的分析jar:[apk-analyzer.jar](https://github.com/SusionSuc/rabbit-client/releases/download/v1.0-beta/rabbit-apk-analyzer.jar)
+可用的分析 jar:[apk-analyzer.jar](https://github.com/SusionSuc/rabbit-client/releases/download/v1.0-beta/rabbit-apk-analyzer.jar)
 
 ## 使用配置
 
@@ -33,10 +33,10 @@ java -jar apk-analyzer.jar apk-analyzer-config.json
 }
 ```
 
-- apkPath : 待分析的apk的路径
-- methodGroup : apk方法数统计归组
-- classMappingFilePath : mapping文件的路径
-- maxImageSizeKB : 大于多少KB的图片会当做大图被检测出来。
+- apkPath : 待分析的 apk 的路径
+- methodGroup : apk 方法数统计归组
+- classMappingFilePath : mapping 文件的路径
+- maxImageSizeKB : 大于多少 KB 的图片会当做大图被检测出来。
 - uploadPath : 分析结果上传的地址, 数据格式与基本上报格式一致:[数据上报](./data-report.md)
 
 ## 分析结果示例

@@ -18,14 +18,12 @@ Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
 
 `rabbit`目前通过`leakcanary`来捕获应用的内存泄漏,该功能只能在`debug`中生效。
 
->`rabbit`使用的`leakcanary`版本为: `2.0-beta-5`
+> `rabbit`使用的`leakcanary`版本为: `2.0-beta-5`
 
-不要忘记引入leakcanary:
+不要忘记引入 leakcanary:
 
 ```
 dependencies {
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$2.0-beta-5" //如果使用leakcanary的话，需要引入leakcanary
-} 
+}
 ```
-
-

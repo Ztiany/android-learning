@@ -22,7 +22,7 @@ rabbitConfig.reportConfig.dataReportListener = object :RabbitReportConfig.DataRe
 }
 ```
 
-# rabbit数据上报逻辑
+# rabbit 数据上报逻辑
 
 ## 上报的数据格式
 
@@ -41,8 +41,8 @@ rabbitConfig.reportConfig.dataReportListener = object :RabbitReportConfig.DataRe
 ```
 
 - type : 指定上报的数据类型
-- deviceInfoStr : 设备信息, 格式json字符串
-- infoStr: 该类型的数据的具体内容, 格式为json字符串
+- deviceInfoStr : 设备信息, 格式 json 字符串
+- infoStr: 该类型的数据的具体内容, 格式为 json 字符串
 - useTime: 应用当前使用时长
 
 ### 数据类型
@@ -72,11 +72,11 @@ fun getDataType(info: Any): String {
 
 - 一次上报一个数据
 
-会把数据base64后直接发出
+会把数据 base64 后直接发出
 
 - 一次上报多个数据
 
-base64每一个上报数据之后，然后用"&"拼接起来发送。
+base64 每一个上报数据之后，然后用"&"拼接起来发送。
 
 # 自定义配置
 
@@ -92,30 +92,31 @@ rabbitConfig.reportConfig.reportPath = "http://127.0.0.1:8000/apmdb/xxxxx"
 rabbitConfig.reportConfig.enable = true
 ```
 
->这个也可以通过UI来动态控制
+> 这个也可以通过 UI 来动态控制
 
 ## 不上报哪些数据
 
 ```
 rabbitConfig.reportConfig.notReportDataFormat.addAll(hashSetOf(RabbitExceptionInfo::class.java))
 ```
->不上报异常数据
+
+> 不上报异常数据
 
 ## 请求发送相关
 
 ```
-rabbitConfig.reportConfig.emitterSleepCount = 3  
+rabbitConfig.reportConfig.emitterSleepCount = 3
 rabbitConfig.reportConfig.batchReportPointCount = 5
 rabbitConfig.reportConfig.emitterFailedRetryCount = 2
 ```
 
 batchReportPointCount : 每次向服务器发送几个点
 
-emitterSleepCount: 一次发送多个点时，点的数据不够时等待的次数。 每次等待5秒
+emitterSleepCount: 一次发送多个点时，点的数据不够时等待的次数。 每次等待 5 秒
 
 emitterFailedRetryCount : 发送失败时请求重试的次数
 
-### 自定义fps上报的频率
+### 自定义 fps 上报的频率
 
 ```
 rabbitConfig.reportConfig.fpsReportPeriodS = 2  // 2秒上报一次

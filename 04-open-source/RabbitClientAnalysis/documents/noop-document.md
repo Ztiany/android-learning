@@ -1,8 +1,8 @@
-# 引入NOOP包
+# 引入 NOOP 包
 
 由于目前`rabbit`中的功能没有在线上验证过, 因此只推荐在`debug`包中使用。下面是一种引入思路:
 
->根目录`build.gradle`
+> 根目录`build.gradle`
 
 ```
 dependencies {
@@ -10,7 +10,7 @@ dependencies {
 }
 ```
 
->新建`rabbit-plugin.gradle`
+> 新建`rabbit-plugin.gradle`
 
 ```
 def taskName = getGradle().getStartParameter().taskNames.toString().toLowerCase()
@@ -35,7 +35,7 @@ rootProject.ext {
 }
 ```
 
->主应用`build.gradle`
+> 主应用`build.gradle`
 
 ```
 apply from: 'rabbit-plugin.gradle'
@@ -46,8 +46,8 @@ dependencies {
 
 ```
 
-# Rabbit UI功能
+# Rabbit UI 功能
 
-在`noop`包中是包含`ui`功能的，因此你仍然可以在`rabbit`中自定义你的UI。
+在`noop`包中是包含`ui`功能的，因此你仍然可以在`rabbit`中自定义你的 UI。
 
 > 详见: [自定业务面板](./custom-page.md)

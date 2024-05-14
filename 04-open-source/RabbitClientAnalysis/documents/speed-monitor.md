@@ -2,12 +2,12 @@
 
 目前测速点主要有:
 
-1. Application创建耗时
+1. Application 创建耗时
 2. 页面测速
 3. 应用冷启动测速
 4. 页面网络请求耗时监控
 
->具体耗时统计的含义如下图:
+> 具体耗时统计的含义如下图:
 
 ![pic](./pic/rabbit-speed-time.png)
 
@@ -15,7 +15,7 @@
 
 测速功能主要是通过编译期字节码插桩来完成的，因此需要引入`rabbit`插件:
 
->应用build.gradle
+> 应用 build.gradle
 
 ```groovy
 rabbitConfig {
@@ -49,7 +49,7 @@ private fun loadMonitorSpeedConfig(): RabbitAppSpeedMonitorConfig {
 }
 ```
 
->`rabbit_speed_monitor.json`:
+> `rabbit_speed_monitor.json`:
 
 ```json
 {
@@ -71,8 +71,7 @@ private fun loadMonitorSpeedConfig(): RabbitAppSpeedMonitorConfig {
 
 `page_list`: 用来配置每一个测速页面。当配置的`api`中的接口都请求完成后就会触发这个页面的**T6**点。
 
-
->当然你也可以从网络动态下发配置,对于这种情况你可能需要使用这个API:
+> 当然你也可以从网络动态下发配置,对于这种情况你可能需要使用这个 API:
 
 ```
 Rabbit.reConfig(configWithSpeedList)
@@ -84,18 +83,16 @@ Rabbit.reConfig(configWithSpeedList)
 
 最终生成的测速结果如下图:
 
->页面渲染 & 网络耗时
+> 页面渲染 & 网络耗时
 
 ![](./pic/page-start.jpg)
 
-
->应用冷启动
+> 应用冷启动
 
 ![](./pic/app-start.jpg)
 
-
 ## 参考文章
 
-[rabbit应用测速实现原理](https://github.com/SusionSuc/AdvancedAndroid/blob/master/Rabbit%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90/%E5%BA%94%E7%94%A8%E6%B5%8B%E9%80%9F%E7%BB%84%E4%BB%B6.md)
+[rabbit 应用测速实现原理](https://github.com/SusionSuc/AdvancedAndroid/blob/master/performance/rabbit/%E5%BA%94%E7%94%A8%E6%B5%8B%E9%80%9F%E7%BB%84%E4%BB%B6.md)
 
-[Android自动化页面测速在美团的实践](https://tech.meituan.com/2018/07/12/autospeed.html)
+[Android 自动化页面测速在美团的实践](https://tech.meituan.com/2018/07/12/autospeed.html)

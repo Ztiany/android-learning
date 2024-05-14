@@ -1,9 +1,8 @@
 # 自定义页面
 
-`rabbit`依托于浮窗来与用户交互。考虑到很多app都会有一些debug页面，`rabbit`提供了一套API可以把一些你自定义的页面接入到`rabbit`浮窗中。
+`rabbit`依托于浮窗来与用户交互。考虑到很多 app 都会有一些 debug 页面，`rabbit`提供了一套 API 可以把一些你自定义的页面接入到`rabbit`浮窗中。
 
-
-## 自定义rabbit页面
+## 自定义 rabbit 页面
 
 能够被`rabbit`展示的页面需要继承自`RabbitBasePage`:
 
@@ -15,7 +14,7 @@ class CustomBusinessPage(context: Context) : RabbitBasePage(context) {
     override fun setEntryParams(params: Any) {
         super.setEntryParams(params)
     }
-    
+
     init {
         background = getDrawable(context, R.color.rabbit_white)
         addView(TextView(context).apply {
@@ -29,15 +28,14 @@ class CustomBusinessPage(context: Context) : RabbitBasePage(context) {
 ```
 
 - getLayoutResId() : 页面布局, 如果没有可以传`INVALID_RES_ID`
-- init代码块 : 初始化页面UI
+- init 代码块 : 初始化页面 UI
 - setEntryParams : 页面跳转的参数
 
-## 获取Activity Context
+## 获取 Activity Context
 
-**由于`rabbit`展示在window上，它所能提供的上下文并不是`Activity`,如果你需要`Activity`的话，可以调用`Rabbit.getCurrentActivity()`来获取当前应用的页面上下文。**
+**由于`rabbit`展示在 window 上，它所能提供的上下文并不是`Activity`,如果你需要`Activity`的话，可以调用`Rabbit.getCurrentActivity()`来获取当前应用的页面上下文。**
 
-
-## 接入到rabbit中
+## 接入到 rabbit 中
 
 自定义好页面后，可以配置到`rabbit`中:
 
@@ -49,12 +47,11 @@ rabbitConfig.uiConfig.entryFeatures = customPages
 Rabbit.config(rabbitConfig)
 ```
 
-这样你就可以在`rabbit`中看到你自己的debug页面了:
+这样你就可以在`rabbit`中看到你自己的 debug 页面了:
 
 ![](./pic/entry.jpg)
 
-
-## 在rabbit中定义更多页面
+## 在 rabbit 中定义更多页面
 
 你可能需要从自定义的`rabbit`页面跳转至另一个自定义的`rabbit`页面，可以通过下面方法跳转:
 

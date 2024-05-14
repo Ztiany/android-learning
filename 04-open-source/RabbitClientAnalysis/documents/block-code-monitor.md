@@ -11,10 +11,11 @@ getSharedPreferences("test", Context.MODE_PRIVATE).edit().putBoolean("111", true
 
 可以通过`rabbit gradle dsl`定义阻塞代码扫描范围:
 
->xxx.gradle
+> xxx.gradle
+
 ```
 rabbitConfig {
-    
+
     enableBlockCodeCheck = true //默认是关闭的
 
     //阻塞代码扫描范围
@@ -28,23 +29,24 @@ rabbitConfig {
 
 **查看之前不要忘记在配置中打开相关开关!!**
 
->点击可以查看更详细的调用情况。
+> 点击可以查看更详细的调用情况。
 
 ## 导出扫描结果
 
-点击面板右上角的导出按钮，这些阻塞代码就会被导出到SD卡上，路径为:
+点击面板右上角的导出按钮，这些阻塞代码就会被导出到 SD 卡上，路径为:
 
 ```
 /{SDcard}/Rabbit/blockCall.txt
 ```
 
-## 自定义API扫描列表
+## 自定义 API 扫描列表
 
 `rabbit`默认的阻塞代码列表位于:[DEFAULT_BLOCK_APIS](https://github.com/SusionSuc/rabbit-client/blob/master/rabbit-gradle-transform/src/main/java/com/susion/rabbit/gradle/utils/IoScanApiList.kt)
 
-也可以自定义这个API列表:
+也可以自定义这个 API 列表:
 
->xxx.gradle
+> xxx.gradle
+
 ```
 rabbitConfig {
     //自定义阻塞代码点

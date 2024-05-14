@@ -73,5 +73,3 @@ Rabbit is under the MIT license. See the [LICENSE](./LICENSE) file for details
 # 体验包
 
 [点击下载](localRepo/rabbit-demo.apk)
-
-
