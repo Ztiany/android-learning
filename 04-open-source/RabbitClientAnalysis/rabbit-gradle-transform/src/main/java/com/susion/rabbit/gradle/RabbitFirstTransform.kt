@@ -8,7 +8,10 @@ import com.android.builder.model.AndroidProject
 import com.susion.rabbit.gradle.core.AsmByteArrayTransformer
 import com.susion.rabbit.gradle.core.AsmClassVisitorTransformer
 import com.susion.rabbit.gradle.core.context.RabbitTransformInvocation
+import com.susion.rabbit.gradle.core.rxentension.bootClasspath
+import com.susion.rabbit.gradle.core.rxentension.compileClasspath
 import com.susion.rabbit.gradle.core.rxentension.file
+import com.susion.rabbit.gradle.core.rxentension.runtimeClasspath
 import com.susion.rabbit.gradle.transform.*
 import com.susion.rabbit.gradle.utils.RabbitTransformUtils
 import java.util.concurrent.TimeUnit
@@ -29,6 +32,12 @@ class RabbitFirstTransform : Transform() {
     override fun transform(transformInvocation: TransformInvocation?) {
         if (transformInvocation == null) return
 
+        println("=====================================================")
+        println("bootClasspath = ${transformInvocation.bootClasspath}")
+        println("compileClasspath = ${transformInvocation.compileClasspath}")
+        println("runtimeClasspath = ${transformInvocation.runtimeClasspath}")
+        println("=====================================================")
+
         RabbitTransformUtils.print("🍊 rabbit RabbitFirstTransform run")
 
         val classVisitorTransforms = listOf(
@@ -41,6 +50,7 @@ class RabbitFirstTransform : Transform() {
         val byteArraysTransforms = listOf(MethodCostMonitorTransform())
 
         RabbitTransformInvocation(
+            "FirstTransformName",
             transformInvocation,
             listOf(
                 AsmClassVisitorTransformer(classVisitorTransforms),

@@ -34,7 +34,7 @@ if (inDebug) {
         blockCodePkgs = ['com.susion.rabbit.demo']
 
         //自定义阻塞代码点
-//        customBlockCodeCheckList = ['com/susion/rabbit/demo/MainActivity.fakeBlockCode()V']
+        //customBlockCodeCheckList = ['com/susion/rabbit/demo/MainActivity.fakeBlockCode()V']
     }
 
     rabbit = "com.susion:rabbit:$version"

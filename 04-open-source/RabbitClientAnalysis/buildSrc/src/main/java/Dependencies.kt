@@ -26,7 +26,7 @@ object LibDepen {
     const val asm = "org.ow2.asm:asm:7.1"
     const val asmAnalysis = "org.ow2.asm:asm-analysis:7.1"
     const val asmCommons = "org.ow2.asm:asm-commons:7.1"
-    const val asmTree = "org.ow2.asm:asm-tree::7.1"
+    const val asmTree = "org.ow2.asm:asm-tree:7.1"
     const val asmUtils = "org.ow2.asm:asm-util:7.1"
     const val buildGradle = "com.android.tools.build:gradle:3.5.0"
 }

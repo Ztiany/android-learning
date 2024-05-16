@@ -14,12 +14,11 @@ import javax.xml.parsers.SAXParserFactory
 
 /**
  * susionwang at 2019-11-15
- * 在onCreate方法运行完毕时插入监控代码
+ * 在 onCreate 方法运行完毕时插入监控代码
  */
 class ActivitySpeedMonitorTransform : RabbitAsmClassVisitorTransformer {
 
-    private val ACTIVITY_SPEED_MONITOR_CLASS =
-        "com/susion/rabbit/monitor/instance/ActivitySpeedMonitor"
+    private val ACTIVITY_SPEED_MONITOR_CLASS = "com/susion/rabbit/monitor/instance/ActivitySpeedMonitor"
 
     //ActivitySpeedMonitor.wrapperViewOnActivityCreateEnd()
     private val wapperMethodName = "wrapperViewOnActivityCreateEnd"
@@ -52,13 +51,13 @@ class ActivitySpeedMonitorTransform : RabbitAsmClassVisitorTransformer {
         }
     }
 
-    override fun transform(context: TransformContext, klass: ClassNode,classFilePath:String): ClassNode {
-
-        if (!GlobalConfig.pluginConfig.enableSpeedCheck){
+    override fun transform(context: TransformContext, klass: ClassNode, classFilePath: String): ClassNode {
+        if (!GlobalConfig.pluginConfig.enableSpeedCheck) {
             return klass
         }
 
-        if (!activityList.contains(klass.className) || !RabbitTransformUtils.classInPkgList(klass.className, GlobalConfig.pluginConfig.pageSpeedMonitorPkgs)) {
+        if (!activityList.contains(klass.className) // 过滤非注册的 Activity
+            || !RabbitTransformUtils.classInPkgList(klass.className, GlobalConfig.pluginConfig.pageSpeedMonitorPkgs)/* 只处理特定包中的  */) {
             return klass
         }
 
@@ -67,7 +66,6 @@ class ActivitySpeedMonitorTransform : RabbitAsmClassVisitorTransformer {
         insertCodeToActivityOnResume(klass)
 
         return klass
-
     }
 
     private fun insertCodeToActivityOnCreate(klass: ClassNode) {

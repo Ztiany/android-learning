@@ -7,11 +7,11 @@ buildscript {
             name 'localRepo'
             dir "localRepo/rabbitTransform"
         }
+        mavenLocal()
         maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://maven.aliyun.com/repository/central" }
         maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
-        mavenLocal()
         google()
         mavenCentral()
         jcenter()
@@ -19,10 +19,11 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.susion:rabbit-gradle-transform:1.0.1'
+        //classpath 'com.susion:rabbit-gradle-transform:1.0.1' // remote
+        classpath 'com.susion:rabbit-gradle-transform:1.1.3' // local
         classpath 'com.android.tools.build:gradle:3.5.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath 'com.novoda:bintray-release:0.9.1'
     }
 }
@@ -33,8 +34,8 @@ allprojects {
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://maven.aliyun.com/repository/central" }
         maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
-        google()
         mavenCentral()
+        google()
         jcenter()
         maven { url 'https://jitpack.io' }
     }

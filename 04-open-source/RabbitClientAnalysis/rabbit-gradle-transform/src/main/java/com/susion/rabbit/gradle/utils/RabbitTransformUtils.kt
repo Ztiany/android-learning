@@ -21,7 +21,6 @@ object RabbitTransformUtils {
 
 
     fun classInPkgList(className: String, pkgList: List<String>): Boolean {
-
         if (pkgList.isEmpty()) return false
 
         pkgList.forEach {

@@ -40,6 +40,7 @@ class RabbitLastTransform : Transform() {
         )
 
         RabbitTransformInvocation(
+            "LastTransformName",
             transformInvocation,
             listOf(AsmClassVisitorTransformer(transformInstances))
         ).apply {

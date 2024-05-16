@@ -21,6 +21,7 @@ import java.util.concurrent.ForkJoinPool
  * Rabbit Transform；提供了众多 transform 需要用到的上下文。
  */
 internal class RabbitTransformInvocation(
+    private val transformName: String,
     private val dInvocation: TransformInvocation,
     private val transforms: List<RabbitClassByteCodeTransformer> = ArrayList()
 ) : TransformInvocation, TransformContext, TransformListener, ArtifactManager {
@@ -126,30 +127,31 @@ internal class RabbitTransformInvocation(
 
     //接入  ->   bytecode.transform(this)
     internal fun doFullTransform() {
+        println("$transformName doFullTransform")
+
         this.inputs.parallelStream().forEach { input ->
             input.directoryInputs.parallelStream().forEach {
-                it.file.transformFileToByArray(
-                    outputProvider.getContentLocation(
-                        it.name,
-                        it.contentTypes,
-                        it.scopes,
-                        Format.DIRECTORY
-                    )
-                ) { bytecode ->
+                val output = outputProvider.getContentLocation(
+                    it.name,
+                    it.contentTypes,
+                    it.scopes,
+                    Format.DIRECTORY
+                )
+                println("$transformName FullTransforming ${it.file} to $output")
+                it.file.transformFileToByArray(output) { bytecode ->
                     bytecode.transform(this)
                 }
             }
 
             input.jarInputs.parallelStream().forEach {
-                project.logger.info("Transforming ${it.file}")
-                it.file.transformFileToByArray(
-                    outputProvider.getContentLocation(
-                        it.name,
-                        it.contentTypes,
-                        it.scopes,
-                        Format.JAR
-                    )
-                ) { bytecode ->
+                val output = outputProvider.getContentLocation(
+                    it.name,
+                    it.contentTypes,
+                    it.scopes,
+                    Format.JAR
+                )
+                println("$transformName FullTransforming ${it.file} to $output")
+                it.file.transformFileToByArray(output) { bytecode ->
                     bytecode.transform(this)
                 }
             }
@@ -158,12 +160,19 @@ internal class RabbitTransformInvocation(
 
     @Suppress("NON_EXHAUSTIVE_WHEN")
     internal fun doIncrementalTransform() {
+        println("$transformName doIncrementalTransform")
+
         this.inputs.parallelStream().forEach { input ->
+
             input.jarInputs.parallelStream()
                 .filter { it.status != NOTCHANGED }
                 .forEach { jarInput ->
                     when (jarInput.status) {
-                        REMOVED -> jarInput.file.delete()
+                        // TODO: 这里删除逻辑有问题，它删除了前面一轮的产物，却没有删除自己。
+                        REMOVED -> {
+                            println("$transformName IncrementalTransforming delete: ${jarInput.file}")
+                            jarInput.file.delete()
+                        }
                         CHANGED, ADDED -> {
                             val root = outputProvider.getContentLocation(
                                 jarInput.name,
@@ -171,20 +180,26 @@ internal class RabbitTransformInvocation(
                                 jarInput.scopes,
                                 Format.JAR
                             )
-                            project.logger.info("Transforming ${jarInput.file}")
+
+                            println("$transformName IncrementalTransforming ${jarInput.file} to $root")
                             jarInput.file.transformFileToByArray(root) { bytecode ->
                                 bytecode.transform(this)
                             }
                         }
                     }
-                }
+                }// jarInputs end
 
             input.directoryInputs.parallelStream().forEach { dirInput ->
                 val base = dirInput.file.toURI()
+
                 dirInput.changedFiles.ifNotEmpty {
                     it.forEach { file, status ->
                         when (status) {
-                            REMOVED -> file.delete()
+                            // TODO: 这里删除逻辑有问题，它删除了前面一轮的产物，却没有删除自己。
+                            REMOVED -> {
+                                println("$transformName IncrementalTransforming delete: $file")
+                                file.delete()
+                            }
                             ADDED, CHANGED -> {
                                 val root = outputProvider.getContentLocation(
                                     dirInput.name,
@@ -192,21 +207,17 @@ internal class RabbitTransformInvocation(
                                     dirInput.scopes,
                                     Format.DIRECTORY
                                 )
-                                project.logger.info("Transforming $file")
-                                file.transformFileToByArray(
-                                    File(
-                                        root,
-                                        base.relativize(file.toURI()).path
-                                    )
-                                ) { bytecode ->
+                                val output = File(root, base.relativize(file.toURI()).path)
+                                println("$transformName IncrementalTransforming $file to $output")
+                                file.transformFileToByArray(output) { bytecode ->
                                     bytecode.transform(this)
                                 }
                             }
                         }
                     }
                 }
-            }
-        }
+            }// directoryInputs end
+        }//inputs end
     }
 
     // 应用在每一个 class 文件上
@@ -266,6 +277,7 @@ internal class RabbitTransformInvocation(
     }
 
 }
+
 
 private fun normalize(type: String) = if (type.contains('/')) {
     type.replace('/', '.')

@@ -10,14 +10,16 @@ import kotlin.collections.ArrayList
  * Represents bytecode transformer using ASM
  * 使用 ASM 操作字节码
  */
-class AsmClassVisitorTransformer(private val transformers:List<RabbitAsmClassVisitorTransformer> = ArrayList()) : RabbitClassByteCodeTransformer {
+class AsmClassVisitorTransformer(
+    private val transformers: List<RabbitAsmClassVisitorTransformer> = ArrayList()
+) : RabbitClassByteCodeTransformer {
 
-    override fun transform(context: TransformContext, bytecode: ByteArray, classFilePath:String): ByteArray {
+    override fun transform(context: TransformContext, bytecode: ByteArray, classFilePath: String): ByteArray {
         return ClassWriter(ClassWriter.COMPUTE_MAXS).also { writer ->
             transformers.fold(ClassNode().also { visitClassNode ->
                 ClassReader(bytecode).accept(visitClassNode, 0)
-            }) { classNode, transformer ->
-                transformer.transform(context, classNode,classFilePath)
+            }/* 创建一个 ClassNode，并将 bytecode 输入给它。*/) { classNode, transformer ->
+                transformer.transform(context, classNode, classFilePath)
             }.accept(writer)
         }.toByteArray()
     }

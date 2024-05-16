@@ -85,7 +85,6 @@ class MainActivity : RabbitBaseActivity() {
             //mGenerateObjTv.layoutParams = ViewGroup.LayoutParams(200, 200)
             mGenerateObjTv.text = "对象"
         }, "rabbit-test-thread").start()
-
     }
 
     private fun requestPermission() {
