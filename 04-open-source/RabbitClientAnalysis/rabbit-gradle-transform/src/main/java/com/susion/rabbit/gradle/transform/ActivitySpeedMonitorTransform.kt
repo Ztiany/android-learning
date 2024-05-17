@@ -75,13 +75,13 @@ class ActivitySpeedMonitorTransform : RabbitAsmClassVisitorTransformer {
 
         onCreateMethod.instructions?.find(Opcodes.RETURN)?.apply {
             RabbitTransformUtils.print("ActivitySpeedMonitorTransform : insert code to wrap activity content view ---> ${klass.name}")
-            onCreateMethod.instructions?.insertBefore(this, VarInsnNode(Opcodes.ALOAD, 0)) //参数
+            onCreateMethod.instructions?.insertBefore(this, VarInsnNode(Opcodes.ALOAD, 0)) // 引入 this，作为 WrapSpeedViewMethod 的参数
             onCreateMethod.instructions?.insertBefore(this, getWrapSpeedViewMethod())
         }
 
         onCreateMethod.instructions?.find(Opcodes.ALOAD)?.apply {
             RabbitTransformUtils.print("ActivitySpeedMonitorTransform : insert code to on activity create ---> ${klass.name}")
-            onCreateMethod.instructions?.insertBefore(this, VarInsnNode(Opcodes.ALOAD, 0)) //参数
+            onCreateMethod.instructions?.insertBefore(this, VarInsnNode(Opcodes.ALOAD, 0)) // 引入 this，作为 activityCreateStart 的参数
             onCreateMethod.instructions?.insertBefore(this, getAcCreateStateMethod())
         }
     }
