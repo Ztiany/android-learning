@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/featurea_main">
+
+    <fragment
+        android:id="@+id/featurea_main"
+        android:name="com.ztiany.androidx.jetpack.navigation.table.MainFragment"
+        android:label="FeatureMain">
+
+        <action
+            android:id="@+id/action_main_to_featurea"
+            app:destination="@id/featurea" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/featurea"
+        android:name="com.ztiany.androidx.jetpack.navigation.feature.FeatureAFragment"
+        android:label="FeatureA" />
+
+</navigation>

@@ -16,7 +16,7 @@ android {
     defaultConfig {
         applicationId "com.ztiany.androidx"
         minSdk 21
-        targetSdk 31
+        targetSdk 34
         multiDexEnabled true
         versionCode 1
         versionName "1.0"
@@ -62,31 +62,31 @@ dependencies {
     implementation "androidx.arch.core:core-common:2.2.0"
 
     /*appcompat*/
-    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "androidx.appcompat:appcompat:1.7.0"
     // For loading and tinting drawables on older versions of the platform
-    implementation "androidx.appcompat:appcompat-resources:1.6.1"
+    implementation "androidx.appcompat:appcompat-resources:1.7.0"
     /*activity*/
-    implementation 'androidx.activity:activity-ktx:1.7.1'
+    implementation 'androidx.activity:activity-ktx:1.9.1'
     /*fragment*/
-    implementation "androidx.fragment:fragment-ktx:1.5.7"
+    implementation "androidx.fragment:fragment-ktx:1.8.2"
 
     //lifecycle, livedata, viewmodel
-    implementation "androidx.lifecycle:lifecycle-common:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-process:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-common:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-process:2.8.4"
 
     //https://android.github.io/android-ktx/core-ktx/index.html
-    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.core:core-ktx:1.13.1'
 
     /*paging*/
-    implementation "androidx.paging:paging-common-ktx:3.1.1"
-    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
-    implementation "androidx.paging:paging-rxjava2-ktx:3.1.1"
+    implementation "androidx.paging:paging-common-ktx:3.3.2"
+    implementation "androidx.paging:paging-runtime-ktx:3.3.2"
+    implementation "androidx.paging:paging-rxjava2-ktx:3.3.2"
 
     /*room*/
     implementation "androidx.room:room-common:2.6.1"
@@ -97,54 +97,54 @@ dependencies {
     ksp "androidx.room:room-compiler:2.6.1"
 
     //sqlite
-    implementation "androidx.sqlite:sqlite-framework:2.3.1"
-    implementation "androidx.sqlite:sqlite-ktx:2.3.1"
+    implementation "androidx.sqlite:sqlite-framework:2.4.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.4.0"
 
     //navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
-    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.7.7"
+    implementation "androidx.navigation:navigation-ui-ktx:2.7.7"
 
     //data store
-    implementation "androidx.datastore:datastore-core:1.0.0"
-    implementation "androidx.datastore:datastore-preferences:1.0.0"
-    implementation "androidx.datastore:datastore-preferences-rxjava2:1.0.0"
-    implementation "androidx.datastore:datastore-preferences-rxjava3:1.0.0"
-    implementation "androidx.datastore:datastore:1.0.0"
-    implementation "androidx.datastore:datastore-rxjava2:1.0.0"
-    implementation "androidx.datastore:datastore-rxjava3:1.0.0"
+    implementation "androidx.datastore:datastore-core:1.1.1"
+    implementation "androidx.datastore:datastore-preferences:1.1.1"
+    implementation "androidx.datastore:datastore-preferences-rxjava2:1.1.1"
+    implementation "androidx.datastore:datastore-preferences-rxjava3:1.1.1"
+    implementation "androidx.datastore:datastore:1.1.1"
+    implementation "androidx.datastore:datastore-rxjava2:1.1.1"
+    implementation "androidx.datastore:datastore-rxjava3:1.1.1"
 
     //multi-dex
     implementation "androidx.multidex:multidex:2.0.1"
 
     //hilt
-    implementation 'com.google.dagger:hilt-android:2.48'
-    ksp 'com.google.dagger:hilt-android-compiler:2.48'
+    implementation 'com.google.dagger:hilt-android:2.50'
+    ksp 'com.google.dagger:hilt-android-compiler:2.50'
 
     /*ui component*/
-    implementation "androidx.recyclerview:recyclerview:1.3.0"
+    implementation "androidx.recyclerview:recyclerview:1.3.2"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.percentlayout:percentlayout:1.0.0"
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.viewpager:viewpager:1.0.0"
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.viewpager2:viewpager2:1.1.0"
     implementation "androidx.asynclayoutinflater:asynclayoutinflater:1.0.0"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-    implementation "androidx.transition:transition:1.4.1"
+    implementation "androidx.transition:transition:1.5.1"
     implementation "androidx.dynamicanimation:dynamicanimation:1.0.0"
     //https://github.com/material-components/material-components-android
-    implementation "com.google.android.material:material:1.9.0"
+    implementation "com.google.android.material:material:1.12.0"
     //https://github.com/google/flexbox-layout/
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
     //tools
-    implementation "androidx.annotation:annotation:1.6.0"
+    implementation "androidx.annotation:annotation:1.8.2"
     implementation "androidx.documentfile:documentfile:1.0.1"
-    implementation "androidx.exifinterface:exifinterface:1.3.6"
+    implementation "androidx.exifinterface:exifinterface:1.3.7"
     implementation "androidx.biometric:biometric:1.1.0"
     implementation "androidx.startup:startup-runtime:1.1.1"
-    implementation "androidx.concurrent:concurrent-futures:1.1.0"
-    implementation "androidx.concurrent:concurrent-futures-ktx:1.1.0"
+    implementation "androidx.concurrent:concurrent-futures:1.2.0"
+    implementation "androidx.concurrent:concurrent-futures-ktx:1.2.0"
 
     //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

@@ -15,6 +15,7 @@ import com.ztiany.androidx.jetpack.fragment.FragmentDemoActivity
 import com.ztiany.androidx.jetpack.hilt.HiltActivity
 import com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity
 import com.ztiany.androidx.jetpack.livedata.LiveDataActivity
+import com.ztiany.androidx.jetpack.navigation.NavigationActivity
 import com.ztiany.androidx.jetpack.viewmodel.ViewModelActivity
 import com.ztiany.androidx.kotlin.R
 import com.ztiany.androidx.kotlin.coroutines.official.google.flow.OfficialFlowActivity
@@ -63,6 +64,10 @@ class MainActivity : AppCompatActivity() {
 
     fun openJetpackDataStore(view: View) {
         startActivity(Intent(this, DataStoreActivity::class.java))
+    }
+
+    fun openJetpackNavigation(view: View) {
+        startActivity(Intent(this, NavigationActivity::class.java))
     }
 
     fun openKotlinGoogleFlow(view: android.view.View) {

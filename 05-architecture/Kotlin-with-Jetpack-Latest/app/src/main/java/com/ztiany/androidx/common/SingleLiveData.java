@@ -1,6 +1,5 @@
 package com.ztiany.androidx.common;
 
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;

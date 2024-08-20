@@ -66,9 +66,16 @@
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="openJetpackNavigation"
+            android:text="Jetpack：Navigation" />
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:onClick="openViewModelWithGlobalScope"
-            android:text="协程：ViewModel with GlobalScope" />
+            android:text="Coroutines：ViewModel with GlobalScope" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
@@ -76,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:onClick="openKotlinGoogleFlow"
-            android:text="协程：Google Flow" />
+            android:text="Coroutines：Google Flow" />
 
         <Button
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
@@ -84,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:onClick="openHiltActivity"
-            android:text="Hilt：依赖注入" />
+            android:text="Hilt：Dependency Injection" />
 
     </LinearLayout>
 

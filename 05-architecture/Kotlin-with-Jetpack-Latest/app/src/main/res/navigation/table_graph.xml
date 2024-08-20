@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/table_graph"
+    app:startDestination="@id/home">
+
+    <!-- home -->
+    <navigation
+        android:id="@+id/home"
+        app:startDestination="@id/home_screen">
+
+        <fragment
+            android:id="@+id/home_screen"
+            android:name="com.ztiany.androidx.jetpack.navigation.table.home.HomeFragment"
+            android:label="HomeScreen"
+            tools:layout="@layout/nav_fragment_home">
+
+            <action
+                android:id="@+id/action_home_to_detail"
+                app:destination="@id/home_detail_screen" />
+
+        </fragment>
+
+        <fragment
+            android:id="@+id/home_detail_screen"
+            android:name="com.ztiany.androidx.jetpack.navigation.table.home.HomeDetailFragment"
+            android:label="HomeDetailScreen" />
+
+    </navigation>
+
+    <!-- message -->
+    <navigation
+        android:id="@+id/message"
+        app:startDestination="@id/message_screen">
+
+        <fragment
+            android:id="@+id/message_screen"
+            android:name="com.ztiany.androidx.jetpack.navigation.table.message.MessageListFragment"
+            android:label="MessageScreen"
+            tools:layout="@layout/nav_fragment_message">
+
+            <action
+                android:id="@+id/action_message_to_detail"
+                app:destination="@id/message_detail_screen" />
+
+        </fragment>
+
+        <fragment
+            android:id="@+id/message_detail_screen"
+            android:name="com.ztiany.androidx.jetpack.navigation.table.message.MessageDetailFragment"
+            android:label="MessageDetailScreen" />
+
+    </navigation>
+
+    <!-- profile -->
+    <navigation
+        android:id="@+id/profile"
+        app:startDestination="@id/profile_screen">
+
+        <fragment
+            android:id="@+id/profile_screen"
+            android:name="com.ztiany.androidx.jetpack.navigation.table.profile.ProfileFragment"
+            android:label="ProfileScreen"
+            tools:layout="@layout/nav_fragment_profile">
+
+            <action
+                android:id="@+id/action_profile_to_detail"
+                app:destination="@id/profile_detail_screen" />
+
+        </fragment>
+
+        <fragment
+            android:id="@+id/profile_detail_screen"
+            android:name="com.ztiany.androidx.jetpack.navigation.table.profile.ProfileDetailFragment"
+            android:label="ProfileDetailScreen" />
+
+    </navigation>
+
+</navigation>

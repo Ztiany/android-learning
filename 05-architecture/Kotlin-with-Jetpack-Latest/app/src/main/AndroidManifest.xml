@@ -29,9 +29,8 @@
             </intent-filter>
         </activity>
 
-        <!-- ====================================================================== -->
-        <!--Jetpack-->
-        <!-- ====================================================================== -->
+        <!-- Jetpack -->
+
         <activity
             android:name="com.ztiany.androidx.jetpack.lifecycle.LifecycleActivity"
             android:exported="false"
@@ -82,9 +81,13 @@
             android:exported="false"
             android:label="Compatibility" />
 
-        <!-- ====================================================================== -->
-        <!--Kotlin-->
-        <!-- ====================================================================== -->
+        <activity
+            android:name="com.ztiany.androidx.jetpack.navigation.NavigationActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Kotlin -->
+
         <activity
             android:name=".coroutines.research.CoroutinesActivity"
             android:exported="false"
