@@ -11,17 +11,13 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         //common
-        //maven { url "https://maven.aliyun.com/repository/public" }
-        //maven { url "https://maven.aliyun.com/repository/central" }
-        //maven { url "https://maven.aliyun.com/repository/google" }
-
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/google" }
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
     }
 }
 
 rootProject.name = "UIJetpackCompose"
 include ':compose-learn'
-include ':compose-wechat'
-include ':compose-rwx'

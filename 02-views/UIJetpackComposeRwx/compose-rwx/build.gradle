@@ -1,0 +1,91 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.parcelize)
+}
+
+android {
+    namespace 'me.ztiany.compose.rwx'
+
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "me.ztiany.compose.rwx"
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.activity.ktx
+    implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.ktx
+    implementation libs.google.ui.material
+
+    implementation(platform(libs.compose.bom))
+    implementation libs.compose.ui
+    implementation libs.compose.ui.graphics
+    implementation libs.compose.ui.tooling.preview
+    implementation libs.compose.ui.constraint
+    implementation libs.compose.animation
+    implementation libs.compose.animation.core
+    implementation libs.compose.animation.graphics
+    implementation libs.compose.material
+    implementation libs.compose.material.icon.extended
+
+    debugImplementation libs.compose.ui.tooling
+    debugImplementation libs.compose.ui.test.manifest
+
+    implementation libs.compose.activity
+    implementation libs.compose.livedata
+    implementation libs.compose.viewmodel
+    implementation libs.compose.navigation
+
+    implementation libs.compose.accompanist.systemui.controller
+    implementation libs.compose.accompanist.viewpager
+    implementation libs.compose.accompanist.viewpager.indicator
+    implementation libs.compose.accompanist.swiperefresh
+    implementation libs.compose.accompanist.flowlayout
+    implementation libs.compose.accompanist.insets
+    implementation libs.compose.accompanist.insets.ui
+    implementation libs.coil.compose
+
+    implementation libs.jakewharton.timber
+}

@@ -7,14 +7,23 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -59,12 +68,13 @@ private fun ConversationList(@Suppress("SameParameterValue") messages: List<Mess
 private fun MessageCard(msg: Message) {
     var isExpanded by remember { mutableStateOf(false) }
     val textBgColor by animateColorAsState(
-        if (isExpanded) MaterialTheme.colors.primary else MaterialTheme.colors.surface,
+        if (isExpanded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface,
     )
 
     Surface(
         shape = MaterialTheme.shapes.medium, // 使用 MaterialTheme 自带的形状
-        elevation = 5.dp,
+        tonalElevation = 5.dp,
+        shadowElevation = 8.dp,
         modifier = Modifier
             .padding(all = 8.dp)
             .fillMaxWidth()
@@ -79,7 +89,7 @@ private fun MessageCard(msg: Message) {
                 modifier = Modifier
                     .size(50.dp)
                     .clip(CircleShape)
-                    .border(1.5.dp, MaterialTheme.colors.secondary, shape = CircleShape) // 添加边框
+                    .border(1.5.dp, MaterialTheme.colorScheme.secondary, shape = CircleShape) // 添加边框
             )
 
             Spacer(Modifier.padding(horizontal = 8.dp))
@@ -93,8 +103,8 @@ private fun MessageCard(msg: Message) {
 
                 Text(
                     text = msg.author,
-                    color = MaterialTheme.colors.secondaryVariant,// 添加颜色
-                    style = MaterialTheme.typography.subtitle2, // 添加 style
+                    color = MaterialTheme.colorScheme.secondary,// 添加颜色
+                    style = MaterialTheme.typography.titleMedium, // 添加 style
                 )
 
                 Spacer(Modifier.padding(vertical = 4.dp))
@@ -103,7 +113,7 @@ private fun MessageCard(msg: Message) {
                     text = msg.body,
                     modifier = Modifier.background(textBgColor),
                     color = if (isExpanded) Color.White else Color.Blue,
-                    style = MaterialTheme.typography.body2, // 添加 style
+                    style = MaterialTheme.typography.bodyMedium, // 添加 style
                     maxLines = if (isExpanded) Int.MAX_VALUE else 1,
                     overflow = TextOverflow.Ellipsis
                 )

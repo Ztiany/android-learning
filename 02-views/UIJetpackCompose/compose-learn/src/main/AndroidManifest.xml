@@ -17,8 +17,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="JetpackCompose 学习"
-            android:theme="@style/Theme.UIJetpackCompose.NoActionBar">
+            android:label="JetpackCompose 学习">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -1,0 +1,78 @@
+# Migirate to version catalog: https://developer.android.com/build/migrate-to-catalogs
+[versions]
+agp = "8.5.2"
+kotlin = "1.8.10"
+composeBom = "2023.05.00"
+accompanist = "0.30.1"
+appcompat = "1.7.0"
+activity = "1.6.1"
+lifecycle = "2.8.4"
+ktx = "1.13.1"
+navigation = '2.5.3'
+
+[libraries]
+# ======================================================
+# androidx
+# ======================================================
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-ktx = { module = "androidx.core:core-ktx", version.ref = "ktx" }
+google-ui-material = "com.google.android.material:material:1.12.0"
+
+# ======================================================
+# compose
+# ======================================================
+# what is bom: https://developer.android.com/develop/ui/compose/bom
+# BOM to library version mapping: https://developer.android.com/develop/ui/compose/bom/bom-mapping
+# Compose to Kotlin Compatibility Map: https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+
+# compose ui 基础
+compose-ui = { module = "androidx.compose.ui:ui", version = "1.4.3" }
+compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics", version = "1.4.3" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version = "1.4.3" }
+compose-animation = { module = "androidx.compose.animation:animation", version = "1.4.3" }
+compose-animation-core = { module = "androidx.compose.animation:animation-core", version = "1.4.3" }
+compose-animation-graphics = { module = "androidx.compose.animation:animation-graphics", version = "1.4.3" }
+compose-ui-constraint = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+
+# compose material2
+compose-material = { module = "androidx.compose.material:material" }
+compose-material-icon-extended = { module = "androidx.compose.material:material-icons-extended" }
+
+# integration with viewmodels, hilt and navigation
+compose-livedata = { module = "androidx.compose.runtime:runtime-livedata" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "activity" }
+compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+# compose ui tool (debugImplementation)
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+
+# accompanist: https://github.com/google/accompanist
+compose-accompanist-systemui-controller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+compose-accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
+compose-accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
+compose-accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanist" }
+compose-accompanist-insets-ui = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist" }
+compose-accompanist-viewpager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
+compose-accompanist-viewpager-indicator = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
+
+# ======================================================
+# functional libraries
+# ======================================================
+# https://github.com/coil-kt/coil
+coil-compose = "io.coil-kt:coil-compose:2.2.2"
+# https://github.com/JakeWharton/timber
+jakewharton-timber = "com.jakewharton.timber:timber:5.0.1"
+
+[plugins]
+# ======================================================
+# official plugins
+# ======================================================
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }

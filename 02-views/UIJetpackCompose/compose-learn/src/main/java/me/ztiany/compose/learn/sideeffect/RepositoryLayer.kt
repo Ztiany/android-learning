@@ -8,8 +8,8 @@ import android.media.Image
 
 sealed class Result<out T> {
 
-    object Loading : Result<Nothing>()
-    object Error : Result<Nothing>()
+    data object Loading : Result<Nothing>()
+    data object Error : Result<Nothing>()
     class Success<T>(val data: T) : Result<T>()
 
 }

@@ -22,13 +22,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -39,7 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import me.ztiany.compose.theme.Purple500
+import me.ztiany.compose.theme.Purple40
 import me.ztiany.compose.theme.UIJetpackComposeTheme
 
 data class UiState(
@@ -50,8 +50,8 @@ data class UiState(
 )
 
 enum class ButtonState(val ui: UiState) {
-    Idle(UiState(Purple500, Color.White, 50, 60.dp)),
-    Pressed(UiState(Color.White, Purple500, 6, 300.dp))
+    Idle(UiState(Purple40, Color.White, 50, 60.dp)),
+    Pressed(UiState(Color.White, Purple40, 6, 300.dp))
 }
 
 const val animateDuration = 3000
@@ -119,7 +119,7 @@ fun FavButton(
     onClick: () -> Unit
 ) {
     Button(
-        border = BorderStroke(1.dp, Purple500),
+        border = BorderStroke(1.dp, Purple40),
         modifier = modifier.size(buttonWidth, height = 60.dp),
         shape = RoundedCornerShape(roundedCorner.coerceIn(0..100)),
         colors = ButtonDefaults.buttonColors(backgroundColor),

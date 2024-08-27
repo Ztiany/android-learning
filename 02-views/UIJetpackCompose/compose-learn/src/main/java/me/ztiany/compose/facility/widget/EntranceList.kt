@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -85,7 +85,7 @@ fun EntranceList(spanCount: Int = 1, entranceList: List<Item>) {
             items(entranceList) {
                 //TODO: make the header always full span.
                 if (it is Header) {
-                    Text(text = it.name, style = MaterialTheme.typography.h5)
+                    Text(text = it.name, style = MaterialTheme.typography.bodyMedium)
                 } else if (it is Entrance) {
                     Button(
                         modifier = Modifier

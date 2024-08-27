@@ -11,19 +11,30 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.selection.SelectionContainer
-import androidx.compose.material.ContentAlpha
-import androidx.compose.material.LocalContentAlpha
-import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.*
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLayoutResult
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.ztiany.compose.R
@@ -68,17 +79,25 @@ fun TextExample(context: Context) {
 
 @Composable
 private fun CustomMaterialText() {
-    // 将内部 Text 组件的 alpha 强调程度设置为高
-    // 注意: MaterialTheme 已经默认将强调程度设置为 high
-    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.high) {
+    /*
+    Emphasis in M3 is significantly different to M2. In M2, emphasis involved using on colors with certain alpha values to differentiate content like text and icons. In M3, there are now a couple different approaches:
+
+        Using on colors alongside their variant on colors from the expanded M3 color system.
+        Using different font weights for text.
+
+    As a result, ContentAlpha and LocalContentAlpha don't exist in M3 and need to be replaced.
+
+    see: <https://developer.android.com/develop/ui/compose/designsystems/material2-material3#emphasis-and>
+     */
+    CompositionLocalProvider(LocalContentColor provides MaterialTheme.colorScheme.onSurface) {
         Text("这里是 high 强调效果")
     }
     // 将内部 Text 组件的 alpha 强调程度设置为中
-    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+    CompositionLocalProvider(LocalContentColor provides MaterialTheme.colorScheme.onSurfaceVariant) {
         Text("这里是 medium 强调效果")
     }
     // 将内部 Text 组件的 alpha 强调程度设置为禁用
-    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.disabled) {
+    CompositionLocalProvider(LocalContentColor provides MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)) {
         Text("这里是禁用后的效果")
     }
 }
@@ -101,6 +120,7 @@ private fun ExpandableText(modifier: Modifier = Modifier, text: String, minimize
             isExpanded -> {
                 finalText = "$text Show Less"
             }
+
             !isExpanded && textLayoutResult.hasVisualOverflow -> {
                 val lastCharIndex = textLayoutResult.getLineEnd(minimizedMaxLines - 1)
                 val showMoreString = "... Show More"

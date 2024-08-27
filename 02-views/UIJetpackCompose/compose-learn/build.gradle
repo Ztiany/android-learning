@@ -1,17 +1,20 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.parcelize)
+    alias(libs.plugins.google.hilt)
+    alias(libs.plugins.google.ksp)
 }
 
 android {
-    compileSdk AppConfig.compileSdkVersion
+    namespace 'me.ztiany.compose'
+
+    compileSdk 34
 
     defaultConfig {
         applicationId "me.ztiany.jetpackcompose"
-        minSdk AppConfig.minSdkVersion
-        targetSdk AppConfig.targetSdkVersion
+        minSdk 23
+        targetSdk 34
         versionCode 1
         versionName "1.0"
         vectorDrawables {
@@ -40,7 +43,8 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "1.4.3"
+        // Compose to Kotlin Compatibility Map: https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
 
     packagingOptions {
@@ -48,77 +52,55 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-
-    namespace 'me.ztiany.compose'
 }
 
 dependencies {
-    //架构组件
-    implementation AndroidX.appcompat
-    implementation AndroidX.activityKtx
-    implementation AndroidX.lifecycleRuntimeKtx
-    implementation AndroidX.lifecycleViewModelKtx
-    implementation AndroidX.ktx
-    implementation AndroidX.material
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.activity.ktx
+    implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.ktx
+    implementation libs.google.ui.material
 
-    //compose ui 基础
-    implementation AndroidCompose.composeUI
-    implementation AndroidCompose.composeUIGraphics
-    implementation AndroidCompose.composeUIToolingPreview
-    implementation AndroidCompose.composeRuntimeLiveData
+    implementation(platform(libs.compose.bom))
+    implementation libs.compose.ui
+    implementation libs.compose.ui.graphics
+    implementation libs.compose.ui.tooling.preview
+    implementation libs.compose.ui.constraint
+    implementation libs.compose.animation
+    implementation libs.compose.animation.core
+    implementation libs.compose.animation.graphics
+    implementation libs.compose.material3
+    implementation libs.compose.material3.window.size
+    implementation libs.compose.material.icon.extended
 
-    debugImplementation AndroidCompose.composeUITooling
-    debugImplementation AndroidCompose.composeUITestManifest
+    debugImplementation libs.compose.ui.tooling
+    debugImplementation libs.compose.ui.test.manifest
 
-    //ui 组件
-    implementation AndroidCompose.composeUIConstraint
+    implementation libs.kotlin.stdlib
+    implementation libs.kotlin.reflect
+    implementation libs.compose.activity
+    implementation libs.compose.livedata
+    implementation libs.compose.viewmodel
+    implementation libs.compose.navigation
+    implementation libs.compose.hilt.navigation
+    implementation libs.google.hilt
+    ksp(libs.google.hilt.compiler)
 
-    //compose 动画
-    implementation AndroidCompose.composeAnimation
-    implementation AndroidCompose.composeAnimationCore
-    implementation AndroidCompose.composeAnimationGraphics
+    implementation libs.coil.compose
+    implementation libs.guolin.permissionx
+    implementation libs.square.okhttp
+    implementation libs.square.okhttp.logging
+    implementation libs.square.retrofit
+    implementation libs.square.retrofit.converter.gson
+    implementation libs.google.gson
+    implementation libs.jakewharton.timber
 
-    //compose 通用组件
-    implementation AndroidCompose.composeFoundation
-    implementation AndroidCompose.composeFoundationLayout
-
-    //compose material2 实现
-    implementation AndroidCompose.composeMaterial
-    implementation AndroidCompose.composeMaterialThemeAdapter
-    //compose material3 实现
-    //implementation AndroidCompose.composeMaterial3
-    //implementation AndroidCompose.composeMaterial3WindowSize
-    //implementation AndroidCompose.composeMaterial3ThemeAdapter
-    //compose material icons
-    implementation AndroidCompose.composeMaterialIconExtended
-
-
-    //compose 与架构组件集成
-    implementation AndroidCompose.composeActivity
-    implementation AndroidCompose.composeViewModel
-    implementation AndroidCompose.composeNavigation
-    implementation AndroidCompose.composeHiltNavigation
-    implementation AndroidX.hilt
-    kapt AndroidX.hiltApt
-
-    //第三方扩展
-    implementation AndroidCompose.composeAccompanistSystemUIController
-    implementation AndroidCompose.composeAccompanistViewPager
-    implementation AndroidCompose.composeAccompanistViewPagerIndicator
-    implementation AndroidCompose.composeAccompanistSwipeRefresh
-    implementation AndroidCompose.composeAccompanistFlowLayout
-    implementation AndroidCompose.composeAccompanistMaterialPlaceHolder
-    implementation AndroidCompose.composeAccompanistMaterial3PlaceHolder
-    implementation AndroidCompose.composeAccompanistInsets
-    implementation AndroidCompose.composeAccompanistInsetsUI
-
-    implementation AndroidCompose.composeCoil
-
-    //Log
-    implementation 'com.jakewharton.timber:timber:5.0.1'
-
-    //测试
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //implementation libs.compose.accompanist.systemui.controller
+    //implementation libs.compose.accompanist.viewpager
+    //implementation libs.compose.accompanist.viewpager.indicator
+    //implementation libs.compose.accompanist.swiperefresh
+    //implementation libs.compose.accompanist.flowlayout
+    //implementation libs.compose.accompanist.insets
+    //implementation libs.compose.accompanist.insets.ui
 }

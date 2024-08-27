@@ -3,9 +3,10 @@ package me.ztiany.compose
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -27,7 +28,7 @@ import me.ztiany.compose.learn.modifier.navigateToModifier
 import me.ztiany.compose.learn.sideeffect.navigateToSideEffect
 import me.ztiany.compose.learn.state.navigateToStateManaging
 import me.ztiany.compose.learn.widgets.navigateToWidgets
-import me.ztiany.compose.sample.navigateToSamples
+import me.ztiany.compose.practice.navigateToPractice
 import timber.log.Timber
 
 const val MAIN_SCREEN = "main_screen"
@@ -38,6 +39,7 @@ fun NavGraphBuilder.mainScreen(navController: NavHostController) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(navController: NavHostController) {
     LaunchedEffect(Unit) {
@@ -102,7 +104,7 @@ private fun buildEntrances(navController: NavController): List<Item> {
 
 
         //真实案例
-        Header("Real Sample"),
-        Entrance("Samples Page") { navController.navigateToSamples() },
+        Header("Practice and Realistic Samples"),
+        Entrance("Practice and Realistic Samples Page") { navController.navigateToPractice() },
     )
 }

@@ -9,7 +9,6 @@ import me.ztiany.compose.facility.widget.EntranceList
 import me.ztiany.compose.facility.widget.SimpleScaffold
 import me.ztiany.compose.facility.widget.buildEntrances
 import me.ztiany.compose.facility.widget.buildNavigation
-import me.ztiany.compose.learn.animation.google.GoogleAnimationHome
 import me.ztiany.compose.learn.animation.practice.FavButton
 import me.ztiany.compose.learn.animation.practice.Shimmer
 
@@ -67,12 +66,6 @@ private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> U
     //======================================================
     "Shimmer" to { Shimmer() },
     "FavButton" to { FavButton() },
-
-
-    //======================================================
-    // Google Animation CodeLab
-    //======================================================
-    "Google Animation CodeLab" to { GoogleAnimationHome() },
 )
 
 fun NavController.navigateToAnimation() {

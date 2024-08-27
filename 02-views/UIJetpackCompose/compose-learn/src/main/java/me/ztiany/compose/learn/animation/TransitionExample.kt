@@ -1,18 +1,53 @@
 package me.ztiany.compose.learn.animation
 
-import androidx.compose.animation.*
-import androidx.compose.animation.core.*
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.ExperimentalTransitionApi
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.Transition
+import androidx.compose.animation.core.animateDp
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.createChildTransition
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.rounded.Star
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -212,7 +247,7 @@ private fun NumberPad(visibilityTransition: Transition<Boolean>) {
  * 演示：Use transition with AnimatedVisibility and AnimatedContent：AnimatedVisibility 和 AnimatedContent 有针对 Transition 的扩展函数，
  * 将 Transition 的 State 转换成所需的 TargetState。借助这两个扩展函数，可以将 AnimatedVisibility 和 AnimatedContent 的动画状态通过 Transition 对外暴露，以供使用。
  */
-@OptIn(ExperimentalMaterialApi::class, ExperimentalAnimationApi::class)
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun TransitionWithAV_AC() {
     var selected by remember { mutableStateOf(false) }
@@ -230,7 +265,8 @@ fun TransitionWithAV_AC() {
         onClick = { selected = !selected },
         shape = RoundedCornerShape(8.dp),
         border = BorderStroke(2.dp, borderColor),
-        elevation = elevation
+        tonalElevation = elevation,
+        shadowElevation = elevation
     ) {
         Column(
             modifier = Modifier
@@ -296,7 +332,7 @@ fun EncapsulateTransition() {
 // Holds the animation values.
 private class TransitionData(
     color: State<Color>,
-    size: State<Dp>
+    size: State<Dp>,
 ) {
     val color by color
     val size by size
@@ -339,5 +375,8 @@ fun InfiniteTransition() {
         )
     )
 
-    Box(Modifier.fillMaxSize().background(color))
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(color))
 }
