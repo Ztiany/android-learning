@@ -39,28 +39,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import me.ztiany.compose.theme.Purple40
 import me.ztiany.compose.theme.UIJetpackComposeTheme
 
 data class UiState(
     val backgroundColor: Color,
     val textColor: Color,
     val roundedCorner: Int,
-    val buttonWidth: Dp
+    val buttonWidth: Dp,
 )
 
 enum class ButtonState(val ui: UiState) {
-    Idle(UiState(Purple40, Color.White, 50, 60.dp)),
-    Pressed(UiState(Color.White, Purple40, 6, 300.dp))
+    Idle(UiState(Color(0xFFF26527), Color.White, 50, 60.dp)),
+    Pressed(UiState(Color.White, Color(0xFFF26527), 6, 300.dp))
 }
 
-const val animateDuration = 3000
-
+private const val animateDuration = 3000
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AnimatedFavButton(modifier: Modifier = Modifier) {
     var buttonState by remember { mutableStateOf(ButtonState.Idle) }
+
     Box(modifier) {
         AnimatedContent(targetState = buttonState,
             transitionSpec = {
@@ -86,25 +85,25 @@ fun AnimatedFavButton2(modifier: Modifier = Modifier) {
     var buttonState by remember { mutableStateOf(ButtonState.Idle) }
 
     val transition = updateTransition(targetState = buttonState, label = "")
+
     val backgroundColor by transition.animateColor(transitionSpec = {
         tween(durationMillis = animateDuration)
     }, label = "") { it.ui.backgroundColor }
+
     val textColor by transition.animateColor(transitionSpec = {
         tween(durationMillis = animateDuration)
     }, label = "") { it.ui.textColor }
+
     val roundedCorner by transition.animateInt(transitionSpec = {
         tween(durationMillis = animateDuration)
     }, label = "") { it.ui.roundedCorner }
+
     val buttonWidth by transition.animateDp(transitionSpec = {
         tween(durationMillis = animateDuration)
     }, label = "") { it.ui.buttonWidth }
 
-    FavButton(
-        modifier, buttonState, textColor, backgroundColor, roundedCorner, buttonWidth,
-    ) {
-        buttonState =
-            if (buttonState == ButtonState.Idle) ButtonState.Pressed
-            else ButtonState.Idle
+    FavButton(modifier, buttonState, textColor, backgroundColor, roundedCorner, buttonWidth) {
+        buttonState = if (buttonState == ButtonState.Idle) ButtonState.Pressed else ButtonState.Idle
     }
 }
 
@@ -116,10 +115,10 @@ fun FavButton(
     backgroundColor: Color = buttonState.ui.backgroundColor,
     roundedCorner: Int = buttonState.ui.roundedCorner,
     buttonWidth: Dp = buttonState.ui.buttonWidth,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Button(
-        border = BorderStroke(1.dp, Purple40),
+        border = BorderStroke(1.dp, Color(0xFFF26527)),
         modifier = modifier.size(buttonWidth, height = 60.dp),
         shape = RoundedCornerShape(roundedCorner.coerceIn(0..100)),
         colors = ButtonDefaults.buttonColors(backgroundColor),

@@ -30,13 +30,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 
-/*
-Button: Compose provides different types of Button according to the Material Design Buttons spec—Button, ElevatedButton, FilledTonalButton, OutlinedButton, and TextButton.
+/**
+Button: Compose provides different types of Button according to the Material Design Buttons spec—
+Button, ElevatedButton, FilledTonalButton, OutlinedButton, and TextButton.
 
 参考：
-    1. https://jetpackcompose.cn/docs/elements/button
-    2. https://jetpackcompose.cn/docs/elements/floatingactionbutton
-    3. https://jetpackcompose.cn/docs/elements/iconbutton
+1. https://jetpackcompose.cn/docs/elements/button
+2. https://jetpackcompose.cn/docs/elements/floatingactionbutton
+3. https://jetpackcompose.cn/docs/elements/iconbutton
  */
 @Composable
 fun ButtonExample(context: Context) {
@@ -92,7 +93,7 @@ private fun NoRippleIconButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     Box(
         modifier = modifier
@@ -118,6 +119,12 @@ private fun MaterialButtons() {
         CustomMaterialButtonExample()
     }
 }
+
+private data class ButtonState(
+    var text: String,
+    var textColor: Color,
+    var buttonColor: Color,
+)
 
 @Composable
 private fun CustomMaterialButtonExample() {
@@ -181,5 +188,3 @@ private fun MaterialButtonExample() {
         Text("Like")
     }
 }
-
-private data class ButtonState(var text: String, var textColor: Color, var buttonColor: Color)

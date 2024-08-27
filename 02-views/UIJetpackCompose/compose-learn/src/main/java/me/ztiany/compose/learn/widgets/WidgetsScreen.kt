@@ -23,22 +23,27 @@ fun WidgetsScreen() {
         ExampleArea(exampleName = "Text") {
             TextExample(context)
         }
+
         //TextFiled
         ExampleArea(exampleName = "TextFiled") {
             TextFiledExample(context)
         }
+
         //Icon
         ExampleArea(exampleName = "Icon") {
             IconExample(context)
         }
+
         //Button
         ExampleArea(exampleName = "Button") {
             ButtonExample(context)
         }
+
         //Slider
         ExampleArea(exampleName = "Slider") {
             SliderExample(context)
         }
+
         //Image
         ExampleArea(exampleName = "Image") {
             ImageExample(context)

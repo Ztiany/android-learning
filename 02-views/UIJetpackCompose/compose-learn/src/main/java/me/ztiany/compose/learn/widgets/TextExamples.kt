@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.LocalContentColor
@@ -32,7 +31,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
@@ -42,8 +40,6 @@ import me.ztiany.compose.R
 //参考：https://jetpackcompose.cn/docs/elements/text
 @Composable
 fun TextExample(context: Context) {
-    BasicTextFieldDemo()
-
     Text(text = "我是一个普通的文本")
 
     Text(
@@ -200,13 +196,4 @@ private fun AnnotatedClickableText() {
             }
         }
     )
-}
-
-@Composable
-private fun BasicTextFieldDemo() {
-    var textState by remember { mutableStateOf(TextFieldValue("I am a Text Widget.")) }
-    BasicTextField(value = textState, onValueChange = {
-        textState = it
-    })
-    Text("The text-field has this text: " + textState.text)
 }

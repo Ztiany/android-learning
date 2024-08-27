@@ -82,14 +82,12 @@ private fun buildEntrances(navController: NavController): List<Item> {
         //学习自定义布局与绘制 API
         Entrance("Custom Draw&Layout") { navController.navigateToCustomDrawAndLayout() },
 
-
         //UI 交互
         Header("UI Interaction"),
         //动画
         Entrance("Animation API") { navController.navigateToAnimation() },
         //手势
         Entrance("Gesture API") { navController.navigateToGesture() },
-
 
         //功能性组件
         Header("Functionality"),
@@ -101,7 +99,6 @@ private fun buildEntrances(navController: NavController): List<Item> {
         Entrance("CompositionLocal") { navController.navigateToAnimation() },
         //副作用 API
         Entrance("Side Effect") { navController.navigateToSideEffect() },
-
 
         //真实案例
         Header("Practice and Realistic Samples"),

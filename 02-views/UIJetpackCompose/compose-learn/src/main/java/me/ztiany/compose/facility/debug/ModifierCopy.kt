@@ -41,7 +41,7 @@ import kotlin.math.roundToInt
 fun Modifier.backgroundCopy(
     flag: String,
     color: Color,
-    shape: Shape = RectangleShape
+    shape: Shape = RectangleShape,
 ) = this.then(
     Background(
         flag,
@@ -74,14 +74,14 @@ private fun createFillSizeModifier(flag: String, fraction: Float) = FillModifier
 fun Modifier.wrapContentSizeCopy(
     flag: String,
     align: Alignment = Alignment.Center,
-    unbounded: Boolean = false
+    unbounded: Boolean = false,
 ) = this.then(createWrapContentSizeModifier(flag, align, unbounded))
 
 @SuppressLint("ModifierFactoryExtensionFunction", "ModifierFactoryReturnType")
 private fun createWrapContentSizeModifier(
     flag: String,
     align: Alignment,
-    unbounded: Boolean
+    unbounded: Boolean,
 ) = WrapContentModifier(
     flag = flag,
     direction = Direction.Both,
@@ -123,12 +123,12 @@ private class WrapContentModifier(
     private val unbounded: Boolean,
     private val alignmentCallback: (IntSize, LayoutDirection) -> IntOffset,
     private val align: Any, // only used for equals and hashcode
-    inspectorInfo: InspectorInfo.() -> Unit
+    inspectorInfo: InspectorInfo.() -> Unit,
 ) : LayoutModifier, InspectorValueInfo(inspectorInfo) {
 
     override fun MeasureScope.measure(
         measurable: Measurable,
-        constraints: Constraints
+        constraints: Constraints,
     ): MeasureResult {
         val wrappedConstraints = Constraints(
             minWidth = if (direction != Direction.Vertical) 0 else constraints.minWidth,
@@ -164,8 +164,8 @@ private class WrapContentModifier(
         return direction == other.direction && unbounded == other.unbounded && align == other.align
     }
 
-    override fun hashCode() =
-        (direction.hashCode() * 31 + unbounded.hashCode()) * 31 + align.hashCode()
+    override fun hashCode() = (direction.hashCode() * 31 + unbounded.hashCode()) * 31 + align.hashCode()
+
 }
 
 private enum class Direction {
@@ -173,15 +173,15 @@ private enum class Direction {
 }
 
 private class FillModifier(
-    val flag: String = "",
+    private val flag: String = "",
     private val direction: Direction,
     private val fraction: Float,
-    inspectorInfo: InspectorInfo.() -> Unit
+    inspectorInfo: InspectorInfo.() -> Unit,
 ) : LayoutModifier, InspectorValueInfo(inspectorInfo) {
 
     override fun MeasureScope.measure(
         measurable: Measurable,
-        constraints: Constraints
+        constraints: Constraints,
     ): MeasureResult {
 
         val minWidth: Int
@@ -220,13 +220,13 @@ private class FillModifier(
 
 }
 
-private class Background constructor(
+private class Background(
     private val flag: String = "",
     private val color: Color? = null,
     private val brush: Brush? = null,
     private val alpha: Float = 1.0f,
     private val shape: Shape,
-    inspectorInfo: InspectorInfo.() -> Unit
+    inspectorInfo: InspectorInfo.() -> Unit,
 ) : DrawModifier, InspectorValueInfo(inspectorInfo) {
 
     // naive cache outline calculation if size is the same
@@ -235,7 +235,7 @@ private class Background constructor(
     private var lastOutline: Outline? = null
 
     override fun ContentDrawScope.draw() {
-        //这里的 flag 最后打印是因为 draw 阶段确实实在 measure/layout 之后。
+        // 这里的 flag 最后打印是因为 draw 阶段确实实在 measure/layout 之后。
         Timber.d("flag($flag) size: $size")
         if (shape === RectangleShape) {
             // shortcut to avoid Outline calculation and allocation
@@ -287,14 +287,15 @@ private class Background constructor(
 
 
 private class SizeModifier(
-    val flag: String = "",
+    private val flag: String = "",
     private val minWidth: Dp = Dp.Unspecified,
     private val minHeight: Dp = Dp.Unspecified,
     private val maxWidth: Dp = Dp.Unspecified,
     private val maxHeight: Dp = Dp.Unspecified,
     private val enforceIncoming: Boolean,
-    inspectorInfo: InspectorInfo.() -> Unit
+    inspectorInfo: InspectorInfo.() -> Unit,
 ) : LayoutModifier, InspectorValueInfo(inspectorInfo) {
+
     private val Density.targetConstraints: Constraints
         get() {
             val maxWidth = if (maxWidth != Dp.Unspecified) {
@@ -331,7 +332,7 @@ private class SizeModifier(
 
     override fun MeasureScope.measure(
         measurable: Measurable,
-        constraints: Constraints
+        constraints: Constraints,
     ): MeasureResult {
         val wrappedConstraints = targetConstraints.let { targetConstraints ->
             if (enforceIncoming) {
@@ -373,7 +374,7 @@ private class SizeModifier(
 
     override fun IntrinsicMeasureScope.minIntrinsicWidth(
         measurable: IntrinsicMeasurable,
-        height: Int
+        height: Int,
     ): Int {
         val constraints = targetConstraints
         return if (constraints.hasFixedWidth) {
@@ -385,7 +386,7 @@ private class SizeModifier(
 
     override fun IntrinsicMeasureScope.minIntrinsicHeight(
         measurable: IntrinsicMeasurable,
-        width: Int
+        width: Int,
     ): Int {
         val constraints = targetConstraints
         return if (constraints.hasFixedHeight) {
@@ -397,7 +398,7 @@ private class SizeModifier(
 
     override fun IntrinsicMeasureScope.maxIntrinsicWidth(
         measurable: IntrinsicMeasurable,
-        height: Int
+        height: Int,
     ): Int {
         val constraints = targetConstraints
         return if (constraints.hasFixedWidth) {
@@ -409,7 +410,7 @@ private class SizeModifier(
 
     override fun IntrinsicMeasureScope.maxIntrinsicHeight(
         measurable: IntrinsicMeasurable,
-        width: Int
+        width: Int,
     ): Int {
         val constraints = targetConstraints
         return if (constraints.hasFixedHeight) {
@@ -428,11 +429,6 @@ private class SizeModifier(
                 enforceIncoming == other.enforceIncoming
     }
 
-    override fun hashCode() =
-        (
-                (
-                        (((minWidth.hashCode() * 31 + minHeight.hashCode()) * 31) + maxWidth.hashCode()) *
-                                31
-                        ) + maxHeight.hashCode()
-                ) * 31
+    override fun hashCode() = (((((minWidth.hashCode() * 31 + minHeight.hashCode()) * 31) + maxWidth.hashCode()) * 31) + maxHeight.hashCode()) * 31
+
 }

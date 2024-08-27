@@ -2,20 +2,37 @@ package me.ztiany.compose.learn.widgets
 
 import android.content.Context
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.runtime.*
+import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -27,11 +44,39 @@ import me.ztiany.compose.R
 //参考：https://jetpackcompose.cn/docs/elements/textfield
 @Composable
 fun TextFiledExample(context: Context) {
+    BasicTextField()
     SimpleTextField()
     TextFieldWithLabel()
     OutlinedInputFieldLayout()
     PasswordTextFiled()
     SearchBar()
+}
+
+/**
+ * 使用 BasicTextField 创建一个简单的文本输入框。
+ */
+@Composable
+private fun BasicTextField() {
+    Column(Modifier.border(1.dp, Color.Gray)) {
+        var textState by remember { mutableStateOf(TextFieldValue("I am a Text Widget.")) }
+        BasicTextField(value = textState, onValueChange = {
+            textState = it
+        })
+        Text("The text-field has this text: " + textState.text)
+    }
+}
+
+@Composable
+private fun SimpleTextField() {
+    var text by remember { mutableStateOf("") }
+
+    TextField(
+        value = text,
+        onValueChange = {
+            text = it
+        },
+        singleLine = true
+    )
 }
 
 /**
@@ -89,7 +134,6 @@ private fun SearchBar() {
             .fillMaxWidth()
         )
     }
-
 }
 
 @Composable
@@ -179,18 +223,5 @@ private fun TextFieldWithLabel() {
         label = {
             Text("邮箱")
         }
-    )
-}
-
-@Composable
-private fun SimpleTextField() {
-    var text by remember { mutableStateOf("") }
-
-    TextField(
-        value = text,
-        onValueChange = {
-            text = it
-        },
-        singleLine = true
     )
 }
