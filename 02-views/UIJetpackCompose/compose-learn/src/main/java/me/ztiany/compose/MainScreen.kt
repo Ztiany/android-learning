@@ -22,6 +22,7 @@ import me.ztiany.compose.facility.widget.Header
 import me.ztiany.compose.facility.widget.Item
 import me.ztiany.compose.learn.animation.navigateToAnimation
 import me.ztiany.compose.learn.custom.navigateToCustomDrawAndLayout
+import me.ztiany.compose.learn.dialog.navigateToDialogs
 import me.ztiany.compose.learn.gesture.navigateToGesture
 import me.ztiany.compose.learn.layout.navigateToLayouts
 import me.ztiany.compose.learn.modifier.navigateToModifier
@@ -54,7 +55,6 @@ fun MainScreen(navController: NavHostController) {
  */
     Scaffold(
         topBar = { TopAppBar(title = { Text(text = "JetpackCompose Learning") }) },
-
         content = {
             Column(
                 modifier = Modifier
@@ -73,13 +73,15 @@ fun MainScreen(navController: NavHostController) {
 
 private fun buildEntrances(navController: NavController): List<Item> {
     return listOf(
-        //UI 组件
+        // UI 组件
         Header("UI Widgets"),
-        //学习基础组件的使用
+        // 学习基础组件的使用
         Entrance("Basic Widgets") { navController.navigateToWidgets() },
-        //学习基础布局的使用
+        // 学习基础布局的使用
         Entrance("Basic Layout") { navController.navigateToLayouts() },
-        //学习自定义布局与绘制 API
+        // 对话框
+        Entrance("Basic Dialog") { navController.navigateToDialogs() },
+        // 学习自定义布局与绘制 API
         Entrance("Custom Draw&Layout") { navController.navigateToCustomDrawAndLayout() },
 
         //UI 交互

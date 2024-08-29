@@ -37,7 +37,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.ztiany.compose.R
 
-//参考：https://jetpackcompose.cn/docs/elements/text
+/**
+ * Text is a component that displays text.
+ *
+ * For more information, refers to:
+ *
+ * 1. https://developer.android.com/develop/ui/compose/text
+ * 2. https://jetpackcompose.cn/docs/elements/text
+ */
 @Composable
 fun TextExample(context: Context) {
     Text(text = "我是一个普通的文本")

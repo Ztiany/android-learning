@@ -21,11 +21,22 @@ import androidx.navigation.compose.navigation
 
 fun buildEntrances(
     entrances: Map<String, @Composable (NavBackStackEntry) -> Unit>,
-    navController: NavController
+    navController: NavController,
 ): List<Item> {
     return entrances.map {
         Entrance(it.key) {
             navController.navigate(it.key)
+        }
+    }
+}
+
+fun buildEntrances(
+    entrances: List<String>,
+    navController: NavController,
+): List<Item> {
+    return entrances.map {
+        Entrance(it) {
+            navController.navigate(it)
         }
     }
 }
@@ -35,7 +46,7 @@ fun NavGraphBuilder.buildNavigation(
     routeName: String,
     entrances: Map<String, @Composable (NavBackStackEntry) -> Unit>,
     startDestination: String,
-    startScreen: @Composable (NavBackStackEntry) -> Unit
+    startScreen: @Composable (NavBackStackEntry) -> Unit,
 ) {
     navigation(startDestination = startDestination, route = routeName) {
         composable(startDestination) {
@@ -65,11 +76,11 @@ sealed interface Item
 
 data class Entrance(
     val name: String,
-    val onNavigating: () -> Unit
+    val onNavigating: () -> Unit,
 ) : Item
 
 data class Header(
-    val name: String
+    val name: String,
 ) : Item
 
 @Composable

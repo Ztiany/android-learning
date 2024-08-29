@@ -8,17 +8,18 @@ import androidx.navigation.NavHostController
 import me.ztiany.compose.facility.widget.EntranceList
 import me.ztiany.compose.facility.widget.buildEntrances
 import me.ztiany.compose.facility.widget.buildNavigation
+import me.ztiany.compose.practice.refreshstate.RefreshStateScreen
 
 private const val ROUTE_NAME = "practice_route"
 private const val START_PAGE = "Practice"
 
 @Composable
 private fun PracticeScreen(navController: NavHostController) {
-    EntranceList(entranceList = buildEntrances(entrances, navController))
+    EntranceList(entranceList = buildEntrances(entrances.map { it.key }, navController))
 }
 
 private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> Unit>(
-
+    "Refresh with MultiState Page" to { _ -> RefreshStateScreen() },
 )
 
 fun NavController.navigateToPractice() {

@@ -90,9 +90,6 @@ compose-animation-core = { module = "androidx.compose.animation:animation-core" 
 compose-animation-graphics = { module = "androidx.compose.animation:animation-graphics" }
 compose-ui-constraint = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 
-# compose material2
-compose-material = { module = "androidx.compose.material:material" }
-
 # compose material3
 compose-material3 = { module = "androidx.compose.material3:material3" }
 compose-material3-window-size = { module = "androidx.compose.material3:material3-window-size-class" }
@@ -104,6 +101,7 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 compose-hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltExtension" }
+compose-lifecycle-android = { module = "androidx.lifecycle:lifecycle-runtime-compose-android", version.ref = "lifecycle" }
 
 # compose ui tool (debugImplementation)
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
@@ -121,8 +119,9 @@ compose-accompanist-viewpager-indicator = { module = "com.google.accompanist:acc
 # ======================================================
 # functional libraries
 # ======================================================
+ztiany-simplehttp = "com.github.Ztiany:android-simple-http:1.2.3"
 # https://github.com/coil-kt/coil
-coil-compose = "io.coil-kt:coil-compose:2.2.2"
+coil-compose = "io.coil-kt:coil-compose:2.6.0"
 # https://github.com/JakeWharton/timber
 jakewharton-timber = "com.jakewharton.timber:timber:5.0.1"
 # https://github.com/guolindev/PermissionX

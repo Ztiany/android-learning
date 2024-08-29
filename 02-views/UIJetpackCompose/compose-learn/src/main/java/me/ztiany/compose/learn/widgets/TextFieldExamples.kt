@@ -1,16 +1,17 @@
 package me.ztiany.compose.learn.widgets
 
-import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
@@ -41,14 +42,28 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import me.ztiany.compose.R
 
-//参考：https://jetpackcompose.cn/docs/elements/textfield
+/**
+ * TextFiled is a component that allows users to enter text.
+ *
+ * For more information,  refers to:
+ *
+ * 1. https://jetpackcompose.cn/docs/elements/textfield
+ * 2. https://developer.android.com/develop/ui/compose/text
+ */
 @Composable
-fun TextFiledExample(context: Context) {
+fun TextFiledExample() {
     BasicTextField()
+    Spacer(modifier = Modifier.size(5.dp))
     SimpleTextField()
+    Spacer(modifier = Modifier.size(5.dp))
     TextFieldWithLabel()
+    Spacer(modifier = Modifier.size(5.dp))
     OutlinedInputFieldLayout()
-    PasswordTextFiled()
+    Spacer(modifier = Modifier.size(5.dp))
+    PasswordTextField()
+    Spacer(modifier = Modifier.size(5.dp))
+    CustomBackgroundTextField()
+    Spacer(modifier = Modifier.size(5.dp))
     SearchBar()
 }
 
@@ -76,6 +91,38 @@ private fun SimpleTextField() {
             text = it
         },
         singleLine = true
+    )
+}
+
+@Composable
+private fun CustomBackgroundTextField() {
+    var text by remember { mutableStateOf("") }
+
+    BasicTextField(
+        value = text,
+        onValueChange = {
+            text = it
+        },
+        decorationBox = { innerTextField ->
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
+                Box(modifier = Modifier.weight(1F), contentAlignment = Alignment.CenterStart) {
+                    if (text.isEmpty()) {
+                        Text(
+                            text = "请输入用户名！",
+                            style = TextStyle(
+                                color = Color(0, 0, 0, 128)
+                            )
+                        )
+                    }
+                    innerTextField()
+                }
+            }
+        },
+        modifier = Modifier
+            .background(Color(0xFFD3D3D3), RoundedCornerShape(10.dp))
+            .fillMaxWidth()
+            .padding(2.dp)
     )
 }
 
@@ -137,7 +184,7 @@ private fun SearchBar() {
 }
 
 @Composable
-private fun PasswordTextFiled() {
+private fun PasswordTextField() {
     var text by remember { mutableStateOf("") }
     var passwordHidden by remember { mutableStateOf(false) }
 

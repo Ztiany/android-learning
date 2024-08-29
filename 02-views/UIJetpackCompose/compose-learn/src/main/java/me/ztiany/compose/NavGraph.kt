@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import me.ztiany.compose.learn.animation.animationScreen
 import me.ztiany.compose.learn.custom.customScreen
+import me.ztiany.compose.learn.dialog.dialogScreen
 import me.ztiany.compose.learn.gesture.gestureScreen
 import me.ztiany.compose.learn.layout.layoutScreen
 import me.ztiany.compose.learn.modifier.modifierScreen
@@ -19,7 +20,7 @@ import me.ztiany.compose.practice.practiceScreen
 fun AppNavGraph(
     modifier: Modifier = Modifier,
     startDestination: String,
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
 ) {
     NavHost(
         navController = navController,
@@ -28,6 +29,7 @@ fun AppNavGraph(
     ) {
         mainScreen(navController)
         widgetScreen(navController)
+        dialogScreen(navController)
         layoutScreen(navController)
         customScreen(navController)
         animationScreen(navController)

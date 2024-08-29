@@ -26,7 +26,7 @@ fun WidgetsScreen() {
 
         //TextFiled
         ExampleArea(exampleName = "TextFiled") {
-            TextFiledExample(context)
+            TextFiledExample()
         }
 
         //Icon
@@ -36,7 +36,7 @@ fun WidgetsScreen() {
 
         //Button
         ExampleArea(exampleName = "Button") {
-            ButtonExample(context)
+            ButtonExample()
         }
 
         //Slider
