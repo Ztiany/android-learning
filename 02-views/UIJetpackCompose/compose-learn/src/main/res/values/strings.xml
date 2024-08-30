@@ -2,13 +2,23 @@
 
     <string name="app_name">UI JetpackCompose</string>
 
-    <string name="error_net_error">no network!</string>
-    <string name="error_service_error">server internal error!</string>
-    <string name="error_request_error">request failed，code(400–500)!</string>
-    <string name="error_service_data_error">data parsing failed!</string>
-    <string name="error_service_no_data_error">not data returned!</string>
-    <string name="error_api_code_mask_tips">request error(%d)</string>
-    <string name="error_unknown">unknown error!</string>
+    <string name="error_net_error">No network!</string>
+    <string name="error_service_error">Server internal error!</string>
+    <string name="error_request_error">Request failed，code(400–500)!</string>
+    <string name="error_service_data_error">Data parsing failed!</string>
+    <string name="error_service_no_data_error">No data returned!</string>
+    <string name="error_api_code_mask_tips">Request error(%d)</string>
+    <string name="error_unknown">Unknown error!</string>
+
+    <string name="page_error_load_failed">Loading failed/(ㄒoㄒ)/~~ </string>
+    <string name="page_error_retry">Retry</string>
+    <string name="page_error_no_data">There is no data yet!</string>
+    <string name="page_loading">Loading…</string>
+    <string name="page_error_no_network">No network!</string>
+    <string name="page_error_server_error">@string/error_service_error</string>
+
+    <string name="page_item_no_more">No more items</string>
+    <string name="page_item_error_retry">Retry</string>
 
     <string name="fruit_title">Fruit: %s</string>
 

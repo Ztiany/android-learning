@@ -73,6 +73,7 @@ dependencies {
     implementation libs.compose.material3
     implementation libs.compose.material3.window.size
     implementation libs.compose.material.icon.extended
+    implementation libs.compose.paging.android
 
     debugImplementation libs.compose.ui.tooling
     debugImplementation libs.compose.ui.test.manifest

@@ -102,6 +102,7 @@ compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose",
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 compose-hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltExtension" }
 compose-lifecycle-android = { module = "androidx.lifecycle:lifecycle-runtime-compose-android", version.ref = "lifecycle" }
+compose-paging-android = { module = "androidx.paging:paging-compose-android", version.ref = "paging" }
 
 # compose ui tool (debugImplementation)
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }

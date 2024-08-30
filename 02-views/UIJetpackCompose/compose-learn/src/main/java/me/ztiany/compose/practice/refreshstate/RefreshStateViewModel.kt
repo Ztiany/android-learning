@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import me.ztiany.compose.facility.data.SampleRepository
-import me.ztiany.compose.facility.refreshstate.PageData
+import me.ztiany.compose.facility.widget.state.PageData
 import javax.inject.Inject
 
 /*
@@ -42,7 +42,7 @@ class RefreshStateViewModel @Inject constructor(
         QueryCondition(
             refreshAction = 0,
             pageStart = 0,
-            pageSize = 30
+            pageSize = 5
         )
     )
 

@@ -18,8 +18,6 @@ class App : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
 
-        configRefreshStateBox()
-
         NetContext.get().init(this) {
             errorMessage(newErrorMessage())
             platformInteractor(object : PlatformInteractor {

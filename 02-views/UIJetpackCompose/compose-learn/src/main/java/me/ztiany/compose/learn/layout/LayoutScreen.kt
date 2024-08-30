@@ -28,6 +28,7 @@ fun NavGraphBuilder.layoutScreen(navController: NavHostController) {
 }
 
 private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> Unit>(
+    "Default Measure Policy" to { DefaultMeasureDemo() },
     "Row & Colum" to { ArtistCard() },
     "Constrains-1" to { ConstraintLayoutDemo() },
     "Constrains-2" to { ConstraintLayoutDemo() },
