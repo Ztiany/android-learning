@@ -120,6 +120,7 @@ compose-accompanist-viewpager-indicator = { module = "com.google.accompanist:acc
 # ======================================================
 # functional libraries
 # ======================================================
+ztiany-uistate = "com.github.Ztiany:android-ui-state:1.0.5"
 ztiany-simplehttp = "com.github.Ztiany:android-simple-http:1.2.3"
 # https://github.com/coil-kt/coil
 coil-compose = "io.coil-kt:coil-compose:2.6.0"

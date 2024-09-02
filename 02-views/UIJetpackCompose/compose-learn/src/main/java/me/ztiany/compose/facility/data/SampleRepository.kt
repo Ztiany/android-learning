@@ -77,4 +77,22 @@ class SampleRepository @Inject constructor(
         }
     }.flow
 
+    suspend fun fakeQuery(): CallResult<Boolean> {
+        return withContext(Dispatchers.IO) {
+            delay(3000)
+            homeApiContext.apiCall {
+                loadBanners()
+            }
+        }.map { true }
+    }
+
+    suspend fun fakeUpdate(open: Boolean): CallResult<Boolean> {
+        return withContext(Dispatchers.IO) {
+            delay(3000)
+            homeApiContext.apiCall {
+                loadBanners()
+            }
+        }.map { open }
+    }
+
 }

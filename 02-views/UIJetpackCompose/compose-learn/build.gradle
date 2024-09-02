@@ -97,5 +97,6 @@ dependencies {
     implementation libs.square.retrofit.converter.gson
     implementation libs.google.gson
     implementation libs.ztiany.simplehttp
+    implementation libs.ztiany.uistate
     implementation libs.jakewharton.timber
 }
