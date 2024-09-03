@@ -20,17 +20,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 
 fun buildEntrances(
-    entrances: Map<String, @Composable (NavBackStackEntry) -> Unit>,
-    navController: NavController,
-): List<Item> {
-    return entrances.map {
-        Entrance(it.key) {
-            navController.navigate(it.key)
-        }
-    }
-}
-
-fun buildEntrances(
     entrances: List<String>,
     navController: NavController,
 ): List<Item> {

@@ -31,7 +31,7 @@ import timber.log.Timber
 @Composable
 fun ArtistCard() {
     Column(
-        Modifier
+        modifier = Modifier
             .clickable { Timber.d("ArtistCard is clicked.") }
             .padding(16.dp)
             .fillMaxWidth()) {
@@ -75,6 +75,3 @@ private fun ArtistCardTop() {
         }
     }
 }
-
-
-

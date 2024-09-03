@@ -18,7 +18,7 @@ private const val START_PAGE = "animation_internal_page"
 @Composable
 private fun AnimationScreen(navController: NavHostController) {
     SimpleScaffold(title = "Animation") {
-        EntranceList(entranceList = buildEntrances(entrances, navController))
+        EntranceList(entranceList = buildEntrances(entrances.map { it.key }, navController))
     }
 }
 

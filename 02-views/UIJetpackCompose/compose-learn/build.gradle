@@ -89,6 +89,10 @@ dependencies {
     implementation libs.google.hilt
     ksp(libs.google.hilt.compiler)
 
+    implementation libs.compose.accompanist.adaptive
+    implementation libs.compose.accompanist.permission
+    implementation libs.compose.accompanist.drawablepainter
+
     implementation libs.coil.compose
     implementation libs.guolin.permissionx
     implementation libs.square.okhttp

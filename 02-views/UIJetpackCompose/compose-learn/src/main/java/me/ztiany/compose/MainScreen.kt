@@ -29,6 +29,7 @@ import me.ztiany.compose.learn.modifier.navigateToModifier
 import me.ztiany.compose.learn.sideeffect.navigateToSideEffect
 import me.ztiany.compose.learn.state.navigateToStateManaging
 import me.ztiany.compose.learn.widgets.navigateToWidgets
+import me.ztiany.compose.platform.navigateToPlatform
 import me.ztiany.compose.practice.navigateToPractice
 import timber.log.Timber
 
@@ -101,6 +102,10 @@ private fun buildEntrances(navController: NavController): List<Item> {
         Entrance("CompositionLocal") { navController.navigateToAnimation() },
         //副作用 API
         Entrance("Side Effect") { navController.navigateToSideEffect() },
+
+        //功能性组件
+        Header("Platform"),
+        Entrance("Platform Interaction") { navController.navigateToPlatform() },
 
         //真实案例
         Header("Practice and Realistic Samples"),

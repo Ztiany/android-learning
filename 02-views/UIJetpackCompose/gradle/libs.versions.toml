@@ -4,7 +4,7 @@ kotlin = "1.9.24"
 coroutines = "1.8.0"
 ksp = "1.9.24-1.0.20"
 composeBom = "2024.08.00"
-accompanist = "0.30.1"
+accompanist = "0.34.0"
 appcompat = "1.7.0"
 activity = "1.9.1"
 fragment = "1.8.2"
@@ -109,13 +109,9 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 
 # accompanist: https://github.com/google/accompanist
-compose-accompanist-systemui-controller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
-compose-accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
-compose-accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
-compose-accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanist" }
-compose-accompanist-insets-ui = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist" }
-compose-accompanist-viewpager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
-compose-accompanist-viewpager-indicator = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
+compose-accompanist-permission = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
+compose-accompanist-drawablepainter = { module = "com.google.accompanist:accompanist-drawablepainter", version.ref = "accompanist" }
+compose-accompanist-adaptive = { module = "com.google.accompanist:accompanist-adaptive", version.ref = "accompanist" }
 
 # ======================================================
 # functional libraries

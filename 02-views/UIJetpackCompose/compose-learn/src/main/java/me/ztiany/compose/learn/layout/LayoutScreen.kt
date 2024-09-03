@@ -14,7 +14,7 @@ private const val START_PAGE = "Layouts"
 
 @Composable
 private fun LayoutsScreen(navController: NavHostController) {
-    EntranceList(entranceList = buildEntrances(entrances, navController))
+    EntranceList(entranceList = buildEntrances(entrances.map { it.key }, navController))
 }
 
 fun NavController.navigateToLayouts() {

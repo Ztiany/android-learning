@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.dialog
+package me.ztiany.compose.platform
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
@@ -9,25 +9,24 @@ import me.ztiany.compose.facility.widget.EntranceList
 import me.ztiany.compose.facility.widget.buildEntrances
 import me.ztiany.compose.facility.widget.buildNavigation
 
-private const val ROUTE_NAME = "dialog_screen"
-private const val START_PAGE = "Dialogs"
-
-fun NavController.navigateToDialogs() {
-    this.navigate(ROUTE_NAME)
-}
-
-fun NavGraphBuilder.dialogScreen(navController: NavHostController) {
-    buildNavigation(true, ROUTE_NAME, entrances, START_PAGE) {
-        DialogsScreen(navController)
-    }
-}
+private const val ROUTE_NAME = "platform_route"
+private const val START_PAGE = "Platform"
 
 @Composable
-private fun DialogsScreen(navController: NavHostController) {
+private fun PlatformScreen(navController: NavHostController) {
     EntranceList(entranceList = buildEntrances(entrances.map { it.key }, navController))
 }
 
 private val entrances = linkedMapOf<String, @Composable (NavBackStackEntry) -> Unit>(
-    "Basic Dialog" to { BasicDialogScreen() },
-    "Popup" to { PopupScreen() },
+    "Dynamic Permission" to { _ -> DynamicPermissionScreen() },
 )
+
+fun NavController.navigateToPlatform() {
+    this.navigate(ROUTE_NAME)
+}
+
+fun NavGraphBuilder.platformScreen(navController: NavHostController) {
+    buildNavigation(true, ROUTE_NAME, entrances, START_PAGE) {
+        PlatformScreen(navController)
+    }
+}

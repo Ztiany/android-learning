@@ -16,8 +16,10 @@ fun DefaultMeasureDemo() {
     Box(
         Modifier
             .padding(16.dp)
-            .size(100.dp)) {
-        Text(text = "Box1")
+            .background(color = Color.Blue)
+            .size(100.dp)
+    ) {
+        Text(text = "Box1", color = Color.White)
         Box(
             Modifier
                 .fillMaxSize()

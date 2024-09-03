@@ -14,6 +14,7 @@ import me.ztiany.compose.learn.modifier.modifierScreen
 import me.ztiany.compose.learn.sideeffect.sideEffectScreen
 import me.ztiany.compose.learn.state.stateManagingScreen
 import me.ztiany.compose.learn.widgets.widgetScreen
+import me.ztiany.compose.platform.platformScreen
 import me.ztiany.compose.practice.practiceScreen
 
 @Composable
@@ -38,5 +39,6 @@ fun AppNavGraph(
         modifierScreen(navController)
         sideEffectScreen(navController)
         practiceScreen(navController)
+        platformScreen(navController)
     }
 }

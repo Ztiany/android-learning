@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -184,16 +185,13 @@ private fun MinimalDialog(onDismissRequest: () -> Unit) {
     Dialog(onDismissRequest = { onDismissRequest() }) {
         Card(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp)
+                .size(200.dp)
                 .padding(16.dp),
             shape = RoundedCornerShape(16.dp),
         ) {
             Text(
                 text = "This is a minimal dialog",
-                modifier = Modifier
-                    .fillMaxSize()
-                    .wrapContentSize(Alignment.Center),
+                modifier = Modifier.fillMaxSize().wrapContentSize(Alignment.Center),
                 textAlign = TextAlign.Center,
             )
         }
