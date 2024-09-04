@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.gesture
+package me.ztiany.compose.learn.gesture.highlevel
 
 import android.util.Log
 import androidx.compose.animation.core.Animatable

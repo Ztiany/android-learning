@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.gesture
+package me.ztiany.compose.learn.gesture.highlevel
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
@@ -32,11 +32,9 @@ fun ScrollableViews() {
             horizontalScroll 修饰符仅有一个必选参数 scrollState。可以使用 rememberScrollState 快速创建一个 scrollState 实例并传入即可。
 
 
-
         verticalScroll 垂直滚动：
                 与 horizontalScroll 修饰符功能一样，当组件高度超出屏幕时，可以使用 verticalScroll 修饰符使组件在垂直方向上滚动。
                 参数列表与 horizontalScroll 完全一致，使用方法也完全相同
-
 
 
          scrollable 修饰符：

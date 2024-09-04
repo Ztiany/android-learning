@@ -1,4 +1,4 @@
-package me.ztiany.compose.learn.gesture
+package me.ztiany.compose.learn.gesture.highlevel
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

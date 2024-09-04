@@ -23,8 +23,9 @@ fun OrderOfModifierExample() {
 
     /*
         结论：
-            1. measure 的发起点是顶部的 LayoutModifier，终点是 measurePolicy，然后是从顶部一直传递到底部，再从底部依次执行 layout 向上返回测量结果。
-               因此，measure 的影响是顶从底部到顶部的，某个 Draw Modifier 受到其下游最近的 measure 的影响。
+            1. measure 的发起点是顶部的 LayoutModifier，终点是 measurePolicy，然后是从顶部一直传递到底部，
+                再从底部依次执行 layout 向上返回测量结果。因此，measure 的影响是顶从底部到顶部的，某个 DrawModifier
+                受到其下游最近的 measure 的影响。
             2. place 的顺序是也是一样。但是产生的影响是顶部到底下。最先产生影响的是顶部，每次 place 的效果都会叠加。
     */
     Layout({

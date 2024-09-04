@@ -144,9 +144,15 @@ private class WrapContentModifier(
                 constraints.maxHeight
             }
         )
+
+        Timber.d("WrapContentModifier($flag) constraints: $constraints")
+        Timber.d("WrapContentModifier($flag) wrappedConstraints: $wrappedConstraints")
         val placeable = measurable.measure(wrappedConstraints)
+        Timber.d("WrapContentModifier($flag) placeable: ${placeable.width} x ${placeable.height}")
         val wrapperWidth = placeable.width.coerceIn(constraints.minWidth, constraints.maxWidth)
         val wrapperHeight = placeable.height.coerceIn(constraints.minHeight, constraints.maxHeight)
+        Timber.d("WrapContentModifier($flag) wrapper: $wrapperWidth x $wrapperHeight")
+
         return layout(
             wrapperWidth,
             wrapperHeight
@@ -155,7 +161,10 @@ private class WrapContentModifier(
                 IntSize(wrapperWidth - placeable.width, wrapperHeight - placeable.height),
                 layoutDirection
             )
+            Timber.d("WrapContentModifier($flag) position: $position")
+            Timber.d("WrapContentModifier($flag) before place")
             placeable.place(position)
+            Timber.d("WrapContentModifier($flag) after place")
         }
     }
 
@@ -205,12 +214,18 @@ private class FillModifier(
             maxHeight = constraints.maxHeight
         }
 
+        Timber.d("FillModifier($flag) constraints: $constraints")
+        Timber.d("FillModifier($flag) measure: $minWidth x $minHeight - $maxWidth x $maxHeight")
+
         val placeable = measurable.measure(
             Constraints(minWidth, maxWidth, minHeight, maxHeight)
         )
+        Timber.d("FillModifier($flag) placeable: ${placeable.width} x ${placeable.height}")
 
         return layout(placeable.width, placeable.height) {
+            Timber.d("FillModifier($flag) before layout")
             placeable.placeRelative(0, 0)
+            Timber.d("FillModifier($flag) after layout")
         }
     }
 
@@ -236,7 +251,7 @@ private class Background(
 
     override fun ContentDrawScope.draw() {
         // 这里的 flag 最后打印是因为 draw 阶段确实实在 measure/layout 之后。
-        Timber.d("flag($flag) size: $size")
+        Timber.d("Background($flag) size: $size")
         if (shape === RectangleShape) {
             // shortcut to avoid Outline calculation and allocation
             drawRect()
@@ -366,9 +381,15 @@ private class SizeModifier(
                 )
             }
         }
+
+        Timber.d("SizeModifier($flag) constraints: $constraints")
+        Timber.d("SizeModifier($flag) wrappedConstraints: $wrappedConstraints")
         val placeable = measurable.measure(wrappedConstraints)
+        Timber.d("SizeModifier($flag) placeable: ${placeable.width} x ${placeable.height}")
         return layout(placeable.width, placeable.height) {
+            Timber.d("SizeModifier($flag) before layout")
             placeable.placeRelative(0, 0)
+            Timber.d("SizeModifier($flag) after layout")
         }
     }
 

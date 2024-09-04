@@ -64,7 +64,7 @@ Customizing the button's appearance and  colors?
 
 For interaction, refer to:
 
-1. https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions
+1. [handling-interactions](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions)
 2. https://medium.com/androiddevelopers/illuminating-interactions-visual-state-in-jetpack-compose-188fa041b791
 
 As of 1.7.0, RippleTheme has been deprecated. For more information, refer to:

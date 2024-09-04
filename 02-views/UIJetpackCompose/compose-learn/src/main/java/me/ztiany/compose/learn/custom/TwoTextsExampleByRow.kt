@@ -1,6 +1,12 @@
 package me.ztiany.compose.learn.custom
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,9 +26,9 @@ fun TwoTextsExampleByRow(
     height(IntrinsicSize.Min) 可将其子项的高度强行调整为最小固有高度。
 
                 （1）下面仅使用 Modifier.height(IntrinsicSize. Min) 为高度设置了固有特性测量，宽度并没有进行设置。
-                此时就表示当宽度不限定时，根据子组件预先测量的宽高信息所能计算的当前组件的高度来设置，最小可以是多少就设置多少。
+                此时就表示当高度不限定时，根据子组件预先测量的宽高信息所能计算的当前组件的高度来设置，最小可以是多少就设置多少。
 
-                （2）我们只能对已经适配固有特性测量的内置组件使用 IntrinsicSize. Min 或 IntrinsicSize. Max，否则程序运行时会 crash。
+                （2）我们只能对已经适配固有特性测量的内置组件使用 IntrinsicSize.Min 或 IntrinsicSize.Max，否则程序运行时会 crash。
      */
     Row(modifier = modifier.height(IntrinsicSize.Min)/*如果没有 IntrinsicSize.Min，则会占据整个高度空间*/) {
         Text(

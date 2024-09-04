@@ -1,15 +1,18 @@
-package me.ztiany.compose.learn.gesture.pointerinput.foreach
+package me.ztiany.compose.learn.gesture.pointerinput.awaiteach
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.forEachGesture
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventPass
-import androidx.compose.ui.input.pointer.consumeDownChange
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import timber.log.Timber
@@ -23,7 +26,13 @@ PointerInputScope 允许我们通过使用 awaitPointerEventScope 方法获得 A
 为返回值返回。
  */
 
-/** 演示 awaitPointerEvent 的使用*/
+/**
+ * 演示 awaitPointerEvent 的使用。
+ *
+ *  see:
+ *
+ *  - [Event propagation](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures#event-propagation)
+ */
 @Composable
 fun AwaitPointerEventViews() {
     /*
@@ -108,11 +117,9 @@ fun AwaitPointerEventViews() {
                 .size(250.dp)
                 // Clickable 修饰符用来监听组件的点击操作，并且当点击事件发生时，会为被点击的组件施加一个波纹涟漪效果动画的蒙层。
                 .pointerInput(Unit) {
-                    forEachGesture {
-                        awaitPointerEventScope {
-                            awaitPointerEvent(PointerEventPass.Main)
-                            Timber.d("layer 1")
-                        }
+                    awaitEachGesture {
+                        awaitPointerEvent(PointerEventPass.Main)
+                        Timber.d("layer 1")
                     }
                 }) {
 
@@ -126,11 +133,9 @@ fun AwaitPointerEventViews() {
                     .align(Alignment.Center)
                     // Clickable 修饰符用来监听组件的点击操作，并且当点击事件发生时，会为被点击的组件施加一个波纹涟漪效果动画的蒙层。
                     .pointerInput(Unit) {
-                        forEachGesture {
-                            awaitPointerEventScope {
-                                awaitPointerEvent(PointerEventPass.Main)
-                                Timber.d("layer 2")
-                            }
+                        awaitEachGesture {
+                            awaitPointerEvent(PointerEventPass.Main)
+                            Timber.d("layer 2")
                         }
                     }) {
 
@@ -144,11 +149,9 @@ fun AwaitPointerEventViews() {
                         .align(Alignment.Center)
                         // Clickable 修饰符用来监听组件的点击操作，并且当点击事件发生时，会为被点击的组件施加一个波纹涟漪效果动画的蒙层。
                         .pointerInput(Unit) {
-                            forEachGesture {
-                                awaitPointerEventScope {
-                                    awaitPointerEvent(PointerEventPass.Main)
-                                    Timber.d("layer 3")
-                                }
+                            awaitEachGesture {
+                                awaitPointerEvent(PointerEventPass.Main)
+                                Timber.d("layer 3")
                             }
                         }) {
 
@@ -162,23 +165,14 @@ fun AwaitPointerEventViews() {
                             .align(Alignment.Center)
                             // Clickable 修饰符用来监听组件的点击操作，并且当点击事件发生时，会为被点击的组件施加一个波纹涟漪效果动画的蒙层。
                             .pointerInput(Unit) {
-                                forEachGesture {
-                                    awaitPointerEventScope {
-                                        awaitPointerEvent(PointerEventPass.Main).changes[0].consumeDownChange()
-                                        Timber.d("layer 4")
-                                    }
+                                awaitEachGesture {
+                                    val t = awaitPointerEvent(PointerEventPass.Main).changes[0]
+                                    if (t.pressed != t.previousPressed) t.consume()
+                                    Timber.d("layer 4")
                                 }
-                            }) {
-
-
-                    }
-
+                            }) {}
                 }
-
             }
-
         }
-
     }
-
 }

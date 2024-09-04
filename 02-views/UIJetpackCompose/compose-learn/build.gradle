@@ -100,7 +100,17 @@ dependencies {
     implementation libs.square.retrofit
     implementation libs.square.retrofit.converter.gson
     implementation libs.google.gson
-    implementation libs.ztiany.simplehttp
-    implementation libs.ztiany.uistate
+    implementation(libs.ztiany.simplehttp) {
+        /*artifact {
+            name = 'android-simple-http'
+            extension = 'aar'
+        }*/
+    }
+    implementation(libs.ztiany.uistate){
+        /*artifact {
+            name = 'android-ui-state'
+            extension = 'aar'
+        }*/
+    }
     implementation libs.jakewharton.timber
 }

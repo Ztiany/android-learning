@@ -44,7 +44,7 @@ fun TwoTextsExampleBySubcomposeLayout(
 SubcomposeLayout 说明：
    （1）利用 SubcomposeLayout，可以做到将某个子组件的组合阶段延迟至其所依赖的同级子组件测量结束后进行，
             从而可以定制子组件间的组合、布局阶段顺序，以取代固有特性测量。
-   （2）使用 SubcomposeLayout 可以允许组件根据定制测量顺序直接相互作用影响，与固有特性测量具有本质的区别。
+   （2）使用 SubcomposeLayout 可以允许组件根据需求来定制测量的顺序，与固有特性测量具有本质的区别。
 
 对于这个需求，可以先测量两侧文本的高度，而后为 Divider 指定高度，再进行测量。与固有特性测量不同的是，在整个
 过程中父组件是没有参与的。
