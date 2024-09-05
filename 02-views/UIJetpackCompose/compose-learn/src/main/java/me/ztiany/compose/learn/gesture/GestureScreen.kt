@@ -22,6 +22,7 @@ import me.ztiany.compose.learn.gesture.pointerinput.awaiteach.AwaitFirstDownView
 import me.ztiany.compose.learn.gesture.pointerinput.awaiteach.AwaitPointerEventViews
 import me.ztiany.compose.learn.gesture.pointerinput.awaiteach.AwaitTouchSlopOrCancellationViews
 import me.ztiany.compose.learn.gesture.pointerinput.awaiteach.DragViews
+import me.ztiany.compose.learn.gesture.practice.GalleryScreen
 import me.ztiany.compose.learn.gesture.practice.IOSSpringExample
 import me.ztiany.compose.learn.gesture.practice.PullToRefreshExample
 
@@ -84,6 +85,7 @@ private val NavigationMaker = buildEntranceNavigation {
         newSection("Practice") {
             "iOS Spring" asTitleTo { IOSSpringExample() }
             "Custom PullToRefresh" asTitleTo { PullToRefreshExample() }
+            "Drag Selecting Gallery" asTitleTo { GalleryScreen() }
         }
     }
 
