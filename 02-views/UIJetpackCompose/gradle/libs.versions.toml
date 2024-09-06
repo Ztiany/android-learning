@@ -1,10 +1,13 @@
 [versions]
 agp = "8.5.2"
+
 kotlin = "1.9.24"
 coroutines = "1.8.0"
 ksp = "1.9.24-1.0.20"
+
 composeBom = "2024.08.00"
 accompanist = "0.34.0"
+
 appcompat = "1.7.0"
 activity = "1.9.1"
 fragment = "1.8.2"
@@ -19,6 +22,8 @@ hilt = '2.50'
 hiltExtension = '1.2.0'
 annotations = "1.8.2"
 datastore = "1.1.1"
+graphics = "1.0.1"
+
 retrofit = "2.11.0"
 
 [libraries]
@@ -37,6 +42,9 @@ androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-view
 androidx-ktx = { module = "androidx.core:core-ktx", version.ref = "ktx" }
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-graphics-core = { module = "androidx.graphics:graphics-core", version.ref = "graphics" }
+androidx-graphics-shapes = { module = "androidx.graphics:graphics-shapes", version.ref = "graphics" }
+androidx-graphics-path = { module = "androidx.graphics:graphics-path", version.ref = "graphics" }
 
 # paging
 androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }

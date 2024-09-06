@@ -23,6 +23,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -40,17 +41,17 @@ fun AnimatedContentText() {
     组件的出场与离场过渡动画，而 AnimatedContent 则是用来实现不同组件间的切换动画。
 
     AnimatedContent 参数上接收一个 targetState 和一个 content, content 是基于 targetState 创建的 Composable。当 targetState 变化时，
-    content 的内容也会随之变化。AnimatedContent 内部维护着 targetState 到 conent 的映射表，查找 targetState 新旧值对应的 content 后，
+    content 的内容也会随之变化。AnimatedContent 内部维护着 targetState 到 content 的映射表，查找 targetState 新旧值对应的 content 后，
     在 content 发生重组时附加动画效果。
      */
     Column {
-        var count by remember { mutableStateOf(0) }
+        var count by remember { mutableIntStateOf(0) }
 
         /*
         下面代码单击按钮触发 count 发生变化，AnimatedContent 中 Text 的重组会应用动画效果。需要注意的是 targetState 一定要在 content
         中被使用，否则当 targetState 变化时，只见动画，却不见内容的变化，视觉上会很奇怪。
          */
-        AnimatedContent(targetState = count) { targetCount ->
+        AnimatedContent(targetState = count, label = "AnimatedContentText") { targetCount ->
             // Make sure to use `targetCount`, not `count`.
             Text(text = "Count: $targetCount")
         }
@@ -65,9 +66,9 @@ fun AnimatedContentText() {
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AnimatedContentTextContentTransform() {
-    var count by remember { mutableStateOf(0) }
-    Column {
+    var count by remember { mutableIntStateOf(0) }
 
+    Column {
         /*
         AnimatedContent 默认动画是淡入淡出效果，还可以将 transitionSpec 参数指定为一个 ContentTransform 来自定义动画效果。
         ContentTransform 也是由 EnterTransition 与 ExitTransition 组合的，可以使用 with 中缀运算符将 EnterTransition 与 ExitTransition 组合起来。
@@ -78,7 +79,7 @@ fun AnimatedContentTextContentTransform() {
 
             从右到左切换，并伴随淡入淡出效果：
                 - EnterTransition：使用 slideInHorizontally，初始位置 initialOffsetX=width
-                - ExitTransition：使用slideOutHorizontally，目标位置 targetOffsetX=-width
+                - ExitTransition：使用 slideOutHorizontally，目标位置 targetOffsetX=-width
 
             从左到右切换，并伴随淡入淡出效果：
                 - EnterTransition：使用 slideInHorizontally，初始位置 initialOffsetX=-width
@@ -97,7 +98,8 @@ fun AnimatedContentTextContentTransform() {
                     // while the initial number slides down and fades out.
                     slideInVertically { height -> -height } + fadeIn() with (slideOutVertically { height -> height } + fadeOut())
                 }
-            }
+            },
+            label = "AnimatedContentTextContentTransform"
         ) { targetCount ->
             Text(text = "$targetCount")
         }

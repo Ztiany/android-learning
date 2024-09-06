@@ -60,6 +60,9 @@ dependencies {
     implementation libs.androidx.lifecycle.runtime.ktx
     implementation libs.androidx.lifecycle.viewmodel.ktx
     implementation libs.androidx.ktx
+    implementation libs.androidx.graphics.core
+    implementation libs.androidx.graphics.path
+    implementation libs.androidx.graphics.shapes
     implementation libs.google.ui.material
 
     implementation(platform(libs.compose.bom))
@@ -80,6 +83,7 @@ dependencies {
 
     implementation libs.kotlin.stdlib
     implementation libs.kotlin.reflect
+
     implementation libs.compose.activity
     implementation libs.compose.livedata
     implementation libs.compose.viewmodel
@@ -100,17 +104,7 @@ dependencies {
     implementation libs.square.retrofit
     implementation libs.square.retrofit.converter.gson
     implementation libs.google.gson
-    implementation(libs.ztiany.simplehttp) {
-        /*artifact {
-            name = 'android-simple-http'
-            extension = 'aar'
-        }*/
-    }
-    implementation(libs.ztiany.uistate){
-        /*artifact {
-            name = 'android-ui-state'
-            extension = 'aar'
-        }*/
-    }
+    implementation(libs.ztiany.simplehttp)
+    implementation(libs.ztiany.uistate)
     implementation libs.jakewharton.timber
 }

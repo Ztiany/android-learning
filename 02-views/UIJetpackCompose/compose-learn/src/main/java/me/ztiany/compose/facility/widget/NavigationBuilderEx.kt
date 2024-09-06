@@ -5,7 +5,6 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 
 fun buildEntranceNavigation(buildBlock: EntranceNavigationBuilder.() -> Unit) = EntranceNavigationBuilder().apply(buildBlock)
@@ -71,6 +70,7 @@ class EntranceListBuilder {
 
     fun newSection(header: String, entrances: EntranceListScope.() -> Unit) {
         _items.add(header)
+
         object : EntranceListScope {
             override fun entrance(name: String, asTitle: Boolean, screen: @Composable (NavBackStackEntry) -> Unit) {
                 val value: @Composable (NavBackStackEntry) -> Unit = if (asTitle) {
@@ -103,6 +103,7 @@ class EntranceListBuilder {
 @NavigationDsl
 interface EntranceListScope {
     fun entrance(name: String, asTitle: Boolean = false, screen: @Composable (NavBackStackEntry) -> Unit)
+
     infix fun String.to(screen: @Composable (NavBackStackEntry) -> Unit)
 
     infix fun String.asTitleTo(screen: @Composable (NavBackStackEntry) -> Unit)
@@ -117,11 +118,11 @@ class EntranceNavigationMaker(
 
     fun buildNavigation(navHostController: NavHostController, navGraphBuilder: NavGraphBuilder) {
         navGraphBuilder.navigation(route = routeName, startDestination = startDestination) {
-            composable(startDestination) {
+            composableWithScaleAnimation(startDestination) {
                 startScreen(buildEntrances(navHostController), it)
             }
             items.filterIsInstance<KeyComposable>().forEach {
-                composable(it.name) { navEntry -> it.screen(navEntry) }
+                composableWithScaleAnimation(it.name) { navEntry -> it.screen(navEntry) }
             }
         }
     }

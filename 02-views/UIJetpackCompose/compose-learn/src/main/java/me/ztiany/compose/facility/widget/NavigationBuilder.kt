@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
+
 
 fun buildEntrances(
     entrances: List<String>,
@@ -30,6 +30,12 @@ fun buildEntrances(
     }
 }
 
+/**
+ * Navigation 的使用：
+ *
+ * - [官方文档：Compose Navigation](https://developer.android.com/jetpack/compose/navigation)
+ * - [官方文档：Navigation Component](https://developer.android.com/guide/navigation)
+ */
 fun NavGraphBuilder.buildNavigation(
     withScaffold: Boolean = false,
     routeName: String,
@@ -38,7 +44,7 @@ fun NavGraphBuilder.buildNavigation(
     startScreen: @Composable (NavBackStackEntry) -> Unit,
 ) {
     navigation(startDestination = startDestination, route = routeName) {
-        composable(startDestination) {
+        composableWithSlidingAnimation(startDestination) {
             if (withScaffold) {
                 SimpleScaffold(title = startDestination) {
                     startScreen(it)
@@ -47,8 +53,9 @@ fun NavGraphBuilder.buildNavigation(
                 startScreen(it)
             }
         }
+
         for (entrance in entrances) {
-            composable(entrance.key) {
+            composableWithSlidingAnimation(entrance.key) {
                 if (withScaffold) {
                     SimpleScaffold(title = entrance.key) {
                         entrance.value(it)

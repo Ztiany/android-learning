@@ -1,12 +1,34 @@
 package me.ztiany.compose.learn.animation
 
-import androidx.compose.animation.*
-import androidx.compose.animation.core.*
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.EnterExitState
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -20,8 +42,8 @@ import androidx.compose.ui.unit.dp
 fun AnimatedVisibilityText() {
     var visible by remember { mutableStateOf(true) }
     val density = LocalDensity.current
-    Column(Modifier.fillMaxWidth(), horizontalAlignment = CenterHorizontally) {
 
+    Column(Modifier.fillMaxWidth(), horizontalAlignment = CenterHorizontally) {
         /*
         AnimatedVisibility 是一个容器类的 Composable，需要接收一个 Boolean 型的 visible 参数控制 content 是否可见，content 在出现与消失
         时，会伴随着过渡动画效果。
@@ -29,22 +51,28 @@ fun AnimatedVisibilityText() {
             （1）可以通过设置 EnterTransition 和 ExitTransition 来定制出场与离场过渡动画，当出场动画完成时，content 便会从视图树上移除。
             （2）默认情况下 EnterTransition 是 fadeIn+expandIn 的效果组合，ExitTransition 是 fadeOut+shrinkOut 的效果组合。
 
-        Compose 额外提供了 RowScope.AnimatedVisibility 和 ColumnScope. AnimatedVisibility 两个扩展方法，我们可以在 Row 或者 Column 中调用
+        Compose 额外提供了 RowScope.AnimatedVisibility 和 ColumnScope.AnimatedVisibility 两个扩展方法，我们可以在 Row 或者 Column 中调用
         AnimatedVisibility，该组件的默认过渡动画效果会根据父容器的布局特征进行调整，比如：
 
-                - 在 Row 中默认 EnterTransition 是fadeIn+expandHorizontally组合方案；
+                - 在 Row 中默认 EnterTransition 是fadeIn+expandHorizontally 组合方案；
                 - 在 Column 中默认 EnterTransition 则是 fadeIn+expandVertically 组合方案。
         */
-        AnimatedVisibility(visible = visible, enter = slideInVertically {
-            // Slide in from 40 dp from the top.
-            with(density) { -40.dp.roundToPx() }
-        } + expandVertically(
-            // Expand from the top.
-            expandFrom = Alignment.Top
-        ) + fadeIn(
-            // Fade in with the initial alpha of 0.3f.
-            initialAlpha = 0.3f
-        ), exit = slideOutVertically() + shrinkVertically() + fadeOut()) {
+        AnimatedVisibility(
+            visible = visible,
+            // 进入动画
+            enter = slideInVertically {
+                // Slide in from 40 dp from the top.
+                with(density) { -40.dp.roundToPx() }
+            } + expandVertically(
+                // Expand from the top.
+                expandFrom = Alignment.Top
+            ) + fadeIn(
+                // Fade in with the initial alpha of 0.3f.
+                initialAlpha = 0.3f
+            ),
+            // 退出动画
+            exit = slideOutVertically() + shrinkVertically() + fadeOut()) {
+            // 内部元素
             Text(
                 text = "Hello", textAlign = TextAlign.Center, modifier = Modifier
                     .fillMaxWidth()
@@ -140,8 +168,11 @@ fun AnimatedVisibilitySpecialChildren() {
         }
 
         AnimatedVisibility(
-            visible = visible, enter = fadeIn(), exit = fadeOut()
+            visible = visible,
+            enter = fadeIn(),
+            exit = fadeOut()
         ) {
+
             // Fade in/out the background and the foreground.
             Box(
                 Modifier
@@ -160,7 +191,8 @@ fun AnimatedVisibilitySpecialChildren() {
                         */
                         .animateEnterExit(
                             // Slide in/out the inner box.
-                            enter = slideInVertically(), exit = slideOutVertically()
+                            enter = slideInVertically(),
+                            exit = slideOutVertically()
                         )
                         .sizeIn(minWidth = 256.dp, minHeight = 64.dp)
                         .background(Color.Red)

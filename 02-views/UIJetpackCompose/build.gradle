@@ -33,5 +33,15 @@ allprojects {
                 libs.kotlin.stdlib,
                 libs.kotlinx.coroutines,
         )
+
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.github.Ztiany'){
+                println("Forcing version for ${details.requested}}")
+            }
+            /*if (details.requested.group == 'com.github.Ztiany') {
+                details.useTarget group: 'com.github.Ztiany', name: "${details.requested.name}", version: 'Tag', ext: 'aar'
+            }*/
+        }
+
     }
 }
