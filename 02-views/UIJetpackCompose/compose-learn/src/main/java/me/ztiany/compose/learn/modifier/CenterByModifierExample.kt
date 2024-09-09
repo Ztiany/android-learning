@@ -30,6 +30,7 @@ fun CenterByModifierExample() {
     Box(
         Modifier
             .fillMaxSizeCopy("1")
+            .background(Color.Red)
             .wrapContentSizeCopy("2")
             .onSizeChanged {
                 Timber.d("onSizeChanged: $it")

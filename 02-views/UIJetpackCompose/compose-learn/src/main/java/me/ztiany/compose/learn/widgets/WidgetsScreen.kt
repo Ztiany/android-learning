@@ -19,34 +19,39 @@ fun WidgetsScreen() {
             .verticalScroll(rememberScrollState())
             .padding(10.dp)
     ) {
-        //Text
+        // Text
         ExampleArea(exampleName = "Text") {
             TextExample(context)
         }
 
-        //TextFiled
+        // TextFiled
         ExampleArea(exampleName = "TextFiled") {
             TextFiledExample()
         }
 
-        //Icon
+        // Icon
         ExampleArea(exampleName = "Icon") {
             IconExample(context)
         }
 
-        //Button
+        // Button
         ExampleArea(exampleName = "Button") {
             ButtonExample()
         }
 
-        //Slider
+        // Slider
         ExampleArea(exampleName = "Slider") {
             SliderExample(context)
         }
 
-        //Image
+        // Image
         ExampleArea(exampleName = "Image") {
             ImageExample(context)
+        }
+
+        // Shape
+        ExampleArea(exampleName = "Shape and Polygon") {
+            PolygonalExample(context)
         }
     }
 }
