@@ -20,6 +20,7 @@ private val NavigationMaker = buildEntranceNavigation {
         newSection("Modifier 的执行顺序") {
             "Center by Modifier" to { CenterByModifierExample() }
             "Order of Modifier" to { OrderOfModifierExample() }
+            "Background Size" to { BackgroundSizeSample() }
         }
         newSection("UI 效果相关的 Modifier") {
             "Marquee" asTitleTo { MarqueeExample() }
