@@ -14,41 +14,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Color(0xFFD0BCFF),
-    secondary = Color(0xFFCCC2DC),
-    tertiary = Color(0xFFEFB8C8)
+    primary = Color(0xFFF26527),
+    background = Color(0xFFF3F3F3),
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Color(0xFFF26527),
-    secondary = Color(0xFFFC8C5A),
-    tertiary = Color(0xFF7D5260),
+    inversePrimary = Color(0xFFB3E5FC),
+
+    secondary = Color(0xFF5993F2),
+    tertiary = Color(0xFFF44766),
+
     background = Color(0xFFF3F3F3),
+
+    surface = Color(0xFFF5F5F5)
 )
 
 private val LightAppColorScheme = AppColorScheme(
     lightest = Color.White,
-    lightest90 = Color(0xE6FFFFFF),
-    lightest80 = Color(0xCCFFFFFF),
-    lightest70 = Color(0xB3FFFFFF),
-    lightest60 = Color(0x99FFFFFF),
-    lightest50 = Color(0x80FFFFFF),
-    lightest40 = Color(0x66FFFFFF),
-    lightest30 = Color(0x4DFFFFFF),
-    lightest20 = Color(0x33FFFFFF),
-    lightest10 = Color(0x1AFFFFFF),
-
-    deepest = Color.White,
-    deepest90 = Color(0xE6000000),
-    deepest80 = Color(0xCC000000),
-    deepest70 = Color(0xB3000000),
-    deepest60 = Color(0x99000000),
-    deepest50 = Color(0x80000000),
-    deepest40 = Color(0x66000000),
-    deepest30 = Color(0x4D000000),
-    deepest20 = Color(0x33000000),
-    deepest10 = Color(0x1A000000),
-
+    deepest = Color.Blue,
     textLevel1 = Color(0xFF333333),
     textLevel2 = Color(0xFF666666),
     textLevel3 = Color(0xFF999999),

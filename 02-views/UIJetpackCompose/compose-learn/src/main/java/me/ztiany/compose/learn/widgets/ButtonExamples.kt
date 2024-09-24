@@ -27,11 +27,15 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -95,7 +99,24 @@ private fun NormalButtons() {
         Spacer(modifier = Modifier.size(5.dp))
         CustomMaterialButton()
     }
-
+    Row {
+        TextButton(onClick = {}) {
+            Text("Text Button")
+        }
+        Spacer(modifier = Modifier.size(5.dp))
+        OutlinedButton(onClick = {}) {
+            Text("Outlined Button")
+        }
+    }
+    Row {
+        ElevatedButton(onClick = {}) {
+            Text("Elevated Button")
+        }
+        Spacer(modifier = Modifier.size(5.dp))
+        FilledTonalButton(onClick = {}) {
+            Text("FilledTonal Button")
+        }
+    }
 }
 
 @Composable

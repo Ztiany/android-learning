@@ -28,6 +28,7 @@ import me.ztiany.compose.learn.layout.navigateToLayouts
 import me.ztiany.compose.learn.modifier.navigateToModifier
 import me.ztiany.compose.learn.sideeffect.navigateToSideEffect
 import me.ztiany.compose.learn.state.navigateToStateManaging
+import me.ztiany.compose.learn.theme.navigateToTheme
 import me.ztiany.compose.learn.widgets.navigateToWidgets
 import me.ztiany.compose.platform.navigateToPlatform
 import me.ztiany.compose.practice.navigateToPractice
@@ -84,6 +85,8 @@ private fun buildEntrances(navController: NavController): List<Item> {
         Entrance("Basic Dialog") { navController.navigateToDialogs() },
         // 学习自定义布局与绘制 API
         Entrance("Custom Draw&Layout") { navController.navigateToCustomDrawAndLayout() },
+        // Theme
+        Entrance("Theme") { navController.navigateToTheme() },
 
         //UI 交互
         Header("UI Interaction"),
