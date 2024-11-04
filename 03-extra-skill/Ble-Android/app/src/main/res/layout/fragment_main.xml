@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ble_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BLE Client" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ble_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="BLE Server" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ccb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Classic Bluetooth" />
+
+</LinearLayout>
