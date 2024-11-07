@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ShapeableRecyclerView">
+        <attr name="shapeAppearance" />
+        <attr name="shapeAppearanceOverlay" />
+        <attr name="msd_strokeWidth" />
+        <attr name="msd_clip_to_outline" />
+
+        <attr name="msd_strokeColor_disabled" />
+        <attr name="msd_strokeColor_focused" />
+        <attr name="msd_strokeColor_checked" />
+        <attr name="msd_strokeColor_selected" />
+        <attr name="msd_strokeColor_pressed" />
+        <attr name="msd_strokeColor_normal" />
+
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_focused" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
+    </declare-styleable>
+
+    <declare-styleable name="ShapeableScrollView">
+        <attr name="shapeAppearance" />
+        <attr name="shapeAppearanceOverlay" />
+        <attr name="msd_strokeWidth" />
+        <attr name="msd_clip_to_outline" />
+
+        <attr name="msd_strokeColor_disabled" />
+        <attr name="msd_strokeColor_focused" />
+        <attr name="msd_strokeColor_checked" />
+        <attr name="msd_strokeColor_selected" />
+        <attr name="msd_strokeColor_pressed" />
+        <attr name="msd_strokeColor_normal" />
+
+        <attr name="msd_backgroundColor_disabled" />
+        <attr name="msd_backgroundColor_focused" />
+        <attr name="msd_backgroundColor_checked" />
+        <attr name="msd_backgroundColor_selected" />
+        <attr name="msd_backgroundColor_pressed" />
+        <attr name="msd_backgroundColor_normal" />
+    </declare-styleable>
+
+</resources>

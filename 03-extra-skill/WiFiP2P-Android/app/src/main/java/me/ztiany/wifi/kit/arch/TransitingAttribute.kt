@@ -1,4 +1,4 @@
-package me.ztiany.bt.kit.arch
+package me.ztiany.wifi.kit.arch
 
 import android.graphics.drawable.Drawable
 
