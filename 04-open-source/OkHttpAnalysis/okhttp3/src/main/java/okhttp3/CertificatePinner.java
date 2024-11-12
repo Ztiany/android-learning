@@ -126,6 +126,7 @@ import static okhttp3.internal.Util.equal;
  * Certificate and Public Key Pinning</a>
  */
 public final class CertificatePinner {
+
   public static final CertificatePinner DEFAULT = new Builder().build();
 
   private final Set<Pin> pins;

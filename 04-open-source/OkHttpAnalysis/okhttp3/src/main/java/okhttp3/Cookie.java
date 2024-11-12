@@ -44,6 +44,7 @@ import static okhttp3.internal.Util.verifyAsIpAddress;
  * extension</a>.
  */
 public final class Cookie {
+
   private static final Pattern YEAR_PATTERN
       = Pattern.compile("(\\d{2,4})[^\\d]*");
   private static final Pattern MONTH_PATTERN

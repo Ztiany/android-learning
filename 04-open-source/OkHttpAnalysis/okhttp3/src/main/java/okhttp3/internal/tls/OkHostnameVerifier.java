@@ -47,6 +47,7 @@ public final class OkHostnameVerifier implements HostnameVerifier {
   public boolean verify(String host, SSLSession session) {
     try {
       Certificate[] certificates = session.getPeerCertificates();
+      // 证书链的第一个是服务器证书，其他的是中间证书，比如中级 CA 证书，根证书。
       return verify(host, (X509Certificate) certificates[0]);
     } catch (SSLException e) {
       return false;
