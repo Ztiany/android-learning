@@ -10,6 +10,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
     implementation 'com.alibaba:fastjson:1.2.48'
 }
+
 android {
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILDTOOLS_VERSION
@@ -36,7 +37,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         lintOptions { abortOnError false }
     }
+
 }

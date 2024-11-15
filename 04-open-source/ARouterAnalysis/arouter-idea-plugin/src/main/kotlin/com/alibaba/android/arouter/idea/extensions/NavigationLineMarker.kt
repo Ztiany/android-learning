@@ -24,6 +24,7 @@ import java.awt.event.MouseEvent
  * @since 2018/12/13 12:30 PM
  */
 class NavigationLineMarker : LineMarkerProviderDescriptor(), GutterIconNavigationHandler<PsiElement> {
+
     override fun getName(): String? {
         return "ARouter Location"
     }
@@ -46,11 +47,9 @@ class NavigationLineMarker : LineMarkerProviderDescriptor(), GutterIconNavigatio
 
                 val targetPath = psiExpressionList.expressions[0].text.replace("\"", "")
                 val fullScope = GlobalSearchScope.allScope(psiElement.project)
-                val routeAnnotationWrapper = AnnotatedMembersSearch.search(getAnnotationWrapper(psiElement, fullScope)
-                        ?: return, fullScope).findAll()
+                val routeAnnotationWrapper = AnnotatedMembersSearch.search(getAnnotationWrapper(psiElement, fullScope) ?: return, fullScope).findAll()
                 val target = routeAnnotationWrapper.find {
-                    it.modifierList?.annotations?.map { it.findAttributeValue("path")?.text?.replace("\"", "") }?.contains(targetPath)
-                            ?: false
+                    it.modifierList?.annotations?.map { it.findAttributeValue("path")?.text?.replace("\"", "") }?.contains(targetPath) ?: false
                 }
 
                 if (null != target) {
@@ -124,4 +123,5 @@ class NavigationLineMarker : LineMarkerProviderDescriptor(), GutterIconNavigatio
 
     // I'm 100% sure this point can not made memory leak.
     private var routeAnnotationWrapper: PsiClass? = null
+
 }

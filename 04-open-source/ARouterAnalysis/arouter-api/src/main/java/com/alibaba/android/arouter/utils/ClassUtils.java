@@ -50,7 +50,8 @@ public class ClassUtils {
     private static final int VM_WITH_MULTIDEX_VERSION_MINOR = 1;
 
     private static SharedPreferences getMultiDexPreferences(Context context) {
-        return context.getSharedPreferences(PREFS_FILE, Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB ? Context.MODE_PRIVATE : Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
+        return context.getSharedPreferences(PREFS_FILE, Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB ?
+                Context.MODE_PRIVATE : Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
     }
 
     /**
@@ -67,7 +68,7 @@ public class ClassUtils {
         final CountDownLatch parserCtl = new CountDownLatch(paths.size());
 
         for (final String path : paths) {
-
+            Log.i("ARouter", "path = " + path);
             DefaultPoolExecutor.getInstance().execute(new Runnable() {
                 @Override
                 public void run() {
@@ -128,10 +129,8 @@ public class ClassUtils {
         //the prefix of extracted file, ie: test.classes
         String extractedFilePrefix = sourceApk.getName() + EXTRACTED_NAME_EXT;
 
-        //如果VM已经支持了MultiDex，就不要去 Secondary Folder 加载 Classesx.zip了，那里已经么有了
+        // 如果VM已经支持了 MultiDex，就不要去 Secondary Folder 加载 Classesx.zip了，那里已经么有了
         // 通过是否存在 sp 中的 multidex.version 是不准确的，因为从低版本升级上来的用户，是包含这个 sp 配置的
-
-
         boolean vmMultidexCapable = isVMMultidexCapable();
 
         Log.d(TAG, "getSourcePaths vmMultidexCapable = " + vmMultidexCapable);//true or false
@@ -232,7 +231,8 @@ public class ClassUtils {
                             int major = Integer.parseInt(matcher.group(1));
                             int minor = Integer.parseInt(matcher.group(2));
                             isMultidexCapable =
-                                    (major > VM_WITH_MULTIDEX_VERSION_MAJOR) || ((major == VM_WITH_MULTIDEX_VERSION_MAJOR) && (minor >= VM_WITH_MULTIDEX_VERSION_MINOR));
+                                    (major > VM_WITH_MULTIDEX_VERSION_MAJOR) ||
+                                            ((major == VM_WITH_MULTIDEX_VERSION_MAJOR) && (minor >= VM_WITH_MULTIDEX_VERSION_MINOR));
                         } catch (NumberFormatException ignore) {
                             // let isMultidexCapable be false
                         }

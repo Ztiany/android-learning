@@ -16,6 +16,7 @@
 package com.example.retrofit;
 
 import java.io.IOException;
+
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -27,59 +28,63 @@ import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Url;
 
-/** This example prints HTTP call metrics with the initiating method names and arguments. */
+/**
+ * This example prints HTTP call metrics with the initiating method names and arguments.
+ */
 public final class InvocationMetrics {
-  public interface Browse {
-    @GET("/robots.txt")
-    Call<ResponseBody> robots();
 
-    @GET("/favicon.ico")
-    Call<ResponseBody> favicon();
+    public interface Browse {
+        @GET("/robots.txt")
+        Call<ResponseBody> robots();
 
-    @GET("/")
-    Call<ResponseBody> home();
+        @GET("/favicon.ico")
+        Call<ResponseBody> favicon();
 
-    @GET
-    Call<ResponseBody> page(@Url String path);
-  }
+        @GET("/")
+        Call<ResponseBody> home();
 
-  static final class InvocationLogger implements Interceptor {
-    @Override
-    public Response intercept(Chain chain) throws IOException {
-      Request request = chain.request();
-      long startNanos = System.nanoTime();
-      Response response = chain.proceed(request);
-      long elapsedNanos = System.nanoTime() - startNanos;
-
-      Invocation invocation = request.tag(Invocation.class);
-      if (invocation != null) {
-        System.out.printf(
-            "%s.%s %s HTTP %s (%.0f ms)%n",
-            invocation.method().getDeclaringClass().getSimpleName(),
-            invocation.method().getName(),
-            invocation.arguments(),
-            response.code(),
-            elapsedNanos / 1_000_000.0);
-      }
-
-      return response;
+        @GET
+        Call<ResponseBody> page(@Url String path);
     }
-  }
 
-  public static void main(String... args) throws IOException {
-    InvocationLogger invocationLogger = new InvocationLogger();
+    static final class InvocationLogger implements Interceptor {
 
-    OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(invocationLogger).build();
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request request = chain.request();
+            long startNanos = System.nanoTime();
+            Response response = chain.proceed(request);
+            long elapsedNanos = System.nanoTime() - startNanos;
 
-    Retrofit retrofit =
-        new Retrofit.Builder().baseUrl("https://square.com/").callFactory(okHttpClient).build();
+            Invocation invocation = request.tag(Invocation.class);
+            if (invocation != null) {
+                System.out.printf(
+                        "%s.%s %s HTTP %s (%.0f ms)%n",
+                        invocation.method().getDeclaringClass().getSimpleName(),
+                        invocation.method().getName(),
+                        invocation.arguments(),
+                        response.code(),
+                        elapsedNanos / 1_000_000.0);
+            }
 
-    Browse browse = retrofit.create(Browse.class);
+            return response;
+        }
+    }
 
-    browse.robots().execute();
-    browse.favicon().execute();
-    browse.home().execute();
-    browse.page("sitemap.xml").execute();
-    browse.page("notfound").execute();
-  }
+    public static void main(String... args) throws IOException {
+        InvocationLogger invocationLogger = new InvocationLogger();
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(invocationLogger).build();
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://square.com/").callFactory(okHttpClient).build();
+
+        Browse browse = retrofit.create(Browse.class);
+
+        browse.robots().execute();
+        browse.favicon().execute();
+        browse.home().execute();
+        browse.page("sitemap.xml").execute();
+        browse.page("notfound").execute();
+    }
+
 }

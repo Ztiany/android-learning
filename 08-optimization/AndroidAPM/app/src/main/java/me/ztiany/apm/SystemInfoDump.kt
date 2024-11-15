@@ -18,7 +18,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-
 /**
  * 开启严苛模式
  */
@@ -114,12 +113,12 @@ internal fun dumpSystemInfo() {
         // freeMemory 部分内存指的是在 JVM 的堆中，已经分配给 JVM 但当前没有被任何 Java 对象使用的内存。这部分内存是随时可用于新对象分配的。
         appendLine().append("FreeMemory         : ").append(Formatter.formatFileSize(get(), runtime.freeMemory()))
         appendLine().append("UsedMemory         : ").append(Formatter.formatFileSize(get(), runtime.totalMemory() - runtime.freeMemory()))
-        appendLine().append("UsedPercent        : ").append((runtime.totalMemory() - runtime.freeMemory()) * 1.0F / runtime.maxMemory() * 100)
+        appendLine().append("UsedPercent        : ").append((runtime.totalMemory() - runtime.freeMemory()) * 1.0F / runtime.maxMemory() * 100).append("%")
 
 
         // 获取已经申请的 Native 内存
         appendLine().append("NativeHeapSize     : ").append(Formatter.formatFileSize(get(), Debug.getNativeHeapSize()))
-        //获取申请但未使用 Native 内存
+        // 获取申请但未使用 Native 内存
         appendLine().append("NativeHeapFreeSize : ").append(Formatter.formatFileSize(get(), Debug.getNativeHeapFreeSize()))
         appendLine().append("NativePrivateDirty : ").append(Formatter.formatFileSize(get(), nativeMemoryInfo.nativePrivateDirty * 1024L))
         appendLine().append("NativePss          : ").append(Formatter.formatFileSize(get(), nativeMemoryInfo.nativePss * 1024L))

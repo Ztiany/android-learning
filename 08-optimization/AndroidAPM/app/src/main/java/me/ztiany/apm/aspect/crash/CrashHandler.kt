@@ -7,18 +7,12 @@ import me.ztiany.apm.dumpSystemInfo
 import timber.log.Timber
 import java.util.concurrent.ConcurrentHashMap
 
-interface CrashProcessor {
-
-    /**
-     * @return true if the crash is totally handled, false otherwise.
-     */
-    fun uncaughtException(thread: Thread, ex: Throwable): Boolean
-}
+typealias CrashProcessor = (thread: Thread, ex: Throwable) -> Boolean
 
 /**
  * 通过注册 CrashProcessor 可以监控所有的异常，包括未捕获的异常，因此可以利用它来监控 OOM 的次数和发生 OOM 时后的内存使用情况。
  */
-internal class CrashHandler {
+internal class CrashHandler(private val app: Application) {
 
     private val handlers = ConcurrentHashMap<Class<out Throwable>, CrashProcessor>()
 
@@ -26,7 +20,7 @@ internal class CrashHandler {
         handlers[clazz] = crashProcessor
     }
 
-    fun install(app: Application) {
+    fun install() {
         Thread.currentThread().uncaughtExceptionHandler = Thread.UncaughtExceptionHandler { t, e ->
             dispatchOrHandleCrash(app, t, e)
         }
@@ -36,7 +30,7 @@ internal class CrashHandler {
         Timber.e(throwable, "dispatchOrHandleCrash")
         // 先让注册的处理器处理
         handlers[throwable::class.java]?.let {
-            if (it.uncaughtException(thread, throwable)) {
+            if (it(thread, throwable)) {
                 return
             }
         }

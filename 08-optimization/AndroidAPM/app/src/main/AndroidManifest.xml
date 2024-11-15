@@ -25,6 +25,11 @@
         </activity>
 
         <activity android:name="me.ztiany.apm.scene.memory.MemorySceneActivity" />
+        <activity android:name="me.ztiany.apm.scene.memory.MemoryLeakActivity" />
+        <activity android:name="me.ztiany.apm.scene.memory.MemoryShakeActivity" />
+        <activity android:name="me.ztiany.apm.scene.bitmap.BitmapSceneActivity" />
+        <activity android:name="me.ztiany.apm.scene.bitmap.ExcessiveBitmapActivity" />
+        <activity android:name="me.ztiany.apm.scene.throttle.ThrottleClickActivity" />
 
 
     </application>

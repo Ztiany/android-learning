@@ -13,4 +13,5 @@ public class TestNormalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_normal);
     }
+
 }

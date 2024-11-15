@@ -3,15 +3,14 @@ buildscript {
     ext.arouter_register_version = '1.0.2'
 
     repositories {
-        maven {
-            url "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-        maven {
-            url 'http://dl.bintray.com/jetbrains/intellij-plugin-service'
-        }
+        maven {url "https://maven.aliyun.com/repository/gradle-plugin"}
+        maven {url "https://maven.aliyun.com/repository/public"}
+        maven {url "https://maven.aliyun.com/repository/central"}
+        maven {url "https://oss.sonatype.org/content/repositories/snapshots/"}
+        maven {url 'http://dl.bintray.com/jetbrains/intellij-plugin-service'}
         mavenCentral()
-        jcenter()
         google()
+        jcenter()
     }
 
     dependencies {
@@ -26,7 +25,11 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        maven {url "https://maven.aliyun.com/repository/gradle-plugin"}
+        maven {url "https://maven.aliyun.com/repository/public"}
+        maven {url "https://maven.aliyun.com/repository/central"}
+        mavenCentral()
         google()
+        jcenter()
     }
 }

@@ -1,0 +1,29 @@
+{
+  "legalImage": {
+    "enabled": true,
+    "replacements": {
+      "android/widget/ImageView": "me/ztiany/apm/aspect/bitmap/MonitorImageView",
+      "androidx/appcompat/widget/AppCompatImageView": "me/ztiany/apm/aspect/bitmap/MonitorAppCompatImageView"
+    }
+  },
+  "viewThrottle": {
+    "enabled": true,
+    "checker": {
+      "className": "me/ztiany/apm/aspect/throttle/ClickThrottler",
+      "methodName": "check"
+    },
+    "includeAnnotationName": "Lme/ztiany/apm/aspect/throttle/ThrottleClick;",
+    "excludeAnnotationName": "",
+    "basePackages": [
+      "me.ztiany.apm"
+    ],
+    "hookPoints": [
+      {
+        "className": "android/view/View$OnClickListener",
+        "methodName": "onClick",
+        "nameWithDesc": "onClick(Landroid/view/View;)V",
+        "interfaceSignSuffix": "Landroid/view/View$OnClickListener;"
+      }
+    ]
+  }
+}

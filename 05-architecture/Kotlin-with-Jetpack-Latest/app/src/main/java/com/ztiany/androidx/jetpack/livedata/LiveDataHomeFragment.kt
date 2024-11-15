@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
-import com.ztiany.androidx.kotlin.databinding.LifecycleFragmentHomeBinding
 import com.ztiany.androidx.kotlin.databinding.LivedataFragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,9 +26,9 @@ class LiveDataHomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
         binding = LivedataFragmentHomeBinding.inflate(inflater, container, false)
         return binding?.root

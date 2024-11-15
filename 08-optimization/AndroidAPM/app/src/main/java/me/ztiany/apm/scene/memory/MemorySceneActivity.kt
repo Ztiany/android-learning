@@ -1,14 +1,13 @@
 package me.ztiany.apm.scene.memory
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import me.ztiany.apm.databinding.MemoryActivityTrackerBinding
+import me.ztiany.apm.databinding.MemoryActivityMainBinding
 
 class MemorySceneActivity : AppCompatActivity() {
 
-    private lateinit var binding: MemoryActivityTrackerBinding
+    private lateinit var binding: MemoryActivityMainBinding
 
     private val memoryAllocation by lazy {
         MemoryAllocation()
@@ -16,12 +15,28 @@ class MemorySceneActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MemoryActivityTrackerBinding.inflate(layoutInflater)
+        binding = MemoryActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpView()
     }
 
     private fun setUpView() = with(binding) {
+        btnOpenMemoryLeak.setOnClickListener {
+            startActivity(Intent(this@MemorySceneActivity, MemoryLeakActivity::class.java))
+        }
+
+        btnOpenJavaHeapShake.setOnClickListener {
+            startActivity(Intent(this@MemorySceneActivity, MemoryShakeActivity::class.java))
+        }
+
+        btnMakeJavaHeapOom.setOnClickListener {
+            buildList {
+                repeat(1000) {
+                    add(ByteArray(1024 * 1024 * 10))
+                }
+            }
+        }
+
         btnAllocateJavaMemory.setOnClickListener {
             memoryAllocation.allocateJavaMemory()
         }
@@ -36,20 +51,6 @@ class MemorySceneActivity : AppCompatActivity() {
 
         btnFreeNativeMemory.setOnClickListener {
             memoryAllocation.freeNativeMemory()
-        }
-
-        btnMakeJavaHeapOom.setOnClickListener {
-            buildList {
-                repeat(1000) {
-                    add(ByteArray(1024 * 1024 * 10))
-                }
-            }
-        }
-    }
-
-    companion object {
-        fun start(starter: Activity) {
-            starter.startActivity(Intent(starter, MemorySceneActivity::class.java))
         }
     }
 

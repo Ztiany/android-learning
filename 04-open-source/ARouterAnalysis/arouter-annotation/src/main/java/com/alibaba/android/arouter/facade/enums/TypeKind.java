@@ -1,7 +1,7 @@
 package com.alibaba.android.arouter.facade.enums;
 
 /**
- * Kind of field type.
+ * Kind of field type. 字段类型。
  *
  * @author Alex <a href="mailto:zhilong.liu@aliyun.com">Contact me.</a>
  * @version 1.0

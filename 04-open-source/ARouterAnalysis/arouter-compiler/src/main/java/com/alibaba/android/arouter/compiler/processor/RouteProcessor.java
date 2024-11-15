@@ -112,7 +112,6 @@ public class RouteProcessor extends BaseProcessor {
             try {
                 logger.info(">>> Found routes, start... <<<");
                 this.parseRoutes(routeElements);
-
             } catch (Exception e) {
                 logger.error(e);
             }
@@ -474,4 +473,5 @@ public class RouteProcessor extends BaseProcessor {
 
         return true;
     }
+
 }

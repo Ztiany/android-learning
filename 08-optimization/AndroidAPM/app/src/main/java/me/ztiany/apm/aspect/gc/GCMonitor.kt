@@ -1,23 +1,25 @@
 package me.ztiany.apm.aspect.gc
 
+import android.app.Application
 import android.os.Build
 import android.os.Debug
 import androidx.annotation.RequiresApi
-import me.ztiany.apm.App
 import timber.log.Timber
 
 /**
  * GC 可以概括为两种类型：阻塞式和非阻塞式。阻塞式 GC 是指在进行 GC 时，会阻塞 GC 发起线程；而非阻塞 GC 是指并发进行 GC，不会显示阻塞其他线程。
  */
-internal class GCMonitor {
+internal class GCMonitor(private val app: Application) {
 
-    fun install(app: App) {
+    fun install() {
         monitorGC()
         monitorHeapTaskDaemon()
     }
 
     private fun monitorGC() {
         // 我们可以通过 `Debug.getRuntimeStat` 获取到应用当前的 GC 次数和耗时：
+        //      blockGcCount，blockGcTime 是应用从启动到查询时阻塞式 gc 的次数和时长；
+        //      gcCount，gcTime 就是应用从启动到查询时的非阻塞次数和时长。
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val gcCount: Long = getGcInfoSafely("art.gc.gc-count")
             val gcTime: Long = getGcInfoSafely("art.gc.gc-time")
@@ -34,7 +36,7 @@ internal class GCMonitor {
         return try {
             Debug.getRuntimeStat(info).toLong()
         } catch (throwable: Throwable) {
-            throwable.printStackTrace()
+            Timber.e(throwable, "getGcInfoSafely")
             -1
         }
     }
@@ -50,6 +52,11 @@ internal class GCMonitor {
      */
     private fun monitorHeapTaskDaemon() {
 
+    }
+
+    fun dump() {
+        monitorGC()
+        monitorHeapTaskDaemon()
     }
 
 

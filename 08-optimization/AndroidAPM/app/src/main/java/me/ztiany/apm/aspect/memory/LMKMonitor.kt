@@ -6,6 +6,7 @@ import android.app.Application
 import android.content.Context
 import android.os.Build
 import android.os.Process
+import me.ztiany.apm.App
 import timber.log.Timber
 import java.io.File
 
@@ -13,11 +14,17 @@ import java.io.File
 /**
  * 监控被 LMK 杀死的次数。
  */
-class LMKMonitor {
+class LMKMonitor(private val app: Application) {
 
-    fun install(app: Application) {
+    fun install() {
         getExistReason(app)
         observeOOMScore(app)
+        observeMemoryClassification(app)
+        App.crashHandler.registerCrashProcessor(OutOfMemoryError::class.java) { thread: Thread, ex: Throwable ->
+            // 记录当前内存使用数据并上报
+            Timber.e(ex, "OutOfMemoryError: ${thread.name}")
+            false
+        }
     }
 
     /**
@@ -46,7 +53,6 @@ class LMKMonitor {
         Timber.d("process importance: ${processInfo.importance} , lastTrimLevel: ${processInfo.lastTrimLevel}")
     }
 
-
     /**
      * 获取应用被 LMK 强杀的原因。
      */
@@ -59,7 +65,7 @@ class LMKMonitor {
              */
 
             val processExitReasons = systemService.getHistoricalProcessExitReasons(app.packageName, 0, 100)
-            // ApplicationExitInfo.REASON_LOW_MEMORY
+            // 当被 LMK 强杀后，进程的退出原因是 `REASON_LOW_MEMORY`。因此每次启动后查询退出记录，我们就能获取到应用不同版本的 LMK 强杀次数。
             processExitReasons.forEach {
                 Timber.d("processExitReasons: $it")
             }
@@ -69,6 +75,28 @@ class LMKMonitor {
             // 因此在低于 Android 11 的手机上，在崩溃时上报最近的 Logcat 数据，分析其中是否有 `Killing pid:package (adj xxx)` 等关键字，也可以得到出被强杀的数据。
             // TODO: 2021/8/17 通过读取 Logcat 日志，获取应用被 LMK 强杀的信息。
         }
+    }
+
+    /**
+    要提升应用的后台存活时长，我们可以根据设备的配置，采取不同的内存使用策略，比如根据内存调整缓存的大小，或者根据内存调整后台任务的执行频率等。
+
+    ActivityManager 为我们提供了查询当前设备是否为低内存设备的 API：
+
+    ActivityManager.isLowRamDevice
+
+    当设备运行内存小于等于 1GB 时，这个 API 返回 true。有时候我们需要更灵活的判断标准，那就需要获取到设备的真实运行内存及剩余可用。我们可以通过 `ActivityManager.getMemoryInfo` 查询设备的物理内存上限及剩余。
+
+    我们在发现某个版本的 LMK 指标劣化后，可以结合 getMemoryInfo 中的四个数据，调整下个版本的使用策略，从而减少触发 LMK 的概率。
+     */
+    private fun observeMemoryClassification(app: Application) {
+        val systemService = app.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        Timber.d("isLowRamDevice: ${systemService.isLowRamDevice}")
+    }
+
+    fun dump() {
+        getExistReason(app)
+        observeOOMScore(app)
+        observeMemoryClassification(app)
     }
 
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
     android:gravity="center_horizontal"
     android:orientation="horizontal"
     tools:context="me.ztiany.apm.MainActivity"
@@ -19,6 +20,23 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?colorPrimary"
+                android:gravity="center"
+                android:paddingVertical="15dp"
+                android:text="APM Tools"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_dump_apm_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dump APM Info" />
 
             <Button
                 android:id="@+id/btn_start_memory_tracker"
@@ -48,11 +66,34 @@
             android:layout_margin="5dp"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?colorPrimary"
+                android:gravity="center"
+                android:paddingVertical="15dp"
+                android:text="Scenes"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/btn_enter_memory_tracker_scene"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter Memory Scene" />
+                android:text="Memory Scene" />
+
+            <Button
+                android:id="@+id/btn_enter_bitmap_scene"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bitmap Scene" />
+
+            <Button
+                android:id="@+id/btn_enter_throttle_scene"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Throttle Scene" />
 
         </LinearLayout>
 

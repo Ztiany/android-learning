@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 /**
- * Description route info, used for generate router map
+ * Description route info, used for generate router map. 用于生成路由映射的路由信息。
  *
  * @author zhilong <a href="mailto:zhilong.liu@aliyun.com">Contact me.</a>
  * @version 1.0
@@ -17,18 +17,25 @@ public class RouteDoc {
 
     @JSONField(ordinal = 1)
     private String group;
+
     @JSONField(ordinal = 2)
     private String path;
+
     @JSONField(ordinal = 3)
     private String description;
+
     @JSONField(ordinal = 4)
     private String prototype;
+
     @JSONField(ordinal = 5)
     private String className;
+
     @JSONField(ordinal = 6)
     private String type;
+
     @JSONField(ordinal = 7)
     private int mark;
+
     @JSONField(ordinal = 8)
     private List<Param> params;
 

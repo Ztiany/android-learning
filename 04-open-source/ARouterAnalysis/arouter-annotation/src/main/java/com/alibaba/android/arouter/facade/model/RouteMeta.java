@@ -9,7 +9,7 @@ import java.util.Map;
 import javax.lang.model.element.Element;
 
 /**
- * It contains basic route information.
+ * It contains basic route information. 包含基本路由信息。
  *
  * @author Alex <a href="mailto:zhilong.liu@aliyun.com">Contact me.</a>
  * @version 1.0
@@ -26,7 +26,6 @@ public class RouteMeta {
     private int extra;              // Extra data
     private Map<String, Integer> paramsType;  // Param type
     private String name;
-
     private Map<String, Autowired> injectConfig;  // Cache inject config.
 
     public RouteMeta() {

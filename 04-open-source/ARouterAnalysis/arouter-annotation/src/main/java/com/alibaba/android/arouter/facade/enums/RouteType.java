@@ -1,7 +1,7 @@
 package com.alibaba.android.arouter.facade.enums;
 
 /**
- * Type of route enum.
+ * Type of route enum. 路由类型。
  *
  * @author Alex <a href="mailto:zhilong.liu@aliyun.com">Contact me.</a>
  * @version 1.0
@@ -9,14 +9,17 @@ package com.alibaba.android.arouter.facade.enums;
  */
 public enum RouteType {
 
+    // in use currently
     ACTIVITY(0, "android.app.Activity"),
-    SERVICE(1, "android.app.Service"),
     PROVIDER(2, "com.alibaba.android.arouter.facade.template.IProvider"),
+    FRAGMENT(-1, "android.app.Fragment"),
+    UNKNOWN(-1, "Unknown route type"),
+
+    // no usages
+    SERVICE(1, "android.app.Service"),
     CONTENT_PROVIDER(-1, "android.app.ContentProvider"),
     BOARDCAST(-1, ""),
-    METHOD(-1, ""),
-    FRAGMENT(-1, "android.app.Fragment"),
-    UNKNOWN(-1, "Unknown route type");
+    METHOD(-1, "");
 
     int id;
     String className;

@@ -1,16 +1,14 @@
 pluginManagement {
-    repositories {
+    // build logic
+    includeBuild("build-logic")
 
+    repositories {
         maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
         maven { url = uri("https://maven.aliyun.com/repository/public") }
         maven { url = uri("https://maven.aliyun.com/repository/central") }
         maven { url = uri("https://maven.aliyun.com/repository/apache-snapshots") }
-        maven { url = uri("https://jitpack.io") }
         mavenCentral()
         google()
-
-        google()
-        mavenCentral()
         gradlePluginPortal()
     }
 }
@@ -21,9 +19,9 @@ dependencyResolutionManagement {
         maven { url = uri("https://maven.aliyun.com/repository/public") }
         maven { url = uri("https://maven.aliyun.com/repository/central") }
         maven { url = uri("https://maven.aliyun.com/repository/apache-snapshots") }
-        maven { url = uri("https://jitpack.io") }
-        google()
         mavenCentral()
+        jcenter()
+        google()
     }
 }
 

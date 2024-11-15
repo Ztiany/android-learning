@@ -8,6 +8,8 @@ import java.lang.annotation.Target;
 /**
  * Mark a interceptor to interception the route.
  * BE ATTENTION : This annotation can be mark the implements of #{IInterceptor} ONLY!!!
+ * <p>
+ * 标记一个拦截器，用于拦截路由。使用该注解的类必须实现 #{IInterceptor} 接口。
  *
  * @author Alex <a href="mailto:zhilong.liu@aliyun.com">Contact me.</a>
  * @version 1.0
