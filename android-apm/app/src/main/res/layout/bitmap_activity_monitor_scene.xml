@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/btn_dump_simple_statistics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dump simple statistics" />
+
+    <Button
+        android:id="@+id/btn_dump_statistics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="dump statistics" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_monitor_scene"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

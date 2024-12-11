@@ -1,3 +1,0 @@
-include ':common'
-include ':base'
-include ':app', ':network', ':news', ':xiangxuewebview'

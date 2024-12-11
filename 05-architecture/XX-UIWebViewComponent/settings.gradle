@@ -1,5 +1,0 @@
-include ':usercenter'
-include ':base'
-include ':common'
-include ':webview'
-include ':app'

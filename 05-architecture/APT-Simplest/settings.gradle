@@ -1,6 +1,0 @@
-include ':lib-annotations'
-include ':lib-processor'
-include ':lib'
-include ':lib-reflection'
-include ':app'
-rootProject.name = "Apt"

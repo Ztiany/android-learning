@@ -1,4 +1,0 @@
-include ':app'
-include ':mmkv_simple'
-include ':mmkv_completed'
-rootProject.name = 'MMKVSimulation'

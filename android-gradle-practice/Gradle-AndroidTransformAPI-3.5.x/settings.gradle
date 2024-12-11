@@ -1,3 +1,0 @@
-include ':app'
-//gradle5.x 开始，需要加上 include
-include("buildSrc")
